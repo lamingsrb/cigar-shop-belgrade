@@ -87,10 +87,16 @@ export function initHeroCigar() {
   const emberGeom = new THREE.CircleGeometry(0.28, 64);
   emberGeom.rotateY(Math.PI / 2);
   const emberMat = new THREE.ShaderMaterial({
-    uniforms: { uTime: { value: 0 } }, transparent: true, side: THREE.DoubleSide,
+    uniforms: {
+      uTime: { value: 0 },
+      uLit:  { value: 0 }   // 0 = ugašena (pepeo), 1 = pun žar
+    },
+    transparent: true, side: THREE.DoubleSide,
     vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
     fragmentShader: /* glsl */ `
-      precision highp float; uniform float uTime; varying vec2 vUv;
+      precision highp float;
+      uniform float uTime, uLit;
+      varying vec2 vUv;
       vec2 hash(vec2 p){ p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))); return -1.0+2.0*fract(sin(p)*43758.5453123); }
       float noise(vec2 p){
         const float K1=0.366025404,K2=0.211324865;
@@ -108,13 +114,16 @@ export function initHeroCigar() {
         float n2=noise(uv*18.0+vec2(uTime*0.5));
         float heat=smoothstep(1.0,0.0,d)*(0.45+0.55*n+0.25*n2);
         float ashM=smoothstep(0.75,1.0,d);
-        vec3 col=mix(vec3(0.35,0.18,0.1),vec3(1.0,0.38,0.06),smoothstep(0.1,0.55,heat));
-        col=mix(col,vec3(1.0,0.88,0.45),smoothstep(0.6,0.9,heat));
-        col=mix(col,vec3(1.0,0.96,0.78),smoothstep(0.92,1.05,heat));
-        col=mix(col,vec3(0.12,0.1,0.09),ashM*0.78);
+        vec3 flame=mix(vec3(0.35,0.18,0.1),vec3(1.0,0.38,0.06),smoothstep(0.1,0.55,heat));
+        flame=mix(flame,vec3(1.0,0.88,0.45),smoothstep(0.6,0.9,heat));
+        flame=mix(flame,vec3(1.0,0.96,0.78),smoothstep(0.92,1.05,heat));
+        flame=mix(flame,vec3(0.12,0.1,0.09),ashM*0.78);
         float pulse=0.82+0.18*sin(uTime*2.5+n*4.0)+0.06*sin(uTime*8.3);
-        col*=pulse;
-        gl_FragColor=vec4(col, smoothstep(1.0,0.78,d));
+        flame*=pulse;
+        // Unlit state: uniform pepeo na vrhu; postepeno se pretvara u \u017ear kada uLit raste.
+        vec3 coldAsh = vec3(0.14, 0.11, 0.09) + vec3(0.03) * smoothstep(0.2, 0.9, d);
+        vec3 col = mix(coldAsh, flame, uLit);
+        gl_FragColor = vec4(col, smoothstep(1.0, 0.78, d));
       }
     `
   });
@@ -144,7 +153,14 @@ export function initHeroCigar() {
     return tipWorld;
   }
   const matchApi = initHeroMatch(scene, camera, canvas, getCigarTipWorldLazy);
-  let cigarExtraGlow = 0; // 0..1, trajno 1 kad šibica zapali cigaru
+  // Cigara state machine:
+  //   cigarLit       — upaljena (gori autonomno dok ne sagori)
+  //   cigarBurnProg  — 0 = sveža, 1 = sagorelа
+  //   cigarGlow      — trenutni intenzitet ember-a (0..1) za render
+  let cigarLit = false;
+  let cigarBurnProg = 0;
+  let cigarGlow = 0;
+  const BURN_RATE = 1 / 18; // pun burn za ~18 sekundi
 
   // =======================================================
   // WORLD-SPACE SMOKE
@@ -356,26 +372,50 @@ export function initHeroCigar() {
 
     autoRotTimer += dt;
 
-    // Ako je \u0161ibica blizu vrha (paljenje u toku), cigara prestaje da se vrti
-    // i postepeno "gleda" svojim vrhom ka plamenu \u2014 fizi\u010dki gest pripaljivanja.
+    // --- Cigar state machine ---
     const ignitionP = matchApi.getIgnitionProgress();
-    const interacting = ignitionP > 0.02 || cigarExtraGlow > 0.02;
+    if (matchApi.consumeCigarLit()) cigarLit = true;
 
-    if (interacting) {
-      // Izra\u010dunaj yaw (rotation.y) takav da cigar +X vektor pokazuje ka plamenu.
+    if (cigarLit) {
+      // Cigara sagoreva autonomno
+      cigarBurnProg = Math.min(1, cigarBurnProg + dt * BURN_RATE);
+      // Glow ostaje jak ve\u0107i deo burn-a, bledi pred kraj
+      cigarGlow = 1 - Math.max(0, cigarBurnProg - 0.75) * 4;  // 0 tek na progress=1
+      if (cigarBurnProg >= 1) {
+        // Potpuno sagorela \u2014 reset u unlit stanje
+        cigarLit = false;
+        cigarBurnProg = 0;
+        cigarGlow = 0;
+      }
+    } else {
+      // Ugašena \u2014 glow prati ignitionP (paljenje u toku)
+      cigarGlow = ignitionP;
+    }
+
+    // LookAt je AKTIVAN samo dok se cigara pali \u0161ibicom; dok autonomno gori,
+    // cigara se vra\u0107a na normalno lebdenje + auto-rotate.
+    const igniting = !cigarLit && ignitionP > 0.02;
+
+    if (igniting) {
       matchApi.getFlameWorldPosition(tmpFlamePos);
       const dx = tmpFlamePos.x - cigarGroup.position.x;
       const dz = tmpFlamePos.z - cigarGroup.position.z;
       const dy = tmpFlamePos.y - cigarGroup.position.y;
-      const targetYaw = Math.atan2(-dz, dx);
-      const targetPitch = Math.atan2(dy, Math.hypot(dx, dz)) * 0.6;
-      // Blaga interpolacija (faster nego default idle lerp)
-      cigarTarget.y = targetYaw;
-      cigarTarget.x = -targetPitch;
-      autoRotTimer = 0;  // ne dodaj auto-rotate drift
+      cigarTarget.y = Math.atan2(-dz, dx);
+      cigarTarget.x = -Math.atan2(dy, Math.hypot(dx, dz)) * 0.6;
+      autoRotTimer = 0;
     } else if (!isDragging && autoRotTimer > 1.5) {
       cigarTarget.y += 0.15 * dt;
     }
+
+    // Vizuelno sagorevanje: ember i glow se povla\u010de ka centru dok cigara gori
+    const burnShift = cigarBurnProg * 1.4;
+    emberMesh.position.x = 2.22 - burnShift;
+    glow.position.x = 2.23 - burnShift;
+    glow2.position.x = 2.24 - burnShift;
+    tipLocal.x = 2.22 - burnShift; // dim emiter prati kraj
+    // Dim je vidljiv samo dok cigara zaista gori
+    smokeMesh.visible = cigarGlow > 0.05;
 
     cigarCurrent.x += (cigarTarget.x - cigarCurrent.x) * 0.08;
     cigarCurrent.y += (cigarTarget.y - cigarCurrent.y) * 0.08;
@@ -392,19 +432,16 @@ export function initHeroCigar() {
     // --- Match modul upravlja sopstvenom animacijom ---
     matchApi.update(dt, t);
 
-    // Cigara \u0161ibicom zapaljena — trajna oznaka
-    if (matchApi.consumeCigarLit()) cigarExtraGlow = 1;
-
+    // Ember & glow intenziteti su MULTIPLIKATIVNO skalirani sa cigarGlow —
+    // kad je 0, nema svetla/glow-a (čista pepeo na vrhu).
     emberMat.uniforms.uTime.value = t;
+    emberMat.uniforms.uLit.value = cigarGlow;
     const pulse = 0.9 + Math.sin(t * 2.5) * 0.18;
-    // Progresivni \u017ear: maksimum od trenutnog proximity progress-a i trajno upaljene
-    const heatLevel = Math.max(cigarExtraGlow, matchApi.getIgnitionProgress());
-    const heatBoost = 1 + heatLevel * 0.9;
-    emberLight.intensity = 1.4 * pulse * heatBoost;
-    glow.scale.setScalar((0.92 + pulse * 0.1) * (1 + heatLevel * 0.3));
-    glow2.scale.setScalar((0.95 + Math.sin(t * 4.1) * 0.08) * (1 + heatLevel * 0.25));
-    glowMat.opacity = (0.18 + 0.08 * pulse) * heatBoost;
-    glow2Mat.opacity = (0.22 + 0.1 * pulse) * heatBoost;
+    emberLight.intensity = 2.0 * pulse * cigarGlow;
+    glow.scale.setScalar((0.92 + pulse * 0.1) * (0.2 + cigarGlow * 0.8));
+    glow2.scale.setScalar((0.95 + Math.sin(t * 4.1) * 0.08) * (0.2 + cigarGlow * 0.8));
+    glowMat.opacity = (0.18 + 0.08 * pulse) * cigarGlow;
+    glow2Mat.opacity = (0.22 + 0.1 * pulse) * cigarGlow;
 
     camera.position.z = 8.5 + scrollState.progress * 4;
     camera.position.y = 0.25 - scrollState.progress * 0.5;

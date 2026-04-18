@@ -225,6 +225,9 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   const dragHit = new THREE.Vector3();
 
   let hoverOn = false;
+  // Tap detection — ako je pointerdown→up kratak i bez pomeraja, tretira se kao klik
+  let pointerDownT = 0;
+  let pointerDownX = 0, pointerDownY = 0;
 
   function hitMatch(clientX, clientY) {
     const r = canvas.getBoundingClientRect();
@@ -251,8 +254,11 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   }
 
   function onPointerDown(e) {
-    if (!hitMatch(e.clientX, e.clientY)) return false; // ne obradi, pusti cigar drag
+    if (!hitMatch(e.clientX, e.clientY)) return false;
     state.mode = 'dragging';
+    pointerDownT = performance.now();
+    pointerDownX = e.clientX;
+    pointerDownY = e.clientY;
     const r = canvas.getBoundingClientRect();
     ndc.x = ((e.clientX - r.left) / r.width) * 2 - 1;
     ndc.y = -((e.clientY - r.top) / r.height) * 2 + 1;
@@ -278,22 +284,30 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
     if (state.mode === 'dragging') updateDragPos(e.clientX, e.clientY);
   }
 
-  function onPointerUp() {
+  function onPointerUp(e) {
     if (state.mode !== 'dragging') return;
     canvas.style.cursor = hoverOn ? 'grab' : '';
 
-    // Ako nije upaljena i blizu je matchbox strike zone → strike!
+    const heldMs = performance.now() - pointerDownT;
+    const moved = e ? Math.hypot(e.clientX - pointerDownX, e.clientY - pointerDownY) : 0;
+    const isTap = heldMs < 300 && moved < 8;
+
+    // Tap na upaljenu \u0161ibicu \u2192 ga\u0161enje plamena
+    if (isTap && state.lit) {
+      extinguish(0.4);
+      returnToRest(0.5);
+      return;
+    }
+
+    // Strike: pu\u0161tena blizu strike strip-a i jo\u0161 nije upaljena
     updateStrikeZone();
     const distToStrike = matchGroup.position.distanceTo(strikeZoneWorld);
-
     if (!state.lit && distToStrike < STRIKE_DISTANCE) {
       triggerStrike();
       return;
     }
 
-    // Inače: vrati na rest poziciju (animirano).
-    // NAPOMENA: proximity-paljenje cigare se sada de\u0161ava KONTINUIRANO dok
-    // korisnik dr\u017ei \u0161ibicu blizu vrha (u update()), a NE na pointerup.
+    // Ina\u010de: vrati na rest (cigar je u me\u0111uvremenu mogla biti upaljena u update()).
     returnToRest(0.6);
   }
 
