@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.15.0",
   "description": "Cinematic brand website for Cigar Shop Belgrade — 9 locations, premium showcase.",
   "scripts": {
     "dev": "vite --port 5174 --open",

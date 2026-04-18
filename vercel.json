@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "buildCommand": "npm run build",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
-  "installCommand": "rm -f package-lock.json && npm install --include=optional --no-audit --no-fund"
+  "installCommand": "npm i -g pnpm@9.15.0 && pnpm install --no-frozen-lockfile"
 }
