@@ -25,9 +25,9 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   const MATCH_REST_POS = new THREE.Vector3(3.8, 0.45, 0.25);
   const MATCH_REST_ROT_Z = Math.PI / 2;  // glava okrenuta ULEVO (ka cigari)
   const STRIKE_DISTANCE = 1.4;
-  const LIGHT_DISTANCE = 5.5;   // veoma \u0161iroki radius \u2014 vizualno preklopljene = blizu
-  const IGNITE_RATE = 1.0;      // 0\u21921 za ~1s dr\u017eanja
-  const IGNITE_DECAY = 0.2;
+  const LIGHT_DISTANCE = 2.0;   // cigar se pali samo kad je \u0161ibica STVARNO prinesena vrhu
+  const IGNITE_RATE = 1.0;
+  const IGNITE_DECAY = 0.25;
   // Head je na lokalnom +Y (1.08); sa rotation.z=+PI/2 to je svetu \u2014X od match-center-a.
   // Za "center \u2192 glava": (center.x \u2212 HEAD_OFFSET_X) u svetu.
   const HEAD_OFFSET_X = 1.08 * 0.75;
@@ -333,6 +333,7 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   function triggerStrike() {
     state.mode = 'striking';
     updateStrikeZone();
+    playStrikeSFX();  // fizi\u010dki "kres" zvuk
 
     // Sa glavom na LEVO (world \u2212X od match-center-a), za da GLAVA bude preko
     // strike strip-a, match.center.x mora biti na stripX + HEAD_OFFSET_X.
@@ -536,6 +537,53 @@ function setCrackleLevel(level) {
   const target = Math.max(0, Math.min(0.35, level * 0.35));
   // Glatka tranzicija (izbegava klikove u zvuku)
   crackleGain.gain.setTargetAtTime(target, audioCtx.currentTime, 0.08);
+}
+
+/** Kres \u0161ibice: kratka eksplozija filtriranog noise-a koja simulira struganje po
+ *  strike strip-u. Friction scrape \u2192 ignition burst. */
+function playStrikeSFX() {
+  ensureCrackle();
+  if (!audioCtx) return;
+  if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+  const ctx = audioCtx;
+  const now = ctx.currentTime;
+
+  // Generi\u0161emo kratak noise buffer (300ms)
+  const duration = 0.3;
+  const buf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * duration), ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < data.length; i++) {
+    // Prva polovina: dense scrape, druga: sparse crackle (ignition)
+    const phase = i / data.length;
+    const density = phase < 0.4 ? 0.85 : 0.25;
+    data[i] = Math.random() < density ? (Math.random() * 2 - 1) * 0.8 : 0;
+  }
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+
+  const hpFilter = ctx.createBiquadFilter();
+  hpFilter.type = 'highpass';
+  hpFilter.frequency.value = 1200;
+
+  const bpFilter = ctx.createBiquadFilter();
+  bpFilter.type = 'bandpass';
+  bpFilter.frequency.value = 3500;
+  bpFilter.Q.value = 0.7;
+
+  const gain = ctx.createGain();
+  // Envelope: brz attack (10ms), srednji decay, short tail
+  gain.gain.setValueAtTime(0, now);
+  gain.gain.linearRampToValueAtTime(0.55, now + 0.015);
+  gain.gain.exponentialRampToValueAtTime(0.15, now + 0.12);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+  src.connect(hpFilter);
+  hpFilter.connect(bpFilter);
+  bpFilter.connect(gain);
+  gain.connect(ctx.destination);
+
+  src.start(now);
+  src.stop(now + duration);
 }
 
 // =======================================================

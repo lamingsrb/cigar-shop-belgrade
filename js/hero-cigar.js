@@ -163,7 +163,8 @@ export function initHeroCigar() {
   let cigarLit = false;
   let cigarBurnProg = 0;
   let cigarGlow = 0;
-  const BURN_RATE = 1 / 18; // pun burn za ~18 sekundi
+  let reignitionLocked = false;  // posle sagorelosti, cigar ne pali se dok se \u0161ibica ne skloni
+  const BURN_RATE = 1 / 18;
 
   // =======================================================
   // WORLD-SPACE SMOKE
@@ -315,9 +316,10 @@ export function initHeroCigar() {
   const ashGeom = new THREE.BufferGeometry();
   ashGeom.setAttribute('position', new THREE.BufferAttribute(ashPos, 3));
   const ashMesh = new THREE.Points(ashGeom, new THREE.PointsMaterial({
-    color: 0x3a2818, size: 0.06, transparent: true, opacity: 0.9,
-    depthWrite: false, sizeAttenuation: true
+    color: 0xbfa88c, size: 0.12, transparent: true, opacity: 0.95,
+    depthWrite: false, depthTest: false, sizeAttenuation: true
   }));
+  ashMesh.renderOrder = 30;
   scene.add(ashMesh);
   let ashEmitTimer = 0;
   const ASH_GRAVITY = 0.35; // units/s²
@@ -407,22 +409,24 @@ export function initHeroCigar() {
 
     // --- Cigar state machine ---
     const ignitionP = matchApi.getIgnitionProgress();
-    if (matchApi.consumeCigarLit()) cigarLit = true;
+
+    // Posle sagorelosti lock se oslobađa tek kad se \u0161ibica ukloni (ignitionP pada na ~0)
+    if (reignitionLocked && ignitionP < 0.08) reignitionLocked = false;
+
+    if (!reignitionLocked && matchApi.consumeCigarLit()) cigarLit = true;
 
     if (cigarLit) {
-      // Cigara sagoreva autonomno
       cigarBurnProg = Math.min(1, cigarBurnProg + dt * BURN_RATE);
-      // Glow ostaje jak ve\u0107i deo burn-a, bledi pred kraj
-      cigarGlow = 1 - Math.max(0, cigarBurnProg - 0.75) * 4;  // 0 tek na progress=1
+      cigarGlow = 1 - Math.max(0, cigarBurnProg - 0.75) * 4;
       if (cigarBurnProg >= 1) {
-        // Potpuno sagorela \u2014 reset u unlit stanje
         cigarLit = false;
         cigarBurnProg = 0;
         cigarGlow = 0;
+        reignitionLocked = true;  // jedan krug \u2014 \u010dekaj da user ponovo priđe \u0161ibicom
       }
     } else {
-      // Ugašena \u2014 glow prati ignitionP (paljenje u toku)
-      cigarGlow = ignitionP;
+      // Paljenje u toku (dok user dr\u017ei \u0161ibicu). Ako je lock aktivan \u2014 glow ostaje 0.
+      cigarGlow = reignitionLocked ? 0 : ignitionP;
     }
 
     // LookAt: \u010dim je \u0161ibica upaljena I user je drag-uje, cigara gleda ka plamenu
@@ -508,9 +512,12 @@ export function initHeroCigar() {
     cigarGroup.rotation.x = cigarCurrent.x;
     cigarGroup.rotation.y = cigarCurrent.y;
     cigarGroup.rotation.z = cigarCurrent.z;
-    // x fiksno na -2.4 (daleko ulevo), y sa suptilnim bob-om
+    // x fiksno na -2.4 (daleko ulevo). Y: bob + mouse parallax \u2014 ALI pauzirano kad
+    // je \u0161ibica blizu (cigar stoji potpuno mirno \u010deka da bude upaljena).
     cigarGroup.position.x = -2.4;
-    cigarGroup.position.y = 0.5 + Math.sin(t * 0.7) * 0.04 - mousePar.y * 0.06;
+    const cigarRest = 0.5;
+    const targetY = lookAtActive ? cigarRest : (cigarRest + Math.sin(t * 0.7) * 0.04 - mousePar.y * 0.06);
+    cigarGroup.position.y += (targetY - cigarGroup.position.y) * 0.15;
 
     cigarGroup.updateMatrixWorld();
     tipWorld.copy(tipLocal).applyMatrix4(cigarGroup.matrixWorld);
