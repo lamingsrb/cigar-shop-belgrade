@@ -290,9 +290,23 @@ export function initHeroCigar() {
 
   canvas.style.touchAction = 'pan-y';
 
+  // Raycaster za cigar body hover (za body.is-over-3d class toggle)
+  const cigarHitRaycaster = new THREE.Raycaster();
+  const cigarHitNdc = new THREE.Vector2();
+  const cigarHitTargets = [];
+  cigarGroup.traverse((o) => { if (o.isMesh) cigarHitTargets.push(o); });
+
+  function isOverCigar(e) {
+    const r = canvas.getBoundingClientRect();
+    cigarHitNdc.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+    cigarHitNdc.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+    cigarHitRaycaster.setFromCamera(cigarHitNdc, camera);
+    return cigarHitRaycaster.intersectObjects(cigarHitTargets).length > 0;
+  }
+
   canvas.addEventListener('pointerdown', (e) => {
-    // Ako je klik na \u0161ibicu — match modul ga ve\u0107 obra\u0111uje, preskoči cigar drag
-    if (matchApi.isOverMatch(e)) return;
+    // Preskoči ako je klik na \u0161ibicu ili kutiju
+    if (matchApi.isOverMatch(e) || matchApi.isOverBox(e)) return;
     isDragging = true;
     canvas.setPointerCapture?.(e.pointerId);
     dragStartX = e.clientX; dragStartY = e.clientY;
@@ -306,6 +320,8 @@ export function initHeroCigar() {
   window.addEventListener('pointermove', (e) => {
     mousePar.x = (e.clientX / window.innerWidth) - 0.5;
     mousePar.y = (e.clientY / window.innerHeight) - 0.5;
+    // Uklju\u010di body.is-over-3d i kad je hover nad cigarom (match handler pokriva \u0161ibicu/kutiju)
+    if (isOverCigar(e)) document.body.classList.add('is-over-3d');
     if (!isDragging) return;
     cigarTarget.y += (e.clientX - dragStartX) * 0.006;
     cigarTarget.x += (e.clientY - dragStartY) * 0.004;
@@ -352,16 +368,17 @@ export function initHeroCigar() {
     // --- Match modul upravlja sopstvenom animacijom ---
     matchApi.update(dt, t);
 
-    // Da li je \u0161ibica upravo zapalila cigaru? (proximity event potvr\u0111en)
+    // Cigara \u0161ibicom zapaljena — trajna oznaka
     if (matchApi.consumeCigarLit()) cigarExtraGlow = 1;
 
     emberMat.uniforms.uTime.value = t;
     const pulse = 0.9 + Math.sin(t * 2.5) * 0.18;
-    // Pojačanje \u017eara kad je cigara upaljena \u0161ibicom \u2014 dramati\u010dnije pulsira
-    const heatBoost = 1 + cigarExtraGlow * 0.9;
+    // Progresivni \u017ear: maksimum od trenutnog proximity progress-a i trajno upaljene
+    const heatLevel = Math.max(cigarExtraGlow, matchApi.getIgnitionProgress());
+    const heatBoost = 1 + heatLevel * 0.9;
     emberLight.intensity = 1.4 * pulse * heatBoost;
-    glow.scale.setScalar((0.92 + pulse * 0.1) * (1 + cigarExtraGlow * 0.3));
-    glow2.scale.setScalar((0.95 + Math.sin(t * 4.1) * 0.08) * (1 + cigarExtraGlow * 0.25));
+    glow.scale.setScalar((0.92 + pulse * 0.1) * (1 + heatLevel * 0.3));
+    glow2.scale.setScalar((0.95 + Math.sin(t * 4.1) * 0.08) * (1 + heatLevel * 0.25));
     glowMat.opacity = (0.18 + 0.08 * pulse) * heatBoost;
     glow2Mat.opacity = (0.22 + 0.1 * pulse) * heatBoost;
 

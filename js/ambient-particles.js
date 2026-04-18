@@ -133,7 +133,8 @@ export function initAmbientParticles() {
     mouseSpeed = Math.min(12, Math.hypot(dx, dy));
 
     const now = performance.now();
-    if (now - lastEmit > 28 && mouseSpeed > 1.2) {
+    const overHero3D = document.body.classList.contains('is-over-3d');
+    if (!overHero3D && now - lastEmit > 28 && mouseSpeed > 1.2) {
       const n = Math.min(3, Math.floor(mouseSpeed / 3) + 1);
       for (let i = 0; i < n; i++) {
         spawnTrail(
@@ -147,7 +148,9 @@ export function initAmbientParticles() {
   });
 
   window.addEventListener('click', (e) => {
-    // ember burst
+    // Preskoči burst ako je klik nad 3D interactive objektom (\u0161ibica / kutija / cigara) \u2014
+    // particles tamo smetaju 3D efektima.
+    if (document.body.classList.contains('is-over-3d')) return;
     for (let i = 0; i < 14; i++) spawnSpark(e.clientX, e.clientY);
     for (let i = 0; i < 6; i++)  spawnSmoke(e.clientX, e.clientY, 0, -1.5, { alpha: 0.35 });
     for (let i = 0; i < 3; i++)  spawnAsh(e.clientX, e.clientY);

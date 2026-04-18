@@ -20,18 +20,22 @@ import { gsap } from 'gsap';
  */
 export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
 
-  // --- Pozicije u sceni (proporcionalno cigari koja je u [-3.2, 0.4] x-range) ---
-  const MATCHBOX_POS = new THREE.Vector3(3.0, -1.55, 0.15);
-  const MATCH_REST_POS = new THREE.Vector3(3.0, -0.85, 0.25);  // iznad matchbox-a u idle-u
-  const STRIKE_DISTANCE = 0.55;   // prag za kresanje kad se pusti
-  const LIGHT_DISTANCE = 0.55;    // prag za paljenje cigare
+  // --- Pozicije u sceni (podignute na nivo cigare) ---
+  const MATCHBOX_POS = new THREE.Vector3(3.0, -0.35, 0.15);
+  const MATCH_REST_POS = new THREE.Vector3(3.0, 0.45, 0.25);
+  const MATCH_REST_ROT_Z = Math.PI / 2;  // glava okrenuta ULEVO (ka cigari)
+  const STRIKE_DISTANCE = 0.6;
+  const LIGHT_DISTANCE = 0.55;
+  const IGNITE_RATE = 0.6;     // 0..1 progress po sekundi kada je plamen uz vrh
+  const IGNITE_DECAY = 0.25;   // opadanje kada je plamen udaljen
 
   // =====================================================
   // MATCHBOX — karton sa strike strip-om
   // =====================================================
   const boxGroup = new THREE.Group();
   boxGroup.position.copy(MATCHBOX_POS);
-  boxGroup.rotation.set(0.12, -0.35, 0);
+  // Rotirana tako da strike strip gleda ka cigari (ULEVO)
+  boxGroup.rotation.set(0.1, 0.4, 0);
   scene.add(boxGroup);
 
   const BOX_W = 1.3, BOX_H = 0.38, BOX_D = 0.85;
@@ -77,9 +81,9 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   const matchGroup = new THREE.Group();
   matchGroup.position.copy(MATCH_REST_POS);
   matchGroup.scale.setScalar(0.75);
-  // rotation.z = -PI/2 znači da stick geometry (default Y-up) sad leži na X-osi,
-  // glava je na -X kraju (ka cigari), neupaljeni kraj je na +X.
-  matchGroup.rotation.z = -Math.PI / 2;
+  // rotation.z = +PI/2 → stick geometry (Y-up default) leži horizontalno,
+  // glava je na -X kraju (ka cigari, LEVO), neupaljen kraj na +X (DESNO).
+  matchGroup.rotation.z = MATCH_REST_ROT_Z;
   scene.add(matchGroup);
 
   // Drveni štap
@@ -191,10 +195,11 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   // DRAG + STATE
   // =====================================================
   const state = {
-    mode: 'idle',        // 'idle' | 'dragging' | 'striking' | 'lit'
-    lit: false,          // trenutno gori plamen?
-    strikeProgress: 0,   // 0..1 ramp
-    cigarLit: false      // flag za spoljnu logiku da cigara treba extra ember
+    mode: 'idle',           // 'idle' | 'dragging' | 'striking' | 'returning' | 'lit'
+    lit: false,             // trenutno gori plamen?
+    strikeProgress: 0,      // 0..1 ramp
+    ignitionProgress: 0,    // 0..1 koliko je cigara zapaljena proximity-em
+    cigarLit: false         // flag za spoljnu logiku (once progress ≥ 1)
   };
 
   const raycaster = new THREE.Raycaster();
@@ -214,6 +219,13 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
     ndc.y = -((clientY - r.top) / r.height) * 2 + 1;
     raycaster.setFromCamera(ndc, camera);
     return raycaster.intersectObjects(matchHitTargets).length > 0;
+  }
+  function hitBox(clientX, clientY) {
+    const r = canvas.getBoundingClientRect();
+    ndc.x = ((clientX - r.left) / r.width) * 2 - 1;
+    ndc.y = -((clientY - r.top) / r.height) * 2 + 1;
+    raycaster.setFromCamera(ndc, camera);
+    return raycaster.intersectObject(boxBody).length > 0;
   }
 
   function updateDragPos(clientX, clientY) {
@@ -247,6 +259,9 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
         canvas.style.cursor = h ? 'grab' : '';
       }
     }
+    // Body klasa: skriva ember cursor + blokira particle burst iznad 3D objekata
+    const over3D = state.mode === 'dragging' || hitMatch(e.clientX, e.clientY) || hitBox(e.clientX, e.clientY);
+    document.body.classList.toggle('is-over-3d', over3D);
     if (state.mode === 'dragging') updateDragPos(e.clientX, e.clientY);
   }
 
@@ -263,21 +278,9 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       return;
     }
 
-    // Ako je upaljena i blizu je vrha cigare → pali cigaru
-    if (state.lit) {
-      const tip = getCigarTipWorld();
-      head.getWorldPosition(headWorld);
-      const distToTip = headWorld.distanceTo(tip);
-      if (distToTip < LIGHT_DISTANCE) {
-        state.cigarLit = true;
-        state.lit = false; // šibica završila posao
-        extinguish(0.8);   // polako se gasi nakon što zapali cigaru
-        returnToRest(1.0);
-        return;
-      }
-    }
-
-    // Inače: vrati na rest poziciju (animirano)
+    // Inače: vrati na rest poziciju (animirano).
+    // NAPOMENA: proximity-paljenje cigare se sada de\u0161ava KONTINUIRANO dok
+    // korisnik dr\u017ei \u0161ibicu blizu vrha (u update()), a NE na pointerup.
     returnToRest(0.6);
   }
 
@@ -287,6 +290,9 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       x: MATCH_REST_POS.x, y: MATCH_REST_POS.y, z: MATCH_REST_POS.z,
       duration, ease: 'power2.out',
       onComplete: () => { state.mode = state.lit ? 'lit' : 'idle'; }
+    });
+    gsap.to(matchGroup.rotation, {
+      z: MATCH_REST_ROT_Z, duration, ease: 'power2.out'
     });
   }
 
@@ -305,14 +311,13 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       })
       .to(matchGroup.position, {
         x: strikeZoneWorld.x - BOX_W * 0.3, y: strikeZoneWorld.y + 0.05, z: strikeZoneWorld.z,
-        duration: 0.22, ease: 'power2.in'  // brz strike pokret
+        duration: 0.22, ease: 'power2.in'
       })
       .to(matchGroup.rotation, {
-        z: -Math.PI / 2 + 0.15, duration: 0.22, ease: 'power2.in'
+        z: MATCH_REST_ROT_Z - 0.15, duration: 0.22, ease: 'power2.in'
       }, '<')
       .to({}, { duration: 0.05 })
       .add(() => {
-        // Ignite!
         state.strikeProgress = 0;
         flame.visible = true;
         flameGlow.visible = true;
@@ -322,7 +327,7 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
         duration: 0.35, ease: 'power2.out'
       })
       .to(matchGroup.rotation, {
-        z: -Math.PI / 2, duration: 0.35, ease: 'power2.out'
+        z: MATCH_REST_ROT_Z, duration: 0.35, ease: 'power2.out'
       }, '<');
   }
 
@@ -356,30 +361,26 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
     if (state.mode === 'idle') {
       matchGroup.position.x = MATCH_REST_POS.x + Math.sin(t * 0.6) * 0.05;
       matchGroup.position.y = MATCH_REST_POS.y + Math.sin(t * 0.9) * 0.10;
-      matchGroup.rotation.z = -Math.PI / 2 + Math.sin(t * 0.5) * 0.06;
-      // Subtle head pulse — signalizacija klikabilnosti
+      matchGroup.rotation.z = MATCH_REST_ROT_Z + Math.sin(t * 0.5) * 0.06;
       head.material.emissiveIntensity = 0.12 + Math.abs(Math.sin(t * 1.8)) * 0.08 + (hoverOn ? 0.18 : 0);
     } else if (state.mode === 'lit') {
-      // Manji lebdeći pokret dok gori (ostaje gde je user pustio)
       const lx = matchGroup.position.x, ly = matchGroup.position.y;
       matchGroup.position.x = lx + Math.sin(t * 0.8) * 0.004;
       matchGroup.position.y = ly + Math.sin(t * 1.1) * 0.003;
     }
 
-    // 2) Strike progress ramp (plamen se pali postepeno)
+    // 2) Strike progress ramp
     if (state.lit && state.strikeProgress < 1) {
       state.strikeProgress = Math.min(1, state.strikeProgress + dt * 1.2);
     }
 
-    // 3) Plamen — pozicioniran STROGO iznad head-a u world prostoru (world +Y)
+    // 3) Plamen — STROGO world-up iznad head-a (ne prati rotaciju šibice)
     head.getWorldPosition(headWorld);
     if (flame.visible) {
       flame.position.copy(headWorld).addScaledVector(WORLD_UP, 0.45);
-      flame.quaternion.copy(camera.quaternion);  // billboard
-
+      flame.quaternion.copy(camera.quaternion);
       flameGlow.position.copy(headWorld).addScaledVector(WORLD_UP, 0.25);
       flameGlow.quaternion.copy(camera.quaternion);
-
       flameLight.position.copy(headWorld).addScaledVector(WORLD_UP, 0.35);
 
       const p = state.strikeProgress;
@@ -389,12 +390,28 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       flameGlowMat.opacity = 0.55 * p * (0.85 + Math.sin(t * 8) * 0.15);
       flameGlow.scale.setScalar(0.8 + p * 0.4 + Math.sin(t * 6) * 0.08);
       flameLight.intensity = 2.8 * p * flicker;
-
-      // Head: postepeno se zacrnjuje dok gori
       head.material.emissiveIntensity = 0.12 + p * 0.6;
       if (p > 0.5) head.material.color.setHex(0x4a1a0a);
       charred.material.emissiveIntensity = p * 0.35;
     }
+
+    // 4) Proximity-based ignition cigare — KONTINUIRANO dok je \u0161ibica blizu
+    const tip = getCigarTipWorld();
+    const flameToTip = headWorld.distanceTo(tip);
+    const isClose = state.lit && flameToTip < LIGHT_DISTANCE && state.strikeProgress > 0.4;
+
+    if (isClose) {
+      state.ignitionProgress = Math.min(1, state.ignitionProgress + dt * IGNITE_RATE);
+      if (state.ignitionProgress >= 1 && !state.cigarLit) {
+        state.cigarLit = true;
+      }
+    } else if (!state.cigarLit) {
+      // Opada samo dok cigara jo\u0161 nije upaljena
+      state.ignitionProgress = Math.max(0, state.ignitionProgress - dt * IGNITE_DECAY);
+    }
+
+    // Audio crackle: intenzitet prati ignitionProgress
+    setCrackleLevel(isClose ? state.ignitionProgress : 0);
   }
 
   return {
@@ -405,10 +422,69 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       state.cigarLit = false;
       return was;
     },
-    /** Test da li pointer event pogađa match mesh — koristi cigar handler
-     *  da izbegne drag cigare kad user klikne na šibicu. */
-    isOverMatch: (e) => hitMatch(e.clientX, e.clientY)
+    /** 0..1 — koliko je cigara zapaljena od šibice (za progresivni ember boost) */
+    getIgnitionProgress: () => state.ignitionProgress,
+    /** Pointer hit testovi — koristi ih cigar handler da izbegne drag sudar */
+    isOverMatch: (e) => hitMatch(e.clientX, e.clientY),
+    isOverBox:   (e) => hitBox(e.clientX, e.clientY)
   };
+}
+
+// =======================================================
+// Procedural crackle SFX (Web Audio, bez external fajlova)
+// Generise belu noise + filter → simulira pucketanje \u017eara.
+// =======================================================
+let audioCtx = null;
+let crackleNoise = null;
+let crackleGain = null;
+let crackleFilter = null;
+let crackleStarted = false;
+
+function ensureCrackle() {
+  if (audioCtx) return;
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return;
+    audioCtx = new Ctx();
+    // Pre-gen noise buffer (2 sekunde, mono)
+    const buf = audioCtx.createBuffer(1, audioCtx.sampleRate * 2, audioCtx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < data.length; i++) {
+      // Sparse crackle: većinom 0, povremeno spike
+      data[i] = Math.random() < 0.08 ? (Math.random() * 2 - 1) * 0.6 : 0;
+    }
+    crackleNoise = audioCtx.createBufferSource();
+    crackleNoise.buffer = buf;
+    crackleNoise.loop = true;
+
+    crackleFilter = audioCtx.createBiquadFilter();
+    crackleFilter.type = 'bandpass';
+    crackleFilter.frequency.value = 900;
+    crackleFilter.Q.value = 1.2;
+
+    crackleGain = audioCtx.createGain();
+    crackleGain.gain.value = 0;
+
+    crackleNoise.connect(crackleFilter);
+    crackleFilter.connect(crackleGain);
+    crackleGain.connect(audioCtx.destination);
+  } catch (err) {
+    console.warn('[CigarShop] Web Audio unavailable', err);
+  }
+}
+
+/** level: 0..1 — intenzitet crackle-a (0 = tišina, 1 = pun pucketaj) */
+function setCrackleLevel(level) {
+  ensureCrackle();
+  if (!audioCtx || !crackleGain) return;
+  // Resume context on first user gesture (browsers suspenduju dok nema gesture)
+  if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+  if (!crackleStarted && level > 0.01) {
+    try { crackleNoise.start(0); crackleStarted = true; } catch (_) {}
+  }
+  const target = Math.max(0, Math.min(0.35, level * 0.35));
+  // Glatka tranzicija (izbegava klikove u zvuku)
+  crackleGain.gain.setTargetAtTime(target, audioCtx.currentTime, 0.08);
 }
 
 // =======================================================
