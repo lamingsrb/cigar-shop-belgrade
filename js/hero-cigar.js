@@ -120,9 +120,10 @@ export function initHeroCigar() {
         flame=mix(flame,vec3(0.12,0.1,0.09),ashM*0.78);
         float pulse=0.82+0.18*sin(uTime*2.5+n*4.0)+0.06*sin(uTime*8.3);
         flame*=pulse;
-        // Unlit state: uniform pepeo na vrhu; postepeno se pretvara u \u017ear kada uLit raste.
+        // Unlit state: uniform pepeo na vrhu; o\u0161tar prelaz u \u017ear preko ~0.3-0.8 opsega.
         vec3 coldAsh = vec3(0.14, 0.11, 0.09) + vec3(0.03) * smoothstep(0.2, 0.9, d);
-        vec3 col = mix(coldAsh, flame, uLit);
+        float litFactor = smoothstep(0.3, 0.8, uLit);  // prag: tek od ~0.3 po\u010dne \u017ear, pun od ~0.8
+        vec3 col = mix(coldAsh, flame, litFactor);
         gl_FragColor = vec4(col, smoothstep(1.0, 0.78, d));
       }
     `
@@ -429,8 +430,9 @@ export function initHeroCigar() {
     glow.position.x = 2.23 - burnShift;
     glow2.position.x = 2.24 - burnShift;
     tipLocal.x = 2.22 - burnShift; // dim emiter prati kraj
-    // Dim je vidljiv samo dok cigara zaista gori
-    smokeMesh.visible = cigarGlow > 0.05;
+    // Dim se emituje SAMO kad cigara stvarno gori (ne tokom ignite ramp-a).
+    // Tokom paljenja vrh je pepeo sa po\u010detnim \u017earom \u2014 nema dima dok cigar nije "uhvatila".
+    smokeMesh.visible = cigarLit || cigarBurnProg > 0.01;
 
     // Br\u017ea interpolacija kada je lookAt aktivan (10% per frame umesto 8%)
     const lerpRate = lookAtActive ? 0.12 : 0.08;
