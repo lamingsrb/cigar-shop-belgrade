@@ -144,7 +144,7 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       uTime:      { value: 0 },
       uIntensity: { value: 0 }
     },
-    transparent: true, depthWrite: false,
+    transparent: true, depthWrite: false, depthTest: false,
     blending: THREE.AdditiveBlending, side: THREE.DoubleSide,
     vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
     fragmentShader: /* glsl */ `
@@ -186,18 +186,19 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   });
   const flame = new THREE.Mesh(flameGeom, flameMat);
   flame.visible = false;
-  flame.renderOrder = 15;
+  flame.renderOrder = 50;  // iznad cigare (koja ima default renderOrder 0)
   scene.add(flame);
 
   const flameGlowTex = makeRadialGlowTexture();
   const flameGlowMat = new THREE.MeshBasicMaterial({
     map: flameGlowTex, color: 0xffb060,
     transparent: true, opacity: 0,
-    blending: THREE.AdditiveBlending, depthWrite: false
+    blending: THREE.AdditiveBlending,
+    depthWrite: false, depthTest: false
   });
   const flameGlow = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 1.6), flameGlowMat);
   flameGlow.visible = false;
-  flameGlow.renderOrder = 14;
+  flameGlow.renderOrder = 49;
   scene.add(flameGlow);
 
   const flameLight = new THREE.PointLight(0xffa040, 0, 4.5, 2);
@@ -443,6 +444,12 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
     },
     /** 0..1 — koliko je cigara zapaljena od šibice (za progresivni ember boost) */
     getIgnitionProgress: () => state.ignitionProgress,
+    /** World pozicija glave šibice — hero-cigar koristi za "cigar looks at match" */
+    getFlameWorldPosition: (out) => {
+      head.getWorldPosition(out);
+      out.y += 0.35;
+      return out;
+    },
     /** Pointer hit testovi — koristi ih cigar handler da izbegne drag sudar */
     isOverMatch: (e) => hitMatch(e.clientX, e.clientY),
     isOverBox:   (e) => hitBox(e.clientX, e.clientY)

@@ -158,6 +158,7 @@ export function initHeroCigar() {
 
   const tipWorld = new THREE.Vector3();
   const tipLocal = new THREE.Vector3(2.22, 0, 0);
+  const tmpFlamePos = new THREE.Vector3();
 
   function resetSmoke(i, initLife = 0) {
     const verticalOffset = Math.random() * 3.5;
@@ -354,7 +355,28 @@ export function initHeroCigar() {
     const t = clock.getElapsedTime();
 
     autoRotTimer += dt;
-    if (!isDragging && autoRotTimer > 1.5) cigarTarget.y += 0.15 * dt;
+
+    // Ako je \u0161ibica blizu vrha (paljenje u toku), cigara prestaje da se vrti
+    // i postepeno "gleda" svojim vrhom ka plamenu \u2014 fizi\u010dki gest pripaljivanja.
+    const ignitionP = matchApi.getIgnitionProgress();
+    const interacting = ignitionP > 0.02 || cigarExtraGlow > 0.02;
+
+    if (interacting) {
+      // Izra\u010dunaj yaw (rotation.y) takav da cigar +X vektor pokazuje ka plamenu.
+      matchApi.getFlameWorldPosition(tmpFlamePos);
+      const dx = tmpFlamePos.x - cigarGroup.position.x;
+      const dz = tmpFlamePos.z - cigarGroup.position.z;
+      const dy = tmpFlamePos.y - cigarGroup.position.y;
+      const targetYaw = Math.atan2(-dz, dx);
+      const targetPitch = Math.atan2(dy, Math.hypot(dx, dz)) * 0.6;
+      // Blaga interpolacija (faster nego default idle lerp)
+      cigarTarget.y = targetYaw;
+      cigarTarget.x = -targetPitch;
+      autoRotTimer = 0;  // ne dodaj auto-rotate drift
+    } else if (!isDragging && autoRotTimer > 1.5) {
+      cigarTarget.y += 0.15 * dt;
+    }
+
     cigarCurrent.x += (cigarTarget.x - cigarCurrent.x) * 0.08;
     cigarCurrent.y += (cigarTarget.y - cigarCurrent.y) * 0.08;
     cigarGroup.rotation.x = cigarCurrent.x;
