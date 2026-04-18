@@ -163,8 +163,9 @@ export function initHeroCigar() {
   let cigarLit = false;
   let cigarBurnProg = 0;
   let cigarGlow = 0;
-  let reignitionLocked = false;  // posle sagorelosti, cigar ne pali se dok se \u0161ibica ne skloni
-  const BURN_RATE = 1 / 18;
+  let reignitionLocked = false;
+  // Pun burn za ~60 sekundi \u2014 sporo sagorevanje da korisnik vidi ceo proces.
+  const BURN_RATE = 1 / 60;
 
   // =======================================================
   // WORLD-SPACE SMOKE
