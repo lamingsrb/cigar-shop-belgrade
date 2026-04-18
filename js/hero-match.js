@@ -484,16 +484,31 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
 
 // =======================================================
 // Procedural crackle SFX (Web Audio, bez external fajlova)
-// Generise belu noise + filter → simulira pucketanje \u017eara.
+// AudioContext se kreira TEK nakon prvog user gesture-a (browser requirement).
 // =======================================================
 let audioCtx = null;
 let crackleNoise = null;
 let crackleGain = null;
 let crackleFilter = null;
 let crackleStarted = false;
+let hasUserGesture = false;
+
+if (typeof window !== 'undefined') {
+  const markGesture = () => {
+    hasUserGesture = true;
+    window.removeEventListener('pointerdown', markGesture);
+    window.removeEventListener('keydown', markGesture);
+    window.removeEventListener('touchstart', markGesture);
+  };
+  window.addEventListener('pointerdown', markGesture, { once: false });
+  window.addEventListener('keydown',     markGesture, { once: false });
+  window.addEventListener('touchstart',  markGesture, { once: false });
+}
 
 function ensureCrackle() {
   if (audioCtx) return;
+  // Browser sprečava kreiranje AudioContext-a pre interakcije — tiho izađi.
+  if (!hasUserGesture) return;
   try {
     const Ctx = window.AudioContext || window.webkitAudioContext;
     if (!Ctx) return;
