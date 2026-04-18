@@ -5,7 +5,30 @@
       "Bash(git credential *)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git -c user.email=lamingsrb@users.noreply.github.com -c user.name=lamingsrb commit -m ' *)"
+      "Bash(git -c user.email=lamingsrb@users.noreply.github.com -c user.name=lamingsrb commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Add vercel.json for Vite framework detection\")",
+      "Bash(npx -y vercel@latest --prod --yes --token vca_2mhPcSOqHjb4hrlRC4aiG1vEgaU0iLH93Fi6qCUvjgbR9oMVKT0hQISY)",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Add GitHub Pages auto-deploy workflow + base path\")",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Center and expand the 9th store card \\(Airport City\\)\")",
+      "Bash(git rm *)",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Remove local .npmrc from repo \\(Windows-only, breaks Linux CI\\)\")",
+      "Bash(curl -sSI \"https://lamingsrb.github.io/cigar-shop-belgrade/\")",
+      "Bash(curl -s \"https://lamingsrb.github.io/cigar-shop-belgrade/\")",
+      "Bash(npx -y vercel@latest --version)",
+      "Bash(npx -y vercel@latest whoami)",
+      "Bash(npx -y vercel@latest link --yes --project cigar-shop-belgrade)",
+      "Bash(npx -y vercel@latest --prod --yes)",
+      "Bash(npx -y vercel@latest logs https://cigar-shop-belgrade.vercel.app)",
+      "Bash(npx -y vercel@latest ls)",
+      "Bash(npx -y vercel@latest inspect https://cigar-shop-belgrade-36lpsn3xh-lazar-milicevics-projects.vercel.app --logs)",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Force optional deps on install \\(rollup native binary fix\\)\")",
+      "Bash(npx -y vercel@latest inspect https://cigar-shop-belgrade-prr0nm2cf-lazar-milicevics-projects.vercel.app --logs)",
+      "Bash(npx -y vercel@latest logs https://cigar-shop-belgrade-prr0nm2cf-lazar-milicevics-projects.vercel.app)",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Override rollup with wasm-node \\(avoids native binary deps issue\\)\")",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Use pnpm on Vercel \\(npm has optional-deps bug for rollup native binary\\)\")",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Commit package-lock.json with all rollup platform binaries \\(fixes Vercel CI\\)\")"
     ]
   }
 }

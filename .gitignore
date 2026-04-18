@@ -7,3 +7,5 @@ dist/
 *.log
 # Lokalni .npmrc sa Windows os override — CI Linux ne sme da vidi
 .npmrc
+
+.vercel
