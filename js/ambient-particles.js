@@ -94,16 +94,16 @@ export function initAmbientParticles() {
 
   function spawnSpark(x, y) {
     const angle = rand(0, Math.PI * 2);
-    const speed = rand(2, 6);
+    const speed = rand(1.2, 3.5);
     particles.push({
       type: TYPE.SPARK,
       x, y,
       vx: Math.cos(angle) * speed,
-      vy: Math.sin(angle) * speed - 1,
-      r: rand(1.2, 2.4),
+      vy: Math.sin(angle) * speed - 0.5,
+      r: rand(0.8, 1.6),
       life: 0,
-      maxLife: rand(0.5, 1.1),
-      alpha: 1,
+      maxLife: rand(0.35, 0.7),
+      alpha: 0.85,
       color: '#ffb877'
     });
   }
@@ -113,11 +113,11 @@ export function initAmbientParticles() {
       type: TYPE.TRAIL,
       x, y,
       vx: vx * 0.3 + rand(-0.1, 0.1),
-      vy: vy * 0.3 + rand(-0.6, -0.2),
-      r: rand(8, 22),
+      vy: vy * 0.3 + rand(-0.4, -0.15),
+      r: rand(4, 11),
       life: 0,
-      maxLife: rand(0.9, 1.8),
-      alpha: rand(0.2, 0.4),
+      maxLife: rand(0.5, 1.0),
+      alpha: rand(0.10, 0.20),
       rot: Math.random() * Math.PI * 2,
       rotSpeed: rand(-1, 1),
       color: 'rgba(200, 180, 155, 1)'
@@ -134,26 +134,23 @@ export function initAmbientParticles() {
 
     const now = performance.now();
     const overHero3D = document.body.classList.contains('is-over-3d');
-    if (!overHero3D && now - lastEmit > 28 && mouseSpeed > 1.2) {
-      const n = Math.min(3, Math.floor(mouseSpeed / 3) + 1);
-      for (let i = 0; i < n; i++) {
-        spawnTrail(
-          mouseX + rand(-6, 6),
-          mouseY + rand(-6, 6) + 8,
-          dx * 0.1, dy * 0.1
-        );
-      }
+    // Proređen trail — samo kad se miš kreće dosta brzo i svakih 60ms, jedan particle
+    if (!overHero3D && now - lastEmit > 60 && mouseSpeed > 2.0) {
+      spawnTrail(
+        mouseX + rand(-4, 4),
+        mouseY + rand(-4, 4) + 5,
+        dx * 0.08, dy * 0.08
+      );
       lastEmit = now;
     }
   });
 
   window.addEventListener('click', (e) => {
-    // Preskoči burst ako je klik nad 3D interactive objektom (\u0161ibica / kutija / cigara) \u2014
-    // particles tamo smetaju 3D efektima.
     if (document.body.classList.contains('is-over-3d')) return;
-    for (let i = 0; i < 14; i++) spawnSpark(e.clientX, e.clientY);
-    for (let i = 0; i < 6; i++)  spawnSmoke(e.clientX, e.clientY, 0, -1.5, { alpha: 0.35 });
-    for (let i = 0; i < 3; i++)  spawnAsh(e.clientX, e.clientY);
+    // Smanjen burst — diskretan akcenat, ne "vatromet"
+    for (let i = 0; i < 5; i++) spawnSpark(e.clientX, e.clientY);
+    for (let i = 0; i < 2; i++) spawnSmoke(e.clientX, e.clientY, 0, -1.0, { alpha: 0.18 });
+    spawnAsh(e.clientX, e.clientY);
   });
 
   window.addEventListener('scroll', () => {
