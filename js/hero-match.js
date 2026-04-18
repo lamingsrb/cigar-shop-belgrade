@@ -25,8 +25,8 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   const MATCH_REST_POS = new THREE.Vector3(3.8, 0.45, 0.25);
   const MATCH_REST_ROT_Z = Math.PI / 2;  // glava okrenuta ULEVO (ka cigari)
   const STRIKE_DISTANCE = 0.8;
-  const LIGHT_DISTANCE = 1.1;   // \u0161iri radius — korisnik ne mora precizno da cilja vrh
-  const IGNITE_RATE = 0.7;
+  const LIGHT_DISTANCE = 2.2;   // pali se ve\u0107 iz \u0161ireg opsega — lak\u0161e za pogoditi
+  const IGNITE_RATE = 0.55;
   const IGNITE_DECAY = 0.25;
   // Head je na lokalnom +Y (1.08); sa rotation.z=+PI/2 to je svetu \u2014X od match-center-a.
   // Za "center \u2192 glava": (center.x \u2212 HEAD_OFFSET_X) u svetu.

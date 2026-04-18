@@ -298,8 +298,11 @@ export function initHeroCigar() {
   // =======================================================
   // Drag-to-rotate cigar
   // =======================================================
-  const cigarTarget = { x: 0, y: 0 };
-  const cigarCurrent = { x: 0, y: 0 };
+  // Euler targets za cigar rotaciju. "z" drives PITCH-UP (vrh gleda gore/dole) —
+  // presudan za realan lookAt kada je plamen iznad cigare. rotation.x je ostao
+  // za hover parallax efekat a ne za lookAt.
+  const cigarTarget = { x: 0, y: 0, z: 0 };
+  const cigarCurrent = { x: 0, y: 0, z: 0 };
   let isDragging = false;
   let dragStartX = 0, dragStartY = 0;
   let autoRotTimer = 0;
@@ -392,20 +395,28 @@ export function initHeroCigar() {
       cigarGlow = ignitionP;
     }
 
-    // LookAt je AKTIVAN samo dok se cigara pali \u0161ibicom; dok autonomno gori,
-    // cigara se vra\u0107a na normalno lebdenje + auto-rotate.
-    const igniting = !cigarLit && ignitionP > 0.02;
+    // LookAt: aktivira se \u010dim je upaljena \u0161ibica u SIROKOM opsegu oko cigare —
+    // ne samo kad je skroz uz vrh. Cigara se tako "budi" i gleda ka plamenu
+    // mnogo pre nego \u0161to po\u010dne proximity paljenje.
+    matchApi.getFlameWorldPosition(tmpFlamePos);
+    const flameDist = tmpFlamePos.distanceTo(cigarGroup.position);
+    const lookAtActive = !cigarLit && matchApi.isLit() && flameDist < 4.0;
 
-    if (igniting) {
-      matchApi.getFlameWorldPosition(tmpFlamePos);
+    if (lookAtActive) {
       const dx = tmpFlamePos.x - cigarGroup.position.x;
-      const dz = tmpFlamePos.z - cigarGroup.position.z;
       const dy = tmpFlamePos.y - cigarGroup.position.y;
+      const dz = tmpFlamePos.z - cigarGroup.position.z;
+      const horiz = Math.hypot(dx, dz);
+      // Yaw (oko Y): horizontalna orijentacija — gde je plamen levo/desno/napred
       cigarTarget.y = Math.atan2(-dz, dx);
-      cigarTarget.x = -Math.atan2(dy, Math.hypot(dx, dz)) * 0.6;
-      autoRotTimer = 0;
-    } else if (!isDragging && autoRotTimer > 1.5) {
-      cigarTarget.y += 0.15 * dt;
+      // Pitch (oko Z): vertikalna orijentacija — vrh gleda gore ka plamenu
+      cigarTarget.z = Math.atan2(dy, Math.max(horiz, 0.001));
+      cigarTarget.x = 0;
+      autoRotTimer = 0;  // zamrzni auto-rotate dok god je \u0161ibica prisutna
+    } else {
+      // Vrati pitch ka 0 (cigar horizontalno)
+      cigarTarget.z *= 0.94;
+      if (!isDragging && autoRotTimer > 1.5) cigarTarget.y += 0.15 * dt;
     }
 
     // Vizuelno sagorevanje: ember i glow se povla\u010de ka centru dok cigara gori
@@ -417,10 +428,14 @@ export function initHeroCigar() {
     // Dim je vidljiv samo dok cigara zaista gori
     smokeMesh.visible = cigarGlow > 0.05;
 
-    cigarCurrent.x += (cigarTarget.x - cigarCurrent.x) * 0.08;
-    cigarCurrent.y += (cigarTarget.y - cigarCurrent.y) * 0.08;
+    // Br\u017ea interpolacija kada je lookAt aktivan (10% per frame umesto 8%)
+    const lerpRate = lookAtActive ? 0.12 : 0.08;
+    cigarCurrent.x += (cigarTarget.x - cigarCurrent.x) * lerpRate;
+    cigarCurrent.y += (cigarTarget.y - cigarCurrent.y) * lerpRate;
+    cigarCurrent.z += (cigarTarget.z - cigarCurrent.z) * lerpRate;
     cigarGroup.rotation.x = cigarCurrent.x;
     cigarGroup.rotation.y = cigarCurrent.y;
+    cigarGroup.rotation.z = cigarCurrent.z;
     // x fiksno na -2.4 (daleko ulevo), y sa suptilnim bob-om
     cigarGroup.position.x = -2.4;
     cigarGroup.position.y = 0.5 + Math.sin(t * 0.7) * 0.04 - mousePar.y * 0.06;
