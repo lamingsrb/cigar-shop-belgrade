@@ -24,10 +24,10 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   const MATCHBOX_POS = new THREE.Vector3(3.8, -0.35, 0.15);
   const MATCH_REST_POS = new THREE.Vector3(3.8, 0.45, 0.25);
   const MATCH_REST_ROT_Z = Math.PI / 2;  // glava okrenuta ULEVO (ka cigari)
-  const STRIKE_DISTANCE = 0.8;
-  const LIGHT_DISTANCE = 2.2;   // pali se ve\u0107 iz \u0161ireg opsega — lak\u0161e za pogoditi
-  const IGNITE_RATE = 0.55;
-  const IGNITE_DECAY = 0.25;
+  const STRIKE_DISTANCE = 1.4;  // ne mora precizno preko strip-a
+  const LIGHT_DISTANCE = 3.5;   // \u0161iroki radius \u2014 lak\u0161e za pogoditi vrh
+  const IGNITE_RATE = 0.6;      // 0\u21921 za ~1.7s dr\u017eanja
+  const IGNITE_DECAY = 0.2;
   // Head je na lokalnom +Y (1.08); sa rotation.z=+PI/2 to je svetu \u2014X od match-center-a.
   // Za "center \u2192 glava": (center.x \u2212 HEAD_OFFSET_X) u svetu.
   const HEAD_OFFSET_X = 1.08 * 0.75;
@@ -299,7 +299,14 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       return;
     }
 
-    // Strike: pu\u0161tena blizu strike strip-a i jo\u0161 nije upaljena
+    // Tap na NE-upaljenu \u0161ibicu \u2192 instantni strike (ne mora drag do kutije).
+    // Preciznije drag preko strip-a takodje radi za one koji vole da kresnu rukom.
+    if (isTap && !state.lit) {
+      triggerStrike();
+      return;
+    }
+
+    // Drag pu\u0161ten blizu strike strip-a \u2192 strike
     updateStrikeZone();
     const distToStrike = matchGroup.position.distanceTo(strikeZoneWorld);
     if (!state.lit && distToStrike < STRIKE_DISTANCE) {
@@ -307,7 +314,7 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       return;
     }
 
-    // Ina\u010de: vrati na rest (cigar je u me\u0111uvremenu mogla biti upaljena u update()).
+    // Ina\u010de: vrati na rest
     returnToRest(0.6);
   }
 

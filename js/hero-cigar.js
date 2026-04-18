@@ -370,7 +370,10 @@ export function initHeroCigar() {
   function tick() {
     requestAnimationFrame(tick);
     if (!running) return;
-    const dt = clock.getDelta();
+    // KRITI\u010cNO: clamp dt. Ako je scena bila van viewport-a ili tab u pozadini,
+    // clock.getDelta() vra\u0107a ogroman broj \u2014 bez clamp-a cigar bi sagoreo u jednom
+    // frame-u pri povratku ("zapali na sekund pa pocrni").
+    const dt = Math.min(clock.getDelta(), 0.05);
     const t = clock.getElapsedTime();
 
     autoRotTimer += dt;
@@ -400,7 +403,7 @@ export function initHeroCigar() {
     // mnogo pre nego \u0161to po\u010dne proximity paljenje.
     matchApi.getFlameWorldPosition(tmpFlamePos);
     const flameDist = tmpFlamePos.distanceTo(cigarGroup.position);
-    const lookAtActive = !cigarLit && matchApi.isLit() && flameDist < 4.0;
+    const lookAtActive = !cigarLit && matchApi.isLit() && flameDist < 6.0;
 
     if (lookAtActive) {
       const dx = tmpFlamePos.x - cigarGroup.position.x;
