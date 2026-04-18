@@ -133,6 +133,145 @@ export function initHeroCigar() {
   cigarGroup.add(glow2);
 
   // =======================================================
+  // MATCH (\u0160IBICA) — pored cigare, lebdi, \u010deka klik da kresne
+  // Proporcije: \u0161ibica ~1/3 du\u017eine cigare (~5cm vs ~15cm u stvarnom svetu).
+  // =======================================================
+  const matchGroup = new THREE.Group();
+  matchGroup.position.set(2.7, -0.4, 0.2);
+  matchGroup.scale.setScalar(0.72);
+  matchGroup.rotation.z = -0.28;
+  scene.add(matchGroup);
+
+  // Drveni \u0161tap
+  const stickGeom = new THREE.CylinderGeometry(0.035, 0.035, 2.2, 14);
+  const stickMat = new THREE.MeshStandardMaterial({
+    color: 0xd4a56a,
+    roughness: 0.92,
+    metalness: 0.02,
+    emissive: 0x3a2515,
+    emissiveIntensity: 0.15
+  });
+  const stick = new THREE.Mesh(stickGeom, stickMat);
+  matchGroup.add(stick);
+
+  // \u010carbon zone (dno \u0161tapa — zapa\u010deno nakon paljenja)
+  const charGeom = new THREE.CylinderGeometry(0.036, 0.038, 0.25, 14);
+  const charMat = new THREE.MeshStandardMaterial({
+    color: 0x2a1408,
+    roughness: 0.95,
+    emissive: 0x6a2a08,
+    emissiveIntensity: 0.0  // pali se nakon strike
+  });
+  const charred = new THREE.Mesh(charGeom, charMat);
+  charred.position.y = 1.0;
+  matchGroup.add(charred);
+
+  // Glava \u0161ibice (crveno-braon)
+  const headGeom = new THREE.SphereGeometry(0.11, 20, 14);
+  headGeom.scale(1, 1.55, 1);
+  const headMat = new THREE.MeshStandardMaterial({
+    color: 0x9a2e16,
+    roughness: 0.55,
+    metalness: 0.02,
+    emissive: 0x3a0a04,
+    emissiveIntensity: 0.12
+  });
+  const head = new THREE.Mesh(headGeom, headMat);
+  head.position.y = 1.24;
+  matchGroup.add(head);
+
+  // Plamen — sprite-like ali shader-driven. Vidljiv samo nakon strike-a.
+  const flameGeom = new THREE.PlaneGeometry(0.55, 0.95, 1, 1);
+  const flameMat = new THREE.ShaderMaterial({
+    uniforms: {
+      uTime:      { value: 0 },
+      uIntensity: { value: 0 }  // 0=ugasen, 1=pun plamen
+    },
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    side: THREE.DoubleSide,
+    vertexShader: `
+      varying vec2 vUv;
+      void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }
+    `,
+    fragmentShader: /* glsl */ `
+      precision highp float;
+      uniform float uTime, uIntensity;
+      varying vec2 vUv;
+      vec2 hash(vec2 p){ p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))); return -1.0+2.0*fract(sin(p)*43758.5453); }
+      float noise(vec2 p){
+        const float K1=0.366025404,K2=0.211324865;
+        vec2 i=floor(p+(p.x+p.y)*K1); vec2 a=p-i+(i.x+i.y)*K2;
+        vec2 o=(a.x>a.y)?vec2(1.0,0.0):vec2(0.0,1.0);
+        vec2 b=a-o+K2; vec2 c=a-1.0+2.0*K2;
+        vec3 h=max(0.5-vec3(dot(a,a),dot(b,b),dot(c,c)),0.0);
+        vec3 n=h*h*h*h*vec3(dot(a,hash(i)),dot(b,hash(i+o)),dot(c,hash(i+1.0)));
+        return dot(n,vec3(70.0));
+      }
+      float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<4;i++){ v+=a*noise(p); p*=2.1; a*=0.5; } return v; }
+
+      void main() {
+        // Rani exit ako je plamen ugašen — additive blend ignoriše alpha pa MORAMO da nuliramo col
+        if (uIntensity <= 0.001) discard;
+
+        vec2 uv = vUv;
+        float horizontal = abs(uv.x - 0.5) * 2.0;
+        float verticalFade = 1.0 - smoothstep(0.15, 1.0, uv.y);
+        float flameShape = smoothstep(0.9, 0.2, horizontal / max(verticalFade, 0.001));
+        if (flameShape < 0.01) discard;
+
+        float n = fbm(vec2(uv.x * 3.0, uv.y * 2.0 - uTime * 2.5));
+        float flicker = 0.75 + 0.4 * n;
+
+        vec3 white  = vec3(1.0, 0.96, 0.82);
+        vec3 yellow = vec3(1.0, 0.82, 0.3);
+        vec3 orange = vec3(1.0, 0.45, 0.1);
+        vec3 red    = vec3(0.85, 0.15, 0.05);
+        vec3 col = mix(red, orange, smoothstep(0.0, 0.35, uv.y));
+        col = mix(col, yellow, smoothstep(0.25, 0.6, uv.y));
+        col = mix(col, white,  smoothstep(0.55, 0.9, uv.y));
+
+        // KRITI\u010cNO: col × uIntensity da additive blending vidi 0 kad je ugašen
+        col *= flicker * uIntensity;
+        float alpha = flameShape * flicker * uIntensity;
+
+        gl_FragColor = vec4(col, alpha);
+      }
+    `
+  });
+  const flame = new THREE.Mesh(flameGeom, flameMat);
+  flame.position.y = 1.78;
+  flame.visible = false; // pojavljuje se tek nakon prvog klik-a
+  matchGroup.add(flame);
+
+  // Vru\u0107a to\u010dka (drugi, manji glow disc iza plamena)
+  const flameGlowMat = new THREE.MeshBasicMaterial({
+    map: glowTex,
+    color: 0xffb060,
+    transparent: true,
+    opacity: 0,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+  const flameGlow = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.4), flameGlowMat);
+  flameGlow.position.y = 1.55;
+  matchGroup.add(flameGlow);
+
+  // Svetlo koje plamen baca na scenu
+  const flameLight = new THREE.PointLight(0xffa040, 0, 4.5, 2);
+  flameLight.position.y = 1.6;
+  matchGroup.add(flameLight);
+
+  // State: pre/tokom/posle strike-a
+  const matchState = {
+    ignited: false,
+    strikeT: 0,        // time of strike event
+    progress: 0,       // 0..1 animation progress
+    hover: false
+  };
+
+  // =======================================================
   // WORLD-SPACE SMOKE
   // =======================================================
   const SMOKE_COUNT = window.innerWidth < 800 ? 280 : 620;
@@ -274,9 +413,33 @@ export function initHeroCigar() {
   let autoRotTimer = 0;
   const mousePar = { x: 0, y: 0 };
 
+  const raycaster = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  const matchHitTargets = [stick, head, charred];
+
+  function getMatchHit(clientX, clientY) {
+    const r = canvas.getBoundingClientRect();
+    ndc.x = ((clientX - r.left) / r.width) * 2 - 1;
+    ndc.y = -((clientY - r.top) / r.height) * 2 + 1;
+    raycaster.setFromCamera(ndc, camera);
+    return raycaster.intersectObjects(matchHitTargets);
+  }
+
   canvas.style.touchAction = 'pan-y';
 
   canvas.addEventListener('pointerdown', (e) => {
+    // Ako je klik na \u0161ibicu \u2014 zapali je (ne pokre\u0107e drag cigare)
+    if (getMatchHit(e.clientX, e.clientY).length) {
+      if (!matchState.ignited) {
+        matchState.ignited = true;
+        matchState.strikeT = 0; // restart progress
+      } else {
+        // Ako je ve\u0107 upaljena, klik je gasi i resetuje
+        matchState.ignited = false;
+        matchState.progress = 0;
+      }
+      return;
+    }
     isDragging = true;
     canvas.setPointerCapture?.(e.pointerId);
     dragStartX = e.clientX; dragStartY = e.clientY;
@@ -290,6 +453,9 @@ export function initHeroCigar() {
   window.addEventListener('pointermove', (e) => {
     mousePar.x = (e.clientX / window.innerWidth) - 0.5;
     mousePar.y = (e.clientY / window.innerHeight) - 0.5;
+    // Hover na \u0161ibici \u2014 menja cursor + flag
+    matchState.hover = getMatchHit(e.clientX, e.clientY).length > 0;
+    canvas.style.cursor = matchState.hover ? 'pointer' : '';
     if (!isDragging) return;
     cigarTarget.y += (e.clientX - dragStartX) * 0.006;
     cigarTarget.x += (e.clientY - dragStartY) * 0.004;
@@ -332,6 +498,66 @@ export function initHeroCigar() {
     cigarGroup.updateMatrixWorld();
     tipWorld.copy(tipLocal).applyMatrix4(cigarGroup.matrixWorld);
     emberLight.position.copy(tipWorld);
+
+    // --- Match idle + strike animation ---
+    // Idle lebdi: pronounced bob + sway + subtle rotate-y da se vidi 3D forma
+    const baseX = 2.7;
+    const baseY = -0.4;
+    const baseRotZ = -0.28;
+    const hoverLift = matchState.hover ? 0.12 : 0;
+    matchGroup.position.x = baseX + Math.sin(t * 0.6) * 0.06;
+    matchGroup.position.y = baseY + Math.sin(t * 0.9) * 0.12 + hoverLift;
+    matchGroup.rotation.z = baseRotZ + Math.sin(t * 0.5) * 0.08;
+    matchGroup.rotation.y = Math.sin(t * 0.4) * 0.22;
+
+    // "Pulse" na glavi \u0161ibice u idle — suptilan signal da je klikabilna
+    if (!matchState.ignited) {
+      const idlePulse = 0.12 + Math.abs(Math.sin(t * 1.8)) * 0.08 + (matchState.hover ? 0.2 : 0);
+      head.material.emissiveIntensity = idlePulse;
+    }
+
+    if (matchState.ignited) {
+      matchState.strikeT += dt;
+      const st = matchState.strikeT;
+      flame.visible = true;
+
+      // Strike: 0-0.18s drhtanje (kao struganje po boxu)
+      if (st < 0.18) {
+        matchGroup.rotation.z += Math.sin(st * 180) * 0.08;
+        matchGroup.position.x += Math.sin(st * 200) * 0.05;
+      }
+
+      // Plamen progress 0 \u2192 1 tokom prvih 1.2s
+      matchState.progress = Math.min(1, st / 1.2);
+      const p = matchState.progress;
+
+      flameMat.uniforms.uIntensity.value = p;
+      flameMat.uniforms.uTime.value = t;
+
+      // Billboard plamen da uvek gleda ka kameri
+      flame.quaternion.copy(camera.quaternion);
+
+      flameGlowMat.opacity = 0.55 * p * (0.85 + Math.sin(t * 8) * 0.15);
+      flameGlow.scale.setScalar(0.8 + p * 0.4 + Math.sin(t * 6) * 0.08);
+
+      flameLight.intensity = 2.8 * p * (0.9 + Math.sin(t * 9) * 0.1);
+      flameLight.color.setHex(0xffa040);
+
+      head.material.emissiveIntensity = 0.12 + p * 0.6;
+      head.material.color.setHex(p > 0.5 ? 0x4a1a0a : 0x9a2e16);
+      charred.material.emissiveIntensity = p * 0.35;
+    } else {
+      // Fade plamen van i sakrij mesh kad je potpuno 0 (u\u0161teda draw call-a)
+      const cur = flameMat.uniforms.uIntensity.value;
+      const next = Math.max(0, cur - dt * 2);
+      flameMat.uniforms.uIntensity.value = next;
+      flameMat.uniforms.uTime.value = t;
+      flame.visible = next > 0.01;
+      flameGlowMat.opacity = Math.max(0, flameGlowMat.opacity - dt * 2);
+      flameLight.intensity = Math.max(0, flameLight.intensity - dt * 5);
+      head.material.color.setHex(0x9a2e16);
+      charred.material.emissiveIntensity = 0;
+    }
 
     emberMat.uniforms.uTime.value = t;
     const pulse = 0.9 + Math.sin(t * 2.5) * 0.18;
