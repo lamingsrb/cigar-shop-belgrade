@@ -4,5 +4,5 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
-  "installCommand": "npm install --include=optional --no-audit --no-fund"
+  "installCommand": "rm -f package-lock.json && npm install --include=optional --no-audit --no-fund"
 }
