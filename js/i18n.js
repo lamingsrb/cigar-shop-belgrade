@@ -17,9 +17,15 @@ function detectLang() {
 }
 
 async function loadDictionary(lang) {
-  const res = await fetch(`/locales/${lang}.json`);
-  if (!res.ok) throw new Error(`Cannot load locale: ${lang}`);
-  return res.json();
+  // Pokušaj absolute path, pa relative kao fallback (za deploy u subpath-u)
+  const candidates = [`/locales/${lang}.json`, `./locales/${lang}.json`, `locales/${lang}.json`];
+  for (const url of candidates) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) return await res.json();
+    } catch (_) { /* pokušaj sledeći */ }
+  }
+  throw new Error(`Cannot load locale: ${lang}`);
 }
 
 function getByPath(obj, path) {
@@ -86,7 +92,20 @@ export async function setLang(lang) {
 
 export async function initI18n() {
   currentLang = detectLang();
-  dictionary = await loadDictionary(currentLang);
+  try {
+    dictionary = await loadDictionary(currentLang);
+  } catch (err) {
+    console.error('[CigarShop] locale load failed for', currentLang, err);
+    // Fallback na drugi jezik ako prvi padne
+    const alt = currentLang === 'sr' ? 'en' : 'sr';
+    try {
+      dictionary = await loadDictionary(alt);
+      currentLang = alt;
+    } catch (err2) {
+      console.error('[CigarShop] fallback locale also failed, running with empty dictionary', err2);
+      dictionary = {};
+    }
+  }
   applyDOM();
 
   // Wire up toggle

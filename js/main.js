@@ -175,7 +175,12 @@ function initFooterYear() {
 // -------------------------------------------------------
 async function boot() {
   // 1) i18n first — renders initial content in chosen lang
-  await initI18n();
+  //    Ako locale fetch padne, nastavi sa fallback sadr\u017eajem da ceo sajt ne bude prazan.
+  try {
+    await initI18n();
+  } catch (err) {
+    console.error('[CigarShop] i18n init failed, continuing with fallback', err);
+  }
 
   // 2) Dynamic content renders (bento, spirits, locations)
   renderCollection();
