@@ -24,9 +24,9 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   const MATCHBOX_POS = new THREE.Vector3(3.8, -0.35, 0.15);
   const MATCH_REST_POS = new THREE.Vector3(3.8, 0.45, 0.25);
   const MATCH_REST_ROT_Z = Math.PI / 2;  // glava okrenuta ULEVO (ka cigari)
-  const STRIKE_DISTANCE = 1.4;  // ne mora precizno preko strip-a
-  const LIGHT_DISTANCE = 3.5;   // \u0161iroki radius \u2014 lak\u0161e za pogoditi vrh
-  const IGNITE_RATE = 0.6;      // 0\u21921 za ~1.7s dr\u017eanja
+  const STRIKE_DISTANCE = 1.4;
+  const LIGHT_DISTANCE = 5.5;   // veoma \u0161iroki radius \u2014 vizualno preklopljene = blizu
+  const IGNITE_RATE = 1.0;      // 0\u21921 za ~1s dr\u017eanja
   const IGNITE_DECAY = 0.2;
   // Head je na lokalnom +Y (1.08); sa rotation.z=+PI/2 to je svetu \u2014X od match-center-a.
   // Za "center \u2192 glava": (center.x \u2212 HEAD_OFFSET_X) u svetu.
@@ -416,6 +416,8 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
     }
 
     // 3) Plamen — STROGO world-up iznad head-a (ne prati rotaciju šibice)
+    // KRITI\u010cNO: updateMatrixWorld pre \u010ditanja, da headWorld reaguje na drag u istom frame-u
+    matchGroup.updateMatrixWorld(true);
     head.getWorldPosition(headWorld);
     if (flame.visible) {
       flame.position.copy(headWorld).addScaledVector(WORLD_UP, 0.45);
@@ -473,7 +475,9 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
     },
     /** Pointer hit testovi — koristi ih cigar handler da izbegne drag sudar */
     isOverMatch: (e) => hitMatch(e.clientX, e.clientY),
-    isOverBox:   (e) => hitBox(e.clientX, e.clientY)
+    isOverBox:   (e) => hitBox(e.clientX, e.clientY),
+    /** Da li user trenutno drag-uje šibicu (za cigar tracking logiku) */
+    isDragging:  () => state.mode === 'dragging'
   };
 }
 

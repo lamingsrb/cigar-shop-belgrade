@@ -398,12 +398,13 @@ export function initHeroCigar() {
       cigarGlow = ignitionP;
     }
 
-    // LookAt: aktivira se \u010dim je upaljena \u0161ibica u SIROKOM opsegu oko cigare —
-    // ne samo kad je skroz uz vrh. Cigara se tako "budi" i gleda ka plamenu
-    // mnogo pre nego \u0161to po\u010dne proximity paljenje.
+    // LookAt: \u010dim je \u0161ibica upaljena I user je drag-uje, cigara gleda ka plamenu
+    // BEZ OBZIRA na distance. To eliminise "jurim kao lud a ne reaguje" problem.
+    // Dodatno, ako \u0161ibica miruje u ruci (posle strike-a), tracking radi u radius 8.
     matchApi.getFlameWorldPosition(tmpFlamePos);
     const flameDist = tmpFlamePos.distanceTo(cigarGroup.position);
-    const lookAtActive = !cigarLit && matchApi.isLit() && flameDist < 6.0;
+    const lookAtActive = !cigarLit && matchApi.isLit() &&
+                         (matchApi.isDragging() || flameDist < 8.0);
 
     if (lookAtActive) {
       const dx = tmpFlamePos.x - cigarGroup.position.x;
