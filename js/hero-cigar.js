@@ -55,15 +55,17 @@ export function initHeroCigar() {
   cigarGroup.scale.setScalar(0.82);
   scene.add(cigarGroup);
 
-  const bodyGeom = new THREE.CylinderGeometry(0.28, 0.26, 4.4, 96, 32, false);
+  const CIGAR_LEN = 4.4;
+  const bodyGeom = new THREE.CylinderGeometry(0.28, 0.26, CIGAR_LEN, 96, 32, false);
   bodyGeom.rotateZ(Math.PI / 2);
-  cigarGroup.add(new THREE.Mesh(bodyGeom, new THREE.MeshStandardMaterial({
+  const cigarBody = new THREE.Mesh(bodyGeom, new THREE.MeshStandardMaterial({
     map: makeCigarTexture(),
     normalMap: makeCigarNormal(),
     normalScale: new THREE.Vector2(0.45, 0.45),
     roughness: 0.72, metalness: 0.05, color: 0xc68256,
     emissive: 0x5a2e10, emissiveIntensity: 0.5
-  })));
+  }));
+  cigarGroup.add(cigarBody);
 
   const bandGeom = new THREE.CylinderGeometry(0.287, 0.287, 0.5, 96, 1, false);
   bandGeom.rotateZ(Math.PI / 2);
@@ -297,6 +299,30 @@ export function initHeroCigar() {
   })));
 
   // =======================================================
+  // ASH PARTICLES — pepeo koji pada dok cigara gori
+  // =======================================================
+  const ASH_COUNT = 60;
+  const ashPos = new Float32Array(ASH_COUNT * 3);
+  const ashVel = new Float32Array(ASH_COUNT * 3);
+  const ashLife = new Float32Array(ASH_COUNT);
+  const ashMaxLife = new Float32Array(ASH_COUNT);
+  // Inicijalno sve \u010destice ugašene (van scene)
+  for (let i = 0; i < ASH_COUNT; i++) {
+    ashPos[i * 3 + 1] = -999;  // sakriven
+    ashMaxLife[i] = 1;
+    ashLife[i] = 2;            // ve\u0107 "mrtav" \u2014 spreman za reuse
+  }
+  const ashGeom = new THREE.BufferGeometry();
+  ashGeom.setAttribute('position', new THREE.BufferAttribute(ashPos, 3));
+  const ashMesh = new THREE.Points(ashGeom, new THREE.PointsMaterial({
+    color: 0x3a2818, size: 0.06, transparent: true, opacity: 0.9,
+    depthWrite: false, sizeAttenuation: true
+  }));
+  scene.add(ashMesh);
+  let ashEmitTimer = 0;
+  const ASH_GRAVITY = 0.35; // units/s²
+
+  // =======================================================
   // Drag-to-rotate cigar
   // =======================================================
   // Euler targets za cigar rotaciju. "z" drives PITCH-UP (vrh gleda gore/dole) —
@@ -424,15 +450,55 @@ export function initHeroCigar() {
       if (!isDragging && autoRotTimer > 1.5) cigarTarget.y += 0.15 * dt;
     }
 
-    // Vizuelno sagorevanje: ember i glow se povla\u010de ka centru dok cigara gori
-    const burnShift = cigarBurnProg * 1.4;
-    emberMesh.position.x = 2.22 - burnShift;
-    glow.position.x = 2.23 - burnShift;
-    glow2.position.x = 2.24 - burnShift;
-    tipLocal.x = 2.22 - burnShift; // dim emiter prati kraj
-    // Dim se emituje SAMO kad cigara stvarno gori (ne tokom ignite ramp-a).
-    // Tokom paljenja vrh je pepeo sa po\u010detnim \u017earom \u2014 nema dima dok cigar nije "uhvatila".
+    // FIZI\u010cKO SAGOREVANJE: body cigare se stvarno skra\u0107uje s desne strane.
+    // Skala X se smanjuje, body se pomera ka -X tako da LEVI kraj (band) ostaje fiksan,
+    // a DESNI kraj (\u017ear) se postepeno povla\u010di ka centru.
+    const shrink = cigarBurnProg * 0.65;              // do 65% skrati (zadr\u017ei stub)
+    cigarBody.scale.x = 1 - shrink;
+    cigarBody.position.x = -(shrink * CIGAR_LEN / 2); // kompenzuje shrink da band ostane
+    // Novi kraj cigare u lokalu: 2.22 je polovina default geometry, skalirano + pomereno
+    const endX = 2.22 - shrink * CIGAR_LEN;
+    emberMesh.position.x = endX;
+    glow.position.x = endX + 0.01;
+    glow2.position.x = endX + 0.02;
+    tipLocal.x = endX;                                // dim + ash emiter prate kraj
     smokeMesh.visible = cigarLit || cigarBurnProg > 0.01;
+
+    // ASH EMIT: pepeo pada kad cigara gori \u2014 svakih ~180ms jedan particle iz vrha.
+    if (cigarLit) {
+      ashEmitTimer += dt;
+      if (ashEmitTimer > 0.18) {
+        ashEmitTimer = 0;
+        for (let i = 0; i < ASH_COUNT; i++) {
+          if (ashLife[i] >= ashMaxLife[i]) {
+            // tipWorld je world-space vrh (izra\u010dunat ranije u tick-u)
+            ashPos[i * 3 + 0] = tipWorld.x + (Math.random() - 0.5) * 0.12;
+            ashPos[i * 3 + 1] = tipWorld.y - 0.04;
+            ashPos[i * 3 + 2] = tipWorld.z + (Math.random() - 0.5) * 0.12;
+            ashVel[i * 3 + 0] = (Math.random() - 0.5) * 0.3;
+            ashVel[i * 3 + 1] = -0.15 - Math.random() * 0.2;
+            ashVel[i * 3 + 2] = (Math.random() - 0.5) * 0.2;
+            ashLife[i] = 0;
+            ashMaxLife[i] = 1.6 + Math.random() * 0.8;
+            break;
+          }
+        }
+      }
+    }
+    // ASH UPDATE: gravitacija, sakrivanje kad umre
+    for (let i = 0; i < ASH_COUNT; i++) {
+      if (ashLife[i] < ashMaxLife[i]) {
+        ashLife[i] += dt;
+        ashVel[i * 3 + 1] -= ASH_GRAVITY * dt;
+        ashPos[i * 3 + 0] += ashVel[i * 3 + 0] * dt;
+        ashPos[i * 3 + 1] += ashVel[i * 3 + 1] * dt;
+        ashPos[i * 3 + 2] += ashVel[i * 3 + 2] * dt;
+        if (ashLife[i] >= ashMaxLife[i]) {
+          ashPos[i * 3 + 1] = -999; // sakrij
+        }
+      }
+    }
+    ashGeom.attributes.position.needsUpdate = true;
 
     // Br\u017ea interpolacija kada je lookAt aktivan (10% per frame umesto 8%)
     const lerpRate = lookAtActive ? 0.12 : 0.08;
