@@ -51,7 +51,7 @@ export function initHeroCigar() {
   // CIGAR (pomeranje ulevo-centar; čaša je iframe na desnoj)
   // =======================================================
   const cigarGroup = new THREE.Group();
-  cigarGroup.position.set(-1.4, 0.5, 0);
+  cigarGroup.position.set(-2.4, 0.5, 0);
   cigarGroup.scale.setScalar(0.82);
   scene.add(cigarGroup);
 
@@ -359,6 +359,8 @@ export function initHeroCigar() {
     cigarCurrent.y += (cigarTarget.y - cigarCurrent.y) * 0.08;
     cigarGroup.rotation.x = cigarCurrent.x;
     cigarGroup.rotation.y = cigarCurrent.y;
+    // x fiksno na -2.4 (daleko ulevo), y sa suptilnim bob-om
+    cigarGroup.position.x = -2.4;
     cigarGroup.position.y = 0.5 + Math.sin(t * 0.7) * 0.04 - mousePar.y * 0.06;
 
     cigarGroup.updateMatrixWorld();

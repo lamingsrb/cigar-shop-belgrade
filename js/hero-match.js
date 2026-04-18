@@ -21,8 +21,8 @@ import { gsap } from 'gsap';
 export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
 
   // --- Pozicije u sceni (podignute na nivo cigare) ---
-  const MATCHBOX_POS = new THREE.Vector3(3.0, -0.35, 0.15);
-  const MATCH_REST_POS = new THREE.Vector3(3.0, 0.45, 0.25);
+  const MATCHBOX_POS = new THREE.Vector3(3.8, -0.35, 0.15);
+  const MATCH_REST_POS = new THREE.Vector3(3.8, 0.45, 0.25);
   const MATCH_REST_ROT_Z = Math.PI / 2;  // glava okrenuta ULEVO (ka cigari)
   const STRIKE_DISTANCE = 0.8;
   const LIGHT_DISTANCE = 1.1;   // \u0161iri radius — korisnik ne mora precizno da cilja vrh
