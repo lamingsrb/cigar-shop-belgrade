@@ -1,0 +1,78 @@
+/* =======================================================
+   CIGAR SHOP — keyframe animations
+   ======================================================= */
+
+@keyframes foilShimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes emberPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px var(--ember), 0 0 40px rgba(255, 107, 26, 0.35);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 28px var(--ember), 0 0 56px rgba(255, 107, 26, 0.55);
+  }
+}
+
+@keyframes scrollLine {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes flameBirth {
+  0%   { opacity: 0; transform: scale(0.2) translateY(20px); }
+  60%  { opacity: 1; transform: scale(1.15) translateY(-6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes flameFlicker {
+  0%, 100% { transform: scale(1, 1) rotate(-0.5deg); }
+  25%      { transform: scale(1.05, 0.97) rotate(1deg); }
+  50%      { transform: scale(0.98, 1.04) rotate(-1deg); }
+  75%      { transform: scale(1.04, 0.98) rotate(0.6deg); }
+}
+
+@keyframes smokeRise {
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  20%  { opacity: 0.55; }
+  100% { transform: translateY(-160px) scale(1.6); opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Smoke particles (CSS fallback kada Three.js nije dostupan / reduced motion) */
+.smoke-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(139, 125, 107, 0.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 125, 107, 0.06) 0%, transparent 50%);
+  animation: fadeIn 3s ease-out both;
+}
+
+/* Reveal na scroll (triger iz JS dodaje .is-reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-out-quart), transform 1s var(--ease-out-quart);
+}
+.reveal.is-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.2s; }
+.reveal--delay-3 { transition-delay: 0.3s; }

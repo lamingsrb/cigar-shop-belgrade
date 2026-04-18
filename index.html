@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0605" />
+  <meta name="description" content="Cigar Shop — premium destinacija za cigare, viski i ritual strpljenja. 9 lokacija u Beogradu." data-i18n="meta.description" />
+  <meta property="og:title" content="Cigar Shop Belgrade" />
+  <meta property="og:description" content="Umetnost strpljenja. 9 lokacija u Beogradu." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/img/og-cover.jpg" />
+
+  <title data-i18n="meta.title">Cigar Shop — Umetnost strpljenja</title>
+
+  <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+  <!-- =======================  LOADER  ======================= -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__stage">
+      <svg class="loader__match" viewBox="0 0 120 300" aria-hidden="true">
+        <rect class="match-stick" x="55" y="70" width="10" height="220" rx="2" />
+        <ellipse class="match-head" cx="60" cy="62" rx="14" ry="20" />
+        <g class="match-flame">
+          <path class="flame-outer" d="M60 10 C40 30 38 55 60 70 C82 55 80 30 60 10 Z" />
+          <path class="flame-inner" d="M60 28 C50 40 49 55 60 65 C71 55 70 40 60 28 Z" />
+          <circle class="flame-core" cx="60" cy="55" r="6" />
+        </g>
+      </svg>
+      <div class="loader__label" data-i18n="loader.tagline">Strike a match.</div>
+    </div>
+  </div>
+
+  <!-- =======================  HEADER  ======================= -->
+  <header class="header" role="banner">
+    <div class="header__inner">
+      <a href="#hero" class="brand" aria-label="Cigar Shop Belgrade">
+        <span class="brand__mark">CS</span>
+        <span class="brand__name">Cigar Shop</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#manifest" data-i18n="nav.manifest">Manifest</a>
+        <a href="#origins" data-i18n="nav.origins">Poreklo</a>
+        <a href="#collection" data-i18n="nav.collection">Kolekcija</a>
+        <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
+        <a href="#spirits" data-i18n="nav.spirits">Pića</a>
+        <a href="#locations" data-i18n="nav.locations">Lokacije</a>
+      </nav>
+
+      <div class="header__controls">
+        <button id="audio-toggle" class="icon-btn" aria-label="Toggle ambient audio" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path class="audio-wave" d="M16 8c2 2 2 6 0 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+          <span class="lang-toggle__sr" data-lang="sr">SR</span>
+          <span class="lang-toggle__sep">/</span>
+          <span class="lang-toggle__en" data-lang="en">EN</span>
+        </button>
+      </div>
+    </div>
+    <div class="header__progress" id="scroll-burn" aria-hidden="true"></div>
+  </header>
+
+  <!-- =======================  HERO  ======================= -->
+  <section id="hero" class="hero" aria-label="Hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__whisky" aria-label="3D pour of whisky into glass">
+      <iframe
+        title="Pouring Whisky into Glass — MysteryPancake (CC BY 4.0)"
+        frameborder="0"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+        loading="lazy"
+        src="https://sketchfab.com/models/16f73c5b68fc4d1996e7602a813b0946/embed?autostart=1&autospin=0&preload=1&ui_infos=0&ui_stop=0&ui_inspector=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&ui_hint=0&transparent=1&dnt=1&ui_theme=dark">
+      </iframe>
+      <!-- Animirani pour stream overlay - iluzija teku\u0107eg viskija -->
+      <svg class="hero__whisky-fx" viewBox="0 0 200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="streamGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffc070" stop-opacity="0"/>
+            <stop offset="15%" stop-color="#ffb060" stop-opacity="0.85"/>
+            <stop offset="55%" stop-color="#d8791f" stop-opacity="0.9"/>
+            <stop offset="95%" stop-color="#8a3a00" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#6a2500" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="streamBlur">
+            <feGaussianBlur stdDeviation="1.2"/>
+          </filter>
+        </defs>
+        <path class="stream-line" d="M 98 60 Q 100 180 102 300 Q 98 400 104 500"
+              stroke="url(#streamGrad)" stroke-width="5" fill="none"
+              stroke-linecap="round" stroke-dasharray="14 7" filter="url(#streamBlur)"/>
+        <circle class="stream-drop d1" cx="101" cy="0" r="2.2" fill="#d8791f"/>
+        <circle class="stream-drop d2" cx="99"  cy="0" r="1.6" fill="#e8a046"/>
+        <circle class="stream-drop d3" cx="103" cy="0" r="2.8" fill="#ba6418"/>
+        <circle class="stream-drop d4" cx="98"  cy="0" r="1.4" fill="#ffb060"/>
+      </svg>
+    </div>
+    <div class="hero__vignette" aria-hidden="true"></div>
+    <div class="hero__hint" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="14" height="14"><path d="M8 3v6M16 3v18M12 7v14M8 15v6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span data-i18n="hero.drag">Povuci mišem — zavrti cigaru</span>
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow">Od 2004. · Beograd</p>
+      <h1 class="hero__title foil">
+        <span data-i18n="hero.titleLine1">CIGAR</span>
+        <span data-i18n="hero.titleLine2">SHOP</span>
+      </h1>
+      <p class="hero__tagline" data-i18n="hero.tagline">
+        Umetnost strpljenja, destilovana u 9 prodavnica.
+      </p>
+      <a href="#manifest" class="hero__scroll" aria-label="Scroll down">
+        <span data-i18n="hero.scroll">Zapali iskustvo</span>
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- =======================  MANIFEST  ======================= -->
+  <section id="manifest" class="manifest" aria-label="Manifest">
+    <div class="manifest__grid">
+      <div class="manifest__copy">
+        <p class="kicker" data-i18n="manifest.kicker">Manifest</p>
+        <h2 class="heading-display" data-i18n="manifest.title">Umetnost strpljenja.</h2>
+        <p class="lead" data-i18n="manifest.lead">
+          Svaka cigara je deset godina tišine, sunca i vlažnog daha Kariba. Nismo
+          prodavnica — mi smo nastavak tog daha.
+        </p>
+        <p class="body" data-i18n="manifest.body">
+          Devet prodavnica. Četiri kontinenta duvana. Jedno uverenje: dim se
+          pali lagano, život se pije polako.
+        </p>
+      </div>
+      <figure class="manifest__media">
+        <img
+          class="manifest__img"
+          src="/assets/img/kaliman/index2-1.webp"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="manifest__tag" aria-hidden="true">EST. 2004</span>
+      </figure>
+    </div>
+  </section>
+
+  <!-- =======================  ORIGINS  (Globus)  ======================= -->
+  <section id="origins" class="origins" aria-label="Origins">
+    <div class="origins__header">
+      <p class="kicker" data-i18n="origins.kicker">Poreklo</p>
+      <h2 class="heading-display" data-i18n="origins.title">Šest izvora dima.</h2>
+      <p class="lead" data-i18n="origins.lead">Klikni na zemlju da otvoriš profil duvana.</p>
+    </div>
+    <div class="origins__stage">
+      <canvas id="globe-canvas" class="origins__canvas" aria-hidden="true"></canvas>
+      <aside class="origins__panel" id="origin-panel" aria-live="polite">
+        <button class="origins__close" id="origin-close" aria-label="Close">×</button>
+        <h3 class="origins__country" id="origin-country">—</h3>
+        <p class="origins__desc" id="origin-desc">Izaberi zemlju na globusu.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- =======================  COLLECTION  ======================= -->
+  <section id="collection" class="collection" aria-label="Collection">
+    <div class="section__header">
+      <p class="kicker" data-i18n="collection.kicker">Kolekcija</p>
+      <h2 class="heading-display" data-i18n="collection.title">Biblioteka cigara.</h2>
+    </div>
+    <div class="bento collection__bento" id="collection-bento"></div>
+  </section>
+
+  <!-- =======================  HUMIDOR  ======================= -->
+  <section id="humidor" class="humidor" aria-label="Humidor">
+    <canvas id="humidor-canvas" class="humidor__canvas" aria-hidden="true"></canvas>
+    <div class="humidor__copy">
+      <p class="kicker" data-i18n="humidor.kicker">Humidor</p>
+      <h2 class="heading-display" data-i18n="humidor.title">Uđi u humidor.</h2>
+      <p class="lead" data-i18n="humidor.lead">
+        70% vlažnost. 20°C. Tišina stara koliko i duvan.
+      </p>
+      <ul class="humidor__stats">
+        <li><strong>70%</strong><span data-i18n="humidor.stat1">Relativna vlažnost</span></li>
+        <li><strong>20°C</strong><span data-i18n="humidor.stat2">Stalna temperatura</span></li>
+        <li><strong>9</strong><span data-i18n="humidor.stat3">Humidora u Beogradu</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =======================  SPIRITS  ======================= -->
+  <section id="spirits" class="spirits" aria-label="Spirits">
+    <div class="section__header">
+      <p class="kicker" data-i18n="spirits.kicker">Pića</p>
+      <h2 class="heading-display" data-i18n="spirits.title">Tečni prijatelji dima.</h2>
+      <p class="lead" data-i18n="spirits.lead">
+        Škotski, irski, japanski, orijentalni viski, burbon, konjak, džin, votka, rakija.
+      </p>
+    </div>
+    <div class="spirits__rail" id="spirits-rail"></div>
+  </section>
+
+  <!-- =======================  ACCESSORIES  ======================= -->
+  <section id="accessories" class="accessories" aria-label="Accessories">
+    <div class="section__header">
+      <p class="kicker" data-i18n="accessories.kicker">Pribor</p>
+      <h2 class="heading-display" data-i18n="accessories.title">Alati rituala.</h2>
+    </div>
+    <div class="bento accessories__bento" id="accessories-bento"></div>
+  </section>
+
+  <!-- =======================  THE RITUAL  ======================= -->
+  <section id="ritual" class="ritual" aria-label="The Ritual">
+    <div class="ritual__bg" aria-hidden="true"></div>
+    <div class="ritual__overlay" aria-hidden="true"></div>
+    <div class="ritual__steps">
+      <p class="kicker" data-i18n="ritual.kicker">Ritual</p>
+      <h2 class="heading-display" data-i18n="ritual.title">Preseci. Zapali. Uživaj.</h2>
+      <ol class="ritual__list">
+        <li><span class="num">01</span><h3 data-i18n="ritual.step1Title">Preseci</h3><p data-i18n="ritual.step1Body">Oštar, čist rez — 2 mm iznad kape.</p></li>
+        <li><span class="num">02</span><h3 data-i18n="ritual.step2Title">Zapali</h3><p data-i18n="ritual.step2Body">Cedrovom šibicom ili butan plamenom bez mirisa.</p></li>
+        <li><span class="num">03</span><h3 data-i18n="ritual.step3Title">Uživaj</h3><p data-i18n="ritual.step3Body">Jedan dim u minuti. Ne žuri — žar ne voli brzinu.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- =======================  LOCATIONS  ======================= -->
+  <section id="locations" class="locations" aria-label="Locations">
+    <div class="section__header">
+      <p class="kicker" data-i18n="locations.kicker">Lokacije</p>
+      <h2 class="heading-display" data-i18n="locations.title">Devet adresa u Beogradu.</h2>
+      <p class="lead" data-i18n="locations.lead">
+        Klikni na žar-tačku za radno vreme, fotografiju i navigaciju.
+      </p>
+    </div>
+    <div id="map" class="locations__map" role="application" aria-label="Map of stores"></div>
+    <div class="locations__list" id="locations-list"></div>
+  </section>
+
+  <!-- =======================  CONTACT  ======================= -->
+  <section id="contact" class="contact" aria-label="Contact">
+    <div class="contact__grid">
+      <div class="contact__copy">
+        <p class="kicker" data-i18n="contact.kicker">Kontakt</p>
+        <h2 class="heading-display" data-i18n="contact.title">Pišite nam.</h2>
+        <p class="lead" data-i18n="contact.lead">Za privatne degustacije, korporativne poklone ili samo razgovor uz cigaru.</p>
+        <ul class="contact__meta">
+          <li><span data-i18n="contact.phoneLabel">Telefon</span><a href="tel:+381691886080">069 188 60 80</a></li>
+          <li><span data-i18n="contact.hoursLabel">Radno vreme</span><strong data-i18n="contact.hoursValue">Pon–Ned 10:00–22:00</strong></li>
+          <li><span data-i18n="contact.socialLabel">Društvene mreže</span>
+            <span class="socials">
+              <a href="#" aria-label="Instagram">IG</a>
+              <a href="#" aria-label="Facebook">FB</a>
+              <a href="#" aria-label="TikTok">TT</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <form class="contact__form" id="contact-form" novalidate>
+        <label><span data-i18n="contact.nameLabel">Ime</span><input type="text" name="name" required /></label>
+        <label><span data-i18n="contact.emailLabel">Email</span><input type="email" name="email" required /></label>
+        <label><span data-i18n="contact.messageLabel">Poruka</span><textarea name="message" rows="4" required></textarea></label>
+        <button type="submit" class="btn btn--ember" data-i18n="contact.submit">Pošalji</button>
+        <p class="contact__note" id="contact-note" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- =======================  FOOTER  ======================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="brand__mark">CS</span>
+        <span class="brand__name">Cigar Shop Belgrade</span>
+        <p class="footer__tag" data-i18n="footer.tag">Umetnost strpljenja, 9 lokacija.</p>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer.navTitle">Navigacija</h4>
+        <a href="#manifest" data-i18n="nav.manifest">Manifest</a>
+        <a href="#origins" data-i18n="nav.origins">Poreklo</a>
+        <a href="#collection" data-i18n="nav.collection">Kolekcija</a>
+        <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer.visitTitle">Poseti</h4>
+        <a href="#locations" data-i18n="footer.locationsLink">Lokacije</a>
+        <a href="#contact" data-i18n="footer.contactLink">Kontakt</a>
+        <a href="#" data-i18n="footer.privacyLink">Privatnost</a>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer.legalTitle">Pravno</h4>
+        <p class="footer__legal" data-i18n="footer.age">18+. Duvan šteti zdravlju.</p>
+        <p class="footer__legal">© <span id="year"></span> Cigar Shop Belgrade.</p>
+        <p class="footer__legal footer__credit">
+          3D model "Pouring Glass" ·
+          <a href="https://sketchfab.com/3d-models/glass-of-water-2-16f73c5b68fc4d1996e7602a813b0946" target="_blank" rel="noopener">MysteryPancake</a> ·
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================  CURSOR  ======================= -->
+  <div id="cursor" class="cursor" aria-hidden="true">
+    <span class="cursor__core"></span>
+    <span class="cursor__ring"></span>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

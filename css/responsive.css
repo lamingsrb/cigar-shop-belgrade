@@ -1,0 +1,54 @@
+/* =======================================================
+   CIGAR SHOP — responsive breakpoints
+   ======================================================= */
+
+@media (max-width: 1024px) {
+  .manifest__grid,
+  .contact__grid { grid-template-columns: 1fr; }
+  .manifest__media { max-width: 520px; margin: 0 auto; }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .ritual__list { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .bento__card--lg { grid-column: span 12; }
+  .bento__card--md { grid-column: span 6; }
+  .bento__card--sm { grid-column: span 6; }
+  .bento__card--wide { grid-column: span 12; }
+}
+
+@media (max-width: 768px) {
+  :root { --header-h: 60px; }
+
+  body { cursor: auto; }
+  .cursor { display: none; }
+  button, a { cursor: pointer; }
+
+  .nav { display: none; }
+
+  .hero__title { font-size: clamp(3.5rem, 20vw, 7rem); letter-spacing: 0.02em; }
+  .hero__eyebrow { font-size: 0.625rem; letter-spacing: 0.3em; }
+
+  .bento { grid-auto-rows: 180px; }
+
+  .humidor__stats { gap: 1.5rem; }
+  .humidor__stats strong { font-size: 2.25rem; }
+
+  .spirit-card { flex-basis: 260px; }
+
+  .footer__grid { grid-template-columns: 1fr; }
+
+  .origins__panel {
+    top: auto; bottom: 0; right: 0; left: 0;
+    width: 100%;
+    transform: translateY(100%);
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  .origins__panel.is-open { transform: translateY(0); }
+
+  .header__controls .lang-toggle { padding: 0.4rem 0.65rem; }
+}
+
+@media (max-width: 480px) {
+  :root { --gutter: 1.25rem; }
+  .brand__name { display: none; }
+  .header__inner { gap: 1rem; }
+}
