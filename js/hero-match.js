@@ -24,10 +24,13 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   const MATCHBOX_POS = new THREE.Vector3(3.0, -0.35, 0.15);
   const MATCH_REST_POS = new THREE.Vector3(3.0, 0.45, 0.25);
   const MATCH_REST_ROT_Z = Math.PI / 2;  // glava okrenuta ULEVO (ka cigari)
-  const STRIKE_DISTANCE = 0.6;
-  const LIGHT_DISTANCE = 0.55;
-  const IGNITE_RATE = 0.6;     // 0..1 progress po sekundi kada je plamen uz vrh
-  const IGNITE_DECAY = 0.25;   // opadanje kada je plamen udaljen
+  const STRIKE_DISTANCE = 0.8;
+  const LIGHT_DISTANCE = 1.1;   // \u0161iri radius — korisnik ne mora precizno da cilja vrh
+  const IGNITE_RATE = 0.7;
+  const IGNITE_DECAY = 0.25;
+  // Head je na lokalnom +Y (1.08); sa rotation.z=+PI/2 to je svetu \u2014X od match-center-a.
+  // Za "center \u2192 glava": (center.x \u2212 HEAD_OFFSET_X) u svetu.
+  const HEAD_OFFSET_X = 1.08 * 0.75;
 
   // =====================================================
   // MATCHBOX — karton sa strike strip-om
@@ -97,6 +100,15 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
   });
   const stick = new THREE.Mesh(stickGeom, stickMat);
   matchGroup.add(stick);
+
+  // Invisible HIT PROXY — širi cilindar sa velikim radius-om da bi drag radio
+  // KAD GOD kliknem bilo gde na ili oko šibice. Sam stick je tanak (0.035) pa
+  // raycaster lako promaši; proxy radius 0.2 daje dovoljnu toleranciju.
+  const hitProxy = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.2, 0.2, 2.4, 10),
+    new THREE.MeshBasicMaterial({ visible: false, transparent: true, opacity: 0 })
+  );
+  matchGroup.add(hitProxy);
 
   // Zona koja će sagorevati (ispod glave)
   const charGeom = new THREE.CylinderGeometry(0.038, 0.04, 0.22, 14);
@@ -204,7 +216,7 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
 
   const raycaster = new THREE.Raycaster();
   const ndc = new THREE.Vector2();
-  const matchHitTargets = [stick, head, charred];
+  const matchHitTargets = [hitProxy, stick, head, charred];
 
   // Drag plane — z = rest z (parallel ekranu)
   const dragPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), -MATCH_REST_POS.z);
@@ -300,30 +312,37 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
     state.mode = 'striking';
     updateStrikeZone();
 
-    // Fizička animacija: šibica klizi preko strip-a (translate + mali rotate), onda se pali
-    const startPos = matchGroup.position.clone();
-    const endPos = strikeZoneWorld.clone().add(new THREE.Vector3(-BOX_W * 0.35, 0.15, 0));
+    // Sa glavom na LEVO (world \u2212X od match-center-a), za da GLAVA bude preko
+    // strike strip-a, match.center.x mora biti na stripX + HEAD_OFFSET_X.
+    // Glava klizi udesno-ulevo preko strip-a \u2014 tako friction pali fosfor.
+    const head_x = strikeZoneWorld.x + HEAD_OFFSET_X;
+    const slideRight = head_x + BOX_W * 0.35;
+    const slideLeft  = head_x - BOX_W * 0.25;
 
-    gsap.timeline({ onComplete: () => { state.mode = 'lit'; state.lit = true; } })
+    gsap.timeline({ onComplete: () => { state.mode = 'lit'; } })
+      // 1) Spusti \u0161ibicu na strip (glava na desnom kraju strip-a)
       .to(matchGroup.position, {
-        x: strikeZoneWorld.x + BOX_W * 0.2, y: strikeZoneWorld.y + 0.1, z: strikeZoneWorld.z,
-        duration: 0.12, ease: 'power2.out'
+        x: slideRight, y: strikeZoneWorld.y + 0.06, z: strikeZoneWorld.z,
+        duration: 0.13, ease: 'power2.out'
       })
+      // 2) Brz slide ULEVO preko strip-a (kresanje) sa malim tilt-om
       .to(matchGroup.position, {
-        x: strikeZoneWorld.x - BOX_W * 0.3, y: strikeZoneWorld.y + 0.05, z: strikeZoneWorld.z,
-        duration: 0.22, ease: 'power2.in'
+        x: slideLeft, y: strikeZoneWorld.y + 0.03, z: strikeZoneWorld.z,
+        duration: 0.20, ease: 'power2.in'
       })
       .to(matchGroup.rotation, {
-        z: MATCH_REST_ROT_Z - 0.15, duration: 0.22, ease: 'power2.in'
+        z: MATCH_REST_ROT_Z + 0.12, duration: 0.20, ease: 'power2.in'
       }, '<')
-      .to({}, { duration: 0.05 })
+      // 3) IGNITE \u2014 plamen se pali, proximity odmah po\u010dinje raditi
       .add(() => {
         state.strikeProgress = 0;
+        state.lit = true;          // postavi ODMAH (ne tek na timeline end)
         flame.visible = true;
         flameGlow.visible = true;
       })
+      // 4) Podigni upaljenu \u0161ibicu nad kutiju i vrati rotaciju
       .to(matchGroup.position, {
-        x: endPos.x, y: endPos.y + 0.4, z: endPos.z,
+        x: head_x, y: strikeZoneWorld.y + 0.55, z: strikeZoneWorld.z + 0.05,
         duration: 0.35, ease: 'power2.out'
       })
       .to(matchGroup.rotation, {
@@ -395,10 +414,10 @@ export function initHeroMatch(scene, camera, canvas, getCigarTipWorld) {
       charred.material.emissiveIntensity = p * 0.35;
     }
 
-    // 4) Proximity-based ignition cigare — KONTINUIRANO dok je \u0161ibica blizu
+    // 4) Proximity-based ignition cigare — KONTINUIRANO dok je upaljena \u0161ibica blizu vrha
     const tip = getCigarTipWorld();
     const flameToTip = headWorld.distanceTo(tip);
-    const isClose = state.lit && flameToTip < LIGHT_DISTANCE && state.strikeProgress > 0.4;
+    const isClose = state.lit && flameToTip < LIGHT_DISTANCE;
 
     if (isClose) {
       state.ignitionProgress = Math.min(1, state.ignitionProgress + dt * IGNITE_RATE);
