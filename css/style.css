@@ -855,6 +855,17 @@ section {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
 }
+
+/* 9. (poslednja) lokacija — centralizovana, \u0161ira, istaknuta */
+.locations__list .location-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 460px);
+  border-color: rgba(201, 169, 97, 0.35);
+  background: linear-gradient(160deg, rgba(61, 40, 23, 0.55), rgba(42, 24, 16, 0.55));
+  padding: 2rem 2.25rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
 .location-card {
   padding: 1.5rem;
   border: 1px solid var(--line);
