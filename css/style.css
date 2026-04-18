@@ -360,15 +360,29 @@ section {
 }
 .hero__whisky iframe { pointer-events: none; }
 
-/* Veil koji pokriva Sketchfab hint + dno iframe-a glatkim fade-om */
+/* Veil koji pokriva Sketchfab "click & hold to rotate" hint.
+   Hint je otprilike na 65-85% visine iframe-a, centralno. */
 .hero__whisky-veil {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 4;
   background:
-    linear-gradient(180deg, transparent 0%, transparent 62%, rgba(10, 6, 5, 0.92) 100%),
-    linear-gradient(90deg, rgba(10, 6, 5, 0.6) 0%, transparent 10%, transparent 90%, rgba(10, 6, 5, 0.6) 100%);
+    linear-gradient(180deg,
+      transparent 0%,
+      transparent 55%,
+      rgba(10, 6, 5, 0.95) 72%,
+      rgba(10, 6, 5, 1) 90%);
+}
+/* Dodatni spot overlay tačno u zoni hint-a (u slu\u010daju da gradient fade nije dovoljan) */
+.hero__whisky-veil::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 62%;
+  bottom: 5%;
+  background: radial-gradient(ellipse at center 70%, rgba(10, 6, 5, 1) 0%, rgba(10, 6, 5, 0.92) 55%, transparent 100%);
 }
 
 @keyframes whiskySway {
