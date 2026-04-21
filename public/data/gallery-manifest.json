@@ -1,0 +1,569 @@
+[
+  {
+    "name": "img-001",
+    "src": "/assets/gallery/img-001.webp",
+    "thumb": "/assets/gallery/img-001-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-20-272.jpg"
+  },
+  {
+    "name": "img-002",
+    "src": "/assets/gallery/img-002.webp",
+    "thumb": "/assets/gallery/img-002-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-20-800.jpg"
+  },
+  {
+    "name": "img-003",
+    "src": "/assets/gallery/img-003.webp",
+    "thumb": "/assets/gallery/img-003-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-21-135.jpg"
+  },
+  {
+    "name": "img-004",
+    "src": "/assets/gallery/img-004.webp",
+    "thumb": "/assets/gallery/img-004-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-21-474.jpg"
+  },
+  {
+    "name": "img-005",
+    "src": "/assets/gallery/img-005.webp",
+    "thumb": "/assets/gallery/img-005-thumb.webp",
+    "width": 1600,
+    "height": 1200,
+    "portrait": false,
+    "origName": "viber_image_2026-04-21_17-10-21-868.jpg"
+  },
+  {
+    "name": "img-006",
+    "src": "/assets/gallery/img-006.webp",
+    "thumb": "/assets/gallery/img-006-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-22-487.jpg"
+  },
+  {
+    "name": "img-007",
+    "src": "/assets/gallery/img-007.webp",
+    "thumb": "/assets/gallery/img-007-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-22-850.jpg"
+  },
+  {
+    "name": "img-008",
+    "src": "/assets/gallery/img-008.webp",
+    "thumb": "/assets/gallery/img-008-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-23-211.jpg"
+  },
+  {
+    "name": "img-009",
+    "src": "/assets/gallery/img-009.webp",
+    "thumb": "/assets/gallery/img-009-thumb.webp",
+    "width": 1080,
+    "height": 1080,
+    "portrait": false,
+    "origName": "viber_image_2026-04-21_17-10-23-568.jpg"
+  },
+  {
+    "name": "img-010",
+    "src": "/assets/gallery/img-010.webp",
+    "thumb": "/assets/gallery/img-010-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-23-894.jpg"
+  },
+  {
+    "name": "img-011",
+    "src": "/assets/gallery/img-011.webp",
+    "thumb": "/assets/gallery/img-011-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-24-195.jpg"
+  },
+  {
+    "name": "img-012",
+    "src": "/assets/gallery/img-012.webp",
+    "thumb": "/assets/gallery/img-012-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-24-899.jpg"
+  },
+  {
+    "name": "img-013",
+    "src": "/assets/gallery/img-013.webp",
+    "thumb": "/assets/gallery/img-013-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-25-181.jpg"
+  },
+  {
+    "name": "img-014",
+    "src": "/assets/gallery/img-014.webp",
+    "thumb": "/assets/gallery/img-014-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-25-494.jpg"
+  },
+  {
+    "name": "img-015",
+    "src": "/assets/gallery/img-015.webp",
+    "thumb": "/assets/gallery/img-015-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-25-835.jpg"
+  },
+  {
+    "name": "img-016",
+    "src": "/assets/gallery/img-016.webp",
+    "thumb": "/assets/gallery/img-016-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-26-100.jpg"
+  },
+  {
+    "name": "img-017",
+    "src": "/assets/gallery/img-017.webp",
+    "thumb": "/assets/gallery/img-017-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-26-389.jpg"
+  },
+  {
+    "name": "img-018",
+    "src": "/assets/gallery/img-018.webp",
+    "thumb": "/assets/gallery/img-018-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-26-719.jpg"
+  },
+  {
+    "name": "img-019",
+    "src": "/assets/gallery/img-019.webp",
+    "thumb": "/assets/gallery/img-019-thumb.webp",
+    "width": 1600,
+    "height": 1200,
+    "portrait": false,
+    "origName": "viber_image_2026-04-21_17-10-26-996.jpg"
+  },
+  {
+    "name": "img-020",
+    "src": "/assets/gallery/img-020.webp",
+    "thumb": "/assets/gallery/img-020-thumb.webp",
+    "width": 1600,
+    "height": 1200,
+    "portrait": false,
+    "origName": "viber_image_2026-04-21_17-10-27-274.jpg"
+  },
+  {
+    "name": "img-021",
+    "src": "/assets/gallery/img-021.webp",
+    "thumb": "/assets/gallery/img-021-thumb.webp",
+    "width": 1600,
+    "height": 1200,
+    "portrait": false,
+    "origName": "viber_image_2026-04-21_17-10-27-557.jpg"
+  },
+  {
+    "name": "img-022",
+    "src": "/assets/gallery/img-022.webp",
+    "thumb": "/assets/gallery/img-022-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-27-839.jpg"
+  },
+  {
+    "name": "img-023",
+    "src": "/assets/gallery/img-023.webp",
+    "thumb": "/assets/gallery/img-023-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-10-28-125.jpg"
+  },
+  {
+    "name": "img-024",
+    "src": "/assets/gallery/img-024.webp",
+    "thumb": "/assets/gallery/img-024-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-20-442.jpg"
+  },
+  {
+    "name": "img-025",
+    "src": "/assets/gallery/img-025.webp",
+    "thumb": "/assets/gallery/img-025-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-20-817.jpg"
+  },
+  {
+    "name": "img-026",
+    "src": "/assets/gallery/img-026.webp",
+    "thumb": "/assets/gallery/img-026-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-21-227.jpg"
+  },
+  {
+    "name": "img-027",
+    "src": "/assets/gallery/img-027.webp",
+    "thumb": "/assets/gallery/img-027-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-21-574.jpg"
+  },
+  {
+    "name": "img-028",
+    "src": "/assets/gallery/img-028.webp",
+    "thumb": "/assets/gallery/img-028-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-21-926.jpg"
+  },
+  {
+    "name": "img-029",
+    "src": "/assets/gallery/img-029.webp",
+    "thumb": "/assets/gallery/img-029-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-23-008.jpg"
+  },
+  {
+    "name": "img-030",
+    "src": "/assets/gallery/img-030.webp",
+    "thumb": "/assets/gallery/img-030-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-23-313.jpg"
+  },
+  {
+    "name": "img-031",
+    "src": "/assets/gallery/img-031.webp",
+    "thumb": "/assets/gallery/img-031-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-23-666.jpg"
+  },
+  {
+    "name": "img-032",
+    "src": "/assets/gallery/img-032.webp",
+    "thumb": "/assets/gallery/img-032-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-23-986.jpg"
+  },
+  {
+    "name": "img-033",
+    "src": "/assets/gallery/img-033.webp",
+    "thumb": "/assets/gallery/img-033-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-24-272.jpg"
+  },
+  {
+    "name": "img-034",
+    "src": "/assets/gallery/img-034.webp",
+    "thumb": "/assets/gallery/img-034-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-24-563.jpg"
+  },
+  {
+    "name": "img-035",
+    "src": "/assets/gallery/img-035.webp",
+    "thumb": "/assets/gallery/img-035-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-24-880.jpg"
+  },
+  {
+    "name": "img-036",
+    "src": "/assets/gallery/img-036.webp",
+    "thumb": "/assets/gallery/img-036-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-25-193.jpg"
+  },
+  {
+    "name": "img-037",
+    "src": "/assets/gallery/img-037.webp",
+    "thumb": "/assets/gallery/img-037-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-25-484.jpg"
+  },
+  {
+    "name": "img-038",
+    "src": "/assets/gallery/img-038.webp",
+    "thumb": "/assets/gallery/img-038-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-25-767.jpg"
+  },
+  {
+    "name": "img-039",
+    "src": "/assets/gallery/img-039.webp",
+    "thumb": "/assets/gallery/img-039-thumb.webp",
+    "width": 1280,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-26-039.jpg"
+  },
+  {
+    "name": "img-040",
+    "src": "/assets/gallery/img-040.webp",
+    "thumb": "/assets/gallery/img-040-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-26-322.jpg"
+  },
+  {
+    "name": "img-041",
+    "src": "/assets/gallery/img-041.webp",
+    "thumb": "/assets/gallery/img-041-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-26-624.jpg"
+  },
+  {
+    "name": "img-042",
+    "src": "/assets/gallery/img-042.webp",
+    "thumb": "/assets/gallery/img-042-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-26-947.jpg"
+  },
+  {
+    "name": "img-043",
+    "src": "/assets/gallery/img-043.webp",
+    "thumb": "/assets/gallery/img-043-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-27-276.jpg"
+  },
+  {
+    "name": "img-044",
+    "src": "/assets/gallery/img-044.webp",
+    "thumb": "/assets/gallery/img-044-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-27-607.jpg"
+  },
+  {
+    "name": "img-045",
+    "src": "/assets/gallery/img-045.webp",
+    "thumb": "/assets/gallery/img-045-thumb.webp",
+    "width": 1080,
+    "height": 1350,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-27-984.jpg"
+  },
+  {
+    "name": "img-046",
+    "src": "/assets/gallery/img-046.webp",
+    "thumb": "/assets/gallery/img-046-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-28-404.jpg"
+  },
+  {
+    "name": "img-047",
+    "src": "/assets/gallery/img-047.webp",
+    "thumb": "/assets/gallery/img-047-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-28-785.jpg"
+  },
+  {
+    "name": "img-048",
+    "src": "/assets/gallery/img-048.webp",
+    "thumb": "/assets/gallery/img-048-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-11-29-117.jpg"
+  },
+  {
+    "name": "img-049",
+    "src": "/assets/gallery/img-049.webp",
+    "thumb": "/assets/gallery/img-049-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-07-146.jpg"
+  },
+  {
+    "name": "img-050",
+    "src": "/assets/gallery/img-050.webp",
+    "thumb": "/assets/gallery/img-050-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-07-484.jpg"
+  },
+  {
+    "name": "img-051",
+    "src": "/assets/gallery/img-051.webp",
+    "thumb": "/assets/gallery/img-051-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-07-788.jpg"
+  },
+  {
+    "name": "img-052",
+    "src": "/assets/gallery/img-052.webp",
+    "thumb": "/assets/gallery/img-052-thumb.webp",
+    "width": 900,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-08-157.jpg"
+  },
+  {
+    "name": "img-053",
+    "src": "/assets/gallery/img-053.webp",
+    "thumb": "/assets/gallery/img-053-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-08-477.jpg"
+  },
+  {
+    "name": "img-054",
+    "src": "/assets/gallery/img-054.webp",
+    "thumb": "/assets/gallery/img-054-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-08-829.jpg"
+  },
+  {
+    "name": "img-055",
+    "src": "/assets/gallery/img-055.webp",
+    "thumb": "/assets/gallery/img-055-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-09-140.jpg"
+  },
+  {
+    "name": "img-056",
+    "src": "/assets/gallery/img-056.webp",
+    "thumb": "/assets/gallery/img-056-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-09-469.jpg"
+  },
+  {
+    "name": "img-057",
+    "src": "/assets/gallery/img-057.webp",
+    "thumb": "/assets/gallery/img-057-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-10-354.jpg"
+  },
+  {
+    "name": "img-058",
+    "src": "/assets/gallery/img-058.webp",
+    "thumb": "/assets/gallery/img-058-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-10-662.jpg"
+  },
+  {
+    "name": "img-059",
+    "src": "/assets/gallery/img-059.webp",
+    "thumb": "/assets/gallery/img-059-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-11-274.jpg"
+  },
+  {
+    "name": "img-060",
+    "src": "/assets/gallery/img-060.webp",
+    "thumb": "/assets/gallery/img-060-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-11-875.jpg"
+  },
+  {
+    "name": "img-061",
+    "src": "/assets/gallery/img-061.webp",
+    "thumb": "/assets/gallery/img-061-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-12-158.jpg"
+  },
+  {
+    "name": "img-062",
+    "src": "/assets/gallery/img-062.webp",
+    "thumb": "/assets/gallery/img-062-thumb.webp",
+    "width": 1200,
+    "height": 1600,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-12-492.jpg"
+  },
+  {
+    "name": "img-063",
+    "src": "/assets/gallery/img-063.webp",
+    "thumb": "/assets/gallery/img-063-thumb.webp",
+    "width": 738,
+    "height": 1599,
+    "portrait": true,
+    "origName": "viber_image_2026-04-21_17-12-14-389.jpg"
+  }
+]

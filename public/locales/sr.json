@@ -9,25 +9,39 @@
     "manifest": "Manifest",
     "origins": "Poreklo",
     "collection": "Kolekcija",
+    "brands": "Brendovi",
     "humidor": "Humidor",
     "spirits": "Pića",
+    "gallery": "Galerija",
     "locations": "Lokacije"
   },
 
   "hero": {
-    "eyebrow": "Od 2004. · Beograd",
+    "eyebrow": "Premium lanac · Beograd",
     "titleLine1": "Cigar",
     "titleLine2": "Shop",
-    "tagline": "Umetnost strpljenja, destilovana u 9 prodavnica.",
+    "tagline": "Premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.",
     "scroll": "Zapali iskustvo",
-    "drag": "Povuci cigaru — klikni šibicu da kresneš"
+    "drag": ""
   },
 
   "manifest": {
     "kicker": "Manifest",
     "title": "Umetnost strpljenja.",
     "lead": "Svaka cigara je deset godina tišine, sunca i vlažnog daha Kariba. Nismo prodavnica — mi smo nastavak tog daha.",
-    "body": "Devet prodavnica. Četiri kontinenta duvana. Jedno uverenje: dim se pali lagano, život se pije polako."
+    "body": "Devet prodavnica. Preko 70 brendova iz sedam zemalja. Jedno uverenje: dim se pali lagano, život se pije polako. Naš izbor obuhvata cigare iz Kube, Dominikane, Nikaragve, Hondurasa, Kostarike, Meksika i Italije — uz škotske, irske, japanske i orijentalne viskije, burbone, konjake, džinove, rumove, votke, rakije i vina."
+  },
+
+  "brands": {
+    "kicker": "Brendovi",
+    "title": "Od polja do humidora.",
+    "lead": "Preko 70 brendova iz sedam zemalja. Svaki je pečat regiona, dinastije i decenija strpljenja. Biraj region — otkrij priču."
+  },
+
+  "gallery": {
+    "kicker": "Galerija",
+    "title": "Ritual zatvoren u kadru.",
+    "lead": "Kutije, vrhovi, žar, humidor — trenutci koji se ne mogu opisati rečima."
   },
 
   "origins": {

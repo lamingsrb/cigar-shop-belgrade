@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3)",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,codec_name -of csv=p=0 \"C:/AI/AI_Assistant/AI_Assistant_Projects/CigarShop/Media RAW/Images and Videos/0-02-05-1556fb5d0456cd673a33661967b9a2fcf1797bb88fdc646eb4d6b5ceeb540067_36cffc238c50bbf7.mp4\")",
+      "Bash(pdfinfo \"C:/AI/AI_Assistant/AI_Assistant_Projects/CigarShop/Media RAW/CIGAR SHOP - lOGO.pdf\")",
+      "Bash(file *.xlsx)",
+      "Bash(unzip -l \"SPISAK CIGARA.xlsx\")",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,duration -of csv=p=0 \"/c/AI/AI_Assistant/AI_Assistant_Projects/PredatorLaserTag/public/assets/video/showreel.mp4\")",
+      "Read(//c/AI/AI_Assistant/AI_Assistant_Projects/CigarShop/**)",
+      "Bash(where magick *)",
+      "Bash(where ffmpeg *)",
+      "Bash(where pdftoppm *)",
+      "Bash(node scripts/extract-logo.mjs)",
+      "Bash(node scripts/optimize-images.mjs)",
+      "Bash(node scripts/parse-brands.mjs)",
+      "Bash(node scripts/build-hero-video.mjs)",
+      "Bash(node -e \"const d=require\\('./public/data/brands.json'\\); for\\(const [r,cat] of Object.entries\\(d.cigars\\)\\) console.log\\('CIGARS/'+r+':', cat.brands.map\\(b=>b.brand+'\\('+b.count+'\\)'\\).join\\(', '\\)\\); for\\(const [r,cat] of Object.entries\\(d.spirits\\)\\) console.log\\('SPIRITS/'+r+':', cat.brands.map\\(b=>b.brand+'\\('+b.count+'\\)'\\).join\\(', '\\)\\)\")",
+      "Bash(git -c user.email=lamingsrb@users.noreply.github.com -c user.name=lamingsrb commit -m ' *)"
+    ]
+  }
+}

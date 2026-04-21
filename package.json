@@ -10,20 +10,24 @@
     "preview": "vite preview --port 5174 --open"
   },
   "devDependencies": {
+    "exceljs": "^4.4.0",
+    "ffmpeg-static": "^5.3.0",
+    "pdf-to-img": "^6.0.0",
+    "sharp": "^0.34.5",
     "vite": "^5.4.11"
   },
   "dependencies": {
-    "three": "^0.170.0",
     "gsap": "^3.12.5",
-    "lenis": "^1.1.18",
     "howler": "^2.2.4",
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "lenis": "^1.1.18",
+    "three": "^0.170.0"
   },
   "optionalDependencies": {
+    "@rollup/rollup-darwin-arm64": "^4.24.0",
+    "@rollup/rollup-darwin-x64": "^4.24.0",
     "@rollup/rollup-linux-x64-gnu": "^4.24.0",
     "@rollup/rollup-linux-x64-musl": "^4.24.0",
-    "@rollup/rollup-win32-x64-msvc": "^4.24.0",
-    "@rollup/rollup-darwin-x64": "^4.24.0",
-    "@rollup/rollup-darwin-arm64": "^4.24.0"
+    "@rollup/rollup-win32-x64-msvc": "^4.24.0"
   }
 }

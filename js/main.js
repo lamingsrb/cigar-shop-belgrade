@@ -11,8 +11,10 @@ import { initI18n, t } from './i18n.js';
 import { runLoader } from './loader.js';
 import { initCursor } from './cursor.js';
 import { initAudio } from './audio.js';
-import { initHeroCigar } from './hero-cigar.js';
 import { initGlobeOrigins } from './globe-origins.js';
+import { initGallery } from './gallery.js';
+import { initLightbox } from './lightbox.js';
+import { initBrands } from './brands.js';
 import { initHumidorScene } from './humidor-scene.js';
 import { initLocationsMap } from './locations-map.js';
 import { initScrollBurn } from './scroll-burn.js';
@@ -202,13 +204,14 @@ async function boot() {
   initScrollSpy();
   initScrollBurn();
 
-  // 5) Three.js scenes (heavy — kick off after layout ready)
+  // 5) Gallery + Brands + Lightbox + Three.js scene (globus, humidor — idle init)
+  initGallery();
+  initLightbox();
+  initBrands();
   requestIdleCallback?.(() => {
-    initHeroCigar();
     initGlobeOrigins();
     initHumidorScene();
   }) || setTimeout(() => {
-    initHeroCigar();
     initGlobeOrigins();
     initHumidorScene();
   }, 100);

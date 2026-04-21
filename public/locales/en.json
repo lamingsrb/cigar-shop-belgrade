@@ -9,25 +9,39 @@
     "manifest": "Manifest",
     "origins": "Origins",
     "collection": "Collection",
+    "brands": "Brands",
     "humidor": "Humidor",
     "spirits": "Spirits",
+    "gallery": "Gallery",
     "locations": "Stores"
   },
 
   "hero": {
-    "eyebrow": "Since 2004 · Belgrade",
+    "eyebrow": "Premium chain · Belgrade",
     "titleLine1": "Cigar",
     "titleLine2": "Shop",
-    "tagline": "The art of patience, distilled across 9 stores.",
+    "tagline": "A premium retail chain of the finest cigar brands, quality accessories and premium spirits.",
     "scroll": "Light the experience",
-    "drag": "Drag the cigar — click the match to strike"
+    "drag": ""
   },
 
   "manifest": {
     "kicker": "Manifest",
     "title": "The art of patience.",
     "lead": "Every cigar is ten years of silence, sun, and the humid breath of the Caribbean. We are not a shop — we are the continuation of that breath.",
-    "body": "Nine stores. Four continents of tobacco. One belief: smoke burns slowly, life is sipped even slower."
+    "body": "Nine stores. Over 70 brands from seven countries. One belief: smoke burns slowly, life is sipped even slower. Our selection includes cigars from Cuba, the Dominican Republic, Nicaragua, Honduras, Costa Rica, Mexico and Italy — alongside Scotch, Irish, Japanese and Oriental whiskies, bourbon, cognac, gin, rum, vodka, rakija and wine."
+  },
+
+  "brands": {
+    "kicker": "Brands",
+    "title": "From field to humidor.",
+    "lead": "Over 70 brands from seven countries. Each is the seal of a region, a dynasty and decades of patience. Choose a region — discover the story."
+  },
+
+  "gallery": {
+    "kicker": "Gallery",
+    "title": "The ritual, framed.",
+    "lead": "Boxes, crowns, embers, the humidor — moments words cannot describe."
   },
 
   "origins": {

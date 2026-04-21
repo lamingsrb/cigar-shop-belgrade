@@ -12,7 +12,8 @@
 
   <title data-i18n="meta.title">Cigar Shop — Umetnost strpljenja</title>
 
-  <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/logo-128.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/brand/logo-256.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,16 +47,17 @@
   <header class="header" role="banner">
     <div class="header__inner">
       <a href="#hero" class="brand" aria-label="Cigar Shop Belgrade">
-        <span class="brand__mark">CS</span>
-        <span class="brand__name">Cigar Shop</span>
+        <img class="brand__logo" src="/assets/brand/logo-128.png" alt="Cigar Shop" width="48" height="auto">
       </a>
 
       <nav class="nav" aria-label="Primary">
         <a href="#manifest" data-i18n="nav.manifest">Manifest</a>
         <a href="#origins" data-i18n="nav.origins">Poreklo</a>
         <a href="#collection" data-i18n="nav.collection">Kolekcija</a>
+        <a href="#brands" data-i18n="nav.brands">Brendovi</a>
         <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
         <a href="#spirits" data-i18n="nav.spirits">Pića</a>
+        <a href="#gallery" data-i18n="nav.gallery">Galerija</a>
         <a href="#locations" data-i18n="nav.locations">Lokacije</a>
       </nav>
 
@@ -75,15 +77,18 @@
 
   <!-- =======================  HERO  ======================= -->
   <section id="hero" class="hero" aria-label="Hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__video-wrap" aria-hidden="true">
+      <video class="hero__video" autoplay muted loop playsinline
+             preload="metadata" poster="/assets/video/hero-poster.webp">
+        <source src="/assets/video/hero.webm" type="video/webm">
+        <source src="/assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero__video-overlay"></div>
+    </div>
     <div class="hero__vignette" aria-hidden="true"></div>
     <div class="hero__content">
+      <img class="hero__logo" src="/assets/brand/logo-512.png" alt="Cigar Shop" width="320" height="auto">
       <p class="hero__eyebrow" data-i18n="hero.eyebrow">Od 2004. · Beograd</p>
-      <h1 class="hero__title foil">
-        <span data-i18n="hero.titleLine1">CIGAR</span>
-        <span data-i18n="hero.titleLine2">SHOP</span>
-      </h1>
       <p class="hero__tagline" data-i18n="hero.tagline">
         Umetnost strpljenja, destilovana u 9 prodavnica.
       </p>
@@ -148,6 +153,20 @@
     <div class="bento collection__bento" id="collection-bento"></div>
   </section>
 
+  <!-- =======================  BRANDS  ======================= -->
+  <section id="brands" class="brands" aria-label="Brands">
+    <div class="section__header">
+      <p class="kicker" data-i18n="brands.kicker">Brendovi</p>
+      <h2 class="heading-display" data-i18n="brands.title">Od polja do humidora.</h2>
+      <p class="lead" data-i18n="brands.lead">
+        Preko 70 brendova iz sedam zemalja. Svaki je pečat regiona,
+        dinastije i decenija strpljenja. Biraj region — otkrij priču.
+      </p>
+    </div>
+    <div class="brands__tabs" id="brands-tabs" role="tablist"></div>
+    <div class="brands__grid" id="brands-grid"></div>
+  </section>
+
   <!-- =======================  HUMIDOR  ======================= -->
   <section id="humidor" class="humidor" aria-label="Humidor">
     <canvas id="humidor-canvas" class="humidor__canvas" aria-hidden="true"></canvas>
@@ -201,6 +220,28 @@
     </div>
   </section>
 
+  <!-- =======================  GALLERY  ======================= -->
+  <section id="gallery" class="gallery" aria-label="Gallery">
+    <div class="section__header">
+      <p class="kicker" data-i18n="gallery.kicker">Galerija</p>
+      <h2 class="heading-display" data-i18n="gallery.title">Ritual zatvoren u kadru.</h2>
+      <p class="lead" data-i18n="gallery.lead">
+        Kutije, vrhovi, žar, humidor — trenutci koji se ne mogu opisati rečima.
+      </p>
+    </div>
+    <div class="masonry-stage">
+      <button class="masonry-nav masonry-prev" id="gallery-prev" aria-label="Prethodna">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="masonry">
+        <div class="masonry-track" id="gallery-track"></div>
+      </div>
+      <button class="masonry-nav masonry-next" id="gallery-next" aria-label="Sledeća">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
   <!-- =======================  LOCATIONS  ======================= -->
   <section id="locations" class="locations" aria-label="Locations">
     <div class="section__header">
@@ -247,8 +288,7 @@
   <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div class="footer__brand">
-        <span class="brand__mark">CS</span>
-        <span class="brand__name">Cigar Shop Belgrade</span>
+        <img class="footer__logo" src="/assets/brand/logo-256.png" alt="Cigar Shop Belgrade" width="160" height="auto">
         <p class="footer__tag" data-i18n="footer.tag">Umetnost strpljenja, 9 lokacija.</p>
       </div>
       <div class="footer__col">
@@ -271,6 +311,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- =======================  LIGHTBOX MODAL  ======================= -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Gallery lightbox">
+    <button class="lightbox-close" aria-label="Zatvori">×</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Prethodna">‹</button>
+    <button class="lightbox-nav lightbox-next" aria-label="Sledeća">›</button>
+    <div class="lightbox-stage"></div>
+    <div class="lightbox-bottom">
+      <div class="lightbox-caption"></div>
+      <div class="lightbox-counter"><span id="lb-current">1</span><span class="lb-sep">/</span><span id="lb-total">1</span></div>
+    </div>
+  </div>
 
   <!-- =======================  CURSOR  ======================= -->
   <div id="cursor" class="cursor" aria-hidden="true">

@@ -1,0 +1,761 @@
+{
+  "cigars": {
+    "cuba": {
+      "sheet": "KUBA",
+      "totalItems": 142,
+      "brands": [
+        {
+          "brand": "COHIBA",
+          "count": 21,
+          "samples": [
+            "COHIBA",
+            "COHIBA",
+            "COHIBA"
+          ]
+        },
+        {
+          "brand": "MONTECRISTO",
+          "count": 19,
+          "samples": [
+            "MONTECRISTO",
+            "MONTECRISTO",
+            "MONTECRISTO"
+          ]
+        },
+        {
+          "brand": "PARTAGAS",
+          "count": 16,
+          "samples": [
+            "PARTAGAS",
+            "PARTAGAS",
+            "PARTAGAS"
+          ]
+        },
+        {
+          "brand": "ROMEO Y JULIETA",
+          "count": 11,
+          "samples": [
+            "ROMEO Y JULIETA",
+            "ROMEO Y JULIETA",
+            "ROMEO Y JULIETA"
+          ]
+        },
+        {
+          "brand": "H. UPMANN",
+          "count": 7,
+          "samples": [
+            "H. UPMANN",
+            "H. UPMANN",
+            "H. UPMANN"
+          ]
+        },
+        {
+          "brand": "HOYO DE MONTEREY",
+          "count": 6,
+          "samples": [
+            "HOYO DE MONTEREY",
+            "HOYO DE MONTEREY",
+            "HOYO DE MONTEREY"
+          ]
+        },
+        {
+          "brand": "TRINIDAD",
+          "count": 6,
+          "samples": [
+            "TRINIDAD",
+            "TRINIDAD",
+            "TRINIDAD"
+          ]
+        },
+        {
+          "brand": "BOLIVAR",
+          "count": 5,
+          "samples": [
+            "BOLIVAR",
+            "BOLIVAR",
+            "BOLIVAR"
+          ]
+        },
+        {
+          "brand": "JOSE L. PIEDRA",
+          "count": 5,
+          "samples": [
+            "JOSE L. PIEDRA",
+            "JOSE L. PIEDRA",
+            "JOSE L. PIEDRA"
+          ]
+        },
+        {
+          "brand": "RAMON ALLONES",
+          "count": 5,
+          "samples": [
+            "RAMON ALLONES",
+            "RAMON ALLONES",
+            "RAMON ALLONES"
+          ]
+        },
+        {
+          "brand": "VEGUEROS",
+          "count": 5,
+          "samples": [
+            "VEGUEROS",
+            "VEGUEROS",
+            "VEGUEROS"
+          ]
+        },
+        {
+          "brand": "CUABA",
+          "count": 4,
+          "samples": [
+            "CUABA",
+            "CUABA",
+            "CUABA"
+          ]
+        },
+        {
+          "brand": "EL REY DEL MUNDO",
+          "count": 4,
+          "samples": [
+            "EL REY DEL MUNDO",
+            "EL REY DEL MUNDO",
+            "EL REY DEL MUNDO"
+          ]
+        },
+        {
+          "brand": "GUANTANAMERA",
+          "count": 4,
+          "samples": [
+            "GUANTANAMERA",
+            "GUANTANAMERA",
+            "GUANTANAMERA"
+          ]
+        },
+        {
+          "brand": "JUAN LOPEZ",
+          "count": 4,
+          "samples": [
+            "JUAN LOPEZ",
+            "JUAN LOPEZ",
+            "JUAN LOPEZ"
+          ]
+        },
+        {
+          "brand": "PUNCH",
+          "count": 4,
+          "samples": [
+            "PUNCH",
+            "PUNCH",
+            "PUNCH"
+          ]
+        },
+        {
+          "brand": "RAFAEL GONZALES",
+          "count": 4,
+          "samples": [
+            "RAFAEL GONZALES",
+            "RAFAEL GONZALES",
+            "RAFAEL GONZALES"
+          ]
+        },
+        {
+          "brand": "POR LARRANAGA",
+          "count": 3,
+          "samples": [
+            "POR LARRANAGA",
+            "POR LARRANAGA",
+            "POR LARRANAGA"
+          ]
+        },
+        {
+          "brand": "QUAI D' ORSAY",
+          "count": 3,
+          "samples": [
+            "QUAI D' ORSAY",
+            "QUAI D' ORSAY",
+            "QUAI D' ORSAY"
+          ]
+        },
+        {
+          "brand": "QUINTERO",
+          "count": 3,
+          "samples": [
+            "QUINTERO",
+            "QUINTERO",
+            "QUINTERO"
+          ]
+        },
+        {
+          "brand": "SAN CRISTOBAL",
+          "count": 3,
+          "samples": [
+            "SAN CRISTOBAL",
+            "SAN CRISTOBAL",
+            "SAN CRISTOBAL"
+          ]
+        }
+      ]
+    },
+    "dominican": {
+      "sheet": "DOMINIKANA",
+      "totalItems": 155,
+      "brands": [
+        {
+          "brand": "DAVIDOFF",
+          "count": 55,
+          "samples": [
+            "DAVIDOFF",
+            "DAVIDOFF",
+            "DAVIDOFF"
+          ]
+        },
+        {
+          "brand": "VILLIGER",
+          "count": 34,
+          "samples": [
+            "VILLIGER",
+            "VILLIGER",
+            "VILLIGER"
+          ]
+        },
+        {
+          "brand": "DREW ESTATE",
+          "count": 19,
+          "samples": [
+            "DREW ESTATE",
+            "DREW ESTATE",
+            "DREW ESTATE"
+          ]
+        },
+        {
+          "brand": "GURKHA",
+          "count": 16,
+          "samples": [
+            "GURKHA",
+            "GURKHA",
+            "GURKHA"
+          ]
+        },
+        {
+          "brand": "E. P. CARILLO",
+          "count": 13,
+          "samples": [
+            "E. P. CARILLO",
+            "E. P. CARILLO",
+            "E. P. CARILLO"
+          ]
+        },
+        {
+          "brand": "ASHTON",
+          "count": 6,
+          "samples": [
+            "ASHTON",
+            "ASHTON",
+            "ASHTON"
+          ]
+        },
+        {
+          "brand": "BOSSNER",
+          "count": 6,
+          "samples": [
+            "BOSSNER",
+            "BOSSNER",
+            "BOSSNER"
+          ]
+        },
+        {
+          "brand": "HIRAM & SOLOMON",
+          "count": 6,
+          "samples": [
+            "HIRAM & SOLOMON",
+            "HIRAM & SOLOMON",
+            "HIRAM & SOLOMON"
+          ]
+        }
+      ]
+    },
+    "nicaragua": {
+      "sheet": "NIKARAGVA",
+      "totalItems": 113,
+      "brands": [
+        {
+          "brand": "J. C. NEWMAN",
+          "count": 36,
+          "samples": [
+            "J. C. NEWMAN",
+            "J. C. NEWMAN",
+            "J. C. NEWMAN"
+          ]
+        },
+        {
+          "brand": "PLASENCIA",
+          "count": 20,
+          "samples": [
+            "PLASENCIA",
+            "PLASENCIA",
+            "PLASENCIA"
+          ]
+        },
+        {
+          "brand": "DESPOT",
+          "count": 17,
+          "samples": [
+            "DESPOT",
+            "DESPOT",
+            "DESPOT"
+          ]
+        },
+        {
+          "brand": "JOYA DE NICARAGUA",
+          "count": 9,
+          "samples": [
+            "JOYA DE NICARAGUA",
+            "JOYA DE NICARAGUA",
+            "JOYA DE NICARAGUA"
+          ]
+        },
+        {
+          "brand": "MONTENEGRO",
+          "count": 9,
+          "samples": [
+            "MONTENEGRO",
+            "MONTENEGRO",
+            "MONTENEGRO"
+          ]
+        },
+        {
+          "brand": "LAZAR",
+          "count": 8,
+          "samples": [
+            "LAZAR",
+            "LAZAR",
+            "LAZAR"
+          ]
+        },
+        {
+          "brand": "HORACIO",
+          "count": 7,
+          "samples": [
+            "HORACIO",
+            "HORACIO",
+            "HORACIO"
+          ]
+        },
+        {
+          "brand": "LA ROSA DE SAN DIEGO",
+          "count": 4,
+          "samples": [
+            "LA ROSA DE SAN DIEGO",
+            "LA ROSA DE SAN DIEGO",
+            "LA ROSA DE SAN DIEGO"
+          ]
+        },
+        {
+          "brand": "CORLEONE",
+          "count": 3,
+          "samples": [
+            "CORLEONE",
+            "CORLEONE",
+            "CORLEONE"
+          ]
+        }
+      ]
+    },
+    "honduras": {
+      "sheet": "HONDURAS",
+      "totalItems": 17,
+      "brands": [
+        {
+          "brand": "MAYA SELVA",
+          "count": 10,
+          "samples": [
+            "MAYA SELVA",
+            "MAYA SELVA",
+            "MAYA SELVA"
+          ]
+        },
+        {
+          "brand": "JULIO R. EIROA",
+          "count": 4,
+          "samples": [
+            "JULIO R. EIROA",
+            "JULIO R. EIROA",
+            "JULIO R. EIROA"
+          ]
+        },
+        {
+          "brand": "LA FLOR DE COPAN",
+          "count": 3,
+          "samples": [
+            "LA FLOR DE COPAN",
+            "LA FLOR DE COPAN",
+            "LA FLOR DE COPAN"
+          ]
+        }
+      ]
+    },
+    "costa": {
+      "sheet": "KOSTARIKA",
+      "totalItems": 11,
+      "brands": [
+        {
+          "brand": "BRUN DEL RE",
+          "count": 7,
+          "samples": [
+            "BRUN DEL RE",
+            "BRUN DEL RE",
+            "BRUN DEL RE"
+          ]
+        },
+        {
+          "brand": "EL SEPTIMO",
+          "count": 4,
+          "samples": [
+            "EL SEPTIMO",
+            "EL SEPTIMO",
+            "EL SEPTIMO"
+          ]
+        }
+      ]
+    },
+    "mexico": {
+      "sheet": "MEKSIKO",
+      "totalItems": 12,
+      "brands": [
+        {
+          "brand": "CASA TURENT",
+          "count": 12,
+          "samples": [
+            "CASA TURENT",
+            "CASA TURENT",
+            "CASA TURENT"
+          ]
+        }
+      ]
+    },
+    "italy": {
+      "sheet": "ITALIJA",
+      "totalItems": 27,
+      "brands": [
+        {
+          "brand": "TOSCANO",
+          "count": 17,
+          "samples": [
+            "TOSCANO",
+            "TOSCANO",
+            "TOSCANO"
+          ]
+        },
+        {
+          "brand": "NOSTRANO",
+          "count": 10,
+          "samples": [
+            "NOSTRANO",
+            "NOSTRANO",
+            "NOSTRANO"
+          ]
+        }
+      ]
+    }
+  },
+  "spirits": {
+    "whisky": {
+      "sheet": "VISKI",
+      "totalItems": 101,
+      "brands": [
+        {
+          "brand": "ŠKOTSKI",
+          "count": 48,
+          "samples": [
+            "ŠKOTSKI",
+            "ŠKOTSKI",
+            "ŠKOTSKI"
+          ]
+        },
+        {
+          "brand": "JAPANSKI",
+          "count": 17,
+          "samples": [
+            "JAPANSKI",
+            "JAPANSKI",
+            "JAPANSKI"
+          ]
+        },
+        {
+          "brand": "IRSKI",
+          "count": 9,
+          "samples": [
+            "IRSKI",
+            "IRSKI",
+            "IRSKI"
+          ]
+        },
+        {
+          "brand": "VELŠKI",
+          "count": 4,
+          "samples": [
+            "VELŠKI",
+            "VELŠKI",
+            "VELŠKI"
+          ]
+        },
+        {
+          "brand": "KENTAKI",
+          "count": 4,
+          "samples": [
+            "KENTAKI",
+            "KENTAKI",
+            "KENTAKI"
+          ]
+        },
+        {
+          "brand": "TAJVANSKI",
+          "count": 4,
+          "samples": [
+            "TAJVANSKI",
+            "TAJVANSKI",
+            "TAJVANSKI"
+          ]
+        },
+        {
+          "brand": "KANADSKI",
+          "count": 3,
+          "samples": [
+            "KANADSKI",
+            "KANADSKI",
+            "KANADSKI"
+          ]
+        },
+        {
+          "brand": "AUSTRALIJSKI",
+          "count": 3,
+          "samples": [
+            "AUSTRALIJSKI",
+            "AUSTRALIJSKI",
+            "AUSTRALIJSKI"
+          ]
+        },
+        {
+          "brand": "INDIJSKI",
+          "count": 3,
+          "samples": [
+            "INDIJSKI",
+            "INDIJSKI",
+            "INDIJSKI"
+          ]
+        },
+        {
+          "brand": "IZRAELSKI",
+          "count": 3,
+          "samples": [
+            "IZRAELSKI",
+            "IZRAELSKI",
+            "IZRAELSKI"
+          ]
+        },
+        {
+          "brand": "ITALIJANSKI",
+          "count": 3,
+          "samples": [
+            "ITALIJANSKI",
+            "ITALIJANSKI",
+            "ITALIJANSKI"
+          ]
+        }
+      ]
+    },
+    "bourbon": {
+      "sheet": "BURBON",
+      "totalItems": 12,
+      "brands": [
+        {
+          "brand": "KENTAKI",
+          "count": 12,
+          "samples": [
+            "KENTAKI",
+            "KENTAKI",
+            "KENTAKI"
+          ]
+        }
+      ]
+    },
+    "cognac": {
+      "sheet": "KONJAK",
+      "totalItems": 16,
+      "brands": [
+        {
+          "brand": "FRANCUSKI",
+          "count": 12,
+          "samples": [
+            "FRANCUSKI",
+            "FRANCUSKI",
+            "FRANCUSKI"
+          ]
+        },
+        {
+          "brand": "JERMENSKI",
+          "count": 4,
+          "samples": [
+            "JERMENSKI",
+            "JERMENSKI",
+            "JERMENSKI"
+          ]
+        }
+      ]
+    },
+    "gin": {
+      "sheet": "DŽIN",
+      "totalItems": 22,
+      "brands": [
+        {
+          "brand": "ŠKOTSKI",
+          "count": 5,
+          "samples": [
+            "ŠKOTSKI",
+            "ŠKOTSKI",
+            "ŠKOTSKI"
+          ]
+        },
+        {
+          "brand": "ENGLESKI",
+          "count": 4,
+          "samples": [
+            "ENGLESKI",
+            "ENGLESKI",
+            "ENGLESKI"
+          ]
+        },
+        {
+          "brand": "FRANCUSKI",
+          "count": 4,
+          "samples": [
+            "FRANCUSKI",
+            "FRANCUSKI",
+            "FRANCUSKI"
+          ]
+        },
+        {
+          "brand": "NEMAČKI",
+          "count": 3,
+          "samples": [
+            "NEMAČKI",
+            "NEMAČKI",
+            "NEMAČKI"
+          ]
+        },
+        {
+          "brand": "JAPANSKI",
+          "count": 3,
+          "samples": [
+            "JAPANSKI",
+            "JAPANSKI",
+            "JAPANSKI"
+          ]
+        },
+        {
+          "brand": "SRPSKI",
+          "count": 3,
+          "samples": [
+            "SRPSKI",
+            "SRPSKI",
+            "SRPSKI"
+          ]
+        }
+      ]
+    },
+    "rum": {
+      "sheet": "RUM",
+      "totalItems": 11,
+      "brands": [
+        {
+          "brand": "VENECUELA",
+          "count": 5,
+          "samples": [
+            "VENECUELA",
+            "VENECUELA",
+            "VENECUELA"
+          ]
+        },
+        {
+          "brand": "KARIBI",
+          "count": 3,
+          "samples": [
+            "KARIBI",
+            "KARIBI",
+            "KARIBI"
+          ]
+        },
+        {
+          "brand": "GVATEMALA",
+          "count": 3,
+          "samples": [
+            "GVATEMALA",
+            "GVATEMALA",
+            "GVATEMALA"
+          ]
+        }
+      ]
+    },
+    "vodka": {
+      "sheet": "VOTKA",
+      "totalItems": 5,
+      "brands": [
+        {
+          "brand": "RUSIJA",
+          "count": 5,
+          "samples": [
+            "RUSIJA",
+            "RUSIJA",
+            "RUSIJA"
+          ]
+        }
+      ]
+    },
+    "rakija": {
+      "sheet": "RAKIJE",
+      "totalItems": 28,
+      "brands": [
+        {
+          "brand": "SRBIJA",
+          "count": 28,
+          "samples": [
+            "SRBIJA",
+            "SRBIJA",
+            "SRBIJA"
+          ]
+        }
+      ]
+    },
+    "wine": {
+      "sheet": "VINO",
+      "totalItems": 9,
+      "brands": [
+        {
+          "brand": "FRANCUSKA",
+          "count": 5,
+          "samples": [
+            "FRANCUSKA",
+            "FRANCUSKA",
+            "FRANCUSKA"
+          ]
+        },
+        {
+          "brand": "SRBIJA",
+          "count": 3,
+          "samples": [
+            "SRBIJA",
+            "SRBIJA",
+            "SRBIJA"
+          ]
+        },
+        {
+          "brand": "VINO",
+          "count": 1,
+          "samples": [
+            "VINO"
+          ]
+        }
+      ]
+    }
+  },
+  "generatedAt": "2026-04-21T15:51:12.536Z"
+}

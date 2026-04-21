@@ -1,0 +1,100 @@
+{
+  "cuba": {
+    "regionName": "Kuba",
+    "regionStory": "Vuelta Abajo — mati\u010dna dolina svih cigara. Vulkansko tlo, tropski vazduh i ruke koje rolanju u\u010de generacijama.",
+    "brands": {
+      "COHIBA": "Najprestižniji kubanski brend. Prvobitno rezervisan za Fidela Castra i diplomatske poklone — danas ikona luksuza koju prepoznaje ceo svet.",
+      "MONTECRISTO": "Osnovan 1935, inspirisan Dumasovim romanom. Legendarni balansirani profil koji drži reputaciju decenijama.",
+      "PARTAGAS": "Od 1845 — najstarija kubanska fabrika. Snažne, pune cigare sa zemljastim i nutty notama.",
+      "ROMEO Y JULIETA": "Od 1875. Širok spektar kalibara — od mirnih medijuma do punih Churchilla koje je obožavao Winston Churchill.",
+      "H. UPMANN": "Herman Upmann, nema\u010dki bankar, doneo je 1844. evropsku preciznost kubanskom duvanu.",
+      "HOYO DE MONTEREY": "Lagani, medeni profil iz San Juan y Martinez regije. Klasik za jutarnji ritual uz espresso.",
+      "TRINIDAD": "Do 1998. bio je dostupan samo diplomatama. Danas \u2014 rafinirani, elegantni kubanski šarm.",
+      "BOLIVAR": "Jedan od najpunijih kubanskih brendova. Koža, zemlja i ugljen u svakom dimu \u2014 za one koji vole snagu.",
+      "JOSE L. PIEDRA": "Iskrena kubanska klasika. Direktan, zemljan profil bez pretenzija.",
+      "RAMON ALLONES": "Od 1837. Španski stil u kubanskoj tradiciji \u2014 bogat, kremasti dim sa notama drveta.",
+      "VEGUEROS": "Mla\u0111i brend iz samog srca Pinar del Rio. Svež, vedar profil za neforsiranu cigaru.",
+      "CUABA": "Prvi kubanski brend sa double figurado formatom \u2014 špicevi na oba kraja. Rolovan u jednoj fabrici, mala količina godišnje.",
+      "EL REY DEL MUNDO": "'Kralj sveta' u prevodu. Elegantan, blag i izrazito aromatičan \u2014 za dane kada se cigara pijucka, ne puši.",
+      "GUANTANAMERA": "Pristupa\u010dan ulaz u svet Habanosa. Mla\u0111i duvan, sve\u017ea aroma \u2014 idealan za prvi ritual.",
+      "JUAN LOPEZ": "Boutique brend od 1876. Retko vi\u0111en izvan Kube, a među connoisseurs-ima izuzetno cenjen.",
+      "PUNCH": "Od 1840. Originalno pravljen za Britance \u2014 robustan, rustikalan stil.",
+      "RAFAEL GONZALES": "Klasi\u010dan Marevas profil. Lagan, cvetan, kreiran za konzumaciju u \u0161irokom spektru doba dana.",
+      "POR LARRANAGA": "Od 1834. Tre\u0107a najstarija kubanska mar\u0107a \u2014 glatki, mirni karakter.",
+      "QUAI D' ORSAY": "Kreiran 1973. za francusko tr\u017ei\u0161te. Francuska tradicija u kubanskom srcu.",
+      "QUINTERO": "Pristupa\u010dan, iskren brand. Vredan dim bez cene Cohibe.",
+      "SAN CRISTOBAL": "Mla\u0111i kubanski brend (1999), sa nazivima po \u010detiri utvrde Havane. Rafinirano modernije."
+    }
+  },
+  "dominican": {
+    "regionName": "Dominikana",
+    "regionStory": "Cibao dolina \u2014 balans koji je pretvorio Dominikanu u najvećeg proizvo\u0111a\u010da premium cigara na svetu. Kremasti, diplomatski profili.",
+    "brands": {
+      "DAVIDOFF": "Zino Davidoff je po\u010deo u Ženevi, sara\u0111ivao sa Kubancima, pa 1991. preneo ku\u0107u u Dominikanu. Danas \u2014 svetski sinonim za premium i preciznost.",
+      "VILLIGER": "Švajcarska porodi\u010dna firma od 1888. Alpsku preciznost primenjuju na karipski duvan.",
+      "DREW ESTATE": "Moderni inovatori iz Miamija. Acid, Undercrown, Liga Privada \u2014 redefinisali su šta cigara mo\u017ee biti u 21. veku.",
+      "GURKHA": "Nepalski Gurkha ratnici su im inspiracija. Proizvo\u0111a\u010d ekskluzivnih, \u010desto ekscentri\u010dnih linija \u2014 His Majesty's Reserve je jedna od najskupljih cigara ikada prodatih.",
+      "E. P. CARILLO": "Ernesto Perez-Carrillo, legenda industrije. Njegovi blendovi se pamte, njegovi formati se kopiraju.",
+      "ASHTON": "Rolovano u Fuente fabrici od 1985. Elegantan, predvidljiv kvalitet koji nikada ne razo\u010darava.",
+      "BOSSNER": "Boutique nema\u010dka ku\u0107a. Mala proizvodnja, velika pa\u017enja na detalje.",
+      "HIRAM & SOLOMON": "Masonski inspirisan brand sa ceremonijalnom estetikom. Rafiniran i konzistentan."
+    }
+  },
+  "nicaragua": {
+    "regionName": "Nikaragva",
+    "regionStory": "Vulkansko tlo Estelí i Jalapa regije daje duvan sa tamom \u2014 papreno, zemljasto, izraženo. Alternative Kubi sa sopstvenim karakterom.",
+    "brands": {
+      "J. C. NEWMAN": "Najstarija ameri\u010dka cigar porodica (od 1895). \u010cetvrta generacija vodi kompaniju iz Tampe \u2014 \u010cuvari tradicije.",
+      "PLASENCIA": "Vlasnici najve\u0107ih plantaža u Nikaragvi. Proizvode i za mnoge druge brendove \u2014 ali njihova sopstvena linija se isti\u010de.",
+      "DESPOT": "Moderni nikaragvanski brand. Izra\u017een, punih aroma za ljubitelje jakih profila.",
+      "JOYA DE NICARAGUA": "Prva cigar fabrika u Nikaragvi (1968). Nacionalna ikona \u2014 Joya Antaño je klasik medju classicsima.",
+      "MONTENEGRO": "Sveži nikaragvanski brand. Balansira snagu i eleganciju \u2014 za moderne puša\u010de.",
+      "LAZAR": "Niche brand koji pažljivo gradi reputaciju. Rucno rola, ograni\u010dene serije.",
+      "HORACIO": "Spanski dizajn, nikaragvansko srce. Elegantne kutije i strog kvaliteta kontrolе.",
+      "LA ROSA DE SAN DIEGO": "Butique, mala proizvodnja, ručno biran duvan.",
+      "CORLEONE": "Gangsterska referenca, ali ozbiljan duvan. Punoća i karakter."
+    }
+  },
+  "honduras": {
+    "regionName": "Honduras",
+    "regionStory": "Jamastran i Copán \u2014 topli, ora\u0161asti profili sa notama kože i pe\u010denog hleba. Drugi \u010dvor karipskog cigar sveta.",
+    "brands": {
+      "MAYA SELVA": "Osnovnica Maya Selva Cigars \u2014 \u017eena vizionarka u industriji dominiranoj mu\u0161karcima. Dominantan honduraški brand sa francuskom finoćom.",
+      "JULIO R. EIROA": "Porodična tradicija \u2014 Eiroa familia je imala duvanska polja generacijama.",
+      "LA FLOR DE COPAN": "Klasik Honduras cigara. Mekani, balansirani, pouzdani."
+    }
+  },
+  "costa": {
+    "regionName": "Kostarika",
+    "regionStory": "Turrialba i okolne doline \u2014 ne\u017eni, mineralni tonovi. Savršen za jutarnji ritual uz espresso.",
+    "brands": {
+      "BRUN DEL RE": "Italijansko-kostarikanska porodica. Boutique kolekcija \u2014 evropska senzibilnost, latino temperament.",
+      "EL SEPTIMO": "Ultra-premium brand. Sedam procesa, sedma godina fermentacije, sedma umetnost."
+    }
+  },
+  "mexico": {
+    "regionName": "Meksiko",
+    "regionStory": "San Andrés Negro \u2014 neobavezan, slatko-gorki omota\u010d koji mnogi blendovi koriste. Meksiko je tih, ali vredan.",
+    "brands": {
+      "CASA TURENT": "Dom porodice Turrent, \u010detvrta generacija meksi\u010dkih proizvo\u0111a\u010da. Sveža, balansirana linija."
+    }
+  },
+  "italy": {
+    "regionName": "Italija",
+    "regionStory": "Toskana \u2014 jedina evropska regija sa istinski samosvojnom cigar tradicijom. Kentaki duvan, italijanska ruka.",
+    "brands": {
+      "TOSCANO": "Jedina istinski italijanska cigara, od 1818. Kentaki duvan uzgojen i proizveden u Toskani. Druga\u010dija po svemu \u2014 pa opet klasi\u010dna.",
+      "NOSTRANO": "Naslednik klasi\u010dnog toskanskog stila \u2014 rustikalan, iskren, sa karakterom italijanskog sela."
+    }
+  },
+  "spirits": {
+    "whisky":   { "story": "Škotska, Japan, Irska, Vels, Kentaki, Tajvan \u2014 viski je svetska reč za strpljenje. Naša polica nosi preko 100 ekspresija iz 11 zemalja." },
+    "bourbon":  { "story": "Kentaki \u2014 karamela, vanila i bela hrastovina. 12 izabranih ekspresija za ljubitelje ameri\u010dkog stila." },
+    "cognac":   { "story": "Francuska Charente i jermenske brda. Cognac i Armagnac \u2014 stara umetnost destilacije groz\u0111a." },
+    "gin":      { "story": "Škotski, engleski, francuski, nemaki, japanski, srpski džin \u2014 moderna renesansa staro\u017eanra." },
+    "rum":      { "story": "Venecuela, Karibi, Gvatemala \u2014 tropski destilat sa glazurom šećerne trske i bure hrasta." },
+    "vodka":    { "story": "Ruska tradicija \u2014 \u010distoća destilacije kao filozofija." },
+    "rakija":   { "story": "Srpska rakija \u2014 28 proizvoda iz najboljih domaćih destilerija. Autentična nota ovih prostora." },
+    "wine":     { "story": "Francuska i srpska vina \u2014 pa\u017eljivo biran izbor koji se odli\u010dno pari sa cigarama." }
+  }
+}
