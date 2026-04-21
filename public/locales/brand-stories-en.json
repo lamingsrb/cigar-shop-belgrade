@@ -1,26 +1,26 @@
 {
   "cuba": {
     "regionName": "Cuba",
-    "regionStory": "Vuelta Abajo — the mother valley of all cigars. Volcanic soil, tropical air, and hands that learn to roll across generations.",
+    "regionStory": "Vuelta Abajo, the mother valley of all cigars. Volcanic soil, tropical air, and hands that learn to roll across generations.",
     "brands": {
-      "COHIBA": "The most prestigious Cuban brand. Originally reserved for Fidel Castro and diplomatic gifts — today a global icon of luxury.",
+      "COHIBA": "The most prestigious Cuban brand. Originally reserved for Fidel Castro and diplomatic gifts, today a global icon of luxury.",
       "MONTECRISTO": "Founded 1935, inspired by Dumas' novel. A legendary balanced profile that has held its reputation for decades.",
-      "PARTAGAS": "Since 1845 — the oldest Cuban factory. Strong, full-bodied cigars with earthy and nutty notes.",
-      "ROMEO Y JULIETA": "Since 1875. A broad range of vitolas — from calm medium to full Churchills Winston Churchill himself adored.",
+      "PARTAGAS": "Since 1845, the oldest Cuban factory. Strong, full-bodied cigars with earthy and nutty notes.",
+      "ROMEO Y JULIETA": "Since 1875. A broad range of vitolas, from calm medium to full Churchills Winston Churchill himself adored.",
       "H. UPMANN": "Herman Upmann, a German banker, brought European precision to Cuban tobacco in 1844.",
       "HOYO DE MONTEREY": "A light, honeyed profile from the San Juan y Martinez region. A classic for the morning ritual with espresso.",
-      "TRINIDAD": "Reserved for diplomats until 1998. Today — a refined, elegant Cuban charm.",
-      "BOLIVAR": "One of the fullest-bodied Cuban brands. Leather, earth, and ember in every draw — for lovers of strength.",
+      "TRINIDAD": "Reserved for diplomats until 1998. Today, a refined, elegant Cuban charm.",
+      "BOLIVAR": "One of the fullest-bodied Cuban brands. Leather, earth, and ember in every draw, for lovers of strength.",
       "JOSE L. PIEDRA": "Honest Cuban classic. A direct, earthy profile without pretense.",
-      "RAMON ALLONES": "Since 1837. Spanish style in Cuban tradition — rich, creamy smoke with wood notes.",
+      "RAMON ALLONES": "Since 1837. Spanish style in Cuban tradition, rich, creamy smoke with wood notes.",
       "VEGUEROS": "A younger brand from the heart of Pinar del Rio. Fresh, bright profile for the unhurried cigar.",
-      "CUABA": "The first Cuban brand with a double figurado format — tapered on both ends. Rolled in one factory, small yearly output.",
-      "EL REY DEL MUNDO": "'King of the World' in translation. Elegant, mild, and distinctly aromatic — for days when a cigar is sipped, not smoked.",
-      "GUANTANAMERA": "An accessible entry to the world of Habanos. Younger tobacco, fresh aroma — ideal for a first ritual.",
+      "CUABA": "The first Cuban brand with a double figurado format, tapered on both ends. Rolled in one factory, small yearly output.",
+      "EL REY DEL MUNDO": "'King of the World' in translation. Elegant, mild, and distinctly aromatic, for days when a cigar is sipped, not smoked.",
+      "GUANTANAMERA": "An accessible entry to the world of Habanos. Younger tobacco, fresh aroma, ideal for a first ritual.",
       "JUAN LOPEZ": "A boutique brand since 1876. Rarely seen outside Cuba, and deeply cherished among connoisseurs.",
-      "PUNCH": "Since 1840. Originally made for the British — robust, rustic style.",
+      "PUNCH": "Since 1840. Originally made for the British, robust, rustic style.",
       "RAFAEL GONZALES": "Classic Marevas profile. Light, floral, crafted for consumption across a wide range of hours.",
-      "POR LARRANAGA": "Since 1834. The third-oldest Cuban marca — smooth, tranquil character.",
+      "POR LARRANAGA": "Since 1834. The third-oldest Cuban marca, smooth, tranquil character.",
       "QUAI D' ORSAY": "Created in 1973 for the French market. French tradition with a Cuban heart.",
       "QUINTERO": "Accessible, honest brand. A worthy smoke without Cohiba's price tag.",
       "SAN CRISTOBAL": "A younger Cuban brand (1999), named after the four fortresses of Havana. Refined and modern."
@@ -28,12 +28,12 @@
   },
   "dominican": {
     "regionName": "Dominican",
-    "regionStory": "The Cibao Valley — the balance that made the Dominican Republic the world's largest producer of premium cigars. Creamy, diplomatic profiles.",
+    "regionStory": "The Cibao Valley, the balance that made the Dominican Republic the world's largest producer of premium cigars. Creamy, diplomatic profiles.",
     "brands": {
-      "DAVIDOFF": "Zino Davidoff started in Geneva, worked with Cubans, then moved the house to the Dominican in 1991. Today — a global synonym for premium and precision.",
+      "DAVIDOFF": "Zino Davidoff started in Geneva, worked with Cubans, then moved the house to the Dominican in 1991. Today, a global synonym for premium and precision.",
       "VILLIGER": "A Swiss family firm since 1888. Alpine precision applied to Caribbean tobacco.",
-      "DREW ESTATE": "Modern innovators from Miami. Acid, Undercrown, Liga Privada — they redefined what a cigar could be in the 21st century.",
-      "GURKHA": "The Nepalese Gurkha warriors are their inspiration. A producer of exclusive, often eccentric lines — His Majesty's Reserve is among the most expensive cigars ever sold.",
+      "DREW ESTATE": "Modern innovators from Miami. Acid, Undercrown, Liga Privada, they redefined what a cigar could be in the 21st century.",
+      "GURKHA": "The Nepalese Gurkha warriors are their inspiration. A producer of exclusive, often eccentric lines. His Majesty's Reserve is among the most expensive cigars ever sold.",
       "E. P. CARILLO": "Ernesto Perez-Carrillo, a legend of the industry. His blends are remembered, his formats copied.",
       "ASHTON": "Rolled at Fuente since 1985. Elegant, predictable quality that never disappoints.",
       "BOSSNER": "A boutique German house. Small production, meticulous attention to detail.",
@@ -42,13 +42,13 @@
   },
   "nicaragua": {
     "regionName": "Nicaragua",
-    "regionStory": "The volcanic soil of Estelí and Jalapa gives tobacco with darkness — peppery, earthy, expressive. An alternative to Cuba with its own character.",
+    "regionStory": "The volcanic soil of Estelí and Jalapa gives tobacco with darkness, peppery, earthy, expressive. An alternative to Cuba with its own character.",
     "brands": {
-      "J. C. NEWMAN": "The oldest American cigar family (since 1895). The fourth generation runs the company from Tampa — guardians of tradition.",
-      "PLASENCIA": "Owners of the largest plantations in Nicaragua. They also produce for many other brands — but their own line stands out.",
+      "J. C. NEWMAN": "The oldest American cigar family (since 1895). The fourth generation runs the company from Tampa, guardians of tradition.",
+      "PLASENCIA": "Owners of the largest plantations in Nicaragua. They also produce for many other brands, but their own line stands out.",
       "DESPOT": "Modern Nicaraguan brand. Pronounced, full aromas for lovers of strong profiles.",
-      "JOYA DE NICARAGUA": "The first cigar factory in Nicaragua (1968). A national icon — Joya Antaño is a classic among classics.",
-      "MONTENEGRO": "A fresh Nicaraguan brand. Balances strength with elegance — for modern smokers.",
+      "JOYA DE NICARAGUA": "The first cigar factory in Nicaragua (1968). A national icon. Joya Antaño is a classic among classics.",
+      "MONTENEGRO": "A fresh Nicaraguan brand. Balances strength with elegance, for modern smokers.",
       "LAZAR": "Niche brand carefully building its reputation. Hand-rolled, limited series.",
       "HORACIO": "Spanish design, Nicaraguan heart. Elegant boxes and strict quality control.",
       "LA ROSA DE SAN DIEGO": "Boutique, small production, hand-picked tobacco.",
@@ -57,44 +57,44 @@
   },
   "honduras": {
     "regionName": "Honduras",
-    "regionStory": "Jamastran and Copán — warm, nutty profiles with notes of leather and baked bread. Another knot in the Caribbean cigar web.",
+    "regionStory": "Jamastran and Copán, warm, nutty profiles with notes of leather and baked bread. Another knot in the Caribbean cigar web.",
     "brands": {
-      "MAYA SELVA": "Founder of Maya Selva Cigars — a woman visionary in a male-dominated industry. A dominant Honduran brand with French finesse.",
-      "JULIO R. EIROA": "Family tradition — the Eiroa family has owned tobacco fields for generations.",
+      "MAYA SELVA": "Founder of Maya Selva Cigars, a woman visionary in a male-dominated industry. A dominant Honduran brand with French finesse.",
+      "JULIO R. EIROA": "Family tradition, the Eiroa family has owned tobacco fields for generations.",
       "LA FLOR DE COPAN": "A Honduran classic. Soft, balanced, dependable."
     }
   },
   "costa": {
     "regionName": "Costa Rica",
-    "regionStory": "Turrialba and neighboring valleys — gentle, mineral tones. Perfect for the morning ritual with espresso.",
+    "regionStory": "Turrialba and neighboring valleys, gentle, mineral tones. Perfect for the morning ritual with espresso.",
     "brands": {
-      "BRUN DEL RE": "Italian-Costa Rican family. A boutique collection — European sensibility, Latin temperament.",
+      "BRUN DEL RE": "Italian-Costa Rican family. A boutique collection. European sensibility, Latin temperament.",
       "EL SEPTIMO": "An ultra-premium brand. Seven processes, a seventh year of fermentation, the seventh art."
     }
   },
   "mexico": {
     "regionName": "Mexico",
-    "regionStory": "San Andrés Negro — a casual, bittersweet wrapper that many blends rely on. Mexico is quiet, but worthy.",
+    "regionStory": "San Andrés Negro, a casual, bittersweet wrapper that many blends rely on. Mexico is quiet, but worthy.",
     "brands": {
       "CASA TURENT": "Home of the Turrent family, the fourth generation of Mexican producers. A fresh, balanced line."
     }
   },
   "italy": {
     "regionName": "Italy",
-    "regionStory": "Tuscany — the only European region with a truly self-contained cigar tradition. Kentucky tobacco, Italian hands.",
+    "regionStory": "Tuscany, the only European region with a truly self-contained cigar tradition. Kentucky tobacco, Italian hands.",
     "brands": {
-      "TOSCANO": "The only truly Italian cigar, since 1818. Kentucky tobacco grown and produced in Tuscany. Different in every way — yet classical.",
-      "NOSTRANO": "Heir to classic Tuscan style — rustic, honest, with the character of an Italian village."
+      "TOSCANO": "The only truly Italian cigar, since 1818. Kentucky tobacco grown and produced in Tuscany. Different in every way, yet classical.",
+      "NOSTRANO": "Heir to classic Tuscan style, rustic, honest, with the character of an Italian village."
     }
   },
   "spirits": {
-    "whisky":   { "story": "Scotland, Japan, Ireland, Wales, Kentucky, Taiwan — whisky is the world's word for patience. Our shelf holds over 100 expressions from 11 countries." },
-    "bourbon":  { "story": "Kentucky — caramel, vanilla, and white oak. 12 selected expressions for lovers of the American style." },
-    "cognac":   { "story": "French Charente and Armenian hills. Cognac and Armagnac — the old art of grape distillation." },
-    "gin":      { "story": "Scottish, English, French, German, Japanese, Serbian gin — a modern renaissance of an old genre." },
-    "rum":      { "story": "Venezuela, the Caribbean, Guatemala — tropical distillate glazed with sugar cane and oak barrel." },
-    "vodka":    { "story": "Russian tradition — the purity of distillation as a philosophy." },
-    "rakija":   { "story": "Serbian rakija — 28 products from the finest local distilleries. The authentic note of these lands." },
-    "wine":     { "story": "French and Serbian wines — a carefully curated selection that pairs beautifully with cigars." }
+    "whisky":   { "story": "Scotland, Japan, Ireland, Wales, Kentucky, Taiwan, whisky is the world's word for patience. Our shelf holds over 100 expressions from 11 countries." },
+    "bourbon":  { "story": "Kentucky, caramel, vanilla, and white oak. 12 selected expressions for lovers of the American style." },
+    "cognac":   { "story": "French Charente and Armenian hills. Cognac and Armagnac, the old art of grape distillation." },
+    "gin":      { "story": "Scottish, English, French, German, Japanese, Serbian gin, a modern renaissance of an old genre." },
+    "rum":      { "story": "Venezuela, the Caribbean, Guatemala, tropical distillate glazed with sugar cane and oak barrel." },
+    "vodka":    { "story": "Russian tradition, the purity of distillation as a philosophy." },
+    "rakija":   { "story": "Serbian rakija, 28 products from the finest local distilleries. The authentic note of these lands." },
+    "wine":     { "story": "French and Serbian wines, a carefully curated selection that pairs beautifully with cigars." }
   }
 }

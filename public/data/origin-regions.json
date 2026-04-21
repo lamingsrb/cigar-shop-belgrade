@@ -1,14 +1,14 @@
 {
-  "_note": "Geografske tačke porekla duvana — po zemlji grupisano, sa storytelling-om po jeziku.",
+  "_note": "Geografske tačke porekla duvana, po zemlji grupisano, sa storytelling-om po jeziku.",
   "regions": [
     {
       "key": "vuelta-abajo", "country": "cuba", "lat": 22.6, "lng": -83.7,
       "translations": {
         "sr": { "name": "Vuelta Abajo", "sub": "Pinar del Río, Kuba",
-          "story": "Srce svih kubanskih cigara. Pojas od 70 kilometara između Sijera dos Organos i mora daje zemlji onaj mineralni koktel koji ne postoji nigde drugde. Svaka Cohiba, svaki Montecristo, svaka Partagas — prolaze kroz ovo polje. Vlažnost jutarnjih pljuskova, žestina popodneva i trenutak mirovanja pred sutonom su tri pokreta koji pretvaraju list u aromu.",
+          "story": "Srce svih kubanskih cigara. Pojas od 70 kilometara između Sijera dos Organos i mora daje zemlji onaj mineralni koktel koji ne postoji nigde drugde. Svaka Cohiba, svaki Montecristo, svaka Partagas, prolaze kroz ovo polje. Vlažnost jutarnjih pljuskova, žestina popodneva i trenutak mirovanja pred sutonom su tri pokreta koji pretvaraju list u aromu.",
           "brands": "Cohiba · Montecristo · Partagas · H. Upmann · Romeo y Julieta" },
         "en": { "name": "Vuelta Abajo", "sub": "Pinar del Río, Cuba",
-          "story": "The heart of every Cuban cigar. A 70-kilometer belt between the Sierra de los Órganos and the sea gives this earth a mineral cocktail found nowhere else. Every Cohiba, every Montecristo, every Partagas — passes through this field. Morning rain, afternoon heat, and the stillness before dusk are the three movements that turn leaf into aroma.",
+          "story": "The heart of every Cuban cigar. A 70-kilometer belt between the Sierra de los Órganos and the sea gives this earth a mineral cocktail found nowhere else. Every Cohiba, every Montecristo, every Partagas, passes through this field. Morning rain, afternoon heat, and the stillness before dusk are the three movements that turn leaf into aroma.",
           "brands": "Cohiba · Montecristo · Partagas · H. Upmann · Romeo y Julieta" }
       }
     },
@@ -16,10 +16,10 @@
       "key": "semi-vuelta", "country": "cuba", "lat": 22.4, "lng": -83.3,
       "translations": {
         "sr": { "name": "Semi Vuelta", "sub": "Pinar del Río, Kuba",
-          "story": "Severni brat Vuelta Abajo-a. Malo viši tereni, malo manje vlažan vazduh — duvan iz ove regije nosi čvršću strukturu, pa se koristi kada cigari treba kičma. Pogodno za omotače koji drže cigaru tokom celog pušenja, bez raspadanja.",
+          "story": "Severni brat Vuelta Abajo-a. Malo viši tereni, malo manje vlažan vazduh, duvan iz ove regije nosi čvršću strukturu, pa se koristi kada cigari treba kičma. Pogodno za omotače koji drže cigaru tokom celog pušenja, bez raspadanja.",
           "brands": "Hoyo de Monterrey · Rafael González · Quinteros" },
         "en": { "name": "Semi Vuelta", "sub": "Pinar del Río, Cuba",
-          "story": "Vuelta Abajo's northern brother. Slightly higher terrain, slightly drier air — tobacco from this region carries a firmer structure and is used when a cigar needs a spine. Ideal for wrappers that hold a cigar together through the entire smoke.",
+          "story": "Vuelta Abajo's northern brother. Slightly higher terrain, slightly drier air, tobacco from this region carries a firmer structure and is used when a cigar needs a spine. Ideal for wrappers that hold a cigar together through the entire smoke.",
           "brands": "Hoyo de Monterrey · Rafael González · Quinteros" }
       }
     },
@@ -27,10 +27,10 @@
       "key": "partido", "country": "cuba", "lat": 22.85, "lng": -82.6,
       "translations": {
         "sr": { "name": "Partido", "sub": "Havana, Kuba",
-          "story": "Najstariji duvanski kraj na Kubi — pre Vuelta Abajo-a, Partido je bio rezervisan za kraljeve i pape. Danas vrlo mala proizvodnja, samo oni kojima majstorstvo nije dovoljno — njima treba i istorija. Ovde se još uvek rola pored samih polja.",
+          "story": "Najstariji duvanski kraj na Kubi, pre Vuelta Abajo-a, Partido je bio rezervisan za kraljeve i pape. Danas vrlo mala proizvodnja, samo oni kojima majstorstvo nije dovoljno, njima treba i istorija. Ovde se još uvek rola pored samih polja.",
           "brands": "Trinidad · Vegueros · Punch" },
         "en": { "name": "Partido", "sub": "Havana, Cuba",
-          "story": "The oldest tobacco region in Cuba — before Vuelta Abajo, Partido was reserved for kings and popes. Today production is tiny, reserved for those to whom craftsmanship alone isn't enough — they also want history. Rolling still happens beside the fields themselves.",
+          "story": "The oldest tobacco region in Cuba, before Vuelta Abajo, Partido was reserved for kings and popes. Today production is tiny, reserved for those to whom craftsmanship alone isn't enough, they also want history. Rolling still happens beside the fields themselves.",
           "brands": "Trinidad · Vegueros · Punch" }
       }
     },
@@ -38,10 +38,10 @@
       "key": "remedios", "country": "cuba", "lat": 22.5, "lng": -79.5,
       "translations": {
         "sr": { "name": "Remedios (Villas)", "sub": "Santa Clara, Kuba",
-          "story": "Centralna Kuba — zemlja koja daje punije telo i tamne omotače. Remedios duvan se retko nalazi u top brendovima sam, ali je kičma filera mnogih cigara. Ko traži kubansku robusnost, ovde gleda.",
+          "story": "Centralna Kuba, zemlja koja daje punije telo i tamne omotače. Remedios duvan se retko nalazi u top brendovima sam, ali je kičma filera mnogih cigara. Ko traži kubansku robusnost, ovde gleda.",
           "brands": "José L. Piedra · Guantanamera" },
         "en": { "name": "Remedios (Villas)", "sub": "Santa Clara, Cuba",
-          "story": "Central Cuba — soil that gives fuller body and darker wrappers. Remedios tobacco rarely headlines a top brand alone, but forms the spine of many filler blends. If you want Cuban robustness, this is where you look.",
+          "story": "Central Cuba, soil that gives fuller body and darker wrappers. Remedios tobacco rarely headlines a top brand alone, but forms the spine of many filler blends. If you want Cuban robustness, this is where you look.",
           "brands": "José L. Piedra · Guantanamera" }
       }
     },
@@ -49,10 +49,10 @@
       "key": "oriente", "country": "cuba", "lat": 20.3, "lng": -76.6,
       "translations": {
         "sr": { "name": "Oriente", "sub": "Santiago de Cuba",
-          "story": "Istočni kraj ostrva — toplije, suvlje, sa vulkanskim uticajem. Duvan odavde ima zemljaniju notu, skoro kao nikaragvanski. Uglavnom za domaće kubansko tržište i lokalne brendove.",
+          "story": "Istočni kraj ostrva, toplije, suvlje, sa vulkanskim uticajem. Duvan odavde ima zemljaniju notu, skoro kao nikaragvanski. Uglavnom za domaće kubansko tržište i lokalne brendove.",
           "brands": "Quintero · Guantanamera" },
         "en": { "name": "Oriente", "sub": "Santiago de Cuba",
-          "story": "The eastern end of the island — warmer, drier, with volcanic influence. Tobacco here has a more earthy note, almost Nicaraguan. Mostly kept for the domestic Cuban market and local brands.",
+          "story": "The eastern end of the island, warmer, drier, with volcanic influence. Tobacco here has a more earthy note, almost Nicaraguan. Mostly kept for the domestic Cuban market and local brands.",
           "brands": "Quintero · Guantanamera" }
       }
     },
@@ -60,10 +60,10 @@
       "key": "cibao", "country": "dominican", "lat": 19.45, "lng": -70.7,
       "translations": {
         "sr": { "name": "Cibao dolina", "sub": "Santiago, Dominikana",
-          "story": "Najveća dolina Kariba — i, otkako je Kuba zatvorila granice za SAD 1962, centar svetske premium cigar proizvodnje. Zemlja je ovde balansirana: dovoljno plodna da daje gust duvan, dovoljno fina da dim bude kremast. Davidoff, Fuente i Ashton imaju fabrike upravo ovde.",
+          "story": "Najveća dolina Kariba, i, otkako je Kuba zatvorila granice za SAD 1962, centar svetske premium cigar proizvodnje. Zemlja je ovde balansirana: dovoljno plodna da daje gust duvan, dovoljno fina da dim bude kremast. Davidoff, Fuente i Ashton imaju fabrike upravo ovde.",
           "brands": "Davidoff · Villiger · Drew Estate · E. P. Carrillo" },
         "en": { "name": "Cibao Valley", "sub": "Santiago, Dominican Republic",
-          "story": "The largest valley in the Caribbean — and, since Cuba closed to the US in 1962, the center of the world's premium cigar production. The soil is balanced here: fertile enough for dense tobacco, fine enough for creamy smoke. Davidoff, Fuente, and Ashton all have their factories here.",
+          "story": "The largest valley in the Caribbean, and, since Cuba closed to the US in 1962, the center of the world's premium cigar production. The soil is balanced here: fertile enough for dense tobacco, fine enough for creamy smoke. Davidoff, Fuente, and Ashton all have their factories here.",
           "brands": "Davidoff · Villiger · Drew Estate · E. P. Carrillo" }
       }
     },
@@ -71,10 +71,10 @@
       "key": "la-canela", "country": "dominican", "lat": 19.18, "lng": -70.5,
       "translations": {
         "sr": { "name": "La Canela", "sub": "Santiago, Dominikana",
-          "story": "Najsevernija tačka Cibao doline. Duvan sa jačom notom kedra i slatkog drveta — odlično za binder i filler u rafiniranim blendovima. Ovde se prave omotači koji se dobro čuvaju decenijama.",
+          "story": "Najsevernija tačka Cibao doline. Duvan sa jačom notom kedra i slatkog drveta, odlično za binder i filler u rafiniranim blendovima. Ovde se prave omotači koji se dobro čuvaju decenijama.",
           "brands": "Ashton · Villiger" },
         "en": { "name": "La Canela", "sub": "Santiago, Dominican Republic",
-          "story": "The northernmost point of Cibao. Tobacco with a stronger note of cedar and sweet wood — excellent as binder and filler in refined blends. Wrappers aged here keep well for decades.",
+          "story": "The northernmost point of Cibao. Tobacco with a stronger note of cedar and sweet wood, excellent as binder and filler in refined blends. Wrappers aged here keep well for decades.",
           "brands": "Ashton · Villiger" }
       }
     },
@@ -82,10 +82,10 @@
       "key": "bonao", "country": "dominican", "lat": 18.95, "lng": -70.4,
       "translations": {
         "sr": { "name": "Bonao", "sub": "Monseñor Nouel, Dominikana",
-          "story": "Planinski mikroregion iznad Cibao-a. Niže temperature, sporiji rast — duvan razvija složeniji profil. Često se koristi kao binder koji drži kompleksne filler blendove zajedno bez dominantnog ukusa.",
+          "story": "Planinski mikroregion iznad Cibao-a. Niže temperature, sporiji rast, duvan razvija složeniji profil. Često se koristi kao binder koji drži kompleksne filler blendove zajedno bez dominantnog ukusa.",
           "brands": "Gurkha · Hiram & Solomon" },
         "en": { "name": "Bonao", "sub": "Monseñor Nouel, Dominican Republic",
-          "story": "A mountainous microregion above Cibao. Lower temperatures, slower growth — tobacco develops a more complex profile. Often used as binder, holding complex filler blends together without a dominant taste of its own.",
+          "story": "A mountainous microregion above Cibao. Lower temperatures, slower growth, tobacco develops a more complex profile. Often used as binder, holding complex filler blends together without a dominant taste of its own.",
           "brands": "Gurkha · Hiram & Solomon" }
       }
     },
@@ -93,10 +93,10 @@
       "key": "villa-gonzalez", "country": "dominican", "lat": 19.55, "lng": -70.8,
       "translations": {
         "sr": { "name": "Villa González", "sub": "Santiago, Dominikana",
-          "story": "Gradić iznad Santiago-a gde je Carlos Fuente 1980-ih obnovio porodičnu tradiciju posle kubanskog embarga. Danas se Arturo Fuente OpusX uzgaja isključivo u Chateau de la Fuente plantaži — prva prava dominikanska omotačica na svetu.",
+          "story": "Gradić iznad Santiago-a gde je Carlos Fuente 1980-ih obnovio porodičnu tradiciju posle kubanskog embarga. Danas se Arturo Fuente OpusX uzgaja isključivo u Chateau de la Fuente plantaži, prva prava dominikanska omotačica na svetu.",
           "brands": "Fuente (OpusX) · Ashton" },
         "en": { "name": "Villa González", "sub": "Santiago, Dominican Republic",
-          "story": "A small town above Santiago where Carlos Fuente revived the family tradition in the 1980s after the Cuban embargo. Today Arturo Fuente OpusX is grown exclusively on the Chateau de la Fuente plantation — the first true Dominican wrapper in the world.",
+          "story": "A small town above Santiago where Carlos Fuente revived the family tradition in the 1980s after the Cuban embargo. Today Arturo Fuente OpusX is grown exclusively on the Chateau de la Fuente plantation, the first true Dominican wrapper in the world.",
           "brands": "Fuente (OpusX) · Ashton" }
       }
     },
@@ -104,10 +104,10 @@
       "key": "esteli", "country": "nicaragua", "lat": 13.09, "lng": -86.35,
       "translations": {
         "sr": { "name": "Estelí", "sub": "Nikaragva",
-          "story": "Cigar prestonica Nikaragve. Vulkansko tlo bogato mineralima, hladne noći i tople dane — kombinacija koja daje punije, paprenije duvane nego Kuba. Ako voliš snagu, ovde je izvor. Padrón, Plasencia, My Father — sve dolazi iz Estelí-ja.",
+          "story": "Cigar prestonica Nikaragve. Vulkansko tlo bogato mineralima, hladne noći i tople dane, kombinacija koja daje punije, paprenije duvane nego Kuba. Ako voliš snagu, ovde je izvor. Padrón, Plasencia, My Father, sve dolazi iz Estelí-ja.",
           "brands": "Plasencia · Joya de Nicaragua · Despot · J. C. Newman" },
         "en": { "name": "Estelí", "sub": "Nicaragua",
-          "story": "The cigar capital of Nicaragua. Volcanic soil rich in minerals, cold nights and warm days — a combination that produces fuller, peppier tobacco than Cuba. If you love strength, this is the source. Padrón, Plasencia, My Father — all come from Estelí.",
+          "story": "The cigar capital of Nicaragua. Volcanic soil rich in minerals, cold nights and warm days, a combination that produces fuller, peppier tobacco than Cuba. If you love strength, this is the source. Padrón, Plasencia, My Father, all come from Estelí.",
           "brands": "Plasencia · Joya de Nicaragua · Despot · J. C. Newman" }
       }
     },
@@ -115,10 +115,10 @@
       "key": "jalapa", "country": "nicaragua", "lat": 13.92, "lng": -86.13,
       "translations": {
         "sr": { "name": "Jalapa", "sub": "Nueva Segovia, Nikaragva",
-          "story": "Severna Nikaragva, na granici sa Hondurasom. Tlo je peskovitije nego u Estelí-ju — rezultat je slađi, elegantniji duvan. Jalapa omotači daju cigari notu med-a i kedra, sa manje agresivnosti nego njihova južna braća.",
+          "story": "Severna Nikaragva, na granici sa Hondurasom. Tlo je peskovitije nego u Estelí-ju, rezultat je slađi, elegantniji duvan. Jalapa omotači daju cigari notu med-a i kedra, sa manje agresivnosti nego njihova južna braća.",
           "brands": "Joya de Nicaragua · Plasencia · Montenegro" },
         "en": { "name": "Jalapa", "sub": "Nueva Segovia, Nicaragua",
-          "story": "Northern Nicaragua, on the Honduran border. The soil is sandier than in Estelí — the result is sweeter, more elegant tobacco. Jalapa wrappers bring notes of honey and cedar, with less aggression than their southern brothers.",
+          "story": "Northern Nicaragua, on the Honduran border. The soil is sandier than in Estelí, the result is sweeter, more elegant tobacco. Jalapa wrappers bring notes of honey and cedar, with less aggression than their southern brothers.",
           "brands": "Joya de Nicaragua · Plasencia · Montenegro" }
       }
     },
@@ -126,10 +126,10 @@
       "key": "condega", "country": "nicaragua", "lat": 13.37, "lng": -86.38,
       "translations": {
         "sr": { "name": "Condega", "sub": "Estelí, Nikaragva",
-          "story": "Mali grad između Estelí-ja i Jalapa-e. Duvan odavde spaja snagu jednog i eleganciju drugog — idealan binder za kompleksne nikaragvanske blendove.",
+          "story": "Mali grad između Estelí-ja i Jalapa-e. Duvan odavde spaja snagu jednog i eleganciju drugog, idealan binder za kompleksne nikaragvanske blendove.",
           "brands": "Drew Estate (Liga Privada) · Lazar" },
         "en": { "name": "Condega", "sub": "Estelí, Nicaragua",
-          "story": "A small town between Estelí and Jalapa. Tobacco here combines the strength of one and the elegance of the other — an ideal binder for complex Nicaraguan blends.",
+          "story": "A small town between Estelí and Jalapa. Tobacco here combines the strength of one and the elegance of the other, an ideal binder for complex Nicaraguan blends.",
           "brands": "Drew Estate (Liga Privada) · Lazar" }
       }
     },
@@ -137,10 +137,10 @@
       "key": "ometepe", "country": "nicaragua", "lat": 11.5, "lng": -85.58,
       "translations": {
         "sr": { "name": "Ometepe", "sub": "Jezero Nikaragva",
-          "story": "Vulkansko ostrvo u jezeru Nikaragva. Dva vulkana, jedan aktivan — i duvan koji raste u njihovoj senci ima pepeo u DNK. Retka, limitirana izdanja koja se brzo prodaju kad se pojave.",
+          "story": "Vulkansko ostrvo u jezeru Nikaragva. Dva vulkana, jedan aktivan, i duvan koji raste u njihovoj senci ima pepeo u DNK. Retka, limitirana izdanja koja se brzo prodaju kad se pojave.",
           "brands": "Joya de Nicaragua (Cuatro Cinco)" },
         "en": { "name": "Ometepe", "sub": "Lake Nicaragua",
-          "story": "A volcanic island in Lake Nicaragua. Two volcanoes, one active — and tobacco that grows in their shadow carries ash in its DNA. Rare, limited releases that sell out as fast as they arrive.",
+          "story": "A volcanic island in Lake Nicaragua. Two volcanoes, one active, and tobacco that grows in their shadow carries ash in its DNA. Rare, limited releases that sell out as fast as they arrive.",
           "brands": "Joya de Nicaragua (Cuatro Cinco)" }
       }
     },
@@ -148,10 +148,10 @@
       "key": "jamastran", "country": "honduras", "lat": 13.93, "lng": -86.28,
       "translations": {
         "sr": { "name": "Jamastran", "sub": "El Paraíso, Honduras",
-          "story": "Jedina honduraška dolina gde se duvan uzgaja na 600m nadmorske visine. Rezultat — orašasti, topli profili sa notama kože i pečenog hleba. Ukoliko voliš srednjejake cigare, Jamastran ti je na radaru.",
+          "story": "Jedina honduraška dolina gde se duvan uzgaja na 600m nadmorske visine. Rezultat, orašasti, topli profili sa notama kože i pečenog hleba. Ukoliko voliš srednjejake cigare, Jamastran ti je na radaru.",
           "brands": "Maya Selva · La Flor de Copán" },
         "en": { "name": "Jamastran", "sub": "El Paraíso, Honduras",
-          "story": "The only Honduran valley where tobacco is grown at 600m altitude. The result — nutty, warm profiles with notes of leather and baked bread. If you love medium-strong cigars, Jamastran is on your radar.",
+          "story": "The only Honduran valley where tobacco is grown at 600m altitude. The result, nutty, warm profiles with notes of leather and baked bread. If you love medium-strong cigars, Jamastran is on your radar.",
           "brands": "Maya Selva · La Flor de Copán" }
       }
     },
@@ -170,10 +170,10 @@
       "key": "danli", "country": "honduras", "lat": 14.04, "lng": -86.58,
       "translations": {
         "sr": { "name": "Danlí", "sub": "El Paraíso, Honduras",
-          "story": "Glavno duvansko naselje Hondurasa. Ovde su sve veće fabrike. Danlí duvan ima konzistentan, pouzdan profil — ništa dramatično, ali uvek korektno.",
+          "story": "Glavno duvansko naselje Hondurasa. Ovde su sve veće fabrike. Danlí duvan ima konzistentan, pouzdan profil, ništa dramatično, ali uvek korektno.",
           "brands": "Maya Selva · Camacho" },
         "en": { "name": "Danlí", "sub": "El Paraíso, Honduras",
-          "story": "Honduras's main tobacco town. All the larger factories are here. Danlí tobacco has a consistent, reliable profile — nothing dramatic, but always correct.",
+          "story": "Honduras's main tobacco town. All the larger factories are here. Danlí tobacco has a consistent, reliable profile, nothing dramatic, but always correct.",
           "brands": "Maya Selva · Camacho" }
       }
     },
@@ -181,10 +181,10 @@
       "key": "turrialba", "country": "costa", "lat": 9.9, "lng": -83.68,
       "translations": {
         "sr": { "name": "Turrialba", "sub": "Kartago, Kostarika",
-          "story": "Aktivni vulkan Turrialba đubri polja pepelom svake godine. Rezultat je duvan sa mineralnim profilom — blago, elegantno, skoro aromatično. Kao cigar za jutro, uz espresso i tišinu.",
+          "story": "Aktivni vulkan Turrialba đubri polja pepelom svake godine. Rezultat je duvan sa mineralnim profilom, blago, elegantno, skoro aromatično. Kao cigar za jutro, uz espresso i tišinu.",
           "brands": "Brun del Re · El Septimo" },
         "en": { "name": "Turrialba", "sub": "Cartago, Costa Rica",
-          "story": "The active Turrialba volcano fertilizes the fields with ash every year. The result is tobacco with a mineral profile — mild, elegant, almost aromatic. A morning cigar, paired with espresso and silence.",
+          "story": "The active Turrialba volcano fertilizes the fields with ash every year. The result is tobacco with a mineral profile, mild, elegant, almost aromatic. A morning cigar, paired with espresso and silence.",
           "brands": "Brun del Re · El Septimo" }
       }
     },
@@ -203,10 +203,10 @@
       "key": "toscana", "country": "italy", "lat": 43.46, "lng": 11.88,
       "translations": {
         "sr": { "name": "Toskana", "sub": "Arezzo, Italija",
-          "story": "Jedina evropska regija sa istinski autonomnom cigar tradicijom. Kentucky duvan uzgajan u italijanskom zemljištu od 1818. godine — firmentacija traje devet meseci, proces niko nije promenio u dva veka. Toskansko cigar ne liči ni na jednu drugu na svetu.",
+          "story": "Jedina evropska regija sa istinski autonomnom cigar tradicijom. Kentucky duvan uzgajan u italijanskom zemljištu od 1818. godine, firmentacija traje devet meseci, proces niko nije promenio u dva veka. Toskansko cigar ne liči ni na jednu drugu na svetu.",
           "brands": "Toscano · Nostrano" },
         "en": { "name": "Tuscany", "sub": "Arezzo, Italy",
-          "story": "The only European region with a truly autonomous cigar tradition. Kentucky tobacco grown in Italian soil since 1818 — fermentation runs for nine months, a process no one has changed in two centuries. The Tuscan cigar resembles no other in the world.",
+          "story": "The only European region with a truly autonomous cigar tradition. Kentucky tobacco grown in Italian soil since 1818, fermentation runs for nine months, a process no one has changed in two centuries. The Tuscan cigar resembles no other in the world.",
           "brands": "Toscano · Nostrano" }
       }
     }

@@ -19,7 +19,7 @@ import { initHumidorScene } from './humidor-scene.js';
 import { initLocationsMap } from './locations-map.js';
 import { initScrollBurn } from './scroll-burn.js';
 import { initAmbientParticles } from './ambient-particles.js';
-import { renderCollection, renderSpirits, renderAccessories, renderLocations } from './render.js';
+import { renderCollection, renderSpirits, renderLocations } from './render.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -187,7 +187,6 @@ async function boot() {
   // 2) Dynamic content renders (bento, spirits, locations)
   renderCollection();
   renderSpirits();
-  renderAccessories();
   renderLocations();
 
   // 3) Small UI bits

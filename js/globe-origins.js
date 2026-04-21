@@ -88,7 +88,7 @@ export async function initGlobeOrigins() {
   sun.position.set(5, 3, 5);
   scene.add(sun);
 
-  const rim = new THREE.DirectionalLight(0xff6b1a, 0.45);
+  const rim = new THREE.DirectionalLight(0xe4c88a, 0.45);
   rim.position.set(-4, -1, -3);
   scene.add(rim);
 
@@ -159,7 +159,7 @@ export async function initGlobeOrigins() {
       varying vec3 vNormal;
       void main() {
         float i = pow(0.82 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 3.0);
-        vec3 warm = vec3(1.0, 0.45, 0.12);
+        vec3 warm = vec3(0.89, 0.78, 0.54);
         vec3 gold = vec3(0.79, 0.66, 0.38);
         vec3 col = mix(warm, gold, 0.4);
         gl_FragColor = vec4(col, i * 0.8);
@@ -197,7 +197,7 @@ export async function initGlobeOrigins() {
 
     // Billboarded glow sprite — manji
     const glowMat = new THREE.SpriteMaterial({
-      map: glowTex, color: 0xff6b1a, transparent: true,
+      map: glowTex, color: 0xe4c88a, transparent: true,
       opacity: 0.75, depthWrite: false, blending: THREE.AdditiveBlending
     });
     const sprite = new THREE.Sprite(glowMat);
@@ -208,7 +208,7 @@ export async function initGlobeOrigins() {
     // Pulsing ring
     const ringGeom = new THREE.RingGeometry(0.018, 0.038, 24);
     const ringMat = new THREE.MeshBasicMaterial({
-      color: 0xff6b1a, transparent: true, opacity: 0.5,
+      color: 0xe4c88a, transparent: true, opacity: 0.5,
       side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending
     });
     const ring = new THREE.Mesh(ringGeom, ringMat);
@@ -310,10 +310,10 @@ function makePinGlowTexture() {
   c.width = size; c.height = size;
   const ctx = c.getContext('2d');
   const g = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-  g.addColorStop(0, 'rgba(255, 200, 120, 1)');
-  g.addColorStop(0.3, 'rgba(255, 110, 40, 0.7)');
-  g.addColorStop(0.7, 'rgba(255, 70, 10, 0.15)');
-  g.addColorStop(1, 'rgba(255, 60, 10, 0)');
+  g.addColorStop(0, 'rgba(248, 230, 180, 1)');
+  g.addColorStop(0.3, 'rgba(228, 200, 138, 0.7)');
+  g.addColorStop(0.7, 'rgba(184, 147, 90, 0.15)');
+  g.addColorStop(1, 'rgba(184, 147, 90, 0)');
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, size, size);
   return new THREE.CanvasTexture(c);

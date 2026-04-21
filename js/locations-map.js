@@ -64,7 +64,7 @@ function renderMarkers() {
           ${s.phone || ''}
         </a>
         <a href="https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}" target="_blank" rel="noopener"
-           style="color:#ff6b1a; font-family:'Inter', sans-serif; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; border-bottom:1px solid #cc4a0a;">
+           style="color:#e4c88a; font-family:'Inter', sans-serif; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; border-bottom:1px solid #b8935a;">
           ${navLabel} →
         </a>
       </div>

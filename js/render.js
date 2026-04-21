@@ -10,13 +10,19 @@ import { tObj, onLangChange, t } from './i18n.js';
 // store displays, authenticity posters.
 const GALLERY = '/assets/gallery';
 
-// COLLECTION — 5 bento kartica. Koristim kombinaciju box + premium shots.
+// COLLECTION — 5 bento kartica, svaka mapirana na SPECIFI\u010cNU sliku iz galerije
+// po brendu (pre-identifikovano \u010ditanjem slika):
+//   img-001 = Romeo y Julieta Wide Churchill
+//   img-010 = Julius Caesar (J.C. Newman)
+//   img-030 = Pasión
+//   img-040 = Joya Cabinetta
+//   img-020 = Salomones/Bundle display (Partagas/Montecristo/Cohiba)
 const COLLECTION_IMAGES = [
-  `${GALLERY}/img-012.webp`,  // lg: boxed premium shot
-  `${GALLERY}/img-003.webp`,  // md: product beauty
-  `${GALLERY}/img-028.webp`,  // sm: brand shot
-  `${GALLERY}/img-040.webp`,  // sm: brand shot
-  `${GALLERY}/img-055.webp`   // wide: limited editions poster
+  `${GALLERY}/img-001.webp`,  // lg: Romeo y Julieta
+  `${GALLERY}/img-010.webp`,  // md: Julius Caesar
+  `${GALLERY}/img-030.webp`,  // sm: Pasión
+  `${GALLERY}/img-040.webp`,  // sm: Joya Cabinetta
+  `${GALLERY}/img-020.webp`   // wide: Cuban trio display
 ];
 
 // SPIRITS — 6 kartica \u010dirokih kategorija (viski/burbon/\u2026). Koristim atmosfere + product shots.
@@ -27,17 +33,6 @@ const SPIRITS_IMAGES = [
   `${GALLERY}/img-008.webp`,  // Bourbon
   `${GALLERY}/img-044.webp`,  // Cognac
   `${GALLERY}/img-050.webp`   // Rakija
-];
-
-// ACCESSORIES — 6 kartica (rezači, upaljači, humidori, pepeljare, etui, boveda).
-// Hand-pick: store displays i product shots koji pokazuju pribor.
-const ACCESSORIES_IMAGES = [
-  `${GALLERY}/img-015.webp`,  // Rezači
-  `${GALLERY}/img-022.webp`,  // Upaljači
-  `${GALLERY}/img-036.webp`,  // Humidori
-  `${GALLERY}/img-048.webp`,  // Pepeljare
-  `${GALLERY}/img-061.webp`,  // Putni etui
-  `${GALLERY}/img-057.webp`   // Boveda
 ];
 
 // Overlay gradient which darkens the image so text is legible
@@ -79,28 +74,6 @@ export function renderSpirits() {
     host.innerHTML = items.map((it, i) => `
       <article class="spirit-card reveal">
         <div class="spirit-card__img" style="${bg(SPIRITS_IMAGES[i % SPIRITS_IMAGES.length])}"></div>
-        <div class="spirit-card__body">
-          <h3 class="spirit-card__title">${it.title}</h3>
-          <p class="spirit-card__sub">${it.sub}</p>
-        </div>
-      </article>
-    `).join('');
-  };
-
-  build();
-  onLangChange(build);
-}
-
-// ---------- ACCESSORIES (rail carousel) ----------
-export function renderAccessories() {
-  const host = document.getElementById('accessories-rail');
-  if (!host) return;
-
-  const build = () => {
-    const items = tObj('accessories.items') || [];
-    host.innerHTML = items.map((it, i) => `
-      <article class="spirit-card reveal">
-        <div class="spirit-card__img" style="${bg(ACCESSORIES_IMAGES[i % ACCESSORIES_IMAGES.length])}"></div>
         <div class="spirit-card__body">
           <h3 class="spirit-card__title">${it.title}</h3>
           <p class="spirit-card__sub">${it.sub}</p>

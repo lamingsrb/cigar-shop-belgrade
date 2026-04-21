@@ -34,5 +34,5 @@ export function runLoader() {
       // Strike — CSS kicks flame animation
       loader.classList.add('is-strike');
     })
-    .to('.loader__label', { opacity: 1, color: '#ff6b1a', duration: 0.35 }, '+=0.3');
+    .to('.loader__label', { opacity: 1, color: '#e4c88a', duration: 0.35 }, '+=0.3');
 }

@@ -8,8 +8,8 @@
   --obsidian:     #0a0605;
   --mahogany:     #2a1810;
   --cuban-brown:  #3d2817;
-  --ember:        #ff6b1a;
-  --ember-deep:   #cc4a0a;
+  --ember:        #e4c88a;
+  --ember-deep:   #b8935a;
   --gold-leaf:    #c9a961;
   --champagne:    #d4af37;
   --smoke:        #8b7d6b;
@@ -389,7 +389,7 @@ section {
 }
 @keyframes pulseHint {
   0%, 100% { opacity: 0.85; }
-  50%      { opacity: 1; box-shadow: 0 0 20px rgba(255, 107, 26, 0.3); }
+  50%      { opacity: 1; box-shadow: 0 0 20px rgba(228, 200, 138, 0.3); }
 }
 
 .hero__vignette {
@@ -533,8 +533,13 @@ section {
 
 .origins__header {
   text-align: center;
-  max-width: 720px;
+  max-width: 820px;
   margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+.origins__header .lead {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .origins__stage {
@@ -917,7 +922,7 @@ section {
   width: 24px; height: 24px;
   background: radial-gradient(circle, var(--ember) 0%, var(--ember-deep) 50%, transparent 70%);
   border-radius: 50%;
-  box-shadow: 0 0 20px var(--ember), 0 0 40px rgba(255, 107, 26, 0.4);
+  box-shadow: 0 0 20px var(--ember), 0 0 40px rgba(228, 200, 138, 0.4);
   animation: emberPulse 2s ease-in-out infinite;
 }
 .leaflet-popup-content-wrapper {
@@ -1018,7 +1023,7 @@ section {
   z-index: -1;
 }
 .btn:hover::before { transform: translateX(0); }
-.btn:hover { border-color: var(--ember); box-shadow: 0 0 24px rgba(255,107,26,0.4); }
+.btn:hover { border-color: var(--ember); box-shadow: 0 0 24px rgba(228,200,138,0.4); }
 
 .btn--ember { border-color: var(--ember); }
 
@@ -1168,7 +1173,7 @@ section {
 }
 
 .cursor.is-hover .cursor__cigar { width: 44px; height: 12px; }
-.cursor.is-hover .cursor__ring  { width: 64px; height: 64px; border-color: rgba(255, 107, 26, 0.8); }
+.cursor.is-hover .cursor__ring  { width: 64px; height: 64px; border-color: rgba(228, 200, 138, 0.8); }
 .cursor.is-press .cursor__cigar { transform: translate(-50%, -50%) scale(0.85); }
 
 /* Nav active state (scroll spy) */

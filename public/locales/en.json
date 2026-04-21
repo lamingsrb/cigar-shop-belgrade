@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Cigar Shop — The Art of Patience",
-    "description": "Cigar Shop — premium destination for cigars, whisky and the ritual of patience. 9 stores across Belgrade."
+    "title": "Cigar Shop. The Art of Patience",
+    "description": "Cigar Shop, premium destination for cigars, whisky and the ritual of patience. 9 stores across Belgrade."
   },
   "loader": { "tagline": "Strike a match." },
 
@@ -25,34 +25,34 @@
   },
 
   "manifest": {
-    "kicker": "Manifest",
+    "kicker": "About us",
     "title": "The art of patience.",
-    "lead": "Every cigar is ten years of silence, sun, and the humid breath of the Caribbean. We are not a shop — we are the continuation of that breath.",
-    "body": "Nine stores. Over 70 brands from seven countries. One belief: smoke burns slowly, life is sipped even slower. Our selection includes cigars from Cuba, the Dominican Republic, Nicaragua, Honduras, Costa Rica, Mexico and Italy — alongside Scotch, Irish, Japanese and Oriental whiskies, bourbon, cognac, gin, rum, vodka, rakija and wine."
+    "lead": "Cigar Shop is a premium retail chain of the finest cigar brands, quality accessories and premium spirits.",
+    "body": "Nine stores across Belgrade. Over 500 cigars from seven countries and more than 260 selected bottles across eight categories. Cigars from Cuba, the Dominican Republic, Nicaragua, Honduras, Costa Rica, Mexico and Italy stand beside Scotch, Irish, Japanese and Oriental whiskies, bourbon, cognac, gin, rum, vodka, domestic rakija and wine. Alongside them, the tools that complete the ritual: cutters, lighters, humidors, ashtrays and travel cases."
   },
 
   "brands": {
     "kicker": "Brands",
     "title": "From field to humidor.",
-    "lead": "Over 70 brands from seven countries. Each is the seal of a region, a dynasty and decades of patience. Choose a region — discover the story."
+    "lead": "Over 70 brands from seven countries. Each is the seal of a region, a dynasty and decades of patience. Choose a region, discover the story."
   },
 
   "gallery": {
     "kicker": "Gallery",
     "title": "The ritual, framed.",
-    "lead": "Boxes, crowns, embers, the humidor — moments words cannot describe."
+    "lead": "Boxes, crowns, embers, the humidor, moments words cannot describe."
   },
 
   "origins": {
     "kicker": "Origins",
     "title": "From field to humidor.",
-    "lead": "Over 70 brands from seven countries. Pick a region on the globe or in the tabs — discover the story of tobacco and brands.",
+    "lead": "Over 70 brands from seven countries. Pick a region on the globe or in the tabs, discover the story of tobacco and brands.",
     "countries": {
-      "cuba":     { "name": "Cuba",       "desc": "Vuelta Abajo — the mother of all tobaccos. Iron-rich earth, unforgiving sun, rolling that takes decades to master." },
+      "cuba":     { "name": "Cuba",       "desc": "Vuelta Abajo, the mother of all tobaccos. Iron-rich earth, unforgiving sun, rolling that takes decades to master." },
       "dominican":{ "name": "Dominican",  "desc": "Cibao Valley. The balance that defines Fuente and Davidoff Dominicans: creamy, subtly sweet, diplomatic." },
-      "nicaragua":{ "name": "Nicaragua",  "desc": "Estelí and Jalapa. Volcanic soil grows tobacco with darkness — peppery, earthy, masculine." },
+      "nicaragua":{ "name": "Nicaragua",  "desc": "Estelí and Jalapa. Volcanic soil grows tobacco with darkness, peppery, earthy, masculine." },
       "honduras": { "name": "Honduras",   "desc": "Jamastran and Copán. Warm, nutty profile with hints of leather and baked bread." },
-      "costa":    { "name": "Costa Rica", "desc": "Turrialba. Gentle, mineral notes — the perfect morning cigar with espresso." },
+      "costa":    { "name": "Costa Rica", "desc": "Turrialba. Gentle, mineral notes, the perfect morning cigar with espresso." },
       "mexico":   { "name": "Mexico",     "desc": "San Andrés Negro. Relaxed, bittersweet, an ideal wrapper for complex blends." }
     }
   },
@@ -61,18 +61,18 @@
     "kicker": "Collection",
     "title": "A library of cigars.",
     "items": [
-      { "title": "Habanos Classics",    "sub": "Cohiba · Montecristo · Romeo y Julieta", "size": "lg" },
-      { "title": "Dominican Refined",   "sub": "Fuente · Davidoff · La Aurora",          "size": "md" },
-      { "title": "Nicaraguan Strength", "sub": "Padron · Oliva · My Father",             "size": "sm" },
-      { "title": "Honduran Warmth",     "sub": "Rocky Patel · Alec Bradley",             "size": "sm" },
-      { "title": "Limited Editions",    "sub": "Annual releases, numbered boxes",        "size": "wide" }
+      { "title": "Romeo y Julieta",              "sub": "Wide Churchill, Cuban classic since 1875.",                "size": "lg" },
+      { "title": "Julius Caesar",                "sub": "J. C. Newman, Diamond Crown Florida Sun Grown",            "size": "md" },
+      { "title": "Pasión",                       "sub": "Vintage line, long-fermented tobacco",                     "size": "sm" },
+      { "title": "Joya Cabinetta",               "sub": "Joya de Nicaragua, cabinet rolling",                       "size": "sm" },
+      { "title": "Montecristo · Partagas · Cohiba", "sub": "The trio at the heart of Cuban tradition.",            "size": "wide" }
     ]
   },
 
   "humidor": {
     "kicker": "Humidor",
     "title": "Step into the humidor.",
-    "lead": "The cigar that waits for you here has spent years in silence — now it waits for smoke.",
+    "lead": "The cigar that waits for you here has spent years in silence, now it waits for smoke.",
     "body": "Every humidor we run is a promise to the buyer. 70% humidity, a constant 20°C, refrigerated Spanish cedar that smells as it should. The Cohiba you take home today felt exactly the same in the roller's hands ten years ago. That is the only difference between a cigar and a cigar worth smoking.",
     "stat1": "Relative humidity",
     "stat2": "Constant temperature",
@@ -82,39 +82,26 @@
   "spirits": {
     "kicker": "Spirits",
     "title": "Liquid companions of smoke.",
-    "lead": "Over 260 expressions across eight categories — Scotch, Japanese, Irish whisky, bourbon, cognac, gin, rum, rakija, wine. Each pairing with a cigar is its own language.",
+    "lead": "Over 260 selected bottles across eight categories. Every pairing with a cigar has its own rhythm, dialect, and temperature.",
     "items": [
-      { "title": "Single Malt Scotch",  "sub": "48 expressions — Islay, Speyside, Highlands, Islands" },
-      { "title": "Japanese Whisky",     "sub": "17 expressions — Yamazaki, Hakushu, Nikka, Yoichi" },
-      { "title": "Irish Pot Still",     "sub": "9 expressions — Redbreast, Jameson, Green Spot" },
-      { "title": "Bourbon & Rye",       "sub": "12 expressions — Kentucky caramel and oak" },
-      { "title": "Cognac & Armagnac",   "sub": "16 expressions — XO, Hors d'Âge, French-Armenian tradition" },
-      { "title": "Premium Rakija",      "sub": "28 local distilleries — gold and silver medals" }
+      { "title": "Single Malt Scotch",      "sub": "Macallan, Lagavulin, Glenfiddich, Talisker. Peated Islay beside a full Habanos; fruity Speyside beside a creamy Dominican." },
+      { "title": "Japanese Whisky",         "sub": "Yamazaki, Hakushu, Nikka, Yoichi. Zen precision, floral and light, the perfect companion to a morning cigar." },
+      { "title": "Irish Pot Still",         "sub": "Redbreast, Green Spot, Jameson. Triple-distilled softness, a fruit canopy above the ember." },
+      { "title": "Bourbon & Rye",           "sub": "Buffalo Trace, Woodford Reserve, Maker's Mark. Kentucky caramel, white oak, the black pepper of rye." },
+      { "title": "Cognac & Armagnac",       "sub": "Hennessy XO, Remy Martin, Armenian Ararat. Grape distilled through decades, the pairing that tames the fullest cigars." },
+      { "title": "Premium Rakija",          "sub": "Zaričje, Zariće, Prokupac. 28 local distilleries, gold and silver medals, the authentic note of these lands." }
     ]
   },
 
-  "accessories": {
-    "kicker": "Accessories",
-    "title": "Tools of the ritual.",
-    "items": [
-      { "title": "Cutters",         "sub": "Guillotine, punch, V-cut",            "size": "md" },
-      { "title": "Lighters",        "sub": "Triple butane, Zippo, cedar matches", "size": "md" },
-      { "title": "Humidors",        "sub": "Spanish cedar, digital hygrometer",   "size": "md" },
-      { "title": "Ashtrays",        "sub": "Marble, crystal, bronze",             "size": "sm" },
-      { "title": "Travel Cases",    "sub": "Leather, aluminum, 3–5 cigars",       "size": "sm" },
-      { "title": "Boveda Packs",    "sub": "Stable humidity 62–75%",              "size": "wide" }
-    ]
-  },
-
-  "ritual": {
+"ritual": {
     "kicker": "Ritual",
     "title": "Cut. Light. Savor.",
     "step1Title": "Cut",
-    "step1Body": "A sharp, clean cut — 2 mm above the cap.",
+    "step1Body": "A sharp, clean cut, 2 mm above the cap.",
     "step2Title": "Light",
     "step2Body": "Cedar match or scentless butane flame.",
     "step3Title": "Savor",
-    "step3Body": "One draw per minute. Don't rush — the ember hates hurry."
+    "step3Body": "One draw per minute. Don't rush, the ember hates hurry."
   },
 
   "locations": {

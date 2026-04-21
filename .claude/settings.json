@@ -21,7 +21,11 @@
       "WebFetch(domain:www.google.com)",
       "WebFetch(domain:www.instagram.com)",
       "WebFetch(domain:cigarshop.rs)",
-      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Globe: 19 region pins with rich stories + disable scroll zoom \\(page scrolls through\\)\")"
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Globe: 19 region pins with rich stories + disable scroll zoom \\(page scrolls through\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(git checkout *)",
+      "Bash(python -c \"from PIL import Image; im = Image.open\\('public/assets/brand/logo-512.png'\\).convert\\('RGBA'\\); pixels = [p for p in im.getdata\\(\\) if p[3] > 200]; n=len\\(pixels\\); avg=tuple\\(sum\\(p[i] for p in pixels\\)/n for i in range\\(3\\)\\); print\\(f'opaque pixels: {n}'\\); print\\(f'avg RGB: \\({avg[0]:.0f},{avg[1]:.0f},{avg[2]:.0f}\\)'\\); print\\(f'hex: #{int\\(avg[0]\\):02x}{int\\(avg[1]\\):02x}{int\\(avg[2]\\):02x}'\\)\")",
+      "Bash(python -c ' *)"
     ]
   }
 }
