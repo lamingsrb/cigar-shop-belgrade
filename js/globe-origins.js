@@ -206,7 +206,7 @@ export async function initGlobeOrigins() {
     markerGroup.add(sprite);
 
     // Pulsing ring
-    const ringGeom = new THREE.RingGeometry(0.018, 0.038, 24);
+    const ringGeom = new THREE.RingGeometry(0.010, 0.020, 24);
     const ringMat = new THREE.MeshBasicMaterial({
       color: 0xe4c88a, transparent: true, opacity: 0.5,
       side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending
@@ -267,6 +267,30 @@ export async function initGlobeOrigins() {
     if (current) openPanel(current);
   });
 
+  // ---------- manual zoom buttons (mouse wheel stays off for page scroll) ----------
+  const MIN_DIST = 2.3;
+  const MAX_DIST = 6.5;
+  const zoomStep = (factor) => {
+    const dir = camera.position.clone().normalize();
+    const curDist = camera.position.length();
+    const nextDist = Math.min(MAX_DIST, Math.max(MIN_DIST, curDist * factor));
+    const start = curDist;
+    const delta = nextDist - curDist;
+    const t0 = performance.now();
+    const dur = 320;
+    (function animate() {
+      const k = Math.min(1, (performance.now() - t0) / dur);
+      const eased = 1 - Math.pow(1 - k, 3);
+      const d = start + delta * eased;
+      camera.position.copy(dir.clone().multiplyScalar(d));
+      if (k < 1) requestAnimationFrame(animate);
+    })();
+  };
+  const zoomIn  = document.getElementById('globe-zoom-in');
+  const zoomOut = document.getElementById('globe-zoom-out');
+  zoomIn?.addEventListener('click',  () => zoomStep(0.85));
+  zoomOut?.addEventListener('click', () => zoomStep(1.18));
+
   // ---------- loop ----------
   const clock = new THREE.Clock();
   let visible = false;
@@ -286,12 +310,12 @@ export async function initGlobeOrigins() {
       const p = 0.7 + 0.3 * Math.sin(t * 2 + i * 0.9);
       m.dot.scale.setScalar(p);
 
-      const ringP = (t * 0.6 + i * 0.15) % 1;
-      m.ring.scale.setScalar(1 + ringP * 2.5);
-      m.ring.material.opacity = 0.8 * (1 - ringP);
+      const ringP = (t * 0.5 + i * 0.15) % 1;
+      m.ring.scale.setScalar(1 + ringP * 1.4);
+      m.ring.material.opacity = 0.7 * (1 - ringP);
 
       const spritePulse = 0.8 + 0.35 * Math.sin(t * 2.3 + i);
-      m.sprite.scale.set(0.22 * spritePulse, 0.22 * spritePulse, 1);
+      m.sprite.scale.set(0.14 * spritePulse, 0.14 * spritePulse, 1);
     });
 
     // sun light slow drift for warmth

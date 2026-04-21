@@ -25,14 +25,15 @@ const COLLECTION_IMAGES = [
   `${GALLERY}/img-020.webp`   // wide: Cuban trio display
 ];
 
-// SPIRITS — 6 kartica \u010dirokih kategorija (viski/burbon/\u2026). Koristim atmosfere + product shots.
+// SPIRITS — prave slike pi\u0107a (iz /assets/spirits/), po kategoriji
+const SPIRITS = '/assets/spirits';
 const SPIRITS_IMAGES = [
-  `${GALLERY}/img-018.webp`,  // Single Malt Scotch
-  `${GALLERY}/img-025.webp`,  // Japanese
-  `${GALLERY}/img-032.webp`,  // Irish
-  `${GALLERY}/img-008.webp`,  // Bourbon
-  `${GALLERY}/img-044.webp`,  // Cognac
-  `${GALLERY}/img-050.webp`   // Rakija
+  `${SPIRITS}/scotch.webp`,    // Single Malt Scotch  — Johnnie Walker Black Label
+  `${SPIRITS}/japanese.webp`,  // Japanski viski     — mra\u010dni ja\u010dan koktel na drvetu
+  `${SPIRITS}/irish.webp`,     // Irski pot still    — bar scene, amber cocktail
+  `${SPIRITS}/bourbon.webp`,   // Bourbon & Rye       — Jack Daniels Tennessee
+  `${SPIRITS}/cognac.webp`,    // Cognac & Armagnac   — old-fashioned being poured
+  `${SPIRITS}/rakija.webp`     // Premium Rakija      — sve\u017ei rose\u0301 koktel sa ruzmarinom
 ];
 
 // Overlay gradient which darkens the image so text is legible

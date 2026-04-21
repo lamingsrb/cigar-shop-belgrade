@@ -16,13 +16,9 @@ export function initLocationsMap() {
   map = L.map(el, {
     zoomControl: false,
     scrollWheelZoom: false
-  }).setView([44.815, 20.455], 13);
+  }).setView([44.815, 20.455], 12);
 
-  L.control.zoom({
-    position: 'bottomright',
-    zoomInTitle: '',
-    zoomOutTitle: ''
-  }).addTo(map);
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
 
   // Carto Dark Matter — free, tamna estetika, bez API key
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -47,9 +43,9 @@ function renderMarkers() {
   stores.forEach((s) => {
     const icon = L.divIcon({
       className: 'ember-marker-wrapper',
-      html: '<div class="ember-marker"><span class="ember-marker__ripple"></span></div>',
-      iconSize: [16, 16],
-      iconAnchor: [8, 8]
+      html: '<div class="ember-marker"></div>',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
     });
 
     const m = L.marker([s.lat, s.lng], { icon }).addTo(markerLayer);

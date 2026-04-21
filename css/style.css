@@ -547,6 +547,47 @@ section {
 }
 .origins__canvas { width: 100%; height: 100%; }
 
+.globe-zoom {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.globe-zoom__btn {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(42, 24, 16, 0.92), rgba(10, 6, 5, 0.92));
+  color: var(--gold-leaf);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(245, 230, 211, 0.04);
+  transition: color 0.25s var(--ease-out-quart),
+              border-color 0.25s var(--ease-out-quart),
+              box-shadow 0.25s var(--ease-out-quart),
+              transform 0.25s var(--ease-out-quart);
+}
+.globe-zoom__btn:hover {
+  color: var(--ember);
+  border-color: var(--ember);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6),
+              0 0 18px rgba(228, 200, 138, 0.35),
+              inset 0 1px 0 rgba(245, 230, 211, 0.08);
+  transform: translateY(-1px);
+}
+.globe-zoom__btn:active { transform: translateY(0); }
+
 .origins__panel {
   position: absolute;
   top: 2rem; right: 2rem;
@@ -915,80 +956,16 @@ section {
 /* Leaflet marker override */
 .leaflet-container { background: var(--mahogany); }
 .ember-marker {
-  position: relative;
-  width: 12px; height: 12px;
-  margin: 2px;
-  background: radial-gradient(circle, var(--ember) 0%, var(--ember-deep) 60%, transparent 80%);
+  width: 24px; height: 24px;
+  background: radial-gradient(circle, var(--ember) 0%, var(--ember-deep) 50%, transparent 70%);
   border-radius: 50%;
-  box-shadow: 0 0 6px var(--ember), 0 0 12px rgba(228, 200, 138, 0.35);
-}
-.ember-marker__ripple {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 12px; height: 12px;
-  margin-top: -6px; margin-left: -6px;
-  border-radius: 50%;
-  border: 1px solid var(--ember);
-  opacity: 0;
-  animation: emberRipple 2.6s ease-out infinite;
-  pointer-events: none;
-}
-@keyframes emberRipple {
-  0%   { transform: scale(1);   opacity: 0.65; }
-  100% { transform: scale(2.2); opacity: 0; }
+  box-shadow: 0 0 20px var(--ember), 0 0 40px rgba(228, 200, 138, 0.4);
 }
 .leaflet-popup-content-wrapper {
   background: var(--mahogany); color: var(--vellum);
   border: 1px solid var(--gold-leaf); border-radius: 2px;
 }
 .leaflet-popup-tip { background: var(--mahogany); border: 1px solid var(--gold-leaf); }
-
-/* Premium zoom control */
-.leaflet-bar { border: none; box-shadow: none; }
-.leaflet-control-zoom {
-  margin: 0 1rem 1rem 0 !important;
-  display: flex; flex-direction: column;
-  gap: 2px;
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-}
-.leaflet-control-zoom a.leaflet-control-zoom-in,
-.leaflet-control-zoom a.leaflet-control-zoom-out {
-  width: 40px !important;
-  height: 40px !important;
-  line-height: 38px !important;
-  background: linear-gradient(180deg, rgba(42, 24, 16, 0.92), rgba(10, 6, 5, 0.92)) !important;
-  color: var(--gold-leaf) !important;
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 300;
-  border: 1px solid var(--line) !important;
-  border-radius: 999px !important;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(245, 230, 211, 0.04);
-  transition: color 0.25s var(--ease-out-quart),
-              border-color 0.25s var(--ease-out-quart),
-              box-shadow 0.25s var(--ease-out-quart),
-              transform 0.25s var(--ease-out-quart);
-  backdrop-filter: blur(6px);
-}
-.leaflet-control-zoom a.leaflet-control-zoom-in:hover,
-.leaflet-control-zoom a.leaflet-control-zoom-out:hover {
-  color: var(--ember) !important;
-  border-color: var(--ember) !important;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6),
-              0 0 18px rgba(228, 200, 138, 0.35),
-              inset 0 1px 0 rgba(245, 230, 211, 0.08);
-  transform: translateY(-1px);
-}
-.leaflet-control-zoom a.leaflet-control-zoom-in:active,
-.leaflet-control-zoom a.leaflet-control-zoom-out:active {
-  transform: translateY(0);
-}
-.leaflet-control-zoom a.leaflet-disabled {
-  opacity: 0.35;
-  cursor: default;
-}
 
 /* =======================================================
    CONTACT
