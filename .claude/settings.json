@@ -20,7 +20,8 @@
       "Bash(curl -sS -o /dev/null -w '%{http_code}' https://cigar-shop-belgrade.vercel.app__TRACKED_VAR__)",
       "WebFetch(domain:www.google.com)",
       "WebFetch(domain:www.instagram.com)",
-      "WebFetch(domain:cigarshop.rs)"
+      "WebFetch(domain:cigarshop.rs)",
+      "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Globe: 19 region pins with rich stories + disable scroll zoom \\(page scrolls through\\)\")"
     ]
   }
 }

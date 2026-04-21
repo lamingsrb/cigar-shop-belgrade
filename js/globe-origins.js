@@ -7,16 +7,10 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { tObj, onLangChange } from './i18n.js';
+import { getLang, onLangChange } from './i18n.js';
 
-const REGIONS = [
-  { key: 'cuba',      lat: 22.5,  lng: -79.5 },
-  { key: 'dominican', lat: 19.0,  lng: -70.7 },
-  { key: 'nicaragua', lat: 13.0,  lng: -85.3 },
-  { key: 'honduras',  lat: 14.6,  lng: -86.5 },
-  { key: 'costa',     lat: 9.7,   lng: -84.1 },
-  { key: 'mexico',    lat: 18.0,  lng: -96.7 }
-];
+const REGIONS_URL = '/data/origin-regions.json';
+let REGIONS_DATA = null;
 
 function latLngToVec3(lat, lng, radius = 1) {
   const phi   = (90 - lat) * (Math.PI / 180);
@@ -28,9 +22,18 @@ function latLngToVec3(lat, lng, radius = 1) {
   );
 }
 
-export function initGlobeOrigins() {
+export async function initGlobeOrigins() {
   const canvas = document.getElementById('globe-canvas');
   if (!canvas) return;
+
+  // U\u010ditaj region data asinhrono (19 subregiona porekla duvana)
+  try {
+    const res = await fetch(REGIONS_URL);
+    REGIONS_DATA = (await res.json()).regions || [];
+  } catch (err) {
+    console.error('[globe] origin-regions.json load failed', err);
+    REGIONS_DATA = [];
+  }
   const section = document.getElementById('origins');
   const panel   = document.getElementById('origin-panel');
   const panelC  = document.getElementById('origin-country');
@@ -57,13 +60,12 @@ export function initGlobeOrigins() {
   resize();
   new ResizeObserver(resize).observe(canvas);
 
-  // ---------- orbit controls ----------
+  // ---------- orbit controls (bez scroll zoom-a; scroll prolazi na stranicu) ----------
   const controls = new OrbitControls(camera, canvas);
   controls.enableDamping = true;
   controls.dampingFactor = 0.06;
   controls.enablePan = false;
-  controls.minDistance = 2.2;
-  controls.maxDistance = 7;
+  controls.enableZoom = false;  // mouse wheel ne zumira — radi page scroll
   controls.autoRotate = true;
   controls.autoRotateSpeed = 0.35;
   controls.rotateSpeed = 0.7;
@@ -174,14 +176,14 @@ export function initGlobeOrigins() {
 
   const glowTex = makePinGlowTexture();
 
-  REGIONS.forEach((r) => {
+  REGIONS_DATA.forEach((r) => {
     const pos = latLngToVec3(r.lat, r.lng, 1.0);
     const surfaceNormal = pos.clone().normalize();
 
-    // core dot slightly above surface
-    const dotPos = pos.clone().add(surfaceNormal.clone().multiplyScalar(0.015));
+    // Core dot — manji jer ima 19 tačaka, ne sme da se preklapaju
+    const dotPos = pos.clone().add(surfaceNormal.clone().multiplyScalar(0.012));
     const dot = new THREE.Mesh(
-      new THREE.SphereGeometry(0.018, 20, 20),
+      new THREE.SphereGeometry(0.014, 16, 16),
       new THREE.MeshBasicMaterial({
         color: 0xffd46a,
         transparent: true,
@@ -190,53 +192,31 @@ export function initGlobeOrigins() {
       })
     );
     dot.position.copy(dotPos);
-    dot.userData = { key: r.key };
+    dot.userData = { key: r.key, country: r.country };
     markerGroup.add(dot);
 
-    // billboarded glow sprite (kao lens flare)
+    // Billboarded glow sprite — manji
     const glowMat = new THREE.SpriteMaterial({
-      map: glowTex,
-      color: 0xff6b1a,
-      transparent: true,
-      opacity: 0.85,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
+      map: glowTex, color: 0xff6b1a, transparent: true,
+      opacity: 0.75, depthWrite: false, blending: THREE.AdditiveBlending
     });
     const sprite = new THREE.Sprite(glowMat);
     sprite.position.copy(dotPos);
-    sprite.scale.set(0.18, 0.18, 1);
+    sprite.scale.set(0.12, 0.12, 1);
     markerGroup.add(sprite);
 
-    // vertical pin tower (ring)
-    const pinHeight = 0.09;
-    const pinGeom = new THREE.CylinderGeometry(0.003, 0.003, pinHeight, 8);
-    const pinMat = new THREE.MeshBasicMaterial({
-      color: 0xff6b1a,
-      transparent: true,
-      opacity: 0.8
-    });
-    const pin = new THREE.Mesh(pinGeom, pinMat);
-    pin.position.copy(dotPos.clone().add(surfaceNormal.clone().multiplyScalar(pinHeight / 2)));
-    pin.lookAt(pos.clone().multiplyScalar(10));
-    pin.rotateX(Math.PI / 2);
-    markerGroup.add(pin);
-
-    // outer pulsing ring on surface (decal-ish)
-    const ringGeom = new THREE.RingGeometry(0.025, 0.055, 32);
+    // Pulsing ring
+    const ringGeom = new THREE.RingGeometry(0.018, 0.038, 24);
     const ringMat = new THREE.MeshBasicMaterial({
-      color: 0xff6b1a,
-      transparent: true,
-      opacity: 0.6,
-      side: THREE.DoubleSide,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
+      color: 0xff6b1a, transparent: true, opacity: 0.5,
+      side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending
     });
     const ring = new THREE.Mesh(ringGeom, ringMat);
     ring.position.copy(pos.clone().add(surfaceNormal.clone().multiplyScalar(0.005)));
     ring.lookAt(pos.clone().multiplyScalar(10));
     markerGroup.add(ring);
 
-    markers.push({ dot, sprite, ring, pin, key: r.key });
+    markers.push({ dot, sprite, ring, key: r.key, country: r.country });
   });
 
   // ---------- raycaster klik ----------
@@ -267,10 +247,18 @@ export function initGlobeOrigins() {
   });
 
   function openPanel(key) {
-    const data = tObj(`origins.countries.${key}`);
-    if (!data) return;
-    panelC.textContent = data.name;
-    panelD.textContent = data.desc;
+    const region = REGIONS_DATA.find(r => r.key === key);
+    if (!region) return;
+    const lang = getLang();
+    const t = region.translations[lang] || region.translations.sr;
+    panel.dataset.key = key;
+    panelC.textContent = t.name;
+    // Sub + story + brands inline — story je lep pasus
+    panelD.innerHTML = `
+      <span class="origins__sub">${t.sub}</span>
+      <span class="origins__story">${t.story}</span>
+      ${t.brands ? `<span class="origins__brands"><em>Brendovi:</em> ${t.brands}</span>` : ''}
+    `;
     panel.classList.add('is-open');
   }
   closeBtn?.addEventListener('click', () => panel.classList.remove('is-open'));
