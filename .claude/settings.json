@@ -16,7 +16,11 @@
       "Bash(node scripts/parse-brands.mjs)",
       "Bash(node scripts/build-hero-video.mjs)",
       "Bash(node -e \"const d=require\\('./public/data/brands.json'\\); for\\(const [r,cat] of Object.entries\\(d.cigars\\)\\) console.log\\('CIGARS/'+r+':', cat.brands.map\\(b=>b.brand+'\\('+b.count+'\\)'\\).join\\(', '\\)\\); for\\(const [r,cat] of Object.entries\\(d.spirits\\)\\) console.log\\('SPIRITS/'+r+':', cat.brands.map\\(b=>b.brand+'\\('+b.count+'\\)'\\).join\\(', '\\)\\)\")",
-      "Bash(git -c user.email=lamingsrb@users.noreply.github.com -c user.name=lamingsrb commit -m ' *)"
+      "Bash(git -c user.email=lamingsrb@users.noreply.github.com -c user.name=lamingsrb commit -m ' *)",
+      "Bash(curl -sS -o /dev/null -w '%{http_code}' https://cigar-shop-belgrade.vercel.app__TRACKED_VAR__)",
+      "WebFetch(domain:www.google.com)",
+      "WebFetch(domain:www.instagram.com)",
+      "WebFetch(domain:cigarshop.rs)"
     ]
   }
 }

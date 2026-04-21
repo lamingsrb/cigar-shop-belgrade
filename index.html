@@ -47,14 +47,13 @@
   <header class="header" role="banner">
     <div class="header__inner">
       <a href="#hero" class="brand" aria-label="Cigar Shop Belgrade">
-        <img class="brand__logo" src="/assets/brand/logo-128.png" alt="Cigar Shop" width="48" height="auto">
+        <img class="brand__logo" src="/assets/brand/logo-256.png" alt="Cigar Shop" width="76" height="auto">
       </a>
 
       <nav class="nav" aria-label="Primary">
         <a href="#manifest" data-i18n="nav.manifest">Manifest</a>
         <a href="#origins" data-i18n="nav.origins">Poreklo</a>
         <a href="#collection" data-i18n="nav.collection">Kolekcija</a>
-        <a href="#brands" data-i18n="nav.brands">Brendovi</a>
         <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
         <a href="#spirits" data-i18n="nav.spirits">Pića</a>
         <a href="#gallery" data-i18n="nav.gallery">Galerija</a>
@@ -127,12 +126,12 @@
     </div>
   </section>
 
-  <!-- =======================  ORIGINS  (Globus)  ======================= -->
-  <section id="origins" class="origins" aria-label="Origins">
+  <!-- =======================  POREKLO (Origins + Brands unified)  ======================= -->
+  <section id="origins" class="origins" aria-label="Poreklo i brendovi">
     <div class="origins__header">
       <p class="kicker" data-i18n="origins.kicker">Poreklo</p>
-      <h2 class="heading-display" data-i18n="origins.title">Šest izvora dima.</h2>
-      <p class="lead" data-i18n="origins.lead">Klikni na zemlju da otvoriš profil duvana.</p>
+      <h2 class="heading-display" data-i18n="origins.title">Od polja do humidora.</h2>
+      <p class="lead" data-i18n="origins.lead">Preko 70 brendova iz sedam zemalja. Biraj region na globusu ili u tabovima — otkrij priču duvana i brendova.</p>
     </div>
     <div class="origins__stage">
       <canvas id="globe-canvas" class="origins__canvas" aria-hidden="true"></canvas>
@@ -142,6 +141,8 @@
         <p class="origins__desc" id="origin-desc">Izaberi zemlju na globusu.</p>
       </aside>
     </div>
+    <div class="brands__tabs" id="brands-tabs" role="tablist"></div>
+    <div class="brands__grid" id="brands-grid"></div>
   </section>
 
   <!-- =======================  COLLECTION  ======================= -->
@@ -153,19 +154,6 @@
     <div class="bento collection__bento" id="collection-bento"></div>
   </section>
 
-  <!-- =======================  BRANDS  ======================= -->
-  <section id="brands" class="brands" aria-label="Brands">
-    <div class="section__header">
-      <p class="kicker" data-i18n="brands.kicker">Brendovi</p>
-      <h2 class="heading-display" data-i18n="brands.title">Od polja do humidora.</h2>
-      <p class="lead" data-i18n="brands.lead">
-        Preko 70 brendova iz sedam zemalja. Svaki je pečat regiona,
-        dinastije i decenija strpljenja. Biraj region — otkrij priču.
-      </p>
-    </div>
-    <div class="brands__tabs" id="brands-tabs" role="tablist"></div>
-    <div class="brands__grid" id="brands-grid"></div>
-  </section>
 
   <!-- =======================  HUMIDOR  ======================= -->
   <section id="humidor" class="humidor" aria-label="Humidor">
@@ -174,7 +162,11 @@
       <p class="kicker" data-i18n="humidor.kicker">Humidor</p>
       <h2 class="heading-display" data-i18n="humidor.title">Uđi u humidor.</h2>
       <p class="lead" data-i18n="humidor.lead">
-        70% vlažnost. 20°C. Tišina stara koliko i duvan.
+        Cigara koja te čeka kod nas provela je godine u tišini — sada čeka dim.
+      </p>
+      <p class="body humidor__body" data-i18n="humidor.body">
+        Svaki naš humidor je zakletva kupcu. 70% vlažnosti, 20°C konstantno,
+        rashlađen španski kedar koji miriše kao što treba.
       </p>
       <ul class="humidor__stats">
         <li><strong>70%</strong><span data-i18n="humidor.stat1">Relativna vlažnost</span></li>
@@ -202,7 +194,7 @@
       <p class="kicker" data-i18n="accessories.kicker">Pribor</p>
       <h2 class="heading-display" data-i18n="accessories.title">Alati rituala.</h2>
     </div>
-    <div class="bento accessories__bento" id="accessories-bento"></div>
+    <div class="spirits__rail accessories__rail" id="accessories-rail"></div>
   </section>
 
   <!-- =======================  THE RITUAL  ======================= -->

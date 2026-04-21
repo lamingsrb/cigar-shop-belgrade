@@ -39,12 +39,12 @@ withSizes.sort((a, b) => b.s - a.s);
 console.log('[hero] Input clips (by size):');
 withSizes.forEach(x => console.log('  ', (x.s / 1e6).toFixed(1), 'MB -', x.f));
 
-// Uzimamo max 5 klipova, redosled: najve\u0107i prvi
+// Uzimamo SVIH 5 klipova (ili koliko postoji), redosled: najve\u0107i prvi
 const CLIPS = withSizes.slice(0, 5).map(x => join(SRC_DIR, x.f));
 
-// 2) Pre-process svaki klip: skaliraj na 1280x720, 30fps, trim na 4s (kratak akcent po klipu)
-// Anchor (prvi) dobija 6s, ostali po 3s \u2014 ukupno ~18s loop.
-const SEGMENT_DURATIONS = [6, 3.5, 3.5, 3, 3];
+// 2) Pre-process svaki klip: 1920x1080, 30fps. Produžene dužine da se vi\u0161e
+// realnog sadr\u017eaja vidi. Total ~30s loop sa crossfade overlapom.
+const SEGMENT_DURATIONS = [7, 4, 4, 3.5, 3.5];
 const processed = [];
 
 for (let i = 0; i < CLIPS.length; i++) {
@@ -52,22 +52,21 @@ for (let i = 0; i < CLIPS.length; i++) {
   const dur = SEGMENT_DURATIONS[i] || 3;
   const out = join(TMP_DIR, `seg${i}.mp4`);
   // Skaliraj, crop, trim, warmth grade, stabilni fps
-  // Inputi su verovatno portrait 1080x1920 \u2014 koristimo `increase` pa crop na landscape 1280x720
+  // 1280x720 za hero loop \u2014 dobar kvalitet + malena veli\u010dina (target total < 6MB mp4).
   const vf = [
     `scale=1280:720:force_original_aspect_ratio=increase`,
     `crop=1280:720`,
     `setsar=1:1`,
     `fps=30`,
-    // Blagi warm color grade (mahogany tone) + saturation
-    `eq=brightness=-0.05:contrast=1.15:saturation=1.18`,
-    `colorbalance=rs=0.06:gs=-0.02:bs=-0.06`
+    `eq=brightness=-0.04:contrast=1.12:saturation=1.15`,
+    `colorbalance=rs=0.05:gs=-0.02:bs=-0.05`
   ].join(',');
   await run([
     '-y', '-i', src,
     '-t', String(dur),
     '-vf', vf,
-    '-an',                          // bez audio-a
-    '-c:v', 'libx264', '-crf', '22', '-preset', 'fast',
+    '-an',
+    '-c:v', 'libx264', '-crf', '22', '-preset', 'medium',
     '-pix_fmt', 'yuv420p',
     out
   ], `seg${i}`);
@@ -107,17 +106,17 @@ await run([
   '-y', ...inputs,
   '-filter_complex', filter,
   '-map', '[v]',
-  '-c:v', 'libx264', '-crf', '23', '-preset', 'medium',
+  '-c:v', 'libx264', '-crf', '22', '-preset', 'medium',
   '-pix_fmt', 'yuv420p',
   '-movflags', '+faststart',
   heroMp4
 ], 'concat-mp4');
 
-// 4) WebM (VP9) verzija
+// 4) WebM (VP9) \u2014 target ~3 MB
 const heroWebm = join(OUT_DIR, 'hero.webm');
 await run([
   '-y', '-i', heroMp4,
-  '-c:v', 'libvpx-vp9', '-crf', '34', '-b:v', '0',
+  '-c:v', 'libvpx-vp9', '-crf', '32', '-b:v', '0',
   '-deadline', 'good', '-cpu-used', '3',
   '-an',
   heroWebm

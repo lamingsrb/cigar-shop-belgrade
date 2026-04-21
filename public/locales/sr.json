@@ -9,7 +9,6 @@
     "manifest": "Manifest",
     "origins": "Poreklo",
     "collection": "Kolekcija",
-    "brands": "Brendovi",
     "humidor": "Humidor",
     "spirits": "Pića",
     "gallery": "Galerija",
@@ -46,8 +45,8 @@
 
   "origins": {
     "kicker": "Poreklo",
-    "title": "Šest izvora dima.",
-    "lead": "Klikni na zemlju da otvoriš profil duvana.",
+    "title": "Od polja do humidora.",
+    "lead": "Preko 70 brendova iz sedam zemalja. Biraj region na globusu ili u tabovima — otkrij priču duvana i brendova.",
     "countries": {
       "cuba":     { "name": "Kuba",        "desc": "Vuelta Abajo — majka svih duvana. Zemlja puna železa, sunce bez milosti, rolanje koje se uči decenijama." },
       "dominican":{ "name": "Dominikana",  "desc": "Cibao dolina. Balans koji čini Fuente i Davidoff Dominikanskim: kremasto, slatkasto, diplomatski." },
@@ -73,7 +72,8 @@
   "humidor": {
     "kicker": "Humidor",
     "title": "Uđi u humidor.",
-    "lead": "70% vlažnost. 20°C. Tišina stara koliko i duvan.",
+    "lead": "Cigara koja te čeka kod nas provela je godine u tišini — sada čeka dim.",
+    "body": "Svaki naš humidor je zakletva kupcu. 70% vlažnosti, 20°C konstantno, rashlađen španski kedar koji miriše kao što treba. Cohiba koju poneseš kući danas — istu je osećao rolanac pre deset godina. To je jedina razlika između cigare i cigare koju vredi pušiti.",
     "stat1": "Relativna vlažnost",
     "stat2": "Stalna temperatura",
     "stat3": "Humidora u Beogradu"
@@ -82,14 +82,14 @@
   "spirits": {
     "kicker": "Pića",
     "title": "Tečni prijatelji dima.",
-    "lead": "Škotski, irski, japanski, orijentalni viski, burbon, konjak, džin, votka, rakija.",
+    "lead": "Preko 260 ekspresija iz osam kategorija — škotski, japanski, irski viski, burbon, konjak, džin, rum, rakija, vino. Svaki par sa cigarom je poseban jezik.",
     "items": [
-      { "title": "Single Malt Scotch",   "sub": "Torfast, dim, Islay i Speyside" },
-      { "title": "Japanese Whisky",      "sub": "Yamazaki, Hakushu, Nikka" },
-      { "title": "Irish Pot Still",      "sub": "Glatko, kremasto, Redbreast" },
-      { "title": "Bourbon & Rye",        "sub": "Karamela, vanila, hrast iz Kentakija" },
-      { "title": "Cognac & Armagnac",    "sub": "XO, Hors d'Âge, suvo voće" },
-      { "title": "Rakija Premium",       "sub": "Domaće destilerije, zlatne medalje" }
+      { "title": "Single Malt Scotch",   "sub": "48 ekspresija — Islay, Speyside, Highlands, Islands" },
+      { "title": "Japanski viski",        "sub": "17 ekspresija — Yamazaki, Hakushu, Nikka, Yoichi" },
+      { "title": "Irski pot still",       "sub": "9 ekspresija — Redbreast, Jameson, Green Spot" },
+      { "title": "Bourbon & Rye",         "sub": "12 ekspresija — Kentaki karamela i hrast" },
+      { "title": "Konjak & Armagnac",     "sub": "16 ekspresija — XO, Hors d'Âge, francusko-jermenska tradicija" },
+      { "title": "Rakije premium",        "sub": "28 domaćih destilerija — zlatne i srebrne medalje" }
     ]
   },
 
