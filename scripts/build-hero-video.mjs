@@ -64,10 +64,10 @@ for (let i = 0; i < CLIPS.length; i++) {
   const start = SEGMENT_STARTS[i] || 0;
   const out = join(TMP_DIR, `seg${i}.mp4`);
   // Skaliraj, crop, trim, warmth grade, stabilni fps
-  // 1280x720 za hero loop \u2014 dobar kvalitet + malena veli\u010dina (target total < 6MB mp4).
+  // 1600x900 + CRF 18 \u2014 visok kvalitet a da 6-stream xfade stane u memoriju.
   const vf = [
-    `scale=1280:720:force_original_aspect_ratio=increase`,
-    `crop=1280:720`,
+    `scale=1600:900:force_original_aspect_ratio=increase`,
+    `crop=1600:900`,
     `setsar=1:1`,
     `fps=30`,
     `eq=brightness=-0.04:contrast=1.12:saturation=1.15`,
@@ -76,7 +76,7 @@ for (let i = 0; i < CLIPS.length; i++) {
   const args = ['-y'];
   if (start > 0) args.push('-ss', String(start));
   args.push('-i', src, '-t', String(dur), '-vf', vf, '-an',
-    '-c:v', 'libx264', '-crf', '22', '-preset', 'medium',
+    '-c:v', 'libx264', '-crf', '18', '-preset', 'medium',
     '-pix_fmt', 'yuv420p', out);
   await run(args, `seg${i}`);
   processed.push(out);
@@ -115,18 +115,18 @@ await run([
   '-y', ...inputs,
   '-filter_complex', filter,
   '-map', '[v]',
-  '-c:v', 'libx264', '-crf', '22', '-preset', 'medium',
+  '-c:v', 'libx264', '-crf', '18', '-preset', 'medium',
   '-pix_fmt', 'yuv420p',
   '-movflags', '+faststart',
   heroMp4
 ], 'concat-mp4');
 
-// 4) WebM (VP9) \u2014 target ~3 MB
+// 4) WebM (VP9) \u2014 viši kvalitet (CRF 28)
 const heroWebm = join(OUT_DIR, 'hero.webm');
 await run([
   '-y', '-i', heroMp4,
-  '-c:v', 'libvpx-vp9', '-crf', '32', '-b:v', '0',
-  '-deadline', 'good', '-cpu-used', '3',
+  '-c:v', 'libvpx-vp9', '-crf', '28', '-b:v', '0',
+  '-deadline', 'good', '-cpu-used', '2',
   '-an',
   heroWebm
 ], 'to-webm');

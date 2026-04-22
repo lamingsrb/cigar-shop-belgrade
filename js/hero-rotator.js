@@ -17,8 +17,15 @@ export function initHeroRotator() {
 
   function apply(index) {
     slides.forEach((s, i) => {
-      s.classList.toggle('is-active', i === index);
-      s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+      const active = i === index;
+      s.classList.toggle('is-active', active);
+      s.setAttribute('aria-hidden', active ? 'false' : 'true');
+      // Pause/resume embedded video kad slajd postane ne-aktivan/aktivan
+      const vid = s.querySelector('video');
+      if (vid) {
+        if (active) { vid.play().catch(() => {}); }
+        else        { vid.pause(); }
+      }
     });
     dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
     current = index;

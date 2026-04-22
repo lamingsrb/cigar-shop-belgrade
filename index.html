@@ -75,20 +75,18 @@
 
   <!-- =======================  HERO  ======================= -->
   <section id="hero" class="hero" aria-label="Hero">
-    <!-- SLIDE A: video + brand lockup (primary) -->
+    <!-- SLIDE A: animirana crna pozadina + logo | divider | wordmark -->
     <div class="hero__slide hero__slide--a is-active" data-slide="a">
-      <div class="hero__video-wrap" aria-hidden="true">
-        <video class="hero__video" autoplay muted loop playsinline
-               preload="metadata" poster="/assets/video/hero-poster.webp">
-          <source src="/assets/video/hero.webm" type="video/webm">
-          <source src="/assets/video/hero.mp4" type="video/mp4">
-        </video>
-        <div class="hero__video-overlay"></div>
+      <div class="hero__bg-animated" aria-hidden="true">
+        <div class="hero__bg-layer hero__bg-layer--1"></div>
+        <div class="hero__bg-layer hero__bg-layer--2"></div>
+        <div class="hero__bg-layer hero__bg-layer--3"></div>
+        <div class="hero__bg-grain"></div>
       </div>
-      <div class="hero__vignette" aria-hidden="true"></div>
       <div class="hero__content">
         <div class="hero__brand-lockup">
           <img class="hero__monogram" src="/assets/brand/logo-monogram-512.png" alt="" width="140" height="140">
+          <span class="hero__divider" aria-hidden="true"></span>
           <div class="hero__wordmark-wrap">
             <h1 class="hero__wordmark" data-i18n="hero.wordmark">CIGAR SHOP</h1>
             <p class="hero__subwordmark" data-i18n="hero.subwordmark">lanac Beograd</p>
@@ -104,21 +102,19 @@
       </div>
     </div>
 
-    <!-- SLIDE B: animirani mosaic proizvoda -->
+    <!-- SLIDE B: Ken-Burns video kompilacija proizvoda -->
     <div class="hero__slide hero__slide--b" data-slide="b" aria-hidden="true">
-      <div class="hero__mosaic" aria-hidden="true">
-        <div class="hero__mosaic-tile" style="--d:0s"><img src="/assets/gallery/img-004.webp" alt=""></div>
-        <div class="hero__mosaic-tile" style="--d:0.2s"><img src="/assets/gallery/img-020.webp" alt=""></div>
-        <div class="hero__mosaic-tile" style="--d:0.4s"><img src="/assets/gallery/img-030.webp" alt=""></div>
-        <div class="hero__mosaic-tile" style="--d:0.6s"><img src="/assets/gallery/img-040.webp" alt=""></div>
-        <div class="hero__mosaic-tile" style="--d:0.8s"><img src="/assets/gallery/img-017.webp" alt=""></div>
-        <div class="hero__mosaic-tile" style="--d:1.0s"><img src="/assets/gallery/img-001.webp" alt=""></div>
+      <div class="hero__video-wrap" aria-hidden="true">
+        <video class="hero__products-video" autoplay muted loop playsinline
+               preload="metadata" poster="/assets/video/products-poster.webp">
+          <source src="/assets/video/products.mp4" type="video/mp4">
+        </video>
+        <div class="hero__video-overlay hero__video-overlay--soft"></div>
       </div>
-      <div class="hero__mosaic-overlay" aria-hidden="true"></div>
       <div class="hero__content hero__content--centered">
         <p class="kicker hero__mosaic-kicker" data-i18n="hero.slideB.kicker">Kolekcija</p>
-        <h2 class="hero__mosaic-title" data-i18n="hero.slideB.title">500+ cigara, 260+ boca</h2>
-        <p class="hero__mosaic-sub" data-i18n="hero.slideB.sub">Premium izbor u srcu Beograda. Svaka kutija je decenija strpljenja.</p>
+        <h2 class="hero__mosaic-title" data-i18n="hero.slideB.title">Sedam regija, jedna strast.</h2>
+        <p class="hero__mosaic-sub" data-i18n="hero.slideB.sub">Od Vuelta Abajo do Estelija, od Cibao do Jamastrana. Svaka kutija nosi decenije tišine i ruku koja ju je rolila.</p>
       </div>
     </div>
 
