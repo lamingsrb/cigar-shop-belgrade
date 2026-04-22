@@ -356,30 +356,25 @@ section {
   align-items: center;
   justify-items: center;
   padding: var(--header-h) var(--gutter) 0;
-  transform: translate3d(100%, 0, 0);  /* default: \u010deka off-screen desno */
-  transition: transform 1.3s cubic-bezier(0.77, 0, 0.175, 1);
+  translate: 100% 0;  /* default: \u010deka off-screen desno */
+  transition: translate 1.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 1;
-  will-change: transform;
   pointer-events: none;
 }
 .hero__slide.is-active {
-  transform: translate3d(0, 0, 0);
+  translate: 0 0;
   pointer-events: auto;
   z-index: 2;
 }
 .hero__slide.is-exit {
-  transform: translate3d(-100%, 0, 0);  /* izlazi u levo */
+  translate: -100% 0;  /* izlazi u levo */
 }
-/* is-prepared: snap reset (bez animacije) da bi slajd koji je bio "is-exit"
-   vratili na desnu stranu pre nego \u0161to ga opet animiramo unutra. */
 .hero__slide.is-prepared {
   transition: none !important;
-  transform: translate3d(100%, 0, 0);
+  translate: 100% 0;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero__slide {
-    transition: transform 0.35s linear;
-  }
+  .hero__slide { transition: translate 0.4s linear; }
 }
 
 /* Animirana crna pozadina za Slide A \u2014 vi\u0161e slojeva u pokretu + floating embers */
