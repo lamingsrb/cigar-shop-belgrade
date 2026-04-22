@@ -51,10 +51,10 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#manifest" data-i18n="nav.manifest">Manifest</a>
         <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
         <a href="#origins" data-i18n="nav.library">Biblioteka cigara</a>
         <a href="#spirits" data-i18n="nav.spirits">Pića</a>
+        <a href="#gear" data-i18n="nav.gear">Oprema</a>
         <a href="#gallery" data-i18n="nav.gallery">Galerija</a>
         <a href="#locations" data-i18n="nav.locations">Lokacije</a>
       </nav>
@@ -75,30 +75,57 @@
 
   <!-- =======================  HERO  ======================= -->
   <section id="hero" class="hero" aria-label="Hero">
-    <div class="hero__video-wrap" aria-hidden="true">
-      <video class="hero__video" autoplay muted loop playsinline
-             preload="metadata" poster="/assets/video/hero-poster.webp">
-        <source src="/assets/video/hero.webm" type="video/webm">
-        <source src="/assets/video/hero.mp4" type="video/mp4">
-      </video>
-      <div class="hero__video-overlay"></div>
-    </div>
-    <div class="hero__vignette" aria-hidden="true"></div>
-    <div class="hero__content">
-      <div class="hero__brand-lockup">
-        <img class="hero__monogram" src="/assets/brand/logo-monogram-512.png" alt="" width="140" height="140">
-        <div class="hero__wordmark-wrap">
-          <h1 class="hero__wordmark" data-i18n="hero.wordmark">CIGAR SHOP</h1>
-          <p class="hero__subwordmark" data-i18n="hero.subwordmark">lanac Beograd</p>
-        </div>
+    <!-- SLIDE A: video + brand lockup (primary) -->
+    <div class="hero__slide hero__slide--a is-active" data-slide="a">
+      <div class="hero__video-wrap" aria-hidden="true">
+        <video class="hero__video" autoplay muted loop playsinline
+               preload="metadata" poster="/assets/video/hero-poster.webp">
+          <source src="/assets/video/hero.webm" type="video/webm">
+          <source src="/assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero__video-overlay"></div>
       </div>
-      <p class="hero__tagline" data-i18n="hero.tagline">
-        Premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.
-      </p>
-      <a href="#manifest" class="hero__scroll" aria-label="Scroll down">
-        <span data-i18n="hero.scroll">Zapali iskustvo</span>
-        <span class="hero__scroll-line" aria-hidden="true"></span>
-      </a>
+      <div class="hero__vignette" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="hero__brand-lockup">
+          <img class="hero__monogram" src="/assets/brand/logo-monogram-512.png" alt="" width="140" height="140">
+          <div class="hero__wordmark-wrap">
+            <h1 class="hero__wordmark" data-i18n="hero.wordmark">CIGAR SHOP</h1>
+            <p class="hero__subwordmark" data-i18n="hero.subwordmark">lanac Beograd</p>
+          </div>
+        </div>
+        <p class="hero__tagline" data-i18n="hero.tagline">
+          Premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.
+        </p>
+        <a href="#manifest" class="hero__scroll" aria-label="Scroll down">
+          <span data-i18n="hero.scroll">Zapali iskustvo</span>
+          <span class="hero__scroll-line" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- SLIDE B: animirani mosaic proizvoda -->
+    <div class="hero__slide hero__slide--b" data-slide="b" aria-hidden="true">
+      <div class="hero__mosaic" aria-hidden="true">
+        <div class="hero__mosaic-tile" style="--d:0s"><img src="/assets/gallery/img-004.webp" alt=""></div>
+        <div class="hero__mosaic-tile" style="--d:0.2s"><img src="/assets/gallery/img-020.webp" alt=""></div>
+        <div class="hero__mosaic-tile" style="--d:0.4s"><img src="/assets/gallery/img-030.webp" alt=""></div>
+        <div class="hero__mosaic-tile" style="--d:0.6s"><img src="/assets/gallery/img-040.webp" alt=""></div>
+        <div class="hero__mosaic-tile" style="--d:0.8s"><img src="/assets/gallery/img-017.webp" alt=""></div>
+        <div class="hero__mosaic-tile" style="--d:1.0s"><img src="/assets/gallery/img-001.webp" alt=""></div>
+      </div>
+      <div class="hero__mosaic-overlay" aria-hidden="true"></div>
+      <div class="hero__content hero__content--centered">
+        <p class="kicker hero__mosaic-kicker" data-i18n="hero.slideB.kicker">Kolekcija</p>
+        <h2 class="hero__mosaic-title" data-i18n="hero.slideB.title">500+ cigara, 260+ boca</h2>
+        <p class="hero__mosaic-sub" data-i18n="hero.slideB.sub">Premium izbor u srcu Beograda. Svaka kutija je decenija strpljenja.</p>
+      </div>
+    </div>
+
+    <!-- Slide indicators (dots) -->
+    <div class="hero__dots" role="tablist" aria-label="Hero slides">
+      <button class="hero__dot is-active" data-target="a" aria-label="Prikaži prvi slajd"></button>
+      <button class="hero__dot" data-target="b" aria-label="Prikaži drugi slajd"></button>
     </div>
   </section>
 
@@ -167,20 +194,65 @@
       <h2 class="heading-display" data-i18n="library.title">Od polja do humidora.</h2>
       <p class="lead" data-i18n="library.lead">Preko 70 brendova iz sedam zemalja. Biraj region, otkrij priču duvana i galeriju cigara.</p>
     </div>
+
+    <!-- Proces proizvodnje: tekst + video + showcase -->
+    <div class="process">
+      <div class="process__intro">
+        <p class="kicker" data-i18n="process.kicker">Proces proizvodnje</p>
+        <h3 class="heading-section" data-i18n="process.title">Deset godina tišine pre jednog dima.</h3>
+        <p class="body" data-i18n="process.body1">
+          Sve počinje na polju. Semena koja su vekovima rukom odabirali kubanski veguerosi, rastu pod punim suncem i senkama platnenih mreža.
+          Listovi se beru po strogom redu, od najstarijeg ka najmlađem, jer svaki ima ulogu: krunisanje, puna aroma, srž, omotač.
+        </p>
+        <p class="body" data-i18n="process.body2">
+          Zatim fermentacija, najteži i najtiši deo: četiri, osam, pa i četrnaest meseci duvan leži u svežim pilas-pritiscima.
+          Temperatura se meri svakog dana, listovi se preokreću, vlaga se reguliše.
+          Tek onda rolanje, ruka torcedora koja decenijama uči osetljiv pritisak, i humidor, gde cigara čeka onog ko će joj dati prvi žar.
+        </p>
+      </div>
+      <div class="process__media">
+        <video class="process__video"
+               autoplay muted loop playsinline
+               preload="metadata"
+               poster="/assets/video/hero-poster.webp">
+          <source src="/assets/video/hero.webm" type="video/webm">
+          <source src="/assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <span class="process__caption" data-i18n="process.videoCaption">Od fermentacije do humidora</span>
+      </div>
+      <div class="process__showcase">
+        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-004.webp" alt=""><figcaption data-i18n="process.s1">Polje i list</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-030.webp" alt=""><figcaption data-i18n="process.s2">Fermentacija</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-017.webp" alt=""><figcaption data-i18n="process.s3">Rolanje</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-040.webp" alt=""><figcaption data-i18n="process.s4">Humidor</figcaption></figure>
+      </div>
+    </div>
+
     <div class="brands__tabs" id="brands-tabs" role="tablist"></div>
     <div class="brands__grid" id="brands-grid"></div>
   </section>
 
   <!-- =======================  SPIRITS  ======================= -->
-  <section id="spirits" class="spirits" aria-label="Spirits">
-    <div class="section__header">
+  <section id="spirits" class="spirits origins" aria-label="Spirits">
+    <div class="origins__header">
       <p class="kicker" data-i18n="spirits.kicker">Pića</p>
       <h2 class="heading-display" data-i18n="spirits.title">Tečni prijatelji dima.</h2>
       <p class="lead" data-i18n="spirits.lead">
-        Škotski, irski, japanski, orijentalni viski, burbon, konjak, džin, votka, rakija.
+        Viski, burbon, konjak, džin, rum, votka, rakija, vino. Svaka kategorija ima svoju geografiju i svoj ritam.
       </p>
     </div>
-    <div class="spirits__rail" id="spirits-rail"></div>
+    <div class="brands__tabs" id="spirits-tabs" role="tablist"></div>
+    <div class="brands__grid" id="spirits-grid"></div>
+  </section>
+
+  <!-- =======================  OPREMA (Accessories)  ======================= -->
+  <section id="gear" class="gear origins" aria-label="Oprema">
+    <div class="origins__header">
+      <p class="kicker" data-i18n="gear.kicker">Oprema</p>
+      <h2 class="heading-display" data-i18n="gear.title">Alati rituala.</h2>
+      <p class="lead" data-i18n="gear.lead">Rezači, upaljači, humidori, pepeljare, putni etui. Ritual nije potpun bez pribora koji se pamti.</p>
+    </div>
+    <div class="gear__grid" id="gear-grid"></div>
   </section>
 
 
@@ -333,10 +405,10 @@
         </div>
       </div>
       <nav class="footer__nav" aria-label="Footer">
-        <a href="#manifest" data-i18n="nav.manifest">Manifest</a>
         <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
         <a href="#origins" data-i18n="nav.library">Biblioteka cigara</a>
         <a href="#spirits" data-i18n="nav.spirits">Pića</a>
+        <a href="#gear" data-i18n="nav.gear">Oprema</a>
         <a href="#locations" data-i18n="nav.locations">Lokacije</a>
         <a href="#contact" data-i18n="footer.contactLink">Kontakt</a>
       </nav>

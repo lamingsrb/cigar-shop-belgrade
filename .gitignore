@@ -9,3 +9,8 @@ dist/
 .npmrc
 
 .vercel
+
+# Lokalni fajlovi sa poverljivim podacima (nikad u git)
+CREDENTIALS.local.md
+*.local.md
+*.secret

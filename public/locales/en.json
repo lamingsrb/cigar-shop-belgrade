@@ -10,6 +10,7 @@
     "humidor": "Humidor",
     "library": "Cigar Library",
     "spirits": "Spirits",
+    "gear": "Gear",
     "gallery": "Gallery",
     "locations": "Stores"
   },
@@ -18,7 +19,12 @@
     "wordmark": "CIGAR SHOP",
     "subwordmark": "Belgrade chain",
     "tagline": "A premium retail chain of the finest cigar brands, quality accessories and premium spirits.",
-    "scroll": "Light the experience"
+    "scroll": "Light the experience",
+    "slideB": {
+      "kicker": "Collection",
+      "title": "500+ cigars, 260+ bottles",
+      "sub": "A premium selection in the heart of Belgrade. Every box is a decade of patience."
+    }
   },
 
   "manifest": {
@@ -46,6 +52,18 @@
     "lead": "Over 70 brands from seven countries. Pick a region, discover the story of tobacco and a gallery of cigars."
   },
 
+  "process": {
+    "kicker": "Production process",
+    "title": "Ten years of silence before one draw.",
+    "body1": "It all starts in the field. Seeds hand-selected by Cuban vegueros for centuries grow under full sun and the shade of cloth canopies. Leaves are harvested in strict order, oldest to youngest, each with a role: crown, full aroma, heart, wrapper.",
+    "body2": "Then fermentation, the hardest and quietest stage: four, eight, even fourteen months the tobacco rests in cool pilas presses. Temperature is measured every day, leaves are turned, humidity is tamed. Only then rolling, the torcedor's hand that spent decades learning a delicate pressure, and the humidor, where the cigar waits for the one who will give it its first ember.",
+    "videoCaption": "From fermentation to the humidor",
+    "s1": "Field and leaf",
+    "s2": "Fermentation",
+    "s3": "Rolling",
+    "s4": "Humidor"
+  },
+
   "humidor": {
     "kicker": "Humidor",
     "title": "Step into the humidor.",
@@ -59,15 +77,13 @@
   "spirits": {
     "kicker": "Spirits",
     "title": "Liquid companions of smoke.",
-    "lead": "Over 260 selected bottles across eight categories. Every pairing with a cigar has its own rhythm, dialect, and temperature.",
-    "items": [
-      { "title": "Single Malt Scotch",      "sub": "Macallan, Lagavulin, Glenfiddich, Talisker. Peated Islay beside a full Habanos; fruity Speyside beside a creamy Dominican." },
-      { "title": "Japanese Whisky",         "sub": "Yamazaki, Hakushu, Nikka, Yoichi. Zen precision, floral and light, the perfect companion to a morning cigar." },
-      { "title": "Irish Pot Still",         "sub": "Redbreast, Green Spot, Jameson. Triple-distilled softness, a fruit canopy above the ember." },
-      { "title": "Bourbon & Rye",           "sub": "Buffalo Trace, Woodford Reserve, Maker's Mark. Kentucky caramel, white oak, the black pepper of rye." },
-      { "title": "Cognac & Armagnac",       "sub": "Hennessy XO, Remy Martin, Armenian Ararat. Grape distilled through decades, the pairing that tames the fullest cigars." },
-      { "title": "Premium Rakija",          "sub": "Zaričje, Zariće, Prokupac. 28 local distilleries, gold and silver medals, the authentic note of these lands." }
-    ]
+    "lead": "Whisky, bourbon, cognac, gin, rum, vodka, rakija, wine. Every category carries its own geography and rhythm."
+  },
+
+  "gear": {
+    "kicker": "Gear",
+    "title": "Tools of the ritual.",
+    "lead": "Cutters, lighters, humidors, ashtrays, travel cases. The ritual is incomplete without accessories worth remembering."
   },
 
 "ritual": {

@@ -18,7 +18,10 @@ import { initLocationsMap } from './locations-map.js';
 import { initScrollBurn } from './scroll-burn.js';
 import { initAmbientParticles } from './ambient-particles.js';
 import { initContactSelector } from './contact-selector.js';
-import { renderSpirits, renderLocations } from './render.js';
+import { initHeroRotator } from './hero-rotator.js';
+import { initSpirits } from './spirits.js';
+import { initGear } from './gear.js';
+import { renderLocations } from './render.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -156,8 +159,7 @@ async function boot() {
     console.error('[CigarShop] i18n init failed, continuing with fallback', err);
   }
 
-  // 2) Dynamic content renders (spirits, locations)
-  renderSpirits();
+  // 2) Dynamic content renders (locations)
   renderLocations();
   initContactSelector();
 
@@ -174,10 +176,13 @@ async function boot() {
   initScrollSpy();
   initScrollBurn();
 
-  // 5) Gallery + Brands + Lightbox
+  // 5) Gallery + Brands + Spirits + Gear + Lightbox + Hero rotator
   initGallery();
   initLightbox();
   initBrands();
+  initSpirits();
+  initGear();
+  initHeroRotator();
 
   // 6) Map (when scrolled into view)
   const mapEl = document.getElementById('map');

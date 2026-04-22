@@ -10,6 +10,7 @@
     "humidor": "Humidor",
     "library": "Biblioteka cigara",
     "spirits": "Pića",
+    "gear": "Oprema",
     "gallery": "Galerija",
     "locations": "Lokacije"
   },
@@ -18,7 +19,12 @@
     "wordmark": "CIGAR SHOP",
     "subwordmark": "lanac Beograd",
     "tagline": "Premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.",
-    "scroll": "Zapali iskustvo"
+    "scroll": "Zapali iskustvo",
+    "slideB": {
+      "kicker": "Kolekcija",
+      "title": "500+ cigara, 260+ boca",
+      "sub": "Premium izbor u srcu Beograda. Svaka kutija je decenija strpljenja."
+    }
   },
 
   "manifest": {
@@ -46,6 +52,18 @@
     "lead": "Preko 70 brendova iz sedam zemalja. Biraj region, otkrij priču duvana i galeriju cigara."
   },
 
+  "process": {
+    "kicker": "Proces proizvodnje",
+    "title": "Deset godina tišine pre jednog dima.",
+    "body1": "Sve počinje na polju. Semena koja su vekovima rukom odabirali kubanski veguerosi, rastu pod punim suncem i senkama platnenih mreža. Listovi se beru po strogom redu, od najstarijeg ka najmlađem, jer svaki ima ulogu: krunisanje, puna aroma, srž, omotač.",
+    "body2": "Zatim fermentacija, najteži i najtiši deo: četiri, osam, pa i četrnaest meseci duvan leži u svežim pilas-pritiscima. Temperatura se meri svakog dana, listovi se preokreću, vlaga se reguliše. Tek onda rolanje, ruka torcedora koja decenijama uči osetljiv pritisak, i humidor, gde cigara čeka onog ko će joj dati prvi žar.",
+    "videoCaption": "Od fermentacije do humidora",
+    "s1": "Polje i list",
+    "s2": "Fermentacija",
+    "s3": "Rolanje",
+    "s4": "Humidor"
+  },
+
   "humidor": {
     "kicker": "Humidor",
     "title": "Uđi u humidor.",
@@ -59,15 +77,13 @@
   "spirits": {
     "kicker": "Pića",
     "title": "Tečni prijatelji dima.",
-    "lead": "Preko 260 izabranih boca iz osam kategorija. Svako sparivanje sa cigarom ima svoj ritam, svoj dijalekt, svoju temperaturu.",
-    "items": [
-      { "title": "Single Malt Scotch",      "sub": "Macallan, Lagavulin, Glenfiddich, Talisker. Torfeni Islay ide uz jaku Habanos, voćni Speyside uz kremasti Dominikanac." },
-      { "title": "Japanski viski",          "sub": "Yamazaki, Hakushu, Nikka, Yoichi. Istok sa zen preciznošću, cvetni i lagani, savršen za jutarnju cigaru." },
-      { "title": "Irski pot still",         "sub": "Redbreast, Green Spot, Jameson. Trostruko destilovana mekoća, voćna kapa iznad žara." },
-      { "title": "Bourbon & Rye",           "sub": "Buffalo Trace, Woodford Reserve, Maker's Mark. Kentaki karamela, bela hrastovina, crni biber raži." },
-      { "title": "Konjak & Armagnac",       "sub": "Hennessy XO, Remy Martin, jermenski Ararat. Grožđe destilovano kroz decenije, par koji pripitomljava najpunije cigare." },
-      { "title": "Premium rakija",          "sub": "Zaričje, Zariće, Prokupac. 28 domaćih destilerija, zlatne i srebrne medalje, autentična nota ovih prostora." }
-    ]
+    "lead": "Viski, burbon, konjak, džin, rum, votka, rakija, vino. Svaka kategorija ima svoju geografiju i svoj ritam."
+  },
+
+  "gear": {
+    "kicker": "Oprema",
+    "title": "Alati rituala.",
+    "lead": "Rezači, upaljači, humidori, pepeljare, putni etui. Ritual nije potpun bez pribora koji se pamti."
   },
 
 "ritual": {
