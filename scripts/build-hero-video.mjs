@@ -10,6 +10,7 @@ import { stat } from 'fs/promises';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const SRC_DIR = join(ROOT, 'Media RAW', 'Images and Videos');
+const NEW_DIR = join(ROOT, 'Feedback_loop', '22-04-2026', 'Video');
 const OUT_DIR = join(ROOT, 'public', 'assets', 'video');
 const TMP_DIR = join(ROOT, 'scripts', '.tmp-video');
 
@@ -29,29 +30,32 @@ function run(args, label = 'ffmpeg') {
   });
 }
 
-// 1) Pronadji video fajlove
-const files = (await readdir(SRC_DIR)).filter(f => f.endsWith('.mp4'));
-// Klip 556fb5d04 (44 MB) ima kroz ceo trajanje "Pu\u0161enje ubija" warning label
-// koji se skida sa kutija (\u010detiri uzastopna box-open sekvence, svaka sa peeling fazom).
-// Nema \u010diste 7s sekcije unutar njega, pa ga potpuno isklju\u010dujemo.
-const EXCLUDED = ['1556fb5d0456cd673a33661967b9a2fcf1797bb88fdc646eb4d6b5ceeb540067'];
-const filtered = files.filter(f => !EXCLUDED.some(ex => f.includes(ex)));
-// Sortiraj po veli\u010dini (najve\u0107i = najdu\u017ei = anchor scene)
-const withSizes = await Promise.all(filtered.map(async f => ({
-  f, s: (await stat(join(SRC_DIR, f))).size
-})));
-withSizes.sort((a, b) => b.s - a.s);
-console.log('[hero] Input clips (by size):');
-withSizes.forEach(x => console.log('  ', (x.s / 1e6).toFixed(1), 'MB -', x.f));
+// 1) Helper: na\u0111i fajl po hash-fragmentu
+async function resolveClip(dir, hashFragment) {
+  const files = await readdir(dir);
+  const match = files.find(f => f.includes(hashFragment));
+  if (!match) throw new Error(`Clip matching "${hashFragment}" not found in ${dir}`);
+  return join(dir, match);
+}
 
-// Uzimamo sve preostale klipove
-const CLIPS = withSizes.map(x => join(SRC_DIR, x.f));
+// Eksplicitan redosled klipova za hero video.
+// Prvi klip je obavezno ulaz u prodavnicu (staklena vrata / storefront).
+// Zatim mix: shop tour \u2192 product shot \u2192 interior \u2192 viski \u2192 product shot.
+const CLIP_PLAN = [
+  { src: NEW_DIR,  hash: '6bc34d63577a7ebc5733605fa3c05cbd', dur: 5.0, start: 0,  note: 'Ulazna vrata / storefront' },
+  { src: NEW_DIR,  hash: '9478ce446d96f0eb764e7415357ba200', dur: 3.5, start: 0,  note: 'CIGAR SHOP sign + humidor' },
+  { src: SRC_DIR,  hash: '31d882e17975431b3ceddabc125db7ca', dur: 3.5, start: 0,  note: 'Horacio XL open box' },
+  { src: NEW_DIR,  hash: '9e3a657f2d98f6911fbc9796640757bf', dur: 3.5, start: 0,  note: 'Interior humidor' },
+  { src: SRC_DIR,  hash: 'ffa85fd21575a683c590edd6021c45c7', dur: 3.5, start: 6,  note: 'Japanski viski shop tour' },
+  { src: SRC_DIR,  hash: '82b82a68228e40261ad19004ee8ff94e', dur: 3.0, start: 0,  note: 'Horacio SLED open' }
+];
 
-// 2) Pre-process svaki klip: 1280x720, 30fps.
-// 4 preostala klipa, total ~19s u trajanju, minus 3 xfade-a po 0.8s = ~16.6s final loop.
-// Najve\u0107i dostupan klip je fa85fd215 (50s, shop tour + japanski viski \u2014 cinematic).
-const SEGMENT_DURATIONS = [7, 4.5, 4, 3.5];
-const SEGMENT_STARTS    = [0, 0, 0, 0];
+const CLIPS = await Promise.all(CLIP_PLAN.map(c => resolveClip(c.src, c.hash)));
+console.log('[hero] Clip plan:');
+CLIP_PLAN.forEach((c, i) => console.log(`  ${i}. ${c.note}  (${c.dur}s @ ${c.start}s from ${c.hash.slice(0,9)}...)`));
+
+const SEGMENT_DURATIONS = CLIP_PLAN.map(c => c.dur);
+const SEGMENT_STARTS    = CLIP_PLAN.map(c => c.start);
 const processed = [];
 
 for (let i = 0; i < CLIPS.length; i++) {
