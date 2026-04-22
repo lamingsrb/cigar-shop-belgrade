@@ -19,9 +19,12 @@
   --ink-20:       rgba(245, 230, 211, 0.2);
   --line:         rgba(201, 169, 97, 0.18);
 
-  /* Tipografija */
-  --font-display: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
-  --font-serif:   'Cormorant Garamond', 'Garamond', 'Georgia', serif;
+  /* Tipografija \u2014 moderni, \u010ditljivi web font stack.
+     Playfair Display: displej serif sa visokim kontrastom (\u010ditljiv na svim veli\u010dinama).
+     Lora: body/italic serif (toplo, lepo, \u010dita se kod dugih pasusa).
+     Inter: sans-serif za UI i body copy (industry-standard za legibility). */
+  --font-display: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  --font-serif:   'Lora', 'Georgia', 'Times New Roman', serif;
   --font-body:    'Inter', 'Helvetica Neue', system-ui, sans-serif;
 
   /* Scale */

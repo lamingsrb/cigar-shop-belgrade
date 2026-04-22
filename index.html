@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -238,6 +238,37 @@
         Viski, burbon, konjak, džin, rum, votka, rakija, vino. Svaka kategorija ima svoju geografiju i svoj ritam.
       </p>
     </div>
+
+    <!-- Process-style blok: intro o destilaciji + video + showcase (menja se na klik brenda) -->
+    <div class="process">
+      <div class="process__intro">
+        <p class="kicker" data-i18n="spiritsProcess.kicker">Selekcija</p>
+        <h3 class="heading-section" data-i18n="spiritsProcess.title">Ulje vremena, zatvoreno u flaši.</h3>
+        <p class="body" data-i18n="spiritsProcess.body1">
+          Svaka boca koju biramo prešla je put koji traje generacijama. Škotska Islay daje torfeni dim, japanski Yamazaki cvetnu preciznost, kubinski rum karipsko sunce, a srpska rakija autentičnost ovih prostora.
+        </p>
+        <p class="body" data-i18n="spiritsProcess.body2">
+          Pored cigare, piće ne sme da nadvlada, već da prati. Zato je naša polica mapa, sedam kontinenata, stotine destilerija, izbor koji se ne pravi preko noći.
+        </p>
+      </div>
+      <div class="process__media">
+        <video class="process__video"
+               autoplay muted loop playsinline
+               preload="metadata"
+               poster="/assets/video/hero-poster.webp">
+          <source src="/assets/video/hero.webm" type="video/webm">
+          <source src="/assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <span class="process__caption" data-i18n="spiritsProcess.videoCaption">Destilacija i zrenje</span>
+      </div>
+      <div class="process__showcase" id="spirits-showcase" data-default="true">
+        <figure><img loading="lazy" decoding="async" src="/assets/spirits/scotch.webp" alt=""><figcaption data-i18n="spiritsProcess.s1">Viski</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/spirits/bourbon.webp" alt=""><figcaption data-i18n="spiritsProcess.s2">Burbon</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/spirits/cognac.webp" alt=""><figcaption data-i18n="spiritsProcess.s3">Konjak</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/spirits/rakija.webp" alt=""><figcaption data-i18n="spiritsProcess.s4">Rakija</figcaption></figure>
+      </div>
+    </div>
+
     <div class="brands__tabs" id="spirits-tabs" role="tablist"></div>
     <div class="brands__grid" id="spirits-grid"></div>
   </section>

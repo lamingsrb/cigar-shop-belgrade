@@ -80,6 +80,18 @@
     "lead": "Whisky, bourbon, cognac, gin, rum, vodka, rakija, wine. Every category carries its own geography and rhythm."
   },
 
+  "spiritsProcess": {
+    "kicker": "Selection",
+    "title": "The oil of time, sealed in a bottle.",
+    "body1": "Every bottle we choose has traveled a road that spans generations. Scottish Islay gives peaty smoke, Japanese Yamazaki the floral precision, Cuban rum the Caribbean sun, Serbian rakija the authenticity of these lands.",
+    "body2": "Beside a cigar, a drink must never dominate, only accompany. That is why our shelf is a map — seven continents, hundreds of distilleries, a selection that is not made overnight.",
+    "videoCaption": "Distillation and ageing",
+    "s1": "Whisky",
+    "s2": "Bourbon",
+    "s3": "Cognac",
+    "s4": "Rakija"
+  },
+
   "gear": {
     "kicker": "Gear",
     "title": "Tools of the ritual.",

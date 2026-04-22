@@ -80,6 +80,18 @@
     "lead": "Viski, burbon, konjak, džin, rum, votka, rakija, vino. Svaka kategorija ima svoju geografiju i svoj ritam."
   },
 
+  "spiritsProcess": {
+    "kicker": "Selekcija",
+    "title": "Ulje vremena, zatvoreno u flaši.",
+    "body1": "Svaka boca koju biramo prešla je put koji traje generacijama. Škotska Islay daje torfeni dim, japanski Yamazaki cvetnu preciznost, kubinski rum karipsko sunce, a srpska rakija autentičnost ovih prostora.",
+    "body2": "Pored cigare, piće ne sme da nadvlada, već da prati. Zato je naša polica mapa, sedam kontinenata, stotine destilerija, izbor koji se ne pravi preko noći.",
+    "videoCaption": "Destilacija i zrenje",
+    "s1": "Viski",
+    "s2": "Burbon",
+    "s3": "Konjak",
+    "s4": "Rakija"
+  },
+
   "gear": {
     "kicker": "Oprema",
     "title": "Alati rituala.",
