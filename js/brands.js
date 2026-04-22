@@ -59,7 +59,7 @@ function renderGrid(host) {
     `;
   }).join('');
 
-  host.innerHTML = `${regionIntro}<div class="brands__cards">${cards}</div>`;
+  host.innerHTML = `${regionIntro}<div class="brands__vault"><div class="brands__cards">${cards}</div></div>`;
 }
 
 export async function initBrands() {

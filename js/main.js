@@ -138,33 +138,6 @@ function initScrollSpy() {
 }
 
 // -------------------------------------------------------
-// Contact form (client-side only, shows confirmation)
-// -------------------------------------------------------
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const note = document.getElementById('contact-note');
-  if (!form || !note) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const name = data.get('name')?.toString().trim();
-    const email = data.get('email')?.toString().trim();
-    const message = data.get('message')?.toString().trim();
-
-    if (!name || !email || !message) {
-      note.textContent = t('contact.error');
-      note.style.color = 'var(--ember)';
-      return;
-    }
-
-    note.textContent = t('contact.success');
-    note.style.color = 'var(--gold-leaf)';
-    form.reset();
-  });
-}
-
-// -------------------------------------------------------
 // Footer year
 // -------------------------------------------------------
 function initFooterYear() {
@@ -191,7 +164,6 @@ async function boot() {
 
   // 3) Small UI bits
   initFooterYear();
-  initContactForm();
   initCursor();
   initAudio();
   initAmbientParticles();

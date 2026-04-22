@@ -125,18 +125,17 @@
 
   "contact": {
     "kicker": "Contact",
-    "title": "Write us.",
-    "lead": "For private tastings, corporate gifts, or simply a conversation over a cigar.",
+    "title": "Get in touch.",
+    "lead": "For private tastings, corporate gifts, or a conversation over a cigar.",
+    "addressLabel": "Flagship store",
+    "addressCta": "Open in Google Maps →",
     "phoneLabel": "Phone",
+    "phoneCta": "Call →",
+    "emailLabel": "Email",
+    "emailCta": "Send a message →",
     "hoursLabel": "Hours",
     "hoursValue": "Mon–Sun 10:00–22:00",
-    "socialLabel": "Social",
-    "nameLabel": "Name",
-    "emailLabel": "Email",
-    "messageLabel": "Message",
-    "submit": "Send",
-    "success": "Message sent. You'll hear back within the day.",
-    "error": "Please fill out all fields."
+    "socialLabel": "Social"
   },
 
   "footer": {

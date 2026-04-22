@@ -125,18 +125,17 @@
 
   "contact": {
     "kicker": "Kontakt",
-    "title": "Pišite nam.",
-    "lead": "Za privatne degustacije, korporativne poklone ili samo razgovor uz cigaru.",
+    "title": "Stupi u kontakt.",
+    "lead": "Za privatne degustacije, korporativne poklone ili razgovor uz cigaru.",
+    "addressLabel": "Flagship prodavnica",
+    "addressCta": "Otvori u Google Maps →",
     "phoneLabel": "Telefon",
+    "phoneCta": "Pozovi →",
+    "emailLabel": "Email",
+    "emailCta": "Pošalji poruku →",
     "hoursLabel": "Radno vreme",
     "hoursValue": "Pon–Ned 10:00–22:00",
-    "socialLabel": "Društvene mreže",
-    "nameLabel": "Ime",
-    "emailLabel": "Email",
-    "messageLabel": "Poruka",
-    "submit": "Pošalji",
-    "success": "Poruka je poslata. Odgovor stiže u toku dana.",
-    "error": "Popuni sva polja."
+    "socialLabel": "Društvene mreže"
   },
 
   "footer": {
