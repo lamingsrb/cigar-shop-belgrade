@@ -14,14 +14,12 @@ import { initAudio } from './audio.js';
 import { initGallery } from './gallery.js';
 import { initLightbox } from './lightbox.js';
 import { initBrands } from './brands.js';
-import { initLocationsMap } from './locations-map.js';
 import { initScrollBurn } from './scroll-burn.js';
 import { initAmbientParticles } from './ambient-particles.js';
 import { initContactSelector } from './contact-selector.js';
 import { initHeroRotator } from './hero-rotator.js';
 import { initSpirits } from './spirits.js';
 import { initGear } from './gear.js';
-import { renderLocations } from './render.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -159,8 +157,7 @@ async function boot() {
     console.error('[CigarShop] i18n init failed, continuing with fallback', err);
   }
 
-  // 2) Dynamic content renders (locations)
-  renderLocations();
+  // 2) Dynamic content renders
   initContactSelector();
 
   // 3) Small UI bits
@@ -184,21 +181,7 @@ async function boot() {
   initGear();
   initHeroRotator();
 
-  // 6) Map (when scrolled into view)
-  const mapEl = document.getElementById('map');
-  if (mapEl) {
-    const mapObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          initLocationsMap();
-          mapObserver.disconnect();
-        }
-      });
-    }, { rootMargin: '200px' });
-    mapObserver.observe(mapEl);
-  }
-
-  // 7) Finally — loader
+  // 6) Finally — loader
   runLoader();
 }
 
