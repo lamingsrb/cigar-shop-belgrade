@@ -356,25 +356,27 @@ section {
   align-items: center;
   justify-items: center;
   padding: var(--header-h) var(--gutter) 0;
-  translate: 100% 0;  /* default: \u010deka off-screen desno */
-  transition: translate 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+  transform: translateX(100%);  /* default: \u010deka off-screen desno */
+  transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 1;
+  will-change: transform;
   pointer-events: none;
+  backface-visibility: hidden;
 }
 .hero__slide.is-active {
-  translate: 0 0;
+  transform: translateX(0);
   pointer-events: auto;
   z-index: 2;
 }
 .hero__slide.is-exit {
-  translate: -100% 0;  /* izlazi u levo */
+  transform: translateX(-100%);  /* izlazi u levo */
 }
 .hero__slide.is-prepared {
   transition: none !important;
-  translate: 100% 0;
+  transform: translateX(100%);
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero__slide { transition: translate 0.4s linear; }
+  .hero__slide { transition: transform 0.4s linear; }
 }
 
 /* Animirana crna pozadina za Slide A \u2014 vi\u0161e slojeva u pokretu + floating embers */
