@@ -1,0 +1,35 @@
+{
+  "_comment": "Mapping brand name (uppercase, matches brands.json brand field) -> lista gallery fajlova (bez putanje, samo basenames iz /assets/gallery/). Do 10 slika po brendu. Hand-curated za poznatije brendove; za ostale brands.js koristi deterministi\u010dki cycle iz _fallback (stabilno po brandIndex, do ~6 slika).",
+
+  "COHIBA":            ["img-020.webp", "img-017.webp", "img-019.webp"],
+  "MONTECRISTO":       ["img-003.webp", "img-020.webp"],
+  "PARTAGAS":          ["img-005.webp", "img-016.webp", "img-020.webp"],
+  "ROMEO Y JULIETA":   ["img-001.webp"],
+  "BOLIVAR":           ["img-004.webp"],
+  "JUAN LOPEZ":        ["img-006.webp"],
+  "H. UPMANN":         ["img-020.webp"],
+  "HOYO DE MONTEREY":  ["img-020.webp"],
+  "TRINIDAD":          ["img-020.webp"],
+
+  "J. C. NEWMAN":      ["img-010.webp", "img-011.webp", "img-012.webp"],
+  "JOYA DE NICARAGUA": ["img-040.webp", "img-043.webp", "img-044.webp", "img-045.webp", "img-046.webp", "img-047.webp", "img-051.webp"],
+  "PLASENCIA":         ["img-041.webp", "img-042.webp"],
+  "DESPOT":            ["img-030.webp"],
+
+  "ASHTON":            ["img-029.webp", "img-035.webp"],
+  "DAVIDOFF":          ["img-034.webp"],
+  "GURKHA":            ["img-034.webp"],
+
+  "MAYA SELVA":        ["img-013.webp", "img-014.webp", "img-015.webp"],
+
+  "BRUN DEL RE":       ["img-032.webp"],
+
+  "HORACIO":           ["img-053.webp", "img-054.webp", "img-055.webp", "img-056.webp", "img-057.webp", "img-058.webp", "img-059.webp", "img-060.webp", "img-061.webp", "img-062.webp"],
+
+  "_fallback": [
+    "img-002.webp", "img-008.webp", "img-018.webp", "img-021.webp", "img-022.webp",
+    "img-023.webp", "img-024.webp", "img-026.webp", "img-028.webp", "img-031.webp",
+    "img-033.webp", "img-036.webp", "img-037.webp", "img-038.webp", "img-039.webp",
+    "img-048.webp", "img-049.webp", "img-052.webp"
+  ]
+}

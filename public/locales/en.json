@@ -7,21 +7,18 @@
 
   "nav": {
     "manifest": "Manifest",
-    "origins": "Origins",
-    "collection": "Collection",
     "humidor": "Humidor",
+    "library": "Cigar Library",
     "spirits": "Spirits",
     "gallery": "Gallery",
     "locations": "Stores"
   },
 
   "hero": {
-    "eyebrow": "Premium chain · Belgrade",
-    "titleLine1": "Cigar",
-    "titleLine2": "Shop",
+    "wordmark": "CIGAR SHOP",
+    "subwordmark": "Belgrade chain",
     "tagline": "A premium retail chain of the finest cigar brands, quality accessories and premium spirits.",
-    "scroll": "Light the experience",
-    "drag": ""
+    "scroll": "Light the experience"
   },
 
   "manifest": {
@@ -43,30 +40,10 @@
     "lead": "Boxes, crowns, embers, the humidor, moments words cannot describe."
   },
 
-  "origins": {
-    "kicker": "Origins",
+  "library": {
+    "kicker": "Cigar Library",
     "title": "From field to humidor.",
-    "lead": "Over 70 brands from seven countries. Pick a region on the globe or in the tabs, discover the story of tobacco and brands.",
-    "countries": {
-      "cuba":     { "name": "Cuba",       "desc": "Vuelta Abajo, the mother of all tobaccos. Iron-rich earth, unforgiving sun, rolling that takes decades to master." },
-      "dominican":{ "name": "Dominican",  "desc": "Cibao Valley. The balance that defines Fuente and Davidoff Dominicans: creamy, subtly sweet, diplomatic." },
-      "nicaragua":{ "name": "Nicaragua",  "desc": "Estelí and Jalapa. Volcanic soil grows tobacco with darkness, peppery, earthy, masculine." },
-      "honduras": { "name": "Honduras",   "desc": "Jamastran and Copán. Warm, nutty profile with hints of leather and baked bread." },
-      "costa":    { "name": "Costa Rica", "desc": "Turrialba. Gentle, mineral notes, the perfect morning cigar with espresso." },
-      "mexico":   { "name": "Mexico",     "desc": "San Andrés Negro. Relaxed, bittersweet, an ideal wrapper for complex blends." }
-    }
-  },
-
-  "collection": {
-    "kicker": "Collection",
-    "title": "A library of cigars.",
-    "items": [
-      { "title": "Romeo y Julieta",              "sub": "Wide Churchill, Cuban classic since 1875.",                "size": "lg" },
-      { "title": "Julius Caesar",                "sub": "J. C. Newman, Diamond Crown Florida Sun Grown",            "size": "md" },
-      { "title": "Pasión",                       "sub": "Vintage line, long-fermented tobacco",                     "size": "sm" },
-      { "title": "Joya Cabinetta",               "sub": "Joya de Nicaragua, cabinet rolling",                       "size": "sm" },
-      { "title": "Montecristo · Partagas · Cohiba", "sub": "The trio at the heart of Cuban tradition.",            "size": "wide" }
-    ]
+    "lead": "Over 70 brands from seven countries. Pick a region, discover the story of tobacco and a gallery of cigars."
   },
 
   "humidor": {
@@ -123,7 +100,8 @@
     "kicker": "Contact",
     "title": "Get in touch.",
     "lead": "For private tastings, corporate gifts, or a conversation over a cigar.",
-    "addressLabel": "Flagship store",
+    "storeLabel": "Select a store",
+    "addressLabel": "Address",
     "addressCta": "Open in Google Maps →",
     "phoneLabel": "Phone",
     "phoneCta": "Call →",

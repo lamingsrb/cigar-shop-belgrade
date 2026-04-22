@@ -8,17 +8,39 @@ import { getLang, onLangChange } from './i18n.js';
 
 const BRANDS_URL = '/data/brands.json';
 const STORIES_URL = (lang) => `/locales/brand-stories-${lang}.json`;
+const GALLERY_URL = '/data/brand-gallery.json';
 
 let brandsData = null;
 let storiesData = null;
+let galleryData = null;
 let activeRegion = 'cuba';
 
 async function loadData() {
   if (!brandsData) {
     try { brandsData = await (await fetch(BRANDS_URL)).json(); } catch { brandsData = { cigars: {}, spirits: {} }; }
   }
+  if (!galleryData) {
+    try { galleryData = await (await fetch(GALLERY_URL)).json(); } catch { galleryData = { _fallback: [] }; }
+  }
   const lang = getLang();
   try { storiesData = await (await fetch(STORIES_URL(lang))).json(); } catch { storiesData = {}; }
+}
+
+// Deterministi\u010dki uzmi do N slika iz _fallback po brand-indeksu
+function fallbackSlice(index, count = 5) {
+  const pool = galleryData?._fallback || [];
+  if (!pool.length) return [];
+  const out = [];
+  for (let i = 0; i < count && i < pool.length; i++) {
+    out.push(pool[(index * 7 + i * 3) % pool.length]);
+  }
+  return out;
+}
+
+function imagesForBrand(brand, index) {
+  const curated = galleryData?.[brand];
+  if (Array.isArray(curated) && curated.length) return curated.slice(0, 10);
+  return fallbackSlice(index, 5);
 }
 
 function renderTabs(host) {
@@ -46,8 +68,14 @@ function renderGrid(host) {
     ? `<p class="brands__region-story">${stories.regionStory}</p>`
     : '';
 
-  const cards = region.brands.map((b) => {
+  const cards = region.brands.map((b, i) => {
     const story = stories.brands?.[b.brand] || '';
+    const images = imagesForBrand(b.brand, i);
+    const gallery = images.length
+      ? `<div class="brand-card__gallery">
+          ${images.map(name => `<img loading="lazy" decoding="async" src="/assets/gallery/${name}" alt="${b.brand}">`).join('')}
+        </div>`
+      : '';
     return `
       <article class="brand-card">
         <div class="brand-card__header">
@@ -55,6 +83,7 @@ function renderGrid(host) {
           <span class="brand-card__count">${b.count}</span>
         </div>
         ${story ? `<p class="brand-card__story">${story}</p>` : ''}
+        ${gallery}
       </article>
     `;
   }).join('');

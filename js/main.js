@@ -11,15 +11,14 @@ import { initI18n, t } from './i18n.js';
 import { runLoader } from './loader.js';
 import { initCursor } from './cursor.js';
 import { initAudio } from './audio.js';
-import { initGlobeOrigins } from './globe-origins.js';
 import { initGallery } from './gallery.js';
 import { initLightbox } from './lightbox.js';
 import { initBrands } from './brands.js';
-import { initHumidorScene } from './humidor-scene.js';
 import { initLocationsMap } from './locations-map.js';
 import { initScrollBurn } from './scroll-burn.js';
 import { initAmbientParticles } from './ambient-particles.js';
-import { renderCollection, renderSpirits, renderLocations } from './render.js';
+import { initContactSelector } from './contact-selector.js';
+import { renderSpirits, renderLocations } from './render.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -157,10 +156,10 @@ async function boot() {
     console.error('[CigarShop] i18n init failed, continuing with fallback', err);
   }
 
-  // 2) Dynamic content renders (bento, spirits, locations)
-  renderCollection();
+  // 2) Dynamic content renders (spirits, locations)
   renderSpirits();
   renderLocations();
+  initContactSelector();
 
   // 3) Small UI bits
   initFooterYear();
@@ -175,17 +174,10 @@ async function boot() {
   initScrollSpy();
   initScrollBurn();
 
-  // 5) Gallery + Brands + Lightbox + Three.js scene (globus, humidor — idle init)
+  // 5) Gallery + Brands + Lightbox
   initGallery();
   initLightbox();
   initBrands();
-  requestIdleCallback?.(() => {
-    initGlobeOrigins();
-    initHumidorScene();
-  }) || setTimeout(() => {
-    initGlobeOrigins();
-    initHumidorScene();
-  }, 100);
 
   // 6) Map (when scrolled into view)
   const mapEl = document.getElementById('map');

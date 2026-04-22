@@ -7,21 +7,18 @@
 
   "nav": {
     "manifest": "Manifest",
-    "origins": "Poreklo",
-    "collection": "Kolekcija",
     "humidor": "Humidor",
+    "library": "Biblioteka cigara",
     "spirits": "Pića",
     "gallery": "Galerija",
     "locations": "Lokacije"
   },
 
   "hero": {
-    "eyebrow": "Premium lanac · Beograd",
-    "titleLine1": "Cigar",
-    "titleLine2": "Shop",
+    "wordmark": "CIGAR SHOP",
+    "subwordmark": "lanac Beograd",
     "tagline": "Premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.",
-    "scroll": "Zapali iskustvo",
-    "drag": ""
+    "scroll": "Zapali iskustvo"
   },
 
   "manifest": {
@@ -43,30 +40,10 @@
     "lead": "Kutije, vrhovi, žar, humidor, trenutci koji se ne mogu opisati rečima."
   },
 
-  "origins": {
-    "kicker": "Poreklo",
+  "library": {
+    "kicker": "Biblioteka cigara",
     "title": "Od polja do humidora.",
-    "lead": "Preko 70 brendova iz sedam zemalja. Biraj region na globusu ili u tabovima, otkrij priču duvana i brendova.",
-    "countries": {
-      "cuba":     { "name": "Kuba",        "desc": "Vuelta Abajo, majka svih duvana. Zemlja puna železa, sunce bez milosti, rolanje koje se uči decenijama." },
-      "dominican":{ "name": "Dominikana",  "desc": "Cibao dolina. Balans koji čini Fuente i Davidoff Dominikanskim: kremasto, slatkasto, diplomatski." },
-      "nicaragua":{ "name": "Nikaragva",   "desc": "Estelí i Jalapa. Vulkansko tlo daje duvan koji ima tamu, papreno, zemljano, muški." },
-      "honduras": { "name": "Honduras",    "desc": "Jamastran i Copán. Topao, orašast profil sa notom kože i pečenog hleba." },
-      "costa":    { "name": "Kostarika",   "desc": "Turrialba. Nežni, mineralni tonovi, savršen za jutarnju cigaru uz espreso." },
-      "mexico":   { "name": "Meksiko",     "desc": "San Andrés Negro. Neobavezan, slatko-gorki, idealan kao omotač za kompleksne blendove." }
-    }
-  },
-
-  "collection": {
-    "kicker": "Kolekcija",
-    "title": "Biblioteka cigara.",
-    "items": [
-      { "title": "Romeo y Julieta",              "sub": "Wide Churchill, kubanski klasik iz 1875.",                "size": "lg" },
-      { "title": "Julius Caesar",                "sub": "J. C. Newman, Diamond Crown Florida Sun Grown",           "size": "md" },
-      { "title": "Pasión",                       "sub": "Vintage linija, dugo fermentisan duvan",                   "size": "sm" },
-      { "title": "Joya Cabinetta",               "sub": "Joya de Nicaragua, cabinet rolovanje",                     "size": "sm" },
-      { "title": "Montecristo · Partagas · Cohiba", "sub": "Trojac koji čini srce kubanske tradicije.",            "size": "wide" }
-    ]
+    "lead": "Preko 70 brendova iz sedam zemalja. Biraj region, otkrij priču duvana i galeriju cigara."
   },
 
   "humidor": {
@@ -123,7 +100,8 @@
     "kicker": "Kontakt",
     "title": "Stupi u kontakt.",
     "lead": "Za privatne degustacije, korporativne poklone ili razgovor uz cigaru.",
-    "addressLabel": "Flagship prodavnica",
+    "storeLabel": "Izaberi prodavnicu",
+    "addressLabel": "Adresa",
     "addressCta": "Otvori u Google Maps →",
     "phoneLabel": "Telefon",
     "phoneCta": "Pozovi →",
