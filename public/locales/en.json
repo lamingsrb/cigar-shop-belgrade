@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Cigar Shop. The Art of Patience",
-    "description": "Cigar Shop, premium destination for cigars, whisky and the ritual of patience. 9 stores across Belgrade."
+    "description": "Cigar Shop, premium destination for cigars, whisky and the ritual of patience. 5 stores across Belgrade."
   },
   "loader": { "tagline": "Strike a match." },
 
@@ -28,7 +28,7 @@
     "kicker": "About us",
     "title": "The art of patience.",
     "lead": "Cigar Shop is a premium retail chain of the finest cigar brands, quality accessories and premium spirits.",
-    "body": "Nine stores across Belgrade. Over 500 cigars from seven countries and more than 260 selected bottles across eight categories. Cigars from Cuba, the Dominican Republic, Nicaragua, Honduras, Costa Rica, Mexico and Italy stand beside Scotch, Irish, Japanese and Oriental whiskies, bourbon, cognac, gin, rum, vodka, domestic rakija and wine. Alongside them, the tools that complete the ritual: cutters, lighters, humidors, ashtrays and travel cases."
+    "body": "Five stores across Belgrade. Over 500 cigars from seven countries and more than 260 selected bottles across eight categories. Cigars from Cuba, the Dominican Republic, Nicaragua, Honduras, Costa Rica, Mexico and Italy stand beside Scotch, Irish, Japanese and Oriental whiskies, bourbon, cognac, gin, rum, vodka, domestic rakija and wine. Alongside them, the tools that complete the ritual: cutters, lighters, humidors, ashtrays and travel cases."
   },
 
   "brands": {
@@ -106,20 +106,16 @@
 
   "locations": {
     "kicker": "Stores",
-    "title": "Nine addresses across Belgrade.",
+    "title": "Five addresses across Belgrade.",
     "lead": "Click an ember-point for hours, photo, and directions.",
     "hoursLabel": "Hours",
     "navigate": "Directions",
     "stores": [
-      { "name": "Ušće Shopping Center", "address": "Bulevar Mihaila Pupina 4, 1st floor", "hours": "Mon–Sun 10:00–22:00", "lat": 44.8219, "lng": 20.4355, "phone": "069 188 60 80" },
-      { "name": "Delta City",           "address": "Jurija Gagarina 16",                  "hours": "Mon–Sun 10:00–22:00", "lat": 44.8026, "lng": 20.4055, "phone": "069 188 60 81" },
-      { "name": "TC Mercator",          "address": "Bulevar umetnosti 4",                 "hours": "Mon–Sun 09:00–22:00", "lat": 44.8157, "lng": 20.4010, "phone": "069 188 60 82" },
-      { "name": "Kosovska 17/1",        "address": "Kosovska 17/1, Old Town",             "hours": "Mon–Sat 10:00–20:00", "lat": 44.8156, "lng": 20.4633, "phone": "069 188 60 83" },
-      { "name": "Rajićeva",             "address": "Rajićeva 11, Old Town",               "hours": "Mon–Sun 10:00–22:00", "lat": 44.8182, "lng": 20.4540, "phone": "069 188 60 84" },
-      { "name": "BIG Fashion",          "address": "Višnjička 84, Palilula",              "hours": "Mon–Sun 10:00–22:00", "lat": 44.8274, "lng": 20.5060, "phone": "069 188 60 85" },
-      { "name": "Galerija Belgrade",    "address": "Vidikovački venac 27",                "hours": "Mon–Sun 10:00–22:00", "lat": 44.7795, "lng": 20.4238, "phone": "069 188 60 86" },
-      { "name": "Knez Mihailova",       "address": "Knez Mihailova 42",                   "hours": "Mon–Sat 10:00–21:00", "lat": 44.8175, "lng": 20.4570, "phone": "069 188 60 87" },
-      { "name": "Airport City",         "address": "Omladinskih brigada 90g",             "hours": "Mon–Fri 09:00–20:00", "lat": 44.8100, "lng": 20.3940, "phone": "069 188 60 88" }
+      { "name": "Cigar Shop Ušće",        "address": "Bulevar Mihajla Pupina 4, 2nd floor, Novi Beograd", "hours": "Mon–Sun 10:00–22:00", "lat": 44.8219, "lng": 20.4355, "phone": "069 188 60 80" },
+      { "name": "Cigar Shop Merkator",    "address": "Bulevar umetnosti 4, 1st floor, Novi Beograd",      "hours": "Mon–Sun 09:00–22:00", "lat": 44.8157, "lng": 20.4010, "phone": "060 316 26 26" },
+      { "name": "Cigar Shop Delta",       "address": "Jurija Gagarina 16, ground floor, Novi Beograd",    "hours": "Mon–Sun 10:00–22:00", "lat": 44.8026, "lng": 20.4055, "phone": "060 626 25 60" },
+      { "name": "Cigar Shop BIG Fashion", "address": "Višnjička 84, ground floor, Belgrade",              "hours": "Mon–Sun 10:00–22:00", "lat": 44.8274, "lng": 20.5060, "phone": "060 626 20 42" },
+      { "name": "Cigar Shop Grad",        "address": "Kosovska 17, Belgrade",                             "hours": "Mon–Sat 10:00–20:00", "lat": 44.8156, "lng": 20.4633, "phone": "060 626 20 81" }
     ]
   },
 
@@ -139,7 +135,7 @@
   },
 
   "footer": {
-    "tag": "The art of patience, 9 stores.",
+    "tag": "The art of patience, 5 stores.",
     "navTitle": "Navigation",
     "visitTitle": "Visit",
     "locationsLink": "Stores",
