@@ -31,25 +31,33 @@ function run(args, label = 'ffmpeg') {
 
 // 1) Pronadji video fajlove
 const files = (await readdir(SRC_DIR)).filter(f => f.endsWith('.mp4'));
+// Klip 556fb5d04 (44 MB) ima kroz ceo trajanje "Pu\u0161enje ubija" warning label
+// koji se skida sa kutija (\u010detiri uzastopna box-open sekvence, svaka sa peeling fazom).
+// Nema \u010diste 7s sekcije unutar njega, pa ga potpuno isklju\u010dujemo.
+const EXCLUDED = ['1556fb5d0456cd673a33661967b9a2fcf1797bb88fdc646eb4d6b5ceeb540067'];
+const filtered = files.filter(f => !EXCLUDED.some(ex => f.includes(ex)));
 // Sortiraj po veli\u010dini (najve\u0107i = najdu\u017ei = anchor scene)
-const withSizes = await Promise.all(files.map(async f => ({
+const withSizes = await Promise.all(filtered.map(async f => ({
   f, s: (await stat(join(SRC_DIR, f))).size
 })));
 withSizes.sort((a, b) => b.s - a.s);
 console.log('[hero] Input clips (by size):');
 withSizes.forEach(x => console.log('  ', (x.s / 1e6).toFixed(1), 'MB -', x.f));
 
-// Uzimamo SVIH 5 klipova (ili koliko postoji), redosled: najve\u0107i prvi
-const CLIPS = withSizes.slice(0, 5).map(x => join(SRC_DIR, x.f));
+// Uzimamo sve preostale klipove
+const CLIPS = withSizes.map(x => join(SRC_DIR, x.f));
 
-// 2) Pre-process svaki klip: 1920x1080, 30fps. Produžene dužine da se vi\u0161e
-// realnog sadr\u017eaja vidi. Total ~30s loop sa crossfade overlapom.
-const SEGMENT_DURATIONS = [7, 4, 4, 3.5, 3.5];
+// 2) Pre-process svaki klip: 1280x720, 30fps.
+// 4 preostala klipa, total ~19s u trajanju, minus 3 xfade-a po 0.8s = ~16.6s final loop.
+// Najve\u0107i dostupan klip je fa85fd215 (50s, shop tour + japanski viski \u2014 cinematic).
+const SEGMENT_DURATIONS = [7, 4.5, 4, 3.5];
+const SEGMENT_STARTS    = [0, 0, 0, 0];
 const processed = [];
 
 for (let i = 0; i < CLIPS.length; i++) {
   const src = CLIPS[i];
   const dur = SEGMENT_DURATIONS[i] || 3;
+  const start = SEGMENT_STARTS[i] || 0;
   const out = join(TMP_DIR, `seg${i}.mp4`);
   // Skaliraj, crop, trim, warmth grade, stabilni fps
   // 1280x720 za hero loop \u2014 dobar kvalitet + malena veli\u010dina (target total < 6MB mp4).
@@ -61,15 +69,12 @@ for (let i = 0; i < CLIPS.length; i++) {
     `eq=brightness=-0.04:contrast=1.12:saturation=1.15`,
     `colorbalance=rs=0.05:gs=-0.02:bs=-0.05`
   ].join(',');
-  await run([
-    '-y', '-i', src,
-    '-t', String(dur),
-    '-vf', vf,
-    '-an',
+  const args = ['-y'];
+  if (start > 0) args.push('-ss', String(start));
+  args.push('-i', src, '-t', String(dur), '-vf', vf, '-an',
     '-c:v', 'libx264', '-crf', '22', '-preset', 'medium',
-    '-pix_fmt', 'yuv420p',
-    out
-  ], `seg${i}`);
+    '-pix_fmt', 'yuv420p', out);
+  await run(args, `seg${i}`);
   processed.push(out);
 }
 
