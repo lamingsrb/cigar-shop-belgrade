@@ -346,8 +346,9 @@ section {
   background: radial-gradient(ellipse at center top, var(--mahogany) 0%, var(--obsidian) 60%);
 }
 
-/* 2-slide rotator: meka, spora crossfade tranzicija (3s) sa scale + blur.
-   Izlaze\u0107i slajd: fade out + lagani scale up + blur. Ulaze\u0107i: fade in + scale down + blur out. */
+/* 2-slide rotator: svilenkasta ease-out-quint crossfade (4.5s) sa finim scale i blagim blur-om.
+   Outgoing ne blede odmah \u2014 kasni 0.3s pa po\u010dinje da nestaje; tako novi slajd "navire"
+   preko starog, bez ukrstanih opacity pikova. */
 .hero__slide {
   position: absolute;
   inset: 0;
@@ -358,13 +359,14 @@ section {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: scale(1.06);
-  filter: blur(12px);
-  transition: opacity 2.8s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 3s cubic-bezier(0.4, 0, 0.2, 1),
-              filter 2.8s cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 0s linear 3s;
+  transform: scale(1.035);
+  filter: blur(4px);
+  transition: opacity 4.5s cubic-bezier(0.33, 1, 0.68, 1),
+              transform 5s cubic-bezier(0.33, 1, 0.68, 1),
+              filter 4.5s cubic-bezier(0.33, 1, 0.68, 1),
+              visibility 0s linear 4.5s;
   z-index: 1;
+  will-change: opacity, transform, filter;
 }
 .hero__slide.is-active {
   opacity: 1;
@@ -372,11 +374,19 @@ section {
   pointer-events: auto;
   transform: scale(1);
   filter: blur(0);
-  transition: opacity 2.8s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 3s cubic-bezier(0.4, 0, 0.2, 1),
-              filter 2.8s cubic-bezier(0.4, 0, 0.2, 1),
+  transition: opacity 4.5s cubic-bezier(0.33, 1, 0.68, 1),
+              transform 5s cubic-bezier(0.33, 1, 0.68, 1),
+              filter 4.5s cubic-bezier(0.33, 1, 0.68, 1),
               visibility 0s linear 0s;
   z-index: 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide,
+  .hero__slide.is-active {
+    transition: opacity 0.4s linear, visibility 0s linear 0.4s;
+    transform: none;
+    filter: none;
+  }
 }
 
 /* Animirana crna pozadina za Slide A \u2014 vi\u0161e slojeva u pokretu + floating embers */
