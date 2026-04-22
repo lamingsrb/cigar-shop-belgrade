@@ -1344,44 +1344,101 @@ section {
   gap: 1rem;
   flex-wrap: wrap;
 }
-.contact__store-picker label {
+.contact__store-picker-label {
   font-family: var(--font-body);
   font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--ink-50);
 }
+
+/* Custom dropdown (div + button + ul) \u2014 no browser blue highlight */
 .contact__select {
+  position: relative;
   flex: 1;
   max-width: 360px;
+}
+.contact__select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   font-family: var(--font-display);
   font-size: 0.95rem;
   letter-spacing: 0.15em;
   color: var(--gold-leaf);
+  text-align: left;
   background: linear-gradient(180deg, rgba(42, 24, 16, 0.92), rgba(10, 6, 5, 0.92));
   border: 1px solid var(--line);
-  padding: 0.8rem 2.6rem 0.8rem 1.1rem;
-  appearance: none;
+  padding: 0.85rem 1.1rem;
   cursor: pointer;
-  background-image:
-    linear-gradient(180deg, rgba(42, 24, 16, 0.92), rgba(10, 6, 5, 0.92)),
-    linear-gradient(45deg, transparent 50%, var(--gold-leaf) 50%),
-    linear-gradient(135deg, var(--gold-leaf) 50%, transparent 50%);
-  background-position: 0 0, calc(100% - 18px) 50%, calc(100% - 12px) 50%;
-  background-size: 100% 100%, 6px 6px, 6px 6px;
-  background-repeat: no-repeat;
   transition: border-color 0.25s, color 0.25s, box-shadow 0.25s;
 }
-.contact__select:hover,
-.contact__select:focus {
+.contact__select-trigger:hover,
+.contact__select-trigger:focus-visible,
+.contact__select.is-open .contact__select-trigger {
   outline: none;
   border-color: var(--gold-leaf);
   color: var(--ember);
   box-shadow: 0 0 22px rgba(228, 200, 138, 0.22);
 }
-.contact__select option {
-  background: var(--obsidian);
+.contact__select-caret {
+  flex-shrink: 0;
+  color: var(--gold-leaf);
+  transition: transform 0.25s var(--ease-out-quart);
+}
+.contact__select.is-open .contact__select-caret { transform: rotate(180deg); }
+
+.contact__select-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0; right: 0;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: linear-gradient(180deg, rgba(42, 24, 16, 0.98), rgba(10, 6, 5, 0.98));
+  border: 1px solid var(--gold-leaf);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 24px rgba(228, 200, 138, 0.18);
+  backdrop-filter: blur(12px);
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s var(--ease-out-quart),
+              transform 0.25s var(--ease-out-expo),
+              visibility 0s linear 0.25s;
+}
+.contact__select.is-open .contact__select-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.2s var(--ease-out-quart),
+              transform 0.25s var(--ease-out-expo),
+              visibility 0s linear 0s;
+}
+.contact__select-option {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
   color: var(--vellum);
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.contact__select-option:hover {
+  background: rgba(228, 200, 138, 0.08);
+  color: var(--ember);
+  border-left-color: var(--ember);
+}
+.contact__select-option.is-selected {
+  background: linear-gradient(90deg, rgba(228, 200, 138, 0.14), rgba(10, 6, 5, 0.2));
+  color: var(--ember);
+  border-left-color: var(--ember);
+}
+.contact__select-option.is-selected:hover {
+  background: rgba(228, 200, 138, 0.18);
 }
 
 .contact__grid {
