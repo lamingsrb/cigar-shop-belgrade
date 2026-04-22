@@ -5,7 +5,8 @@
 // Pauza dok je stranica sakrivena.
 // =======================================================
 
-const INTERVAL_MS = 5000;
+// 7s izme\u0111u prebacivanja: 3s tranzicija + ~4s stabilnog gledanja.
+const INTERVAL_MS = 7000;
 
 export function initHeroRotator() {
   const slides = Array.from(document.querySelectorAll('.hero__slide'));
