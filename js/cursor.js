@@ -18,16 +18,15 @@ export function initCursor() {
 
   cursor.innerHTML = `
     <img class="cursor__logo" src="/assets/brand/logo-monogram-128.png" alt="" draggable="false">
-    <span class="cursor__ring"></span>
   `;
 
   const logo = cursor.querySelector('.cursor__logo');
-  const ring = cursor.querySelector('.cursor__ring');
+  // Cursor-arrow tilt (nakrivljen kao da je klasi\u010dan pointer)
+  const TILT = -22; // stepeni
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
   let logoX = mouseX, logoY = mouseY;
-  let ringX = mouseX, ringY = mouseY;
 
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -35,13 +34,12 @@ export function initCursor() {
   });
 
   function loop() {
-    // Logo prati sa laganom inertion (0.28), ring dal\u017ee (0.12) za "comet tail" feel
-    logoX += (mouseX - logoX) * 0.28;
-    logoY += (mouseY - logoY) * 0.28;
-    ringX += (mouseX - ringX) * 0.12;
-    ringY += (mouseY - ringY) * 0.12;
-    logo.style.transform = `translate3d(${logoX}px, ${logoY}px, 0) translate(-50%, -50%)`;
-    ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+    logoX += (mouseX - logoX) * 0.32;
+    logoY += (mouseY - logoY) * 0.32;
+    // Vrh logoa je pivot (transform-origin: 50% 0) — pozicioniramo top-center na kursor,
+    // rotacija tilta telo nadole-levo kao klasi\u010dna strelica.
+    logo.style.transform =
+      `translate3d(${logoX}px, ${logoY}px, 0) translate(-50%, 0) rotate(${TILT}deg)`;
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);

@@ -1857,6 +1857,7 @@ section {
   width: 30px;
   height: auto;
   max-width: none;  /* override global img max-width:100% (parent .cursor je width:0) */
+  transform-origin: 50% 0;  /* vrh (top-center) je pivot rotacije = ta\u010dka klika */
   will-change: transform, width, filter;
   transition: width 0.28s var(--ease-out-expo), filter 0.3s;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.65))
@@ -1870,41 +1871,16 @@ section {
   50%      { opacity: 1; }
 }
 
-.cursor__ring {
-  position: absolute;
-  top: 0; left: 0;
-  width: 48px; height: 48px;
-  border: 1px dashed rgba(228, 200, 138, 0.3);
-  border-radius: 50%;
-  transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo),
-              border-color 0.3s, opacity 0.3s;
-  animation: cursorRingSpin 16s linear infinite;
-  will-change: transform;
-  opacity: 0.8;
-}
-@keyframes cursorRingSpin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Hover \u2014 logo raste, ring jasniji sa gold tonom */
+/* Hover \u2014 logo raste + topliji gold glow */
 .cursor.is-hover .cursor__logo {
   width: 44px;
   filter: drop-shadow(0 3px 14px rgba(0, 0, 0, 0.75))
           drop-shadow(0 0 18px rgba(228, 200, 138, 0.7));
 }
-.cursor.is-hover .cursor__ring {
-  width: 72px; height: 72px;
-  border-color: rgba(228, 200, 138, 0.9);
-  opacity: 1;
-}
 
 /* Press \u2014 logo se stisne */
 .cursor.is-press .cursor__logo {
   width: 26px;
-}
-.cursor.is-press .cursor__ring {
-  width: 42px; height: 42px;
 }
 
 /* Nav active state (scroll spy) */
