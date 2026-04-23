@@ -18,6 +18,7 @@ import { initScrollBurn } from './scroll-burn.js';
 import { initAmbientParticles } from './ambient-particles.js';
 import { initContactSelector } from './contact-selector.js';
 import { initHeroRotator } from './hero-rotator.js';
+import { initHeroSmoke } from './hero-smoke.js';
 import { initSpirits } from './spirits.js';
 import { initGear } from './gear.js';
 
@@ -180,6 +181,7 @@ async function boot() {
   initSpirits();
   initGear();
   initHeroRotator();
+  initHeroSmoke();
 
   // 6) Finally — loader
   runLoader();

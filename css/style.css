@@ -379,7 +379,7 @@ section {
   .hero__slide { transition: transform 0.4s linear; }
 }
 
-/* SLIDE 1: premium crno-zlatna geometrijska pozadina + centrirana tipografija */
+/* SLIDE 1: premium crno-zlatna geometrijska pozadina + live gold smoke canvas */
 .hero__slide1-bg {
   position: absolute; inset: 0;
   background-image: url('/assets/brand/hero-slide1-bg.webp');
@@ -389,6 +389,15 @@ section {
   z-index: 0;
   transform: scale(1.05);
   animation: slide1Breathe 20s ease-in-out infinite alternate;
+  filter: brightness(0.75) contrast(1.1) saturate(0.95);
+}
+.hero__smoke-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.95;
 }
 @keyframes slide1Breathe {
   0%   { transform: scale(1.05) translate(0, 0); }
@@ -396,10 +405,10 @@ section {
 }
 .hero__slide1-overlay {
   position: absolute; inset: 0;
-  z-index: 1;
+  z-index: 2;
   background:
-    radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(10, 6, 5, 0.5) 80%),
-    linear-gradient(180deg, rgba(10, 6, 5, 0.15) 0%, rgba(10, 6, 5, 0.45) 100%);
+    radial-gradient(ellipse at 50% 50%, transparent 25%, rgba(10, 6, 5, 0.45) 85%),
+    linear-gradient(180deg, rgba(10, 6, 5, 0.1) 0%, rgba(10, 6, 5, 0.4) 100%);
   pointer-events: none;
 }
 .hero__wordmark--main {
