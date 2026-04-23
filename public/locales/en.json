@@ -24,6 +24,11 @@
       "kicker": "Collection",
       "title": "Seven regions, one passion.",
       "sub": "From Vuelta Abajo to Estelí, from Cibao to Jamastran. Every box carries decades of silence and the hand that rolled it."
+    },
+    "slideC": {
+      "kicker": "Visit",
+      "title": "Five addresses. Five humidors.",
+      "sub": "From Ušće to Kosovska, step into a shop where the cigar has waited for you for years."
     }
   },
 
@@ -98,6 +103,18 @@
     "lead": "Cutters, lighters, humidors, ashtrays, travel cases. The ritual is incomplete without accessories worth remembering."
   },
 
+  "gearProcess": {
+    "kicker": "Accessories",
+    "title": "The details that make the cigar a ritual.",
+    "body1": "A cigar demands company. The cutter must be sharp, the lighter scent-free, the humidor humid just so. Each of these objects carries its own small engineering story, and together they set the stage where smoke takes form.",
+    "body2": "Our shelf carries Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall and Boveda. Classics worth remembering and pieces worth passing on.",
+    "videoCaption": "Tools that last",
+    "s1": "Cutters",
+    "s2": "Lighters",
+    "s3": "Humidors",
+    "s4": "Cases"
+  },
+
 "ritual": {
     "kicker": "Ritual",
     "title": "Cut. Light. Savor.",
@@ -127,7 +144,7 @@
   "contact": {
     "kicker": "Contact",
     "title": "Get in touch.",
-    "lead": "For private tastings, corporate gifts, or a conversation over a cigar.",
+    "lead": "Five stores across Belgrade, from Ušće to Kosovska. Choose a store from the dropdown below for direct contact and that location's details.",
     "storeLabel": "Select a store",
     "addressLabel": "Address",
     "addressCta": "Open in Google Maps →",

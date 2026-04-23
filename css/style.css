@@ -379,6 +379,57 @@ section {
   .hero__slide { transition: transform 0.4s linear; }
 }
 
+/* SLIDE 1: premium crno-zlatna geometrijska pozadina + centrirana tipografija */
+.hero__slide1-bg {
+  position: absolute; inset: 0;
+  background-image: url('/assets/brand/hero-slide1-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transform: scale(1.05);
+  animation: slide1Breathe 20s ease-in-out infinite alternate;
+}
+@keyframes slide1Breathe {
+  0%   { transform: scale(1.05) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1%, -1%); }
+}
+.hero__slide1-overlay {
+  position: absolute; inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(10, 6, 5, 0.5) 80%),
+    linear-gradient(180deg, rgba(10, 6, 5, 0.15) 0%, rgba(10, 6, 5, 0.45) 100%);
+  pointer-events: none;
+}
+.hero__wordmark--main {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 11vw, 8rem);
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto 1rem;
+  background: linear-gradient(180deg, #fbeecd 0%, #e4c88a 55%, #b8935a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 6px 28px rgba(0, 0, 0, 0.85));
+}
+.hero__subwordmark--main {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.75rem);
+  letter-spacing: 0.32em;
+  color: var(--gold-leaf);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto 2.5rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+}
+
 /* Animirana crna pozadina za Slide A \u2014 vi\u0161e slojeva u pokretu + floating embers */
 .hero__bg-animated {
   position: absolute; inset: 0;
@@ -1255,14 +1306,18 @@ section {
 }
 .ritual__bg {
   position: absolute; inset: 0;
-  background: url('/assets/img/kaliman/p1.jpg') center/cover no-repeat;
-  filter: saturate(0.7) brightness(0.42) contrast(1.15);
   z-index: 1;
-  animation: ritualDrift 30s ease-in-out infinite alternate;
+  overflow: hidden;
 }
-@keyframes ritualDrift {
-  0%   { transform: scale(1.1) translate(0, 0); }
-  100% { transform: scale(1.18) translate(-3%, -2%); }
+.ritual__video {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100%; height: 100%;
+  min-width: 100%; min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: saturate(0.7) brightness(0.42) contrast(1.15);
+  display: block;
 }
 .ritual__overlay {
   position: absolute; inset: 0;

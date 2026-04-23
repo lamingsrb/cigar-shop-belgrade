@@ -75,24 +75,13 @@
 
   <!-- =======================  HERO  ======================= -->
   <section id="hero" class="hero" aria-label="Hero">
-    <!-- SLIDE A: animirana crna pozadina + logo | divider | wordmark -->
-    <div class="hero__slide hero__slide--a is-active" data-slide="a">
-      <div class="hero__bg-animated" aria-hidden="true">
-        <div class="hero__bg-layer hero__bg-layer--1"></div>
-        <div class="hero__bg-layer hero__bg-layer--2"></div>
-        <div class="hero__bg-layer hero__bg-layer--3"></div>
-        <div class="hero__bg-grain"></div>
-      </div>
-      <div class="hero__content">
-        <div class="hero__brand-lockup">
-          <img class="hero__monogram" src="/assets/brand/logo-monogram-512.png" alt="" width="140" height="140">
-          <span class="hero__divider" aria-hidden="true"></span>
-          <h1 class="hero__wordmark" data-i18n="hero.wordmark">CIGAR SHOP</h1>
-        </div>
-        <p class="hero__subwordmark" data-i18n="hero.subwordmark">lanac Beograd</p>
-        <p class="hero__tagline" data-i18n="hero.tagline">
-          Premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.
-        </p>
+    <!-- SLIDE 1: crno-zlatna geometrijska pozadina + "CIGAR SHOP" / "Tobacco and Drinks" -->
+    <div class="hero__slide hero__slide--1 is-active" data-slide="1">
+      <div class="hero__slide1-bg" aria-hidden="true"></div>
+      <div class="hero__slide1-overlay" aria-hidden="true"></div>
+      <div class="hero__content hero__content--centered">
+        <h1 class="hero__wordmark hero__wordmark--main">CIGAR SHOP</h1>
+        <p class="hero__subwordmark hero__subwordmark--main">Tobacco and Drinks</p>
         <a href="#manifest" class="hero__scroll" aria-label="Scroll down">
           <span data-i18n="hero.scroll">Zapali iskustvo</span>
           <span class="hero__scroll-line" aria-hidden="true"></span>
@@ -100,8 +89,8 @@
       </div>
     </div>
 
-    <!-- SLIDE B: Ken-Burns video kompilacija proizvoda -->
-    <div class="hero__slide hero__slide--b" data-slide="b" aria-hidden="true">
+    <!-- SLIDE 2: Ken-Burns video proizvoda + "Sedam regija" + tagline -->
+    <div class="hero__slide hero__slide--2" data-slide="2" aria-hidden="true">
       <div class="hero__video-wrap" aria-hidden="true">
         <video class="hero__products-video" autoplay muted loop playsinline
                preload="metadata" poster="/assets/video/products-poster.webp">
@@ -112,14 +101,32 @@
       <div class="hero__content hero__content--centered">
         <p class="kicker hero__mosaic-kicker" data-i18n="hero.slideB.kicker">Kolekcija</p>
         <h2 class="hero__mosaic-title" data-i18n="hero.slideB.title">Sedam regija, jedna strast.</h2>
-        <p class="hero__mosaic-sub" data-i18n="hero.slideB.sub">Od Vuelta Abajo do Estelija, od Cibao do Jamastrana. Svaka kutija nosi decenije tišine i ruku koja ju je rolila.</p>
+        <p class="hero__mosaic-sub" data-i18n="hero.tagline">Premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: LIVE video kompilacija (storefront + interior) -->
+    <div class="hero__slide hero__slide--3" data-slide="3" aria-hidden="true">
+      <div class="hero__video-wrap" aria-hidden="true">
+        <video class="hero__live-video" autoplay muted loop playsinline
+               preload="metadata" poster="/assets/video/hero-poster.webp">
+          <source src="/assets/video/hero.webm" type="video/webm">
+          <source src="/assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero__video-overlay hero__video-overlay--soft"></div>
+      </div>
+      <div class="hero__content hero__content--centered">
+        <p class="kicker hero__mosaic-kicker" data-i18n="hero.slideC.kicker">Poseti</p>
+        <h2 class="hero__mosaic-title" data-i18n="hero.slideC.title">Pet adresa. Pet humidora.</h2>
+        <p class="hero__mosaic-sub" data-i18n="hero.slideC.sub">Od Ušća do Kosovske — uđi u radnju gde te cigara čeka godinama.</p>
       </div>
     </div>
 
     <!-- Slide indicators (dots) -->
     <div class="hero__dots" role="tablist" aria-label="Hero slides">
-      <button class="hero__dot is-active" data-target="a" aria-label="Prikaži prvi slajd"></button>
-      <button class="hero__dot" data-target="b" aria-label="Prikaži drugi slajd"></button>
+      <button class="hero__dot is-active" data-target="1" aria-label="Prikaži prvi slajd"></button>
+      <button class="hero__dot" data-target="2" aria-label="Prikaži drugi slajd"></button>
+      <button class="hero__dot" data-target="3" aria-label="Prikaži treći slajd"></button>
     </div>
   </section>
 
@@ -147,37 +154,6 @@
         </video>
         <span class="manifest__tag" aria-hidden="true">EST. 2004</span>
       </figure>
-    </div>
-  </section>
-
-  <!-- =======================  HUMIDOR  ======================= -->
-  <section id="humidor" class="humidor" aria-label="Humidor">
-    <div class="humidor__grid">
-      <figure class="humidor__media">
-        <video class="humidor__video"
-               autoplay muted loop playsinline
-               preload="metadata"
-               poster="/assets/video/hero-poster.webp">
-          <source src="/assets/video/hero.webm" type="video/webm">
-          <source src="/assets/video/hero.mp4" type="video/mp4">
-        </video>
-      </figure>
-      <div class="humidor__copy">
-        <p class="kicker" data-i18n="humidor.kicker">Humidor</p>
-        <h2 class="heading-display" data-i18n="humidor.title">Uđi u humidor.</h2>
-        <p class="lead" data-i18n="humidor.lead">
-          Cigara koja te čeka kod nas provela je godine u tišini, sada čeka dim.
-        </p>
-        <p class="body humidor__body" data-i18n="humidor.body">
-          Svaki naš humidor je zakletva kupcu. 70% vlažnosti, 20°C konstantno,
-          rashlađen španski kedar koji miriše kao što treba.
-        </p>
-        <ul class="humidor__stats">
-          <li><strong>70%</strong><span data-i18n="humidor.stat1">Relativna vlažnost</span></li>
-          <li><strong>20°C</strong><span data-i18n="humidor.stat2">Stalna temperatura</span></li>
-          <li><strong>5</strong><span data-i18n="humidor.stat3">Humidora u Beogradu</span></li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -225,6 +201,37 @@
 
     <div class="brands__tabs" id="brands-tabs" role="tablist"></div>
     <div class="brands__grid" id="brands-grid"></div>
+  </section>
+
+  <!-- =======================  HUMIDOR  ======================= -->
+  <section id="humidor" class="humidor" aria-label="Humidor">
+    <div class="humidor__grid">
+      <figure class="humidor__media">
+        <video class="humidor__video"
+               autoplay muted loop playsinline
+               preload="metadata"
+               poster="/assets/video/hero-poster.webp">
+          <source src="/assets/video/hero.webm" type="video/webm">
+          <source src="/assets/video/hero.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <div class="humidor__copy">
+        <p class="kicker" data-i18n="humidor.kicker">Humidor</p>
+        <h2 class="heading-display" data-i18n="humidor.title">Uđi u humidor.</h2>
+        <p class="lead" data-i18n="humidor.lead">
+          Cigara koja te čeka kod nas provela je godine u tišini, sada čeka dim.
+        </p>
+        <p class="body humidor__body" data-i18n="humidor.body">
+          Svaki naš humidor je zakletva kupcu. 70% vlažnosti, 20°C konstantno,
+          rashlađen španski kedar koji miriše kao što treba.
+        </p>
+        <ul class="humidor__stats">
+          <li><strong>70%</strong><span data-i18n="humidor.stat1">Relativna vlažnost</span></li>
+          <li><strong>20°C</strong><span data-i18n="humidor.stat2">Stalna temperatura</span></li>
+          <li><strong>5</strong><span data-i18n="humidor.stat3">Humidora u Beogradu</span></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- =======================  SPIRITS  ======================= -->
@@ -278,13 +285,51 @@
       <h2 class="heading-display" data-i18n="gear.title">Alati rituala.</h2>
       <p class="lead" data-i18n="gear.lead">Rezači, upaljači, humidori, pepeljare, putni etui. Ritual nije potpun bez pribora koji se pamti.</p>
     </div>
-    <div class="gear__grid" id="gear-grid"></div>
+
+    <!-- Process-style blok: intro + video + showcase (menja se klikom na kategoriju) -->
+    <div class="process">
+      <div class="process__intro">
+        <p class="kicker" data-i18n="gearProcess.kicker">Pribor</p>
+        <h3 class="heading-section" data-i18n="gearProcess.title">Detalji koji rituala čine cigarom.</h3>
+        <p class="body" data-i18n="gearProcess.body1">
+          Cigara traži pratnju. Rezač mora biti oštar, upaljač bez mirisa, humidor vlazan taman toliko. Svaki od ovih predmeta je svoja mala inženjerska priča, a zajedno čine mizanscen u kome dim dobija formu.
+        </p>
+        <p class="body" data-i18n="gearProcess.body2">
+          Naša polica nosi pribor Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall i Boveda. Klasici koji se pamte i komadi koje ćete preneti deci.
+        </p>
+      </div>
+      <div class="process__media">
+        <video class="process__video"
+               autoplay muted loop playsinline
+               preload="metadata"
+               poster="/assets/video/hero-poster.webp">
+          <source src="/assets/video/hero.webm" type="video/webm">
+          <source src="/assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <span class="process__caption" data-i18n="gearProcess.videoCaption">Alati koji traju</span>
+      </div>
+      <div class="process__showcase" id="gear-showcase" data-default="true">
+        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-015.webp" alt=""><figcaption data-i18n="gearProcess.s1">Rezači</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-036.webp" alt=""><figcaption data-i18n="gearProcess.s2">Upaljači</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-057.webp" alt=""><figcaption data-i18n="gearProcess.s3">Humidori</figcaption></figure>
+        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-021.webp" alt=""><figcaption data-i18n="gearProcess.s4">Etui</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="brands__tabs" id="gear-tabs" role="tablist"></div>
+    <div class="brands__grid" id="gear-grid"></div>
   </section>
 
 
   <!-- =======================  THE RITUAL  ======================= -->
   <section id="ritual" class="ritual" aria-label="The Ritual">
-    <div class="ritual__bg" aria-hidden="true"></div>
+    <div class="ritual__bg" aria-hidden="true">
+      <video class="ritual__video" autoplay muted loop playsinline
+             preload="metadata" poster="/assets/video/hero-poster.webp">
+        <source src="/assets/video/hero.webm" type="video/webm">
+        <source src="/assets/video/hero.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="ritual__overlay" aria-hidden="true"></div>
     <div class="ritual__steps">
       <p class="kicker" data-i18n="ritual.kicker">Ritual</p>
@@ -324,7 +369,7 @@
     <div class="section__header">
       <p class="kicker" data-i18n="contact.kicker">Kontakt</p>
       <h2 class="heading-display" data-i18n="contact.title">Stupi u kontakt.</h2>
-      <p class="lead" data-i18n="contact.lead">Za privatne degustacije, korporativne poklone ili razgovor uz cigaru.</p>
+      <p class="lead" data-i18n="contact.lead">Pet prodavnica u Beogradu, od Ušća do Kosovske. Izaberi radnju iz padajućeg menija ispod za direktan kontakt i pregled detalja te lokacije.</p>
     </div>
 
     <div class="contact__store-picker">

@@ -24,6 +24,11 @@
       "kicker": "Kolekcija",
       "title": "Sedam regija, jedna strast.",
       "sub": "Od Vuelta Abajo do Estelija, od Cibao do Jamastrana. Svaka kutija nosi decenije tišine i ruku koja ju je rolila."
+    },
+    "slideC": {
+      "kicker": "Poseti",
+      "title": "Pet adresa. Pet humidora.",
+      "sub": "Od Ušća do Kosovske, uđi u radnju gde te cigara čeka godinama."
     }
   },
 
@@ -98,6 +103,18 @@
     "lead": "Rezači, upaljači, humidori, pepeljare, putni etui. Ritual nije potpun bez pribora koji se pamti."
   },
 
+  "gearProcess": {
+    "kicker": "Pribor",
+    "title": "Detalji koji rituala čine cigarom.",
+    "body1": "Cigara traži pratnju. Rezač mora biti oštar, upaljač bez mirisa, humidor vlažan taman toliko. Svaki od ovih predmeta je svoja mala inženjerska priča, a zajedno čine mizanscen u kome dim dobija formu.",
+    "body2": "Naša polica nosi pribor Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall i Boveda. Klasici koji se pamte i komadi koje ćete preneti deci.",
+    "videoCaption": "Alati koji traju",
+    "s1": "Rezači",
+    "s2": "Upaljači",
+    "s3": "Humidori",
+    "s4": "Etui"
+  },
+
 "ritual": {
     "kicker": "Ritual",
     "title": "Preseci. Zapali. Uživaj.",
@@ -127,7 +144,7 @@
   "contact": {
     "kicker": "Kontakt",
     "title": "Stupi u kontakt.",
-    "lead": "Za privatne degustacije, korporativne poklone ili razgovor uz cigaru.",
+    "lead": "Pet prodavnica u Beogradu, od Ušća do Kosovske. Izaberi radnju iz padajućeg menija ispod za direktan kontakt i pregled detalja te lokacije.",
     "storeLabel": "Izaberi prodavnicu",
     "addressLabel": "Adresa",
     "addressCta": "Otvori u Google Maps →",
