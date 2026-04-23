@@ -181,7 +181,8 @@ async function boot() {
   initSpirits();
   initGear();
   initHeroRotator();
-  initHeroSmoke();
+  // initHeroSmoke() — disabled: Slide 1 sada ima pravi live video, canvas smoke sloj vi\u0161e nije potreban.
+  // Kod je sa\u010duvan u js/hero-smoke.js za buduc\u0301u upotrebu.
 
   // 6) Finally — loader
   runLoader();

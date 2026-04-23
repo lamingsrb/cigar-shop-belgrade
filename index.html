@@ -75,10 +75,14 @@
 
   <!-- =======================  HERO  ======================= -->
   <section id="hero" class="hero" aria-label="Hero">
-    <!-- SLIDE 1: crno-zlatna geometrijska pozadina + live gold smoke canvas -->
+    <!-- SLIDE 1: live PixVerse gold-lit geometric loop -->
     <div class="hero__slide hero__slide--1 is-active" data-slide="1">
-      <div class="hero__slide1-bg" aria-hidden="true"></div>
-      <canvas class="hero__smoke-canvas" id="hero-smoke-canvas" aria-hidden="true"></canvas>
+      <div class="hero__slide1-bg" aria-hidden="true">
+        <video class="hero__slide1-video" autoplay muted loop playsinline
+               preload="metadata" poster="/assets/video/hero-slide1-poster.webp">
+          <source src="/assets/video/hero-slide1.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero__slide1-overlay" aria-hidden="true"></div>
       <div class="hero__content hero__content--centered">
         <h1 class="hero__wordmark hero__wordmark--main">CIGAR SHOP</h1>
