@@ -1856,6 +1856,7 @@ section {
   top: 0; left: 0;
   width: 30px;
   height: auto;
+  max-width: none;  /* override global img max-width:100% (parent .cursor je width:0) */
   will-change: transform, width, filter;
   transition: width 0.28s var(--ease-out-expo), filter 0.3s;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.65))
