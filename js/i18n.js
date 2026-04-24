@@ -60,6 +60,10 @@ function applyDOM() {
       el.setAttribute('content', val);
     } else if (el.tagName === 'TITLE') {
       el.textContent = val;
+    } else if (val.indexOf('<') !== -1) {
+      // Lokale stringovi koji sadrže HTML tagove (npr <strong>) — innerHTML
+      // Bezbedno jer locale fajlovi su pod našom kontrolom (public/locales/*.json).
+      el.innerHTML = val;
     } else {
       el.textContent = val;
     }

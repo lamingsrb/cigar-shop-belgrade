@@ -30,7 +30,8 @@
       "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Use pnpm on Vercel \\(npm has optional-deps bug for rollup native binary\\)\")",
       "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Commit package-lock.json with all rollup platform binaries \\(fixes Vercel CI\\)\")",
       "Bash(git commit -m ' *)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(node /c/AI/AI_Assistant/AI_Assistant_Projects/CigarShop/scripts/build-slide2-video.mjs)"
     ]
   }
 }
