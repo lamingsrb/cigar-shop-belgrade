@@ -907,34 +907,31 @@ section {
   max-width: var(--max-w);
   margin: 0 auto clamp(3rem, 6vw, 5rem);
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1.1fr 1fr;
   grid-template-areas:
-    "media"
-    "intro"
-    "showcase";
-  gap: clamp(2rem, 4vw, 3.5rem);
+    "intro media"
+    "showcase showcase";
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
 }
 .process__intro { grid-area: intro; }
-.process__intro .kicker { margin-bottom: 0.85rem; text-align: center; }
+.process__intro .kicker { margin-bottom: 0.85rem; }
 .process__intro .heading-section {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
   letter-spacing: 0.04em;
   line-height: 1.1;
   color: var(--vellum);
-  margin-bottom: 1.4rem;
-  text-align: center;
+  margin-bottom: 1.1rem;
+  max-width: 22ch;
   text-transform: uppercase;
 }
 /* Dvokolonski text layout — 4 paragrafa se razdvajaju u 2 kolone, skraćuje visinu */
 .process__intro .body {
   color: var(--ink-70);
   line-height: 1.7;
-  margin-bottom: 1rem;
-  break-inside: avoid;
-}
-.process__intro > p.body {
-  display: block;
+  margin-bottom: 0.85rem;
+  max-width: 46ch;
 }
 .process__intro .body strong {
   color: var(--gold-leaf);
@@ -942,26 +939,14 @@ section {
   letter-spacing: 0.01em;
 }
 /* 2-column text flow na široj površini */
-.process__body-wrap {
-  columns: 2;
-  column-gap: clamp(1.75rem, 3vw, 3rem);
-  max-width: 1080px;
-  margin: 0 auto;
-}
-.process__body-wrap .body {
-  break-inside: avoid;
-  page-break-inside: avoid;
-}
+.process__body-wrap { display: block; }
 .process__media {
   grid-area: media;
   position: relative;
-  aspect-ratio: 21 / 9;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid var(--line);
-  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
 .process__media::after {
   content: '';
@@ -1040,10 +1025,15 @@ section {
   text-transform: uppercase;
   color: var(--gold-leaf);
 }
-@media (max-width: 700px) {
-  .process__body-wrap { columns: 1; }
+@media (max-width: 900px) {
+  .process {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "media"
+      "showcase";
+  }
   .process__showcase { grid-template-columns: repeat(2, 1fr); }
-  .process__media { aspect-ratio: 16 / 9; }
 }
 
 /* =======================================================
