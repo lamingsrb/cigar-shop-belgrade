@@ -29,7 +29,8 @@
       "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Override rollup with wasm-node \\(avoids native binary deps issue\\)\")",
       "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Use pnpm on Vercel \\(npm has optional-deps bug for rollup native binary\\)\")",
       "Bash(git -c user.email=\"lamingsrb@users.noreply.github.com\" -c user.name=\"lamingsrb\" commit -m \"Commit package-lock.json with all rollup platform binaries \\(fixes Vercel CI\\)\")",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(node -e ' *)"
     ]
   }
 }
