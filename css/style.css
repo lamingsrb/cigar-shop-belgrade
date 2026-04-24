@@ -2344,5 +2344,4 @@ body.lightbox-open { overflow: hidden; }
   .foil { animation: none; }
   /* cursor ostaje uvek aktivan — samo animacije unutar njega su slabije */
   .cursor__logo { animation: none; }
-  .cursor__ring { animation: none; }
 }

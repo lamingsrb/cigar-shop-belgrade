@@ -53,20 +53,22 @@
 
   "library": {
     "kicker": "Cigar Library",
-    "title": "From field to humidor.",
+    "title": "Years of silence for a moment of pleasure.",
     "lead": "Over 70 brands from seven countries. Pick a region, discover the story of tobacco and a gallery of cigars."
   },
 
   "process": {
     "kicker": "Production process",
-    "title": "Ten years of silence before one draw.",
-    "body1": "It all starts in the field. Seeds hand-selected by Cuban vegueros for centuries grow under full sun and the shade of cloth canopies. Leaves are harvested in strict order, oldest to youngest, each with a role: crown, full aroma, heart, wrapper.",
-    "body2": "Then fermentation, the hardest and quietest stage: four, eight, even fourteen months the tobacco rests in cool pilas presses. Temperature is measured every day, leaves are turned, humidity is tamed. Only then rolling, the torcedor's hand that spent decades learning a delicate pressure, and the humidor, where the cigar waits for the one who will give it its first ember.",
-    "videoCaption": "From fermentation to the humidor",
-    "s1": "Field and leaf",
+    "title": "The hand-made cigar.",
+    "body1": "A hand-made cigar is the meeting of tradition, craft and nature, shaped through a carefully controlled process that lasts months, sometimes years. It all begins on the tobacco plantations, where the leaves grow under ideal climatic conditions and are harvested strictly by hand, layer by layer, so that each reaches full maturity.",
+    "body2": "After the harvest, the leaves go through drying, slowly losing their moisture and developing their distinctive colour and texture. Then fermentation, the key moment in which the tobacco gains depth, complexity and richness of aroma. In this natural process, under the influence of heat and time, unwanted substances are removed and the flavour profile is rounded.",
+    "body3": "When they reach optimal quality, the leaves are carefully selected and sorted by their role in the cigar: as filler, binder or wrapper. Then the torcedor masters step in, their skilled hands turning raw material into a work of art. Each cigar is rolled by hand with precision and feel, the balance between structure and airflow being flawlessly achieved.",
+    "body4": "After shaping, the cigars are laid down to age, a process during which flavours stabilise and interweave into a harmonious whole. Only once they reach their peak are the cigars carefully inspected, labelled and packed. The result is a product that transcends everyday use, a cigar as a symbol of elegance, patience and supreme craftsmanship, made for those who know how to value a slow pace and the richness of the experience.",
+    "videoCaption": "From plantation to humidor",
+    "s1": "Plantation",
     "s2": "Fermentation",
     "s3": "Rolling",
-    "s4": "Humidor"
+    "s4": "Ageing"
   },
 
   "humidor": {
