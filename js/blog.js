@@ -34,7 +34,28 @@ export async function initBlog() {
   if (!rail) return;
   await loadBlog();
   renderRail(rail);
-  onLangChange(() => renderRail(rail));
+
+  const prev = document.getElementById('blog-prev');
+  const next = document.getElementById('blog-next');
+  const scrollByCard = (dir) => {
+    const card = rail.querySelector('.blog-card');
+    if (!card) return;
+    const step = card.getBoundingClientRect().width + 16;
+    rail.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
+  };
+  if (prev) prev.addEventListener('click', () => scrollByCard(-1));
+  if (next) next.addEventListener('click', () => scrollByCard(1));
+
+  // Update nav button visibility based on scroll edges
+  const updateNav = () => {
+    const max = rail.scrollWidth - rail.clientWidth - 4;
+    if (prev) prev.classList.toggle('is-disabled', rail.scrollLeft <= 4);
+    if (next) next.classList.toggle('is-disabled', rail.scrollLeft >= max);
+  };
+  rail.addEventListener('scroll', updateNav, { passive: true });
+  requestAnimationFrame(updateNav);
+
+  onLangChange(() => { renderRail(rail); requestAnimationFrame(updateNav); });
 }
 
 // =======================================================

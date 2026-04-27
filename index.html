@@ -120,7 +120,7 @@
     <div class="manifest__grid">
       <div class="manifest__copy">
         <p class="kicker" data-i18n="manifest.kicker">O nama</p>
-        <h2 class="heading-display" data-i18n="manifest.title">Umetnost strpljenja.</h2>
+        <h2 class="heading-display" data-i18n="manifest.title">Tvoj izbor, naš svet.</h2>
         <p class="lead" data-i18n="manifest.lead">
           Cigar Shop je premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.
         </p>
@@ -145,14 +145,13 @@
     <!-- =======================  HUMIDOR (sada prvo)  ======================= -->
 <section id="humidor" class="humidor" aria-label="Humidor">
     <div class="humidor__grid">
-      <figure class="humidor__media">
-        <video class="humidor__video"
-               autoplay muted loop playsinline
-               preload="metadata"
-               poster="/assets/video/hero-poster.webp">
-          <source src="/assets/video/hero.webm" type="video/webm">
-          <source src="/assets/video/hero.mp4" type="video/mp4">
+      <figure class="humidor__media humidor__media--scrub" id="humidor-scrub-stage">
+        <video class="humidor__video humidor__video--scrub" id="humidor-scrub-video"
+               muted playsinline preload="auto"
+               poster="/assets/video/humidor-walkthrough-poster.webp">
+          <source src="/assets/video/humidor-walkthrough.mp4" type="video/mp4">
         </video>
+        <span class="humidor__scrub-hint" aria-hidden="true">Skroluj za prolaz kroz humidor</span>
       </figure>
       <div class="humidor__copy">
         <p class="kicker" data-i18n="humidor.kicker">Humidor</p>
@@ -185,21 +184,20 @@
   </section>
 
   
-  <!-- ==============  BIBLIOTEKA CIGARA — minimal (samo title + lead + full-bleed video) ============== -->
+  <!-- ==============  BIBLIOTEKA CIGARA — minimal (title + lead, video kao blok ispod) ============== -->
   <section id="origins" class="origins origins--minimal" aria-label="Biblioteka cigara">
-    <video class="origins__bg-video"
-           autoplay muted loop playsinline
-           preload="metadata"
-           poster="/assets/video/process-poster.webp"
-           aria-hidden="true">
-      <source src="/assets/video/process.mp4" type="video/mp4">
-    </video>
-    <div class="origins__bg-overlay" aria-hidden="true"></div>
-    <div class="origins__header origins__header--over-video">
+    <div class="origins__header">
       <p class="kicker" data-i18n="library.kicker">Biblioteka cigara</p>
       <h2 class="heading-display" data-i18n="library.title">Godine tišine za trenutak uživanja.</h2>
       <p class="lead" data-i18n="library.lead">Od plantaže, kroz destileriju, do trenutka kada se žar prvi put uhvati za vrh cigare.</p>
     </div>
+    <figure class="origins__media">
+      <video autoplay muted loop playsinline
+             preload="metadata"
+             poster="/assets/video/process-poster.webp">
+        <source src="/assets/video/process.mp4" type="video/mp4">
+      </video>
+    </figure>
   </section>
 
 <!-- =======================  SPIRITS  ======================= -->
@@ -337,7 +335,15 @@
       <h2 class="heading-display" data-i18n="blog.title">Priče iz dima.</h2>
       <p class="lead" data-i18n="blog.lead">Deset istorijskih činjenica o cigarama. Kolumbo, Čerčil, Castro, torcedori, Vuelta Abajo. Klikni za celu priču.</p>
     </div>
-    <div class="blog__rail" id="blog-rail"></div>
+    <div class="blog__stage">
+      <button class="blog__nav blog__nav--prev" id="blog-prev" aria-label="Prev">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="blog__rail" id="blog-rail"></div>
+      <button class="blog__nav blog__nav--next" id="blog-next" aria-label="Next">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
     <div class="blog__cta">
       <a class="btn btn--ghost" href="/blog.html" data-i18n="blog.allCta">Pogledaj sve priče →</a>
     </div>

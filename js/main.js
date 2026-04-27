@@ -22,6 +22,7 @@ import { initHeroSmoke } from './hero-smoke.js';
 import { initSpirits } from './spirits.js';
 import { initGear } from './gear.js';
 import { initBlog } from './blog.js';
+import { initHumidorScrub } from './humidor-scrub.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,6 +183,7 @@ async function boot() {
   initSpirits();
   initGear();
   initBlog();
+  initHumidorScrub();
   initHeroRotator();
   // initHeroSmoke() — disabled: Slide 1 sada ima pravi live video, canvas smoke sloj vi\u0161e nije potreban.
   // Kod je sa\u010duvan u js/hero-smoke.js za buduc\u0301u upotrebu.
