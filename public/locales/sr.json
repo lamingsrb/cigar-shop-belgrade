@@ -90,13 +90,13 @@
   "spiritsProcess": {
     "kicker": "Selekcija",
     "title": "Ulje vremena, zatvoreno u flaši.",
-    "body1": "Svaka boca koju biramo prešla je put koji traje generacijama. Škotska Islay daje torfeni dim, japanski Yamazaki cvetnu preciznost, kubinski rum karipsko sunce, a srpska rakija autentičnost ovih prostora.",
-    "body2": "Pored cigare, piće ne sme da nadvlada, već da prati. Zato je naša polica mapa, sedam kontinenata, stotine destilerija, izbor koji se ne pravi preko noći.",
+    "body1": "Svaka boca koju biramo prešla je <strong>put koji traje generacijama</strong>. Bakarne <strong>destilerije</strong>, žar pod kotlom, para koja se diže iz hrastovog bureta. Škotska Islay daje torfeni dim, japanski Yamazaki cvetnu preciznost, kubinski rum karipsko sunce, a srpska rakija autentičnost ovih prostora.",
+    "body2": "Pored cigare, piće ne sme da nadvlada, već da prati. Zato je naša polica mapa, sedam kontinenata, <strong>stotine destilerija</strong>, izbor koji se ne pravi preko noći.",
     "videoCaption": "Destilacija i zrenje",
-    "s1": "Viski",
-    "s2": "Burbon",
-    "s3": "Konjak",
-    "s4": "Rakija"
+    "s1": "Destilacija",
+    "s2": "Destilerija",
+    "s3": "Odležavanje",
+    "s4": "Selekcija"
   },
 
   "gear": {

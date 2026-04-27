@@ -12,14 +12,59 @@ const STORIES_URL = (lang) => `/locales/brand-stories-${lang}.json`;
 // Placeholder slike po kategoriji. Zamene\u0107e se pravim product fotografijama
 // kad klijent po\u0161alje.
 const PLACEHOLDER_BY_CAT = {
-  whisky:  ['/assets/spirits/scotch.webp', '/assets/spirits/japanese.webp', '/assets/spirits/irish.webp', '/assets/gallery/img-008.webp', '/assets/gallery/img-018.webp'],
-  bourbon: ['/assets/spirits/bourbon.webp', '/assets/gallery/img-008.webp', '/assets/gallery/img-018.webp'],
-  cognac:  ['/assets/spirits/cognac.webp', '/assets/gallery/img-025.webp', '/assets/gallery/img-044.webp'],
-  gin:     ['/assets/gallery/img-002.webp', '/assets/gallery/img-021.webp', '/assets/gallery/img-028.webp', '/assets/gallery/img-031.webp'],
-  rum:     ['/assets/gallery/img-008.webp', '/assets/gallery/img-018.webp', '/assets/gallery/img-036.webp', '/assets/gallery/img-049.webp'],
-  vodka:   ['/assets/gallery/img-028.webp', '/assets/gallery/img-052.webp'],
-  rakija:  ['/assets/spirits/rakija.webp', '/assets/gallery/img-021.webp', '/assets/gallery/img-037.webp'],
-  wine:    ['/assets/gallery/img-033.webp', '/assets/gallery/img-048.webp', '/assets/gallery/img-037.webp']
+  whisky:  [
+    '/assets/spirits/spirits-process-4-selekcija.webp',     // Glen Scotia bottles
+    '/assets/spirits/spirits-process-1-destilacija.webp',   // copper pot stills
+    '/assets/spirits/spirits-process-3-odlezavanje.webp',   // barrel warehouse
+    '/assets/spirits/scotch.webp',
+    '/assets/spirits/japanese.webp',
+    '/assets/spirits/irish.webp',
+    '/assets/gallery/img-008.webp',
+    '/assets/gallery/img-018.webp'
+  ],
+  bourbon: [
+    '/assets/spirits/spirits-process-3-odlezavanje.webp',
+    '/assets/spirits/bourbon.webp',
+    '/assets/gallery/img-008.webp',
+    '/assets/gallery/img-018.webp'
+  ],
+  cognac:  [
+    '/assets/spirits/spirits-process-2-destilerija.webp',
+    '/assets/spirits/cognac.webp',
+    '/assets/gallery/img-025.webp',
+    '/assets/gallery/img-044.webp'
+  ],
+  gin:     [
+    '/assets/spirits/spirits-process-1-destilacija.webp',
+    '/assets/gallery/img-002.webp',
+    '/assets/gallery/img-021.webp',
+    '/assets/gallery/img-028.webp',
+    '/assets/gallery/img-031.webp'
+  ],
+  rum:     [
+    '/assets/spirits/spirits-process-3-odlezavanje.webp',
+    '/assets/gallery/img-008.webp',
+    '/assets/gallery/img-018.webp',
+    '/assets/gallery/img-036.webp',
+    '/assets/gallery/img-049.webp'
+  ],
+  vodka:   [
+    '/assets/spirits/spirits-process-1-destilacija.webp',
+    '/assets/gallery/img-028.webp',
+    '/assets/gallery/img-052.webp'
+  ],
+  rakija:  [
+    '/assets/spirits/spirits-process-2-destilerija.webp',
+    '/assets/spirits/rakija.webp',
+    '/assets/gallery/img-021.webp',
+    '/assets/gallery/img-037.webp'
+  ],
+  wine:    [
+    '/assets/spirits/spirits-process-3-odlezavanje.webp',
+    '/assets/gallery/img-033.webp',
+    '/assets/gallery/img-048.webp',
+    '/assets/gallery/img-037.webp'
+  ]
 };
 
 const CAT_LABEL_SR = { whisky:'Viski', bourbon:'Burbon', cognac:'Konjak', gin:'D\u017ein', rum:'Rum', vodka:'Votka', rakija:'Rakija', wine:'Vino' };
