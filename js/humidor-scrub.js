@@ -14,61 +14,87 @@ export function initHumidorScrub() {
   stage.setAttribute('role', 'application');
   stage.setAttribute('aria-label', 'Šetnja kroz humidor — prevuci, koristi strelice ili dugmad');
 
-  // -------------------- UI: control bar + progress + legend --------------------
-  const ui = document.createElement('div');
-  ui.className = 'humidor-walkthrough-ui';
-  ui.innerHTML = `
-    <div class="humidor-walkthrough-bar" aria-hidden="true">
-      <div class="humidor-walkthrough-bar__fill" id="humidor-bar-fill"></div>
+  // -------------------- UI: progress bar (inside stage) + controls (below stage) + legend --------------------
+  // Progress bar je tanka linija na dnu video-a (i dalje overlay).
+  const progressEl = document.createElement('div');
+  progressEl.className = 'humidor-walkthrough-bar';
+  progressEl.setAttribute('aria-hidden', 'true');
+  progressEl.innerHTML = `<div class="humidor-walkthrough-bar__fill" id="humidor-bar-fill"></div>`;
+  stage.appendChild(progressEl);
+
+  // Legenda overlay-uje stage (transient help)
+  const legendEl = document.createElement('div');
+  legendEl.className = 'humidor-walkthrough-legend';
+  legendEl.id = 'humidor-legend';
+  legendEl.hidden = true;
+  legendEl.innerHTML = `
+    <h4>Kako koristiti šetnju</h4>
+    <ul>
+      <li><strong>Prevuci levo / desno</strong> mišem ili prstom</li>
+      <li><strong>Strelice ← → ↑ ↓</strong> za korak po korak</li>
+      <li><strong>Dugmad ◀ ▶</strong> za precizan korak; <strong>Play</strong> za auto-prolaz</li>
+      <li><strong>Wheel / scroll</strong> nad video-om — kreće šetnju, stranica se ne pomera</li>
+      <li><strong>Home / End</strong> skok na početak / kraj</li>
+    </ul>
+    <button type="button" class="hw-legend-close" data-action="close-help">Zatvori</button>
+  `;
+  stage.appendChild(legendEl);
+
+  // Control bar — sibling ISPOD figure-a, NIJE overlay
+  const controls = document.createElement('div');
+  controls.className = 'humidor-walkthrough-controls';
+  controls.setAttribute('role', 'toolbar');
+  controls.setAttribute('aria-label', 'Kontrole šetnje');
+  controls.innerHTML = `
+    <div class="hw-group hw-group--left">
+      <button type="button" class="hw-btn" data-action="reset" aria-label="Početak" title="Početak">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6v12M19 6l-9 6 9 6V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="hw-time" aria-live="off"><span id="hw-time-cur">0.0</span> / <span id="hw-time-total">0.0</span></span>
     </div>
-    <div class="humidor-walkthrough-controls" role="toolbar" aria-label="Kontrole šetnje">
-      <div class="hw-group hw-group--left">
-        <button type="button" class="hw-btn" data-action="reset" aria-label="Početak" title="Početak">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6v12M19 6l-9 6 9 6V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-        </button>
-        <span class="hw-time" aria-live="off"><span id="hw-time-cur">0.0</span> / <span id="hw-time-total">0.0</span></span>
-      </div>
-      <div class="hw-group hw-group--center">
-        <button type="button" class="hw-btn hw-btn--step" data-action="prev" aria-label="Korak nazad" title="Korak nazad">
-          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button type="button" class="hw-btn hw-btn--play" data-action="toggle" aria-label="Pusti / pauziraj" title="Pusti / pauziraj">
-          <svg class="hw-icon-play" viewBox="0 0 24 24" width="22" height="22"><path d="M8 5l11 7-11 7V5z" fill="currentColor"/></svg>
-          <svg class="hw-icon-pause" viewBox="0 0 24 24" width="22" height="22" hidden><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
-        </button>
-        <button type="button" class="hw-btn hw-btn--step" data-action="next" aria-label="Korak napred" title="Korak napred">
-          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
-      <div class="hw-group hw-group--right">
-        <button type="button" class="hw-btn hw-btn--help" data-action="help" aria-label="Pomoć" title="Pomoć">
-          <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 2-2.5 3v1M12 17.5h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-      </div>
+    <div class="hw-group hw-group--center">
+      <button type="button" class="hw-btn hw-btn--step" data-action="prev" aria-label="Korak nazad" title="Korak nazad">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="hw-btn hw-btn--play" data-action="toggle" aria-label="Pusti / pauziraj" title="Pusti / pauziraj">
+        <svg class="hw-icon-play" viewBox="0 0 24 24" width="22" height="22"><path d="M8 5l11 7-11 7V5z" fill="currentColor"/></svg>
+        <svg class="hw-icon-pause" viewBox="0 0 24 24" width="22" height="22" hidden><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+      </button>
+      <button type="button" class="hw-btn hw-btn--step" data-action="next" aria-label="Korak napred" title="Korak napred">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
-    <div class="humidor-walkthrough-legend" id="humidor-legend" hidden>
-      <h4>Kako koristiti šetnju</h4>
-      <ul>
-        <li><strong>Prevuci levo / desno</strong> mišem ili prstom</li>
-        <li><strong>Strelice ← → ↑ ↓</strong> za korak po korak</li>
-        <li><strong>Dugmad ◀ ▶</strong> za precizan korak; <strong>Play</strong> za auto-prolaz</li>
-        <li><strong>Wheel / scroll</strong> nad video-om — kreće šetnju, stranica se ne pomera</li>
-        <li><strong>Home / End</strong> skok na početak / kraj</li>
-      </ul>
-      <button type="button" class="hw-legend-close" data-action="close-help">Zatvori</button>
+    <div class="hw-group hw-group--right">
+      <button type="button" class="hw-btn hw-btn--help" data-action="help" aria-label="Pomoć" title="Pomoć">
+        <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 2-2.5 3v1M12 17.5h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </div>
   `;
-  stage.appendChild(ui);
+  // Wrap figure + controls in a flex column so controls site PRAVO ispod video-a
+  // u istoj grid ćeliji, ne lome 2-column humidor__grid layout.
+  const wrap = document.createElement('div');
+  wrap.className = 'humidor__walkthrough';
+  stage.parentNode.insertBefore(wrap, stage);
+  wrap.appendChild(stage);
+  wrap.appendChild(controls);
 
-  const fill = ui.querySelector('#humidor-bar-fill');
+  // Compatibility refs
+  const ui = controls;
+  const legend = legendEl;
+
+  const fill = stage.querySelector('#humidor-bar-fill');
   const tCur = ui.querySelector('#hw-time-cur');
   const tTot = ui.querySelector('#hw-time-total');
   const playIcon = ui.querySelector('.hw-icon-play');
   const pauseIcon = ui.querySelector('.hw-icon-pause');
-  const legend = ui.querySelector('#humidor-legend');
 
   // Prevent buttons from triggering stage drag/wheel handlers
   ui.addEventListener('pointerdown', (e) => e.stopPropagation());
+  legendEl.addEventListener('pointerdown', (e) => e.stopPropagation());
+  legendEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-action]');
+    if (btn && btn.dataset.action === 'close-help') legendEl.hidden = true;
+  });
 
   const updateUI = () => {
     if (!isFinite(video.duration) || !video.duration) return;
@@ -97,23 +123,84 @@ export function initHumidorScrub() {
   if (video.readyState >= 1) onReady();
   else video.addEventListener('loadedmetadata', onReady, { once: true });
 
-  // -------------------- Auto-play on section enter --------------------
-  // Svaki put kad korisnik dođe do sekcije, video se automatski pokreće od početka.
-  // Kad se sekcija ukloni iz vidnog polja, pauziramo da ne troši CPU.
+  // -------------------- Palindrome auto-loop --------------------
+  // Forward: native video.play(). Reverse: rAF dekrementira currentTime jer
+  // browser-i ne podržavaju negative playbackRate na <video>. Smena pravca je
+  // bešavna — kad video stigne do kraja prebacuje se u reverse, kad stigne na 0
+  // se vraća u forward.
+  let direction = 1;        // 1 = forward, -1 = reverse
+  let autoLoopActive = false;
+  let reverseRaf = null;
+  let lastT = 0;
+
+  const stopReverseRaf = () => {
+    if (reverseRaf != null) {
+      cancelAnimationFrame(reverseRaf);
+      reverseRaf = null;
+    }
+  };
+
+  const reverseStep = (ts) => {
+    if (!autoLoopActive || direction !== -1) { stopReverseRaf(); return; }
+    const dt = (ts - lastT) / 1000;
+    lastT = ts;
+    const next = video.currentTime - dt;
+    if (next <= 0) {
+      try { video.currentTime = 0; } catch (_) {}
+      stopReverseRaf();
+      direction = 1;
+      video.play().catch(() => {});
+      return;
+    }
+    try { video.currentTime = next; } catch (_) {}
+    reverseRaf = requestAnimationFrame(reverseStep);
+  };
+
+  const startAutoLoop = (fromZero = true) => {
+    if (!isFinite(video.duration) || !video.duration) return;
+    stopReverseRaf();
+    autoLoopActive = true;
+    direction = 1;
+    if (fromZero) {
+      try { video.currentTime = 0; } catch (_) {}
+    }
+    video.play().catch(() => {});
+  };
+
+  const stopAutoLoop = () => {
+    autoLoopActive = false;
+    stopReverseRaf();
+    video.pause();
+  };
+
+  // When forward play ends, switch to reverse pass
+  video.addEventListener('ended', () => {
+    if (!autoLoopActive) return;
+    direction = -1;
+    lastT = performance.now();
+    reverseRaf = requestAnimationFrame(reverseStep);
+  });
+
+  // -------------------- IntersectionObserver: auto-play on enter --------------------
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
-          if (!isFinite(video.duration)) continue;
-          try { video.currentTime = 0; } catch (_) {}
-          video.play().catch(() => {});
+          startAutoLoop(true);
         } else {
-          video.pause();
+          stopAutoLoop();
         }
       }
     }, { threshold: [0, 0.4, 1] });
     io.observe(stage);
   }
+
+  // Helper used by all manual interactions — they stop the auto-loop so user has control
+  const userTookOver = () => {
+    autoLoopActive = false;
+    stopReverseRaf();
+    video.pause();
+  };
 
   // Reduced-motion fallback
   if (prefersReduced) {
@@ -137,17 +224,21 @@ export function initHumidorScrub() {
     if (!btn) return;
     const action = btn.dataset.action;
     if (action === 'reset') {
-      video.pause();
+      userTookOver();
       setTime(0);
     } else if (action === 'prev') {
-      video.pause();
+      userTookOver();
       setTime(video.currentTime - stepSize());
     } else if (action === 'next') {
-      video.pause();
+      userTookOver();
       setTime(video.currentTime + stepSize());
     } else if (action === 'toggle') {
-      if (video.paused) video.play().catch(() => {});
-      else video.pause();
+      // Play toggle — restart palindrome auto-loop ako je pauziran, ili stop ako je aktivan
+      if (autoLoopActive || !video.paused || reverseRaf != null) {
+        userTookOver();
+      } else {
+        startAutoLoop(false);
+      }
     } else if (action === 'help') {
       legend.hidden = false;
     } else if (action === 'close-help') {
@@ -163,7 +254,7 @@ export function initHumidorScrub() {
 
   const onPointerDown = (e) => {
     if (!isFinite(video.duration) || !video.duration) return;
-    if (e.target.closest('.humidor-walkthrough-ui')) return; // let UI handle clicks
+    if (e.target.closest('.humidor-walkthrough-controls, .humidor-walkthrough-legend')) return; // let UI handle clicks
     dragging = true;
     startX = e.clientX;
     startTime = video.currentTime;
@@ -172,7 +263,7 @@ export function initHumidorScrub() {
     stage.classList.add('is-dragging');
     stage.setPointerCapture?.(e.pointerId);
     stage.focus({ preventScroll: true });
-    video.pause();
+    userTookOver();
   };
 
   const onPointerMove = (e) => {
@@ -202,7 +293,7 @@ export function initHumidorScrub() {
     e.preventDefault();
     e.stopPropagation();
     const stepSec = (e.deltaY + e.deltaX) * 0.005;
-    video.pause();
+    userTookOver();
     setTime(video.currentTime + stepSec);
   };
   stage.addEventListener('wheel', onStageWheel, { passive: false });
@@ -239,24 +330,24 @@ export function initHumidorScrub() {
     if (!isFinite(video.duration)) return;
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
       e.preventDefault();
-      video.pause();
+      userTookOver();
       setTime(video.currentTime + stepSize());
     } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
       e.preventDefault();
-      video.pause();
+      userTookOver();
       setTime(video.currentTime - stepSize());
     } else if (e.key === 'Home') {
       e.preventDefault();
-      video.pause();
+      userTookOver();
       setTime(0);
     } else if (e.key === 'End') {
       e.preventDefault();
-      video.pause();
+      userTookOver();
       setTime(video.duration);
     } else if (e.key === ' ') {
       e.preventDefault();
-      if (video.paused) video.play().catch(() => {});
-      else video.pause();
+      if (autoLoopActive || !video.paused || reverseRaf != null) userTookOver();
+      else startAutoLoop(false);
     } else if (e.key === 'Escape') {
       legend.hidden = true;
     }
