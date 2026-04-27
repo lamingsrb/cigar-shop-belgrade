@@ -19,6 +19,10 @@ export default defineConfig({
     sourcemap: false,
     target: 'es2020',
     rollupOptions: {
+      input: {
+        main: 'index.html',
+        blog: 'blog.html'
+      },
       output: {
         manualChunks: {
           three: ['three'],

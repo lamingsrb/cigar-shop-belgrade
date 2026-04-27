@@ -9,10 +9,20 @@
     "manifest": "Manifest",
     "humidor": "Humidor",
     "library": "Biblioteka cigara",
-    "spirits": "Pića",
+    "spirits": "Nastavi u piće",
     "gear": "Oprema",
     "gallery": "Galerija",
+    "blog": "Blog",
     "locations": "Lokacije"
+  },
+
+  "blog": {
+    "kicker": "Blog",
+    "title": "Priče iz dima.",
+    "lead": "Deset istorijskih činjenica o cigarama. Kolumbo, Čerčil, Castro, torcedori, Vuelta Abajo. Klikni za celu priču.",
+    "allCta": "Pogledaj sve priče →",
+    "readMore": "Pročitaj →",
+    "back": "← Nazad na sajt"
   },
 
   "hero": {
@@ -54,7 +64,13 @@
   "library": {
     "kicker": "Biblioteka cigara",
     "title": "Godine tišine za trenutak uživanja.",
-    "lead": "Preko 70 brendova iz sedam zemalja. Biraj region, otkrij priču duvana i galeriju cigara."
+    "lead": "Od plantaže, kroz destileriju, do trenutka kada se žar prvi put uhvati za vrh cigare."
+  },
+
+  "humidorBrands": {
+    "kicker": "Biblioteka cigara",
+    "title": "Kuba i Novi svet.",
+    "lead": "Naša polica nosi dve velike priče. Klikni na regiju i pusti da slajdovi vode kroz brendove i njihove cigare."
   },
 
   "process": {
@@ -83,8 +99,8 @@
 
   "spirits": {
     "kicker": "Pića",
-    "title": "Tečni prijatelji dima.",
-    "lead": "Viski, burbon, konjak, džin, rum, votka, rakija, vino. Svaka kategorija ima svoju geografiju i svoj ritam."
+    "title": "Nastavi u piće.",
+    "lead": "Viski, burbon, konjak, džin, rum, rakija. Svaka kategorija ima svoju priču, geografiju i ritam koji prati cigaru."
   },
 
   "spiritsProcess": {
@@ -102,7 +118,7 @@
   "gear": {
     "kicker": "Oprema",
     "title": "Alati rituala.",
-    "lead": "Rezači, upaljači, humidori, pepeljare, putni etui. Ritual nije potpun bez pribora koji se pamti."
+    "lead": "Sekači, upaljači, humidori, pepeljare, futrole. Ritual nije potpun bez pribora koji se pamti."
   },
 
   "gearProcess": {

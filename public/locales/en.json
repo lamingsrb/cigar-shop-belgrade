@@ -12,7 +12,17 @@
     "spirits": "Spirits",
     "gear": "Gear",
     "gallery": "Gallery",
+    "blog": "Blog",
     "locations": "Stores"
+  },
+
+  "blog": {
+    "kicker": "Blog",
+    "title": "Stories from the smoke.",
+    "lead": "Ten historical facts about cigars. Columbus, Churchill, Castro, torcedors, Vuelta Abajo. Click for the full story.",
+    "allCta": "See all stories →",
+    "readMore": "Read →",
+    "back": "← Back to the site"
   },
 
   "hero": {
@@ -54,7 +64,13 @@
   "library": {
     "kicker": "Cigar Library",
     "title": "Years of silence for a moment of pleasure.",
-    "lead": "Over 70 brands from seven countries. Pick a region, discover the story of tobacco and a gallery of cigars."
+    "lead": "From the plantation, through the distillery, to the moment the ember first catches the cigar's tip."
+  },
+
+  "humidorBrands": {
+    "kicker": "Cigar Library",
+    "title": "Cuba and the New World.",
+    "lead": "Our shelf carries two great stories. Click a region and let the slides walk you through brands and their cigars."
   },
 
   "process": {

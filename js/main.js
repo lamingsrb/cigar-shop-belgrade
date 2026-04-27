@@ -21,6 +21,7 @@ import { initHeroRotator } from './hero-rotator.js';
 import { initHeroSmoke } from './hero-smoke.js';
 import { initSpirits } from './spirits.js';
 import { initGear } from './gear.js';
+import { initBlog } from './blog.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -180,6 +181,7 @@ async function boot() {
   initBrands();
   initSpirits();
   initGear();
+  initBlog();
   initHeroRotator();
   // initHeroSmoke() — disabled: Slide 1 sada ima pravi live video, canvas smoke sloj vi\u0161e nije potreban.
   // Kod je sa\u010duvan u js/hero-smoke.js za buduc\u0301u upotrebu.

@@ -27,27 +27,11 @@
   <link rel="stylesheet" href="/css/responsive.css" />
 </head>
 <body>
-  <!-- =======================  LOADER  ======================= -->
-  <div id="loader" class="loader" aria-hidden="true">
-    <div class="loader__stage">
-      <svg class="loader__match" viewBox="0 0 120 300" aria-hidden="true">
-        <rect class="match-stick" x="55" y="70" width="10" height="220" rx="2" />
-        <ellipse class="match-head" cx="60" cy="62" rx="14" ry="20" />
-        <g class="match-flame">
-          <path class="flame-outer" d="M60 10 C40 30 38 55 60 70 C82 55 80 30 60 10 Z" />
-          <path class="flame-inner" d="M60 28 C50 40 49 55 60 65 C71 55 70 40 60 28 Z" />
-          <circle class="flame-core" cx="60" cy="55" r="6" />
-        </g>
-      </svg>
-      <div class="loader__label" data-i18n="loader.tagline">Strike a match.</div>
-    </div>
-  </div>
-
-  <!-- =======================  HEADER  ======================= -->
+<!-- =======================  HEADER  ======================= -->
   <header class="header" role="banner">
     <div class="header__inner">
       <a href="#hero" class="brand" aria-label="Cigar Shop Belgrade">
-        <img class="brand__logo" src="/assets/brand/logo-monogram-256.png" alt="Cigar Shop" width="42" height="auto">
+        <img class="brand__logo" src="/assets/brand/logo-monogram-gold-256.png" alt="Cigar Shop" width="42" height="auto">
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -56,6 +40,7 @@
         <a href="#spirits" data-i18n="nav.spirits">Pića</a>
         <a href="#gear" data-i18n="nav.gear">Oprema</a>
         <a href="#gallery" data-i18n="nav.gallery">Galerija</a>
+        <a href="#blog" data-i18n="nav.blog">Blog</a>
         <a href="#contact" data-i18n="footer.contactLink">Kontakt</a>
       </nav>
 
@@ -87,14 +72,10 @@
       <div class="hero__content hero__content--centered">
         <h1 class="hero__wordmark hero__wordmark--main">CIGAR SHOP</h1>
         <p class="hero__subwordmark hero__subwordmark--main">Tobacco and Drinks</p>
-        <a href="#manifest" class="hero__scroll" aria-label="Scroll down">
-          <span data-i18n="hero.scroll">Zapali iskustvo</span>
-          <span class="hero__scroll-line" aria-hidden="true"></span>
-        </a>
       </div>
     </div>
 
-    <!-- SLIDE 2: produkcijska kompilacija (Aninih 4 klipa) + "Sedam regija" + tagline -->
+    <!-- SLIDE 2: 5 lokacija — adresa lista preko cinematic videa -->
     <div class="hero__slide hero__slide--2" data-slide="2" aria-hidden="true">
       <div class="hero__video-wrap" aria-hidden="true">
         <video class="hero__products-video" autoplay muted loop playsinline
@@ -104,25 +85,25 @@
         <div class="hero__video-overlay hero__video-overlay--soft"></div>
       </div>
       <div class="hero__content hero__content--centered">
-        <p class="kicker hero__mosaic-kicker" data-i18n="hero.slideB.kicker">Kolekcija</p>
-        <h2 class="hero__mosaic-title" data-i18n="hero.slideB.title">Sedam regija, jedna strast.</h2>
-        <p class="hero__mosaic-sub" data-i18n="hero.tagline">Premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.</p>
+        <p class="kicker hero__mosaic-kicker" data-i18n="hero.slideB.kicker">Lokacije</p>
+        <h2 class="hero__mosaic-title" data-i18n="hero.slideB.title">Posetite nas na 5 lokacija.</h2>
+        <ul class="hero__locations" data-i18n="hero.slideB.locations" data-i18n-html="true">
+          <li>Cigar Shop U&scaron;će <span>Bulevar Mihajla Pupina 4, II sprat</span></li>
+          <li>Cigar Shop Merkator <span>Bulevar umetnosti 4, I sprat</span></li>
+          <li>Cigar Shop Delta <span>Jurija Gagarina 16, prizemlje</span></li>
+          <li>Cigar Shop BIG Fashion <span>Vi&scaron;njička 84, prizemlje</span></li>
+          <li>Cigar Shop Grad <span>Kosovska 17</span></li>
+        </ul>
       </div>
     </div>
 
-    <!-- SLIDE 3: luksuzna studija (PixVerse), palindrome loop, cropped watermark -->
+    <!-- SLIDE 3: live shop footage — samo video, bez teksta -->
     <div class="hero__slide hero__slide--3" data-slide="3" aria-hidden="true">
       <div class="hero__video-wrap" aria-hidden="true">
         <video class="hero__live-video" autoplay muted loop playsinline
                preload="metadata" poster="/assets/video/hero-slide3-poster.webp">
           <source src="/assets/video/hero-slide3.mp4" type="video/mp4">
         </video>
-        <div class="hero__video-overlay hero__video-overlay--soft"></div>
-      </div>
-      <div class="hero__content hero__content--centered">
-        <p class="kicker hero__mosaic-kicker" data-i18n="hero.slideC.kicker">Poseti</p>
-        <h2 class="hero__mosaic-title" data-i18n="hero.slideC.title">Pet adresa. Pet humidora.</h2>
-        <p class="hero__mosaic-sub" data-i18n="hero.slideC.sub">Od Ušća do Kosovske — uđi u radnju gde te cigara čeka godinama.</p>
       </div>
     </div>
 
@@ -161,58 +142,8 @@
     </div>
   </section>
 
-  <!-- ==============  BIBLIOTEKA CIGARA (merge: Origins + Brands + Collection) ============== -->
-  <section id="origins" class="origins" aria-label="Biblioteka cigara">
-    <div class="origins__header">
-      <p class="kicker" data-i18n="library.kicker">Biblioteka cigara</p>
-      <h2 class="heading-display" data-i18n="library.title">Godine tišine za trenutak uživanja.</h2>
-      <p class="lead" data-i18n="library.lead">Preko 70 brendova iz sedam zemalja. Biraj region, otkrij priču duvana i galeriju cigara.</p>
-    </div>
-
-    <!-- Proces proizvodnje: tekst + video + showcase -->
-    <div class="process">
-      <div class="process__intro">
-        <p class="kicker" data-i18n="process.kicker">Proces proizvodnje</p>
-        <h3 class="heading-section" data-i18n="process.title">Ručno rađena cigara.</h3>
-        <div class="process__body-wrap">
-          <p class="body" data-i18n="process.body1">
-            <strong>Ručno rađena cigara</strong> predstavlja spoj tradicije, umeća i prirode, oblikovan kroz pažljivo kontrolisan proces koji traje <strong>mesecima, a ponekad i godinama</strong>. Sve počinje na plantažama duvana, gde se listovi uzgajaju u idealnim klimatskim uslovima i beru isključivo ručno, <strong>sloj po sloj</strong>, kako bi svaki dostigao svoju punu zrelost.
-          </p>
-          <p class="body" data-i18n="process.body2">
-            Nakon berbe, listovi prolaze kroz fazu sušenja, tokom koje polako gube vlagu i razvijaju svoju prepoznatljivu boju i teksturu. Sledi <strong>fermentacija</strong>, ključni trenutak u kojem duvan dobija dubinu, kompleksnost i bogatstvo arome. U ovom prirodnom procesu, pod uticajem toplote i vremena, uklanjaju se neželjene supstance, a profil ukusa se zaokružuje.
-          </p>
-          <p class="body" data-i18n="process.body3">
-            Kada dostignu optimalan kvalitet, listovi se pažljivo selektuju i razvrstavaju prema svojoj ulozi u cigari: kao <strong>punjenje, vezni ili omotački list</strong>. Tada na scenu stupaju <strong>majstori torcedori</strong>, čije vešte ruke pretvaraju sirovi materijal u umetničko delo. Svaka cigara se ručno mota sa preciznošću i osećajem, gde balans između strukture i protoka vazduha mora biti besprekorno postignut.
-          </p>
-          <p class="body" data-i18n="process.body4">
-            Nakon oblikovanja, cigare se odlažu na <strong>odležavanje</strong>, proces tokom kojeg se ukusi stabilizuju i međusobno prožimaju, stvarajući harmoničnu celinu. Tek kada dostignu svoj vrhunac, cigare bivaju pažljivo pregledane, označene i upakovane. Rezultat je <strong>cigara kao simbol elegancije, strpljenja i vrhunskog zanatstva</strong>, namenjena onima koji znaju da cene spor ritam i bogatstvo iskustva.
-          </p>
-        </div>
-      </div>
-      <div class="process__media">
-        <video class="process__video"
-               autoplay muted loop playsinline
-               preload="metadata"
-               poster="/assets/video/process-poster.webp">
-          <source src="/assets/video/process.mp4" type="video/mp4">
-        </video>
-        <span class="process__caption" data-i18n="process.videoCaption">Od planta\u017ee do humidora</span>
-      </div>
-      <div class="process__showcase" id="process-showcase" data-default="true">
-        <!-- Default state: 4 realne faze proizvodnje (fotografije od Ane). Klik na brend u grid-u ispod menja u galeriju tog brenda. -->
-        <figure><img loading="lazy" decoding="async" src="/assets/gallery/process-1-plantaza.webp" alt=""><figcaption data-i18n="process.s1">Planta\u017ea</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/gallery/process-2-fermentacija.webp" alt=""><figcaption data-i18n="process.s2">Fermentacija</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/gallery/process-3-rolanje.webp" alt=""><figcaption data-i18n="process.s3">Rolanje</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/gallery/process-4-odlezavanje.webp" alt=""><figcaption data-i18n="process.s4">Odle\u017eavanje</figcaption></figure>
-      </div>
-    </div>
-
-    <div class="brands__tabs" id="brands-tabs" role="tablist"></div>
-    <div class="brands__grid" id="brands-grid"></div>
-  </section>
-
-  <!-- =======================  HUMIDOR  ======================= -->
-  <section id="humidor" class="humidor" aria-label="Humidor">
+    <!-- =======================  HUMIDOR (sada prvo)  ======================= -->
+<section id="humidor" class="humidor" aria-label="Humidor">
     <div class="humidor__grid">
       <figure class="humidor__media">
         <video class="humidor__video"
@@ -240,15 +171,44 @@
         </ul>
       </div>
     </div>
+  
+    <!-- Podela cigara: Kuba i Novi svet (premešteno iz Library sekcije) -->
+    <div class="humidor__brands">
+      <div class="origins__header">
+        <p class="kicker" data-i18n="humidorBrands.kicker">Biblioteka cigara</p>
+        <h3 class="heading-section" data-i18n="humidorBrands.title">Kuba i Novi svet.</h3>
+        <p class="lead" data-i18n="humidorBrands.lead">Naša polica nosi dve velike priče. Klikni na regiju i pusti da slajdovi vode kroz brendove i njihove cigare.</p>
+      </div>
+      <div class="brands__tabs" id="brands-tabs" role="tablist"></div>
+      <div class="brands__grid" id="brands-grid"></div>
+    </div>
   </section>
 
-  <!-- =======================  SPIRITS  ======================= -->
+  
+  <!-- ==============  BIBLIOTEKA CIGARA — minimal (samo title + lead + full-bleed video) ============== -->
+  <section id="origins" class="origins origins--minimal" aria-label="Biblioteka cigara">
+    <video class="origins__bg-video"
+           autoplay muted loop playsinline
+           preload="metadata"
+           poster="/assets/video/process-poster.webp"
+           aria-hidden="true">
+      <source src="/assets/video/process.mp4" type="video/mp4">
+    </video>
+    <div class="origins__bg-overlay" aria-hidden="true"></div>
+    <div class="origins__header origins__header--over-video">
+      <p class="kicker" data-i18n="library.kicker">Biblioteka cigara</p>
+      <h2 class="heading-display" data-i18n="library.title">Godine tišine za trenutak uživanja.</h2>
+      <p class="lead" data-i18n="library.lead">Od plantaže, kroz destileriju, do trenutka kada se žar prvi put uhvati za vrh cigare.</p>
+    </div>
+  </section>
+
+<!-- =======================  SPIRITS  ======================= -->
   <section id="spirits" class="spirits origins" aria-label="Spirits">
     <div class="origins__header">
       <p class="kicker" data-i18n="spirits.kicker">Pića</p>
-      <h2 class="heading-display" data-i18n="spirits.title">Tečni prijatelji dima.</h2>
+      <h2 class="heading-display" data-i18n="spirits.title">Nastavi u piće.</h2>
       <p class="lead" data-i18n="spirits.lead">
-        Viski, burbon, konjak, džin, rum, votka, rakija, vino. Svaka kategorija ima svoju geografiju i svoj ritam.
+        Viski, burbon, konjak, džin, rum, rakija. Svaka kategorija ima svoju priču, geografiju i ritam koji prati cigaru.
       </p>
     </div>
 
@@ -290,7 +250,7 @@
     <div class="origins__header">
       <p class="kicker" data-i18n="gear.kicker">Oprema</p>
       <h2 class="heading-display" data-i18n="gear.title">Alati rituala.</h2>
-      <p class="lead" data-i18n="gear.lead">Rezači, upaljači, humidori, pepeljare, putni etui. Ritual nije potpun bez pribora koji se pamti.</p>
+      <p class="lead" data-i18n="gear.lead">Sekači, upaljači, humidori, pepeljare, futrole. Ritual nije potpun bez pribora koji se pamti.</p>
     </div>
 
     <!-- Process-style blok: intro + video + showcase (menja se klikom na kategoriju) -->
@@ -367,6 +327,19 @@
       <button class="masonry-nav masonry-next" id="gallery-next" aria-label="Sledeća">
         <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
+    </div>
+  </section>
+
+  <!-- =======================  BLOG SHOWCASE  ======================= -->
+  <section id="blog" class="blog" aria-label="Blog">
+    <div class="origins__header">
+      <p class="kicker" data-i18n="blog.kicker">Blog</p>
+      <h2 class="heading-display" data-i18n="blog.title">Priče iz dima.</h2>
+      <p class="lead" data-i18n="blog.lead">Deset istorijskih činjenica o cigarama. Kolumbo, Čerčil, Castro, torcedori, Vuelta Abajo. Klikni za celu priču.</p>
+    </div>
+    <div class="blog__rail" id="blog-rail"></div>
+    <div class="blog__cta">
+      <a class="btn btn--ghost" href="/blog.html" data-i18n="blog.allCta">Pogledaj sve priče →</a>
     </div>
   </section>
 
@@ -468,7 +441,7 @@
   <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img class="footer__logo" src="/assets/brand/logo-monogram-256.png" alt="Cigar Shop Belgrade" width="44" height="auto">
+        <img class="footer__logo" src="/assets/brand/logo-monogram-gold-256.png" alt="Cigar Shop Belgrade" width="44" height="auto">
         <div class="footer__brand-text">
           <span class="footer__brand-name">Cigar Shop</span>
           <span class="footer__tag" data-i18n="footer.tag">Umetnost strpljenja, 5 lokacija.</span>
@@ -480,6 +453,7 @@
         <a href="#spirits" data-i18n="nav.spirits">Pića</a>
         <a href="#gear" data-i18n="nav.gear">Oprema</a>
         <a href="#gallery" data-i18n="nav.gallery">Galerija</a>
+        <a href="#blog" data-i18n="nav.blog">Blog</a>
         <a href="#contact" data-i18n="footer.contactLink">Kontakt</a>
       </nav>
     </div>

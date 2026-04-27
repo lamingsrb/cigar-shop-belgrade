@@ -1,7 +1,8 @@
 // =======================================================
-// CIGAR SHOP — Spirits sekcija (po uzoru na Biblioteka cigara)
-// Tab-ovi po kategoriji + brand kartice + gornji showcase koji se
-// menja na klik brenda. Isti pattern kao brands.js, samo druga data izvora.
+// CIGAR SHOP — Spirits sekcija (Nastavi u piće)
+// 6 tabova (Viski, Burbon, Džin, Konjak, Rum, Rakija). Klik na tab →
+// kratka rečenica šta je ta kategorija + auto-advance carousel sa slikama
+// tipičnih primeraka.
 // =======================================================
 
 import { getLang, onLangChange } from './i18n.js';
@@ -9,77 +10,63 @@ import { getLang, onLangChange } from './i18n.js';
 const BRANDS_URL  = '/data/brands.json';
 const STORIES_URL = (lang) => `/locales/brand-stories-${lang}.json`;
 
-// Placeholder slike po kategoriji. Zamene\u0107e se pravim product fotografijama
-// kad klijent po\u0161alje.
-const PLACEHOLDER_BY_CAT = {
-  whisky:  [
-    '/assets/spirits/spirits-process-4-selekcija.webp',     // Glen Scotia bottles
-    '/assets/spirits/spirits-process-1-destilacija.webp',   // copper pot stills
-    '/assets/spirits/spirits-process-3-odlezavanje.webp',   // barrel warehouse
+// Slike per kategorija (placeholder od Ane). Kad klijent pošalje proper product
+// shots zameniti ovde.
+const IMAGES_BY_CAT = {
+  whisky: [
+    '/assets/spirits/spirits-process-4-selekcija.webp',
+    '/assets/spirits/spirits-process-1-destilacija.webp',
+    '/assets/spirits/spirits-process-3-odlezavanje.webp',
     '/assets/spirits/scotch.webp',
     '/assets/spirits/japanese.webp',
     '/assets/spirits/irish.webp',
-    '/assets/gallery/img-008.webp',
-    '/assets/gallery/img-018.webp'
   ],
   bourbon: [
     '/assets/spirits/spirits-process-3-odlezavanje.webp',
     '/assets/spirits/bourbon.webp',
-    '/assets/gallery/img-008.webp',
-    '/assets/gallery/img-018.webp'
-  ],
-  cognac:  [
     '/assets/spirits/spirits-process-2-destilerija.webp',
-    '/assets/spirits/cognac.webp',
-    '/assets/gallery/img-025.webp',
-    '/assets/gallery/img-044.webp'
   ],
-  gin:     [
+  gin: [
     '/assets/spirits/spirits-process-1-destilacija.webp',
     '/assets/gallery/img-002.webp',
     '/assets/gallery/img-021.webp',
     '/assets/gallery/img-028.webp',
-    '/assets/gallery/img-031.webp'
   ],
-  rum:     [
+  cognac: [
+    '/assets/spirits/spirits-process-2-destilerija.webp',
+    '/assets/spirits/cognac.webp',
+    '/assets/spirits/spirits-process-3-odlezavanje.webp',
+  ],
+  rum: [
     '/assets/spirits/spirits-process-3-odlezavanje.webp',
     '/assets/gallery/img-008.webp',
     '/assets/gallery/img-018.webp',
     '/assets/gallery/img-036.webp',
-    '/assets/gallery/img-049.webp'
   ],
-  vodka:   [
-    '/assets/spirits/spirits-process-1-destilacija.webp',
-    '/assets/gallery/img-028.webp',
-    '/assets/gallery/img-052.webp'
-  ],
-  rakija:  [
+  rakija: [
     '/assets/spirits/spirits-process-2-destilerija.webp',
     '/assets/spirits/rakija.webp',
     '/assets/gallery/img-021.webp',
-    '/assets/gallery/img-037.webp'
+    '/assets/gallery/img-037.webp',
   ],
-  wine:    [
-    '/assets/spirits/spirits-process-3-odlezavanje.webp',
-    '/assets/gallery/img-033.webp',
-    '/assets/gallery/img-048.webp',
-    '/assets/gallery/img-037.webp'
-  ]
 };
 
-const CAT_LABEL_SR = { whisky:'Viski', bourbon:'Burbon', cognac:'Konjak', gin:'D\u017ein', rum:'Rum', vodka:'Votka', rakija:'Rakija', wine:'Vino' };
-const CAT_LABEL_EN = { whisky:'Whisky', bourbon:'Bourbon', cognac:'Cognac', gin:'Gin', rum:'Rum', vodka:'Vodka', rakija:'Rakija', wine:'Wine' };
+const CAT_LABEL_SR = { whisky: 'Viski', bourbon: 'Burbon', gin: 'Džin', cognac: 'Konjak', rum: 'Rum', rakija: 'Rakija' };
+const CAT_LABEL_EN = { whisky: 'Whisky', bourbon: 'Bourbon', gin: 'Gin', cognac: 'Cognac', rum: 'Rum', rakija: 'Rakija' };
+
+// Klijentski redosled (prikaz)
+const VISIBLE_CATS = ['whisky', 'bourbon', 'gin', 'cognac', 'rum', 'rakija'];
 
 let brandsData = null;
 let storiesData = null;
 let activeCat = 'whisky';
-let activeBrand = null;
-let defaultShowcaseHTML = null;
+let slideTimer = null;
+let slideIndex = 0;
 
 async function loadData() {
   if (!brandsData) {
     try { brandsData = await (await fetch(BRANDS_URL)).json(); }
-    catch { brandsData = { cigars: {}, spirits: {} }; }
+    catch { brandsData = { spirits: {} }; }
   }
   const lang = getLang();
   try { storiesData = await (await fetch(STORIES_URL(lang))).json(); }
@@ -90,106 +77,89 @@ function catLabel(cat) {
   return getLang() === 'en' ? CAT_LABEL_EN[cat] : CAT_LABEL_SR[cat];
 }
 
-function imagesFor(cat, brandIndex) {
-  const pool = PLACEHOLDER_BY_CAT[cat] || [];
-  if (!pool.length) return [];
-  const out = [];
-  const take = Math.min(4, pool.length);
-  for (let i = 0; i < take; i++) out.push(pool[(brandIndex * 2 + i) % pool.length]);
-  return out;
-}
-
 function renderTabs(host) {
-  const cats = Object.keys(brandsData.spirits || {});
+  const allCats = Object.keys(brandsData?.spirits || {});
+  const cats = VISIBLE_CATS.filter(c => allCats.includes(c) || IMAGES_BY_CAT[c]);
   host.innerHTML = cats.map(c => {
     const label = catLabel(c);
-    const count = brandsData.spirits[c]?.brands?.length || 0;
+    const count = brandsData?.spirits?.[c]?.brands?.length || 0;
     const active = c === activeCat ? ' is-active' : '';
     return `<button class="brands__tab${active}" data-cat="${c}">
       <span class="brands__tab-name">${label}</span>
-      <span class="brands__tab-count">${count}</span>
+      ${count ? `<span class="brands__tab-count">${count}</span>` : ''}
     </button>`;
   }).join('');
 }
 
 function renderGrid(host) {
-  const cat = brandsData.spirits[activeCat];
-  const intro = storiesData.spirits?.[activeCat]?.story || '';
-  if (!cat) { host.innerHTML = ''; return; }
+  const story = storiesData?.spirits?.[activeCat]?.story || '';
+  const images = IMAGES_BY_CAT[activeCat] || [];
 
-  const introBlock = intro ? `<p class="brands__region-story">${intro}</p>` : '';
-
-  const cards = (cat.brands || []).map((b, i) => {
-    const isActive = b.brand === activeBrand ? ' is-active' : '';
-    return `
-      <article class="brand-card${isActive}" data-brand="${b.brand}" data-index="${i}" role="button" tabindex="0">
-        <div class="brand-card__header">
-          <h3 class="brand-card__name">${b.brand}</h3>
-          <span class="brand-card__count">${b.count}</span>
-        </div>
-      </article>
-    `;
-  }).join('');
-
-  host.innerHTML = `${introBlock}<div class="brands__vault"><div class="brands__cards">${cards}</div></div>`;
-}
-
-function renderShowcase(brand, index) {
-  const showcase = document.getElementById('spirits-showcase');
-  if (!showcase) return;
-
-  if (!brand) {
-    if (defaultShowcaseHTML != null) {
-      showcase.innerHTML = defaultShowcaseHTML;
-      showcase.dataset.default = 'true';
-      showcase.removeAttribute('data-brand');
-    }
-    return;
-  }
-
-  const images = imagesFor(activeCat, index || 0);
-  if (!images.length) return;
-
-  const slots = 4;
-  const picks = [];
-  for (let i = 0; i < slots; i++) picks.push(images[i % images.length]);
-
-  showcase.innerHTML = picks.map(src => `
-    <figure>
-      <img loading="lazy" decoding="async" src="${src}" alt="${brand}">
-      <figcaption>${brand}</figcaption>
+  const slides = images.map((src, i) => `
+    <figure class="brand-slide${i === 0 ? ' is-active' : ''}" data-i="${i}">
+      <img loading="lazy" decoding="async" src="${src}" alt="${catLabel(activeCat)}">
+      <figcaption>${catLabel(activeCat)}</figcaption>
     </figure>
   `).join('');
-  showcase.dataset.default = 'false';
-  showcase.dataset.brand = brand;
+
+  host.innerHTML = `
+    ${story ? `<p class="brands__region-story">${story}</p>` : ''}
+    <div class="brand-carousel" data-count="${images.length}">
+      <button class="brand-carousel__nav brand-carousel__prev" aria-label="Prev">&#8249;</button>
+      <div class="brand-carousel__track">${slides}</div>
+      <button class="brand-carousel__nav brand-carousel__next" aria-label="Next">&#8250;</button>
+    </div>
+  `;
+
+  slideIndex = 0;
+  startCarousel(host);
 }
 
-function handleBrandClick(article) {
-  const brand = article.dataset.brand;
-  const index = parseInt(article.dataset.index || '0', 10);
-  if (activeBrand === brand) {
-    activeBrand = null;
-    renderShowcase(null);
-  } else {
-    activeBrand = brand;
-    renderShowcase(brand, index);
+function startCarousel(host) {
+  stopCarousel();
+  const slides = host.querySelectorAll('.brand-slide');
+  if (!slides.length) return;
+
+  const show = (idx) => {
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+    slideIndex = idx;
+  };
+
+  slideTimer = setInterval(() => {
+    show((slideIndex + 1) % slides.length);
+  }, 3500);
+
+  const prev = host.querySelector('.brand-carousel__prev');
+  const next = host.querySelector('.brand-carousel__next');
+  if (prev) prev.onclick = () => { show((slideIndex - 1 + slides.length) % slides.length); restartTimer(host); };
+  if (next) next.onclick = () => { show((slideIndex + 1) % slides.length); restartTimer(host); };
+
+  const carousel = host.querySelector('.brand-carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', () => startCarousel(host));
   }
-  const gridHost = document.getElementById('spirits-grid');
-  if (gridHost) renderGrid(gridHost);
-  const showcase = document.getElementById('spirits-showcase');
-  if (showcase) {
-    const top = showcase.getBoundingClientRect().top + window.scrollY - 140;
-    window.scrollTo({ top, behavior: 'smooth' });
-  }
+}
+
+function restartTimer(host) {
+  stopCarousel();
+  const slides = host.querySelectorAll('.brand-slide');
+  if (!slides.length) return;
+  slideTimer = setInterval(() => {
+    const next = (slideIndex + 1) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('is-active', i === next));
+    slideIndex = next;
+  }, 3500);
+}
+
+function stopCarousel() {
+  if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
 }
 
 export async function initSpirits() {
   const tabsHost = document.getElementById('spirits-tabs');
   const gridHost = document.getElementById('spirits-grid');
   if (!tabsHost || !gridHost) return;
-
-  const showcase = document.getElementById('spirits-showcase');
-  if (showcase && defaultShowcaseHTML == null) defaultShowcaseHTML = showcase.innerHTML;
 
   await loadData();
   renderTabs(tabsHost);
@@ -199,34 +169,13 @@ export async function initSpirits() {
     const btn = e.target.closest('.brands__tab');
     if (!btn) return;
     activeCat = btn.dataset.cat;
-    activeBrand = null;
-    renderShowcase(null);
     renderTabs(tabsHost);
     renderGrid(gridHost);
-  });
-
-  gridHost.addEventListener('click', (e) => {
-    const card = e.target.closest('.brand-card');
-    if (!card) return;
-    handleBrandClick(card);
-  });
-  gridHost.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    const card = e.target.closest('.brand-card');
-    if (!card) return;
-    e.preventDefault();
-    handleBrandClick(card);
   });
 
   onLangChange(async () => {
     await loadData();
     renderTabs(tabsHost);
     renderGrid(gridHost);
-    // Default showcase captions se re-render-uju jer koriste data-i18n
-    // ali samo ako smo u default stanju; ina\u010de ostaje brand label
-    if (!activeBrand && defaultShowcaseHTML != null && showcase) {
-      // Re-snapshot da uhvatimo novi lang koji je i18n.js ve\u0107 primenio
-      defaultShowcaseHTML = showcase.innerHTML;
-    }
   });
 }
