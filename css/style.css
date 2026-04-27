@@ -1337,33 +1337,145 @@ section {
 
 .humidor-walkthrough-ui {
   position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 0.9rem;
-  z-index: 2;
-  pointer-events: none;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .humidor-walkthrough-bar {
   width: 100%;
-  height: 3px;
+  height: 4px;
   background: rgba(245, 230, 211, 0.18);
   border-radius: 2px;
   overflow: hidden;
+  pointer-events: none;
 }
 .humidor-walkthrough-bar__fill {
   height: 100%;
   width: 0;
   background: var(--gold-leaf);
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
-  transition: width 0.08s linear;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+  transition: width 0.06s linear;
+}
+.humidor-walkthrough-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  background: rgba(10, 6, 5, 0.78);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.hw-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--gold-leaf);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+.hw-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.55);
+}
+.hw-btn:active { transform: scale(0.94); }
+.hw-btn:focus-visible {
+  outline: 2px solid var(--gold-leaf);
+  outline-offset: 2px;
+}
+.hw-btn--play {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.55);
+}
+.hw-btn--help { margin-left: auto; }
+.hw-time {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--gold-leaf);
+  opacity: 0.85;
+  padding: 0 0.4rem;
+  white-space: nowrap;
+}
+.humidor-walkthrough-legend {
+  position: absolute;
+  inset: 0.6rem;
+  bottom: calc(0.6rem + 56px);
+  background: rgba(10, 6, 5, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 8px;
+  padding: 1.25rem 1.4rem;
+  color: var(--ink);
+  font-family: var(--font-body);
+  z-index: 4;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: auto;
+}
+.humidor-walkthrough-legend h4 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gold-leaf);
+  margin: 0 0 0.7rem;
+}
+.humidor-walkthrough-legend ul {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.humidor-walkthrough-legend li {
+  padding-left: 1.1em;
+  position: relative;
+}
+.humidor-walkthrough-legend li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gold-leaf);
+  font-weight: 700;
+}
+.humidor-walkthrough-legend strong { color: var(--gold-leaf); font-weight: 600; }
+.hw-legend-close {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  color: var(--gold-leaf);
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.hw-legend-close:hover { background: rgba(212, 175, 55, 0.15); }
+
+@media (max-width: 480px) {
+  .humidor-walkthrough-controls { gap: 0.25rem; padding: 0.35rem 0.45rem; }
+  .hw-btn { width: 32px; height: 32px; }
+  .hw-time { font-size: 0.7rem; padding: 0 0.2rem; }
+  .humidor-walkthrough-legend { padding: 0.9rem 1rem; bottom: calc(0.6rem + 50px); }
+  .humidor-walkthrough-legend h4 { font-size: 0.95rem; }
+  .humidor-walkthrough-legend ul { font-size: 0.8rem; }
 }
 .humidor__scrub-hint {
   position: absolute;
-  bottom: 1rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   padding: 0.45rem 0.9rem;
-  background: rgba(10, 6, 5, 0.7);
+  background: rgba(10, 6, 5, 0.75);
   border: 1px solid var(--gold-leaf);
   color: var(--gold-leaf);
   font-family: var(--font-body);
@@ -1375,8 +1487,9 @@ section {
   backdrop-filter: blur(6px);
   animation: scrubHintPulse 2.4s ease-in-out infinite;
   transition: opacity 0.6s, transform 0.6s;
+  pointer-events: none;
 }
-.humidor__scrub-hint.is-fading { opacity: 0; transform: translate(-50%, 8px); }
+.humidor__scrub-hint.is-fading { opacity: 0; transform: translate(-50%, -8px); }
 @keyframes scrubHintPulse {
   0%, 100% { opacity: 0.85; }
   50% { opacity: 0.55; }
