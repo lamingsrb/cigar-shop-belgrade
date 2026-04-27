@@ -606,6 +606,10 @@ section {
   letter-spacing: 0.05em;
   line-height: 1;
   text-transform: uppercase;
+  /* Playfair po default-u koristi old-style numerals (5/3/4 imaju descender);
+     forsiramo lining figures da cifre budu poravnate sa cap height-om. */
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1, "tnum" 0;
   margin: 0 auto 1.25rem;
   background: linear-gradient(180deg, #fbeecd 0%, #e4c88a 55%, #b8935a 100%);
   -webkit-background-clip: text;
@@ -2177,7 +2181,7 @@ section {
 .cursor__logo {
   position: absolute;
   top: 0; left: 0;
-  width: 30px;
+  width: 22px;
   height: auto;
   max-width: none;  /* override global img max-width:100% (parent .cursor je width:0) */
   transform-origin: 50% 0;  /* vrh (top-center) je pivot rotacije = ta\u010dka klika */
@@ -2208,7 +2212,7 @@ section {
 
 /* Hover \u2014 logo raste + topliji gold glow */
 .cursor.is-hover .cursor__logo {
-  width: 44px;
+  width: 32px;
   filter:
     drop-shadow(0 0 0.5px rgba(10, 6, 4, 0.95))
     drop-shadow(0 0 0.5px rgba(10, 6, 4, 0.95))
@@ -2219,7 +2223,7 @@ section {
 
 /* Press \u2014 logo se stisne */
 .cursor.is-press .cursor__logo {
-  width: 26px;
+  width: 19px;
 }
 
 /* Nav active state (scroll spy) */
