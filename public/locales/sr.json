@@ -9,7 +9,7 @@
     "manifest": "Manifest",
     "humidor": "Humidor",
     "library": "Biblioteka cigara",
-    "spirits": "Nastavi u piće",
+    "spirits": "Nastavi sa pićem",
     "gear": "Oprema",
     "gallery": "Galerija",
     "blog": "Blog",
@@ -99,7 +99,7 @@
 
   "spirits": {
     "kicker": "Pića",
-    "title": "Nastavi u piće.",
+    "title": "Nastavi sa pićem.",
     "lead": "Viski, burbon, konjak, džin, rum, rakija. Svaka kategorija ima svoju priču, geografiju i ritam koji prati cigaru."
   },
 

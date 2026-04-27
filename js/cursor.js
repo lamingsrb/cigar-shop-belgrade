@@ -17,7 +17,7 @@ export function initCursor() {
   }
 
   cursor.innerHTML = `
-    <img class="cursor__logo" src="/assets/brand/logo-monogram-128.png" alt="" draggable="false">
+    <img class="cursor__logo" src="/assets/brand/logo-monogram-gold-128.png" alt="" draggable="false">
   `;
 
   const logo = cursor.querySelector('.cursor__logo');
