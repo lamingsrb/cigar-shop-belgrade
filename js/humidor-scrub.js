@@ -22,23 +22,29 @@ export function initHumidorScrub() {
       <div class="humidor-walkthrough-bar__fill" id="humidor-bar-fill"></div>
     </div>
     <div class="humidor-walkthrough-controls" role="toolbar" aria-label="Kontrole šetnje">
-      <button type="button" class="hw-btn" data-action="reset" aria-label="Početak">
-        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6v12M19 6l-9 6 9 6V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-      </button>
-      <button type="button" class="hw-btn" data-action="prev" aria-label="Korak nazad">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button type="button" class="hw-btn hw-btn--play" data-action="toggle" aria-label="Pusti / pauziraj">
-        <svg class="hw-icon-play" viewBox="0 0 24 24" width="20" height="20"><path d="M7 5l12 7-12 7V5z" fill="currentColor"/></svg>
-        <svg class="hw-icon-pause" viewBox="0 0 24 24" width="20" height="20" hidden><path d="M7 5h3v14H7zM14 5h3v14h-3z" fill="currentColor"/></svg>
-      </button>
-      <button type="button" class="hw-btn" data-action="next" aria-label="Korak napred">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <span class="hw-time" aria-live="off"><span id="hw-time-cur">0.0</span> / <span id="hw-time-total">0.0</span> s</span>
-      <button type="button" class="hw-btn hw-btn--help" data-action="help" aria-label="Pomoć">
-        <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 2-2.5 3v1M12 17.5h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
+      <div class="hw-group hw-group--left">
+        <button type="button" class="hw-btn" data-action="reset" aria-label="Početak" title="Početak">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6v12M19 6l-9 6 9 6V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="hw-time" aria-live="off"><span id="hw-time-cur">0.0</span> / <span id="hw-time-total">0.0</span></span>
+      </div>
+      <div class="hw-group hw-group--center">
+        <button type="button" class="hw-btn hw-btn--step" data-action="prev" aria-label="Korak nazad" title="Korak nazad">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="hw-btn hw-btn--play" data-action="toggle" aria-label="Pusti / pauziraj" title="Pusti / pauziraj">
+          <svg class="hw-icon-play" viewBox="0 0 24 24" width="22" height="22"><path d="M8 5l11 7-11 7V5z" fill="currentColor"/></svg>
+          <svg class="hw-icon-pause" viewBox="0 0 24 24" width="22" height="22" hidden><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+        </button>
+        <button type="button" class="hw-btn hw-btn--step" data-action="next" aria-label="Korak napred" title="Korak napred">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="hw-group hw-group--right">
+        <button type="button" class="hw-btn hw-btn--help" data-action="help" aria-label="Pomoć" title="Pomoć">
+          <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 2-2.5 3v1M12 17.5h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
     </div>
     <div class="humidor-walkthrough-legend" id="humidor-legend" hidden>
       <h4>Kako koristiti šetnju</h4>
@@ -90,6 +96,24 @@ export function initHumidorScrub() {
   };
   if (video.readyState >= 1) onReady();
   else video.addEventListener('loadedmetadata', onReady, { once: true });
+
+  // -------------------- Auto-play on section enter --------------------
+  // Svaki put kad korisnik dođe do sekcije, video se automatski pokreće od početka.
+  // Kad se sekcija ukloni iz vidnog polja, pauziramo da ne troši CPU.
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+          if (!isFinite(video.duration)) continue;
+          try { video.currentTime = 0; } catch (_) {}
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      }
+    }, { threshold: [0, 0.4, 1] });
+    io.observe(stage);
+  }
 
   // Reduced-motion fallback
   if (prefersReduced) {
