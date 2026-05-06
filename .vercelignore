@@ -1,0 +1,26 @@
+# Vercel CLI upload exclusions — sve što sajt ne treba u runtime-u.
+
+# Build outputs (Vercel re-builda u cloudu)
+dist/
+.vite/
+
+# Dependencies — Vercel reinstall-uje
+node_modules/
+
+# Raw client/feedback materijal (samo dokumenti idu u repo, sirovi MP4/JPG-ovi su lokalni)
+Feedback_loop/
+Media RAW/
+
+# Build script intermediates
+scripts/.tmp-*/
+
+# Local IDE / tooling
+.vscode/
+.claude/
+.git/
+
+# Local secrets
+*.local.md
+*.secret
+.env
+.env.local
