@@ -1409,6 +1409,25 @@ section {
   margin-right: auto;
 }
 
+/* Portrait variant — Anin original phone snimak (9:16) */
+.humidor__media--portrait {
+  aspect-ratio: 9 / 16;
+  max-width: 360px;
+  margin: 0 auto;
+}
+.humidor__media--portrait .humidor__video {
+  object-fit: cover;
+  filter: saturate(1) contrast(1.05) brightness(1);
+  transform: none;
+}
+.humidor__media--portrait:hover .humidor__video {
+  transform: scale(1.02);
+  filter: saturate(1.05) contrast(1.08);
+}
+@media (max-width: 820px) {
+  .humidor__media--portrait { max-width: 280px; }
+}
+
 /* Drag-to-walkthrough variant — decoupled from page scroll */
 .humidor__media--scrub {
   /* Source video je 568×320 → 16:9. Override default 4:3 koji je za stari humidor video. */
@@ -2544,16 +2563,21 @@ section {
 }
 
 /* =======================================================
-   GALLERY-PAGES — Instagram-stil paged slideshow (zamena za masonry).
+   GALLERY-PAGES — Instagram-stil paged slideshow (Godine tisine + Pogled u humidor).
    Svaka "page" prikazuje 6 slika u 3-col gridu. Crossfade izmedju pagea,
-   auto-advance ~5.5s, klik na dot za skok.
+   auto-advance ~5.5s (samo ako vise od 1 page), klik na dot za skok.
    ======================================================= */
-.gallery-pages {
+.gallery-pages-wrap {
   position: relative;
   width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
-  /* Visina rezervisana za 2 reda, da pages mogu apsolutno preklopiti */
+  padding: 0 1.5rem 3rem;
+}
+.gallery-pages {
+  position: relative;
+  width: 100%;
+  /* Visina rezervisana za 2 reda 4:3 thumb-ova, da pages mogu apsolutno preklopiti */
   min-height: clamp(360px, 42vw, 600px);
 }
 .gallery-page {
@@ -2609,7 +2633,7 @@ section {
 
 .gallery-pages__dots {
   position: absolute;
-  bottom: -2rem;
+  bottom: 0.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;

@@ -20,6 +20,7 @@ import { initGear } from './gear.js';
 import { initBlog } from './blog.js';
 import { initAllSectionStrips } from './section-strip.js';
 import { initAllMediaSlideshows } from './media-slideshow.js';
+import { initHumidorGallery } from './humidor-gallery.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -178,6 +179,7 @@ async function boot() {
   initHeroRotator();
   initAllSectionStrips();
   initAllMediaSlideshows();
+  initHumidorGallery();
 
   // 6) Defer non-critical (audio + ambient particles) — lazy import, perf.
   //    Particles trose CPU non-stop; audio nije bitan dok korisnik ne interaguje.

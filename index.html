@@ -142,10 +142,9 @@
     <!-- =======================  HUMIDOR (sada prvo)  ======================= -->
 <section id="humidor" class="humidor" aria-label="Humidor">
     <div class="humidor__grid">
-      <figure class="humidor__media humidor__media--loop">
+      <figure class="humidor__media humidor__media--portrait">
         <video class="humidor__video"
-               autoplay muted loop playsinline preload="auto"
-               poster="/assets/video/humidor-walkthrough-poster.webp">
+               autoplay muted loop playsinline preload="auto">
           <source src="/assets/video/humidor-walkthrough.mp4" type="video/mp4">
         </video>
       </figure>
@@ -167,58 +166,15 @@
       </div>
     </div>
   
-    <!-- Humidor showcase galerija — 10 product fotki (zameni stari brand-tabs blok) -->
+    <!-- Pogled u humidor — paged galerija (isti template kao Godine tisine, 1 page x 6 fotki) -->
     <div class="humidor__photos">
       <div class="origins__header">
         <p class="kicker" data-i18n="humidorPhotos.kicker">Iz humidora</p>
         <h3 class="heading-section" data-i18n="humidorPhotos.title">Pogled u humidor.</h3>
         <p class="lead" data-i18n="humidorPhotos.lead">Ručno biran asortiman: humidori, sklopive pepeljare, sečivo i upaljač spremni za prvi dim.</p>
       </div>
-      <div class="section-strip" id="humidor-strip">
-        <div class="section-strip__track">
-          <figure class="section-strip__item"
-                  data-lb-type="image"
-                  data-lb-src="/assets/humidor/humidor-01.webp"
-                  data-lb-caption="Humidor sa cigarama, sečivom i upaljačem">
-            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-01-thumb.webp" alt="Humidor sa cigarama i priborom">
-            <figcaption>Humidor + pribor</figcaption>
-          </figure>
-          <figure class="section-strip__item"
-                  data-lb-type="image"
-                  data-lb-src="/assets/humidor/humidor-02.webp"
-                  data-lb-caption="Humidor sa digitalnim higrometrom i cigarama">
-            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-02-thumb.webp" alt="Humidor sa digitalnim higrometrom">
-            <figcaption>Digitalni higrometar</figcaption>
-          </figure>
-          <figure class="section-strip__item"
-                  data-lb-type="image"
-                  data-lb-src="/assets/humidor/humidor-03.webp"
-                  data-lb-caption="Mahagonijev humidor uz boce premium piće">
-            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-03-thumb.webp" alt="Mahagonijev humidor uz piće">
-            <figcaption>Mahagonij + Barolo</figcaption>
-          </figure>
-          <figure class="section-strip__item"
-                  data-lb-type="image"
-                  data-lb-src="/assets/humidor/humidor-04.webp"
-                  data-lb-caption="Humidor sa sklopivom pepeljarom">
-            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-04-thumb.webp" alt="Humidor sa sklopivom pepeljarom">
-            <figcaption>Sklopiva pepeljara</figcaption>
-          </figure>
-          <figure class="section-strip__item"
-                  data-lb-type="image"
-                  data-lb-src="/assets/humidor/humidor-05.webp"
-                  data-lb-caption="Sklopiva pepeljara, sečivo i upaljač uz Nikku">
-            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-05-thumb.webp" alt="Sklopiva pepeljara sa priborom">
-            <figcaption>Pribor uz Nikku</figcaption>
-          </figure>
-          <figure class="section-strip__item"
-                  data-lb-type="image"
-                  data-lb-src="/assets/humidor/humidor-06.webp"
-                  data-lb-caption="Humidor i sklopiva pepeljara, kompletna postavka">
-            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-06-thumb.webp" alt="Humidor i sklopiva pepeljara">
-            <figcaption>Kompletna postavka</figcaption>
-          </figure>
-        </div>
+      <div class="gallery-pages-wrap">
+        <div class="gallery-pages" id="humidor-gallery"></div>
       </div>
     </div>
   </section>
@@ -324,16 +280,8 @@
         Plantaža, fabrika, naše cigare, destilerija i konačni ritual — kadrovi koji prate svaku godinu strpljenja.
       </p>
     </div>
-    <div class="masonry-stage">
-      <button class="masonry-nav masonry-prev" id="gallery-prev" aria-label="Prethodna">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="masonry">
-        <div class="masonry-track" id="gallery-track"></div>
-      </div>
-      <button class="masonry-nav masonry-next" id="gallery-next" aria-label="Sledeća">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+    <div class="gallery-pages-wrap">
+      <div class="gallery-pages" id="gallery-track"></div>
     </div>
   </section>
 
