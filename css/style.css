@@ -417,15 +417,15 @@ section {
   text-transform: uppercase;
   text-align: center;
   margin: 0 auto 1rem;
-  /* Pun zlatan, bez gradijenta */
+  /* Tačno boja logoa (uzorkovano iz logo PNG-a: #d3ae36 ≈ --champagne) */
   background: none;
   -webkit-background-clip: initial;
   background-clip: initial;
   -webkit-text-fill-color: initial;
-  color: var(--gold-leaf);
+  color: var(--champagne);
   text-shadow:
     0 2px 18px rgba(0, 0, 0, 0.8),
-    0 0 32px rgba(228, 200, 138, 0.25);
+    0 0 32px rgba(212, 175, 55, 0.28);
   filter: none;
 }
 .hero__subwordmark--main {
@@ -434,7 +434,7 @@ section {
   font-weight: 500;
   font-size: clamp(1rem, 1.7vw, 1.4rem);
   letter-spacing: 0.4em;
-  color: var(--gold-leaf);
+  color: var(--champagne);
   text-transform: uppercase;
   text-align: center;
   margin: 0 auto 2.5rem;
@@ -2562,22 +2562,6 @@ section {
 
 .gallery {
   overflow: hidden;
-}
-/* Godine tišine — intro kompilacijski video iznad galerije */
-.godine-tisine__video {
-  max-width: 980px;
-  margin: 0 auto clamp(1rem, 2vw, 2rem);
-  padding: 0 1rem;
-  position: relative;
-}
-.godine-tisine__video video {
-  width: 100%;
-  display: block;
-  border: 1px solid var(--line);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-  filter: saturate(1) contrast(1.05) brightness(0.96);
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
 }
 .masonry-stage {
   position: relative;
