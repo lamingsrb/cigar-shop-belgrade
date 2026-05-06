@@ -1,93 +1,48 @@
 // =======================================================
-// CIGAR SHOP — Humidor "Po regiji" tabbed galerija
-// Tabs: Kuba | Novi svet. Klik na tab → swap gallery-pages content
-// (5 fotki po regiji, isti template kao Godine tisine i Pogled u humidor).
+// CIGAR SHOP — Humidor "Po regiji" tab-showcase (Kuba | Novi svet)
+// Unificirana sa Spirits + Gear tab-showcase patternom.
 // =======================================================
 
-import { initGalleryPages } from './gallery-pages.js';
+import { initTabShowcase } from './tab-showcase.js';
 
 const REGIONS = {
   cuba: {
-    label: 'Kuba',
     items: [
-      // 5 najlepsih iz Kubanske_cigare_unzipped (kuriran set)
       { src: '/assets/humidor/humidor-01.webp', thumb: '/assets/humidor/humidor-01-thumb.webp',
-        caption: 'Mahagonijev humidor sa cigarama, sečivom i upaljačem',
-        alt: 'Cuban humidor sa priborom' },
+        name: 'Cohiba',  caption: 'Mahagonijev humidor sa kubanskim cigarama', alt: 'Cohiba humidor postavka' },
       { src: '/assets/humidor/humidor-02.webp', thumb: '/assets/humidor/humidor-02-thumb.webp',
-        caption: 'Walnut humidor sa kubanskim cigarama i digitalnim higrometrom',
-        alt: 'Walnut humidor sa kubanskim cigarama' },
+        name: 'Montecristo', caption: 'Walnut humidor + digitalni higrometar', alt: 'Montecristo postavka' },
       { src: '/assets/humidor/humidor-03.webp', thumb: '/assets/humidor/humidor-03-thumb.webp',
-        caption: 'Crveni mahagoni + 2 cigare uz Barolo',
-        alt: 'Mahagonijev humidor uz vino' },
+        name: 'Romeo y Julieta', caption: 'Crveni mahagoni uz Barolo', alt: 'Romeo y Julieta postavka' },
       { src: '/assets/humidor/humidor-04.webp', thumb: '/assets/humidor/humidor-04-thumb.webp',
-        caption: 'Humidor sa sklopivom pepeljarom — kompletna postavka',
-        alt: 'Humidor sa sklopivom pepeljarom' },
+        name: 'Partagas', caption: 'Humidor sa sklopivom pepeljarom', alt: 'Partagas postavka' },
       { src: '/assets/humidor/humidor-06.webp', thumb: '/assets/humidor/humidor-06-thumb.webp',
-        caption: 'Humidor i sklopiva pepeljara, premium kombinacija',
-        alt: 'Humidor i pepeljara, kompletna postavka' },
+        name: 'H. Upmann', caption: 'Premium kombinacija humidor + pepeljara', alt: 'H. Upmann postavka' },
     ],
   },
   world: {
-    label: 'Novi svet',
     items: [
-      // 5 fotki iz galerije sa fokusom na cigare iz Dominikane, Nikaragve, Hondurasa
       { src: '/assets/gallery/img-001.webp', thumb: '/assets/gallery/img-001-thumb.webp',
-        caption: 'Cigare iz Cibao doline (Dominikana)',
-        alt: 'Cigare iz Novog sveta' },
+        name: 'Davidoff',     caption: 'Cigare iz Cibao doline (Dominikana)',           alt: 'Davidoff' },
       { src: '/assets/gallery/img-002.webp', thumb: '/assets/gallery/img-002-thumb.webp',
-        caption: 'Polica sa Davidoff i Drew Estate brendovima',
-        alt: 'Davidoff i Drew Estate' },
+        name: 'Drew Estate',  caption: 'Drew Estate (Liga Privada)',                    alt: 'Drew Estate' },
       { src: '/assets/gallery/img-008.webp', thumb: '/assets/gallery/img-008-thumb.webp',
-        caption: 'Asortiman cigara iz Estelija (Nikaragva)',
-        alt: 'Nikaragvanske cigare' },
+        name: 'Padron',       caption: 'Padron — Estelí, Nikaragva',                    alt: 'Padron' },
       { src: '/assets/gallery/img-016.webp', thumb: '/assets/gallery/img-016-thumb.webp',
-        caption: 'Hondurasi i kostarikanski blendovi',
-        alt: 'Honduras i Kostarika cigare' },
+        name: 'Joya de Nicaragua', caption: 'Joya de Nicaragua — Antaño liga',           alt: 'Joya de Nicaragua' },
       { src: '/assets/gallery/img-021.webp', thumb: '/assets/gallery/img-021-thumb.webp',
-        caption: 'Premium kolekcija — Novi svet',
-        alt: 'Novi svet premium kolekcija' },
+        name: 'Plasencia',    caption: 'Plasencia — najveći proizvođači u Nikaragvi',   alt: 'Plasencia' },
     ],
   },
 };
 
-const ORDER = ['cuba', 'world'];
+const TABS = [
+  { key: 'cuba',  label: 'Kuba' },
+  { key: 'world', label: 'Novi svet' },
+];
 
 export function initHumidorCigars() {
-  const host = document.getElementById('humidor-cigars-gallery');
-  const tabs = document.getElementById('humidor-cigars-tabs');
-  if (!host || !tabs) return;
-
-  let active = 'cuba';
-
-  function renderTabs() {
-    tabs.innerHTML = ORDER.map(key => {
-      const isActive = key === active ? ' is-active' : '';
-      return `<button class="cigar-tab${isActive}" data-region="${key}" type="button">
-        <span class="cigar-tab__name">${REGIONS[key].label}</span>
-        <span class="cigar-tab__count">${REGIONS[key].items.length}</span>
-      </button>`;
-    }).join('');
-  }
-
-  function renderGallery() {
-    initGalleryPages(host, {
-      items: REGIONS[active].items,
-      itemsPerPage: 5,
-      autoplay: false,
-    });
-  }
-
-  renderTabs();
-  renderGallery();
-
-  tabs.addEventListener('click', (e) => {
-    const btn = e.target.closest('.cigar-tab');
-    if (!btn) return;
-    const region = btn.dataset.region;
-    if (!region || region === active || !REGIONS[region]) return;
-    active = region;
-    renderTabs();
-    renderGallery();
-  });
+  const host = document.getElementById('humidor-cigars-tab-showcase');
+  if (!host) return;
+  initTabShowcase(host, { tabs: TABS, regions: REGIONS });
 }

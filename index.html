@@ -199,10 +199,7 @@
         <h3 class="heading-section" data-i18n="humidorCigars.title">Kuba i Novi svet.</h3>
         <p class="lead" data-i18n="humidorCigars.lead">Naša polica nosi dve velike priče. Klikni na regiju i pogledaj odabrane cigare i postavku.</p>
       </div>
-      <div class="cigar-tabs" id="humidor-cigars-tabs" role="tablist"></div>
-      <div class="gallery-pages-wrap">
-        <div class="gallery-pages" id="humidor-cigars-gallery"></div>
-      </div>
+      <div id="humidor-cigars-tab-showcase"></div>
     </div>
   </section>
 
@@ -248,6 +245,8 @@
         <span class="media-slideshow__caption" data-i18n="spiritsProcess.videoCaption">Vitrina sa pićima</span>
       </div>
     </div>
+
+    <div id="spirits-tab-showcase"></div>
   </section>
 
   <!-- =======================  OPREMA (Accessories)  ======================= -->
@@ -290,12 +289,11 @@
       </div>
     </div>
 
-    <div class="brands__tabs" id="gear-tabs" role="tablist"></div>
-    <div class="brands__grid" id="gear-grid"></div>
+    <div id="gear-tab-showcase"></div>
   </section>
 
 
-  <!-- =======================  GODINE TIŠINE — galerija  ======================= -->
+  <!-- =======================  GODINE TIŠINE — kompilacija video + galerija  ======================= -->
   <section id="gallery" class="gallery" aria-label="Godine tišine">
     <div class="section__header">
       <p class="kicker" data-i18n="gallery.kicker">Galerija</p>
@@ -304,6 +302,12 @@
         Plantaža, fabrika, naše cigare, destilerija i konačni ritual — kadrovi koji prate svaku godinu strpljenja.
       </p>
     </div>
+    <figure class="godine-tisine__video">
+      <video autoplay muted loop playsinline preload="auto"
+             poster="/assets/video/godine-tisine-poster.webp">
+        <source src="/assets/video/godine-tisine.mp4" type="video/mp4">
+      </video>
+    </figure>
     <div class="gallery-pages-wrap">
       <div class="gallery-pages" id="gallery-track"></div>
     </div>

@@ -1,18 +1,14 @@
 // =======================================================
-// CIGAR SHOP — Oprema sekcija (po uzoru na Biblioteka cigara / Spirits)
-// Tab-ovi po vrsti (rezaci / upaljaci / humidori / pepeljare / putni etui),
-// grid kartica po brendu/modelu, klik na karticu menja gornji showcase red.
-// Placeholder podaci u public/data/gear.json \u2014 zamene\u0107e se realnim kad stigne.
+// CIGAR SHOP — Oprema (Alati rituala) — tab-showcase pattern
+// Učitava gear.json i mapira items[] (4 po kategoriji) na slike iz images[]
+// pool-a (cycle if needed). Render kao unified tab-showcase.
 // =======================================================
 
 import { getLang, onLangChange } from './i18n.js';
-import { initSectionStrip } from './section-strip.js';
+import { initTabShowcase } from './tab-showcase.js';
 
 const GEAR_URL = '/data/gear.json';
 let gearData = null;
-let activeCat = null;
-let activeItem = null;
-let defaultShowcaseHTML = null;
 
 async function loadData() {
   if (gearData) return;
@@ -20,146 +16,36 @@ async function loadData() {
   catch { gearData = { categories: [] }; }
 }
 
-function catsList() { return gearData?.categories || []; }
-function currentCat() {
-  const cats = catsList();
-  if (!cats.length) return null;
-  return cats.find(c => c.key === activeCat) || cats[0];
-}
-function catLabel(cat) { return getLang() === 'en' ? cat.nameen : cat.namesr; }
-function catStory(cat) { return getLang() === 'en' ? cat.storyen : cat.storysr; }
-
-function renderTabs(host) {
-  const cats = catsList();
-  if (!activeCat && cats.length) activeCat = cats[0].key;
-  host.innerHTML = cats.map(c => {
-    const label = catLabel(c);
-    const count = (c.items || []).length;
-    const active = c.key === activeCat ? ' is-active' : '';
-    return `<button class="brands__tab${active}" data-cat="${c.key}">
-      <span class="brands__tab-name">${label}</span>
-      <span class="brands__tab-count">${count}</span>
-    </button>`;
-  }).join('');
-}
-
-function renderGrid(host) {
-  const cat = currentCat();
-  if (!cat) { host.innerHTML = ''; return; }
-
-  const story = catStory(cat);
-  const introBlock = story ? `<p class="brands__region-story">${story}</p>` : '';
-
-  const cards = (cat.items || []).map((it, i) => {
-    const isActive = it.name === activeItem ? ' is-active' : '';
-    return `
-      <article class="brand-card${isActive}" data-item="${it.name}" data-index="${i}" role="button" tabindex="0">
-        <div class="brand-card__header">
-          <h3 class="brand-card__name">${it.name}</h3>
-        </div>
-        ${it.sub ? `<p class="brand-card__story">${it.sub}</p>` : ''}
-      </article>
-    `;
-  }).join('');
-
-  host.innerHTML = `${introBlock}<div class="brands__vault"><div class="brands__cards">${cards}</div></div>`;
-}
-
-function renderShowcase(itemName) {
-  const showcase = document.getElementById('gear-showcase');
-  if (!showcase) return;
-
-  const cat = currentCat();
-  const pool = cat?.images || [];
-  const caption = itemName || (cat ? catLabel(cat) : '');
-
-  // Bez aktivne kartice + nema pool-a → fallback na default HTML.
-  if (!itemName && !pool.length) {
-    if (defaultShowcaseHTML != null) {
-      showcase.innerHTML = defaultShowcaseHTML;
-      showcase.dataset.default = 'true';
-      showcase.removeAttribute('data-item');
-      // Reinit strip za default HTML (već je section-strip + __track u index.html).
-      initSectionStrip(showcase);
-    }
-    return;
-  }
-
-  if (!pool.length) return;
-
-  // Render kao section-strip __track sa __item figurama (kompaktan auto-advance slideshow).
-  const items = pool.map(src => `
-    <figure class="section-strip__item" data-lb-type="image" data-lb-src="${src}" data-lb-caption="${caption}">
-      <img loading="lazy" decoding="async" src="${src}" alt="${caption}">
-      <figcaption>${caption}</figcaption>
-    </figure>
-  `).join('');
-  showcase.innerHTML = `<div class="section-strip__track">${items}</div>`;
-  showcase.dataset.default = itemName ? 'false' : 'true';
-  if (itemName) showcase.dataset.item = itemName;
-  else showcase.removeAttribute('data-item');
-
-  // Re-init strip auto-scroll (teardown + setup; brine i o klonovima za infinite loop).
-  initSectionStrip(showcase);
-}
-
-function handleCardClick(article) {
-  const name = article.dataset.item;
-  if (activeItem === name) {
-    activeItem = null;
-    renderShowcase(null);
-  } else {
-    activeItem = name;
-    renderShowcase(name);
-  }
-  const gridHost = document.getElementById('gear-grid');
-  if (gridHost) renderGrid(gridHost);
-  const showcase = document.getElementById('gear-showcase');
-  if (showcase) {
-    const top = showcase.getBoundingClientRect().top + window.scrollY - 140;
-    window.scrollTo({ top, behavior: 'smooth' });
-  }
+function buildRegions() {
+  const cats = gearData?.categories || [];
+  const tabs = cats.map(c => ({ key: c.key, label: getLang() === 'en' ? c.nameen : c.namesr }));
+  const regions = {};
+  cats.forEach(c => {
+    const items = c.items || [];
+    const images = c.images || [];
+    if (!items.length || !images.length) return;
+    regions[c.key] = {
+      items: items.map((it, i) => ({
+        src: images[i % images.length],
+        thumb: images[i % images.length],
+        name: it.name,
+        caption: it.sub || it.name,
+        alt: it.name,
+      })),
+    };
+  });
+  return { tabs, regions };
 }
 
 export async function initGear() {
-  const tabsHost = document.getElementById('gear-tabs');
-  const gridHost = document.getElementById('gear-grid');
-  if (!tabsHost || !gridHost) return;
-
-  const showcase = document.getElementById('gear-showcase');
-  if (showcase && defaultShowcaseHTML == null) defaultShowcaseHTML = showcase.innerHTML;
-
+  const host = document.getElementById('gear-tab-showcase');
+  if (!host) return;
   await loadData();
-  renderTabs(tabsHost);
-  renderGrid(gridHost);
-  // Inicijalno prikaži ceo pool prve kategorije (10 fotki) kako je Ana tražila.
-  renderShowcase(null);
 
-  tabsHost.addEventListener('click', (e) => {
-    const btn = e.target.closest('.brands__tab');
-    if (!btn) return;
-    activeCat = btn.dataset.cat;
-    activeItem = null;
-    renderShowcase(null);
-    renderTabs(tabsHost);
-    renderGrid(gridHost);
-  });
-
-  gridHost.addEventListener('click', (e) => {
-    const card = e.target.closest('.brand-card');
-    if (!card) return;
-    handleCardClick(card);
-  });
-  gridHost.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    const card = e.target.closest('.brand-card');
-    if (!card) return;
-    e.preventDefault();
-    handleCardClick(card);
-  });
-
-  onLangChange(() => {
-    renderTabs(tabsHost);
-    renderGrid(gridHost);
-  });
+  function rerender() {
+    const { tabs, regions } = buildRegions();
+    initTabShowcase(host, { tabs, regions });
+  }
+  rerender();
+  onLangChange(rerender);
 }
