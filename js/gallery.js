@@ -27,5 +27,6 @@ export async function initGallery() {
     caption: '',
   }));
 
-  initGalleryPages(host, { items, itemsPerPage: 6, intervalMs: 5500 });
+  // Faster Instagram-style cycling — Anin feedback: brze ali da se vidi.
+  initGalleryPages(host, { items, itemsPerPage: 6, intervalMs: 3500 });
 }

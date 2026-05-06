@@ -1136,6 +1136,17 @@ section {
   background: rgba(10, 6, 5, 0.5);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
+/* In-manifest variant: parent .manifest__media vec ima okvir + aspect 4/3,
+   pa slideshow popunjava i nasleduje. */
+.media-slideshow--in-manifest {
+  grid-area: auto;
+  aspect-ratio: auto;
+  position: absolute;
+  inset: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
 .media-slideshow__slide {
   position: absolute;
   inset: 0;
