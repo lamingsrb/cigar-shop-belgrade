@@ -1,21 +1,18 @@
 // =======================================================
-// CIGAR SHOP — media-slideshow component
-// Single-frame foto carousel sa crossfade tranzicijama. Koristi se u
-// Spirits/Gear top-right media slot-u. Max 6 slika, auto-advance ~4.5s.
-// Lightbox-enabled (data-lb-src na svakom slajdu).
+// CIGAR SHOP — media-slideshow component (single-frame fade carousel)
+// Uvek auto-cikluje (bez IntersectionObserver — pause-on-leave je previse
+// agresivan i znao da spreci start). Pause samo na hover.
+// Klik na slajd → lightbox preko data-lb-src.
 // =======================================================
 
-const STATE = new WeakMap();
-
-const INTERVAL_MS = 4500;
-const TRANSITION_MS = 800;
+const INTERVAL_MS = 4000;
 
 export function initMediaSlideshow(host) {
-  if (!host) return;
-  teardownMediaSlideshow(host);
+  if (!host || host.dataset.msInit === '1') return;
+  host.dataset.msInit = '1';
 
   const slides = Array.from(host.querySelectorAll('.media-slideshow__slide'));
-  if (!slides.length) return;
+  if (slides.length < 2) return;
 
   // Sigurnosno: aktiviraj prvi ako nijedan nije
   if (!slides.some(s => s.classList.contains('is-active'))) {
@@ -31,55 +28,41 @@ export function initMediaSlideshow(host) {
     host.appendChild(dotsHost);
   }
   dotsHost.innerHTML = slides.map((_, i) =>
-    `<button class="media-slideshow__dot${i === current ? ' is-active' : ''}" data-i="${i}" aria-label="Slide ${i + 1}"></button>`
+    `<button class="media-slideshow__dot${i === current ? ' is-active' : ''}" data-i="${i}" aria-label="Slide ${i + 1}" type="button"></button>`
   ).join('');
+  const dots = Array.from(dotsHost.querySelectorAll('.media-slideshow__dot'));
 
   function go(idx) {
-    if (idx === current) return;
     const len = slides.length;
     idx = ((idx % len) + len) % len;
+    if (idx === current) return;
     slides[current].classList.remove('is-active');
     slides[idx].classList.add('is-active');
-    dotsHost.querySelectorAll('.media-slideshow__dot').forEach((d, i) =>
-      d.classList.toggle('is-active', i === idx)
-    );
+    dots[current]?.classList.remove('is-active');
+    dots[idx]?.classList.add('is-active');
     current = idx;
   }
-  function next() { go(current + 1); }
 
-  let timer = setInterval(next, INTERVAL_MS);
-  function pause() { if (timer) { clearInterval(timer); timer = null; } }
-  function resume() { if (!timer) timer = setInterval(next, INTERVAL_MS); }
+  let timer = setInterval(() => go(current + 1), INTERVAL_MS);
 
-  host.addEventListener('mouseenter', pause);
-  host.addEventListener('mouseleave', resume);
+  // Pause na hover, resume na leave
+  host.addEventListener('mouseenter', () => {
+    if (timer) { clearInterval(timer); timer = null; }
+  });
+  host.addEventListener('mouseleave', () => {
+    if (!timer) timer = setInterval(() => go(current + 1), INTERVAL_MS);
+  });
 
+  // Klik na dot
   dotsHost.addEventListener('click', (e) => {
     const btn = e.target.closest('.media-slideshow__dot');
     if (!btn) return;
     const idx = Number(btn.dataset.i);
-    if (Number.isFinite(idx)) {
-      go(idx);
-      pause();
-      setTimeout(resume, INTERVAL_MS * 1.5);
-    }
+    if (!Number.isFinite(idx)) return;
+    go(idx);
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => go(current + 1), INTERVAL_MS);
   });
-
-  // Pauziraj kad nije u viewport-u
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => e.isIntersecting ? resume() : pause());
-  }, { threshold: 0.1 });
-  observer.observe(host);
-
-  STATE.set(host, { pause, resume, observer });
-}
-
-function teardownMediaSlideshow(host) {
-  const s = STATE.get(host);
-  if (!s) return;
-  s.pause();
-  s.observer?.disconnect();
-  STATE.delete(host);
 }
 
 export function initAllMediaSlideshows() {

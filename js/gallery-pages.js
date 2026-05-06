@@ -1,20 +1,22 @@
 // =======================================================
 // CIGAR SHOP — Reusable paged-gallery component (Instagram-style)
-// Render: items[] grupisano u "page" od N (default 6), 3-col grid per page,
+// items[] grupisano u "page" od N (default 6), 3-col grid per page,
 // crossfade tranzicija izmedju pageova, auto-advance, pagination dots.
-// Pause na hover + IntersectionObserver pause kad nije u viewport-u.
+// Uvek auto-cikluje (bez IntersectionObserver pause-on-leave).
+// Pause samo na hover.
 // =======================================================
 
 const STATE = new WeakMap();
 
 export function initGalleryPages(host, options = {}) {
   if (!host) return;
+  // Tear down ako vec postoji init na ovom host-u (gear/humidor-cigars re-init na tab klik)
   teardownGalleryPages(host);
 
   const {
     items = [],
     itemsPerPage = 6,
-    intervalMs = 5500,
+    intervalMs = 3500,
     autoplay = true,
   } = options;
   if (!items.length) return;
@@ -52,7 +54,7 @@ export function initGalleryPages(host, options = {}) {
       wrap.appendChild(dotsHost);
     }
     dotsHost.innerHTML = Array.from({ length: totalPages }).map((_, i) =>
-      `<button class="gallery-pages__dot${i === 0 ? ' is-active' : ''}" data-page="${i}" aria-label="Page ${i + 1}"></button>`
+      `<button class="gallery-pages__dot${i === 0 ? ' is-active' : ''}" data-page="${i}" aria-label="Page ${i + 1}" type="button"></button>`
     ).join('');
   } else if (dotsHost) {
     dotsHost.remove();
@@ -61,7 +63,6 @@ export function initGalleryPages(host, options = {}) {
 
   let current = 0;
   let timer = null;
-  let paused = false;
   const pages = Array.from(host.querySelectorAll('.gallery-page'));
   const dots = dotsHost ? Array.from(dotsHost.querySelectorAll('.gallery-pages__dot')) : [];
 
@@ -76,19 +77,19 @@ export function initGalleryPages(host, options = {}) {
     }
     current = idx;
   }
-  function next() { go(current + 1); }
 
   function start() {
-    stop();
-    if (!autoplay || totalPages < 2 || paused) return;
-    timer = setInterval(next, intervalMs);
+    if (!autoplay || totalPages < 2) return;
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => go(current + 1), intervalMs);
   }
   function stop() {
     if (timer) { clearInterval(timer); timer = null; }
   }
 
-  wrap.addEventListener('mouseenter', () => { paused = true; stop(); });
-  wrap.addEventListener('mouseleave', () => { paused = false; start(); });
+  // Pause samo na hover (bez IntersectionObserver — preagresivan u praksi)
+  wrap.addEventListener('mouseenter', stop);
+  wrap.addEventListener('mouseleave', start);
 
   if (dotsHost) {
     dotsHost.addEventListener('click', (e) => {
@@ -97,26 +98,18 @@ export function initGalleryPages(host, options = {}) {
       const idx = Number(btn.dataset.page);
       if (Number.isFinite(idx)) {
         go(idx);
-        stop();
-        setTimeout(start, intervalMs * 1.5);
+        start(); // reset clock
       }
     });
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => e.isIntersecting ? start() : stop());
-  }, { threshold: 0.15 });
-  observer.observe(wrap);
-
-  STATE.set(host, { stop, observer });
-
-  if (autoplay) start();
+  STATE.set(host, { stop });
+  start();
 }
 
 function teardownGalleryPages(host) {
   const s = STATE.get(host);
   if (!s) return;
   s.stop?.();
-  s.observer?.disconnect();
   STATE.delete(host);
 }
