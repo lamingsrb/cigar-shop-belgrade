@@ -10,18 +10,16 @@ import Lenis from 'lenis';
 import { initI18n, t } from './i18n.js';
 import { runLoader } from './loader.js';
 import { initCursor } from './cursor.js';
-import { initAudio } from './audio.js';
 import { initGallery } from './gallery.js';
 import { initLightbox } from './lightbox.js';
 import { initScrollBurn } from './scroll-burn.js';
-import { initAmbientParticles } from './ambient-particles.js';
 import { initContactSelector } from './contact-selector.js';
 import { initHeroRotator } from './hero-rotator.js';
-import { initHeroSmoke } from './hero-smoke.js';
 import { initSpirits } from './spirits.js';
 import { initGear } from './gear.js';
 import { initBlog } from './blog.js';
-import { initHumidorScrub } from './humidor-scrub.js';
+import { initAllSectionStrips } from './section-strip.js';
+import { initAllMediaSlideshows } from './media-slideshow.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -128,7 +126,6 @@ function initScrollSpy() {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      // Pick section closest to top center
       const candidates = entries.filter((e) => e.isIntersecting);
       if (!candidates.length) return;
       candidates.sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
@@ -152,7 +149,6 @@ function initFooterYear() {
 // -------------------------------------------------------
 async function boot() {
   // 1) i18n first — renders initial content in chosen lang
-  //    Ako locale fetch padne, nastavi sa fallback sadr\u017eajem da ceo sajt ne bude prazan.
   try {
     await initI18n();
   } catch (err) {
@@ -165,8 +161,6 @@ async function boot() {
   // 3) Small UI bits
   initFooterYear();
   initCursor();
-  initAudio();
-  initAmbientParticles();
 
   // 4) Scroll infrastructure
   initSmoothScroll();
@@ -175,18 +169,33 @@ async function boot() {
   initScrollSpy();
   initScrollBurn();
 
-  // 5) Gallery + Spirits + Gear + Lightbox + Hero rotator
+  // 5) Gallery + Spirits + Gear + Lightbox + Hero rotator + section strips/slideshows
   initGallery();
   initLightbox();
   initSpirits();
   initGear();
   initBlog();
-  initHumidorScrub();
   initHeroRotator();
-  // initHeroSmoke() — disabled: Slide 1 sada ima pravi live video, canvas smoke sloj vi\u0161e nije potreban.
-  // Kod je sa\u010duvan u js/hero-smoke.js za buduc\u0301u upotrebu.
+  initAllSectionStrips();
+  initAllMediaSlideshows();
 
-  // 6) Finally — loader
+  // 6) Defer non-critical (audio + ambient particles) — lazy import, perf.
+  //    Particles trose CPU non-stop; audio nije bitan dok korisnik ne interaguje.
+  const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1500));
+  idle(async () => {
+    try {
+      const [{ initAudio }, { initAmbientParticles }] = await Promise.all([
+        import('./audio.js'),
+        import('./ambient-particles.js'),
+      ]);
+      initAudio();
+      initAmbientParticles();
+    } catch (e) {
+      console.warn('[perf] deferred init failed', e);
+    }
+  });
+
+  // 7) Finally — loader
   runLoader();
 }
 

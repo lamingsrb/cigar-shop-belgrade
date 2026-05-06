@@ -62,7 +62,7 @@ body {
   color: var(--vellum);
   overflow-x: hidden;
   min-height: 100vh;
-  cursor: none; /* ember cursor preuzima */
+  cursor: auto; /* nativni OS pointer (Anin feedback) */
 }
 
 /* Onemogući text selection (čuva efekte od prekida).
@@ -84,7 +84,7 @@ input, textarea, [contenteditable="true"] {
 body.is-over-3d .cursor { opacity: 0; }
 
 a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; background: none; border: 0; cursor: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 img, video, canvas { display: block; max-width: 100%; }
 ul, ol { list-style: none; }
 
@@ -536,7 +536,7 @@ section {
   100% { transform: translateY(-120vh); opacity: 0; }
 }
 
-/* Slide B: products video */
+/* Slide B: products video — Anin novi cinematic background u prirodnom tonu */
 .hero__products-video,
 .hero__live-video {
   position: absolute;
@@ -545,14 +545,14 @@ section {
   min-width: 100%; min-height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  filter: saturate(0.95) contrast(1.08) brightness(0.72);
-  opacity: 0.95;
+  filter: saturate(1.05) contrast(1.05) brightness(1);
+  opacity: 1;
 }
-.hero__live-video { filter: saturate(1.02) contrast(1.06) brightness(0.82); }
+.hero__live-video { filter: saturate(1.05) contrast(1.06) brightness(0.95); }
 .hero__video-overlay--soft {
   background:
-    radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(10, 6, 5, 0.55) 95%),
-    linear-gradient(180deg, rgba(10, 6, 5, 0.25) 0%, transparent 45%, rgba(10, 6, 5, 0.55) 100%);
+    radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(10, 6, 5, 0.4) 100%),
+    linear-gradient(180deg, rgba(10, 6, 5, 0.2) 0%, transparent 40%, rgba(10, 6, 5, 0.5) 100%);
 }
 
 .hero__content--centered {
@@ -993,15 +993,16 @@ section {
    ======================================================= */
 .process {
   max-width: var(--max-w);
-  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  grid-template-areas:
-    "intro media"
-    "showcase showcase";
+  grid-template-areas: "intro media";
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
 }
+/* Backwards-compat: ako neka stara sekcija jos uvek nosi showcase row,
+   sakri je (sva nova logika je u media-slideshow ili humidor-stripu). */
+.process__showcase { display: none !important; }
 .process__intro { grid-area: intro; }
 .process__intro .kicker { margin-bottom: 0.85rem; }
 .process__intro .heading-section {
@@ -1118,11 +1119,91 @@ section {
     grid-template-columns: 1fr;
     grid-template-areas:
       "intro"
-      "media"
-      "showcase";
+      "media";
   }
-  .process__showcase { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* =======================================================
+   MEDIA SLIDESHOW — single-frame foto carousel sa crossfade
+   Koristi se u Spirits/Gear top-right media slot-u (max 6 slika).
+   ======================================================= */
+.media-slideshow {
+  position: relative;
+  grid-area: media;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(10, 6, 5, 0.5);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+}
+.media-slideshow__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-out-quart);
+  pointer-events: none;
+  cursor: zoom-in;
+}
+.media-slideshow__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+.media-slideshow__slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.96) contrast(1.05) brightness(0.96);
+  transition: transform 6s ease-out;
+}
+.media-slideshow__slide.is-active img {
+  /* Suptilan Ken Burns zum dok je slajd vidljiv */
+  transform: scale(1.04);
+}
+.media-slideshow__slide::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10, 6, 5, 0.55) 100%);
+  pointer-events: none;
+}
+.media-slideshow__caption {
+  position: absolute;
+  left: 1rem; bottom: 1rem;
+  z-index: 3;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-leaf);
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--gold-leaf);
+  background: rgba(10, 6, 5, 0.7);
+  backdrop-filter: blur(6px);
+}
+.media-slideshow__dots {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 4;
+}
+.media-slideshow__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.7);
+  background: rgba(10, 6, 5, 0.6);
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.media-slideshow__dot.is-active {
+  background: var(--gold-leaf);
+  transform: scale(1.2);
+}
+.media-slideshow__dot:hover { background: rgba(212, 175, 55, 0.5); }
 
 /* =======================================================
    OPREMA (Gear) — kartice sa medijom + listom proizvoda
@@ -1232,7 +1313,7 @@ section {
   border: 1px solid var(--line);
   background: linear-gradient(160deg, var(--mahogany), var(--obsidian));
   transition: transform 0.5s var(--ease-out-expo), border-color 0.4s;
-  cursor: none;
+  cursor: pointer;
 }
 .bento__card:hover { border-color: var(--gold-leaf); transform: translateY(-4px); }
 .bento__card::after {
@@ -2253,7 +2334,7 @@ section {
   font-size: 0.8125rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.35s var(--ease-out-expo);
 }
 .brands__tab:hover {
@@ -2357,7 +2438,7 @@ section {
   border-radius: 2px;
   filter: saturate(0.88) brightness(0.9);
   transition: filter 0.3s var(--ease-out-quart), transform 0.35s var(--ease-out-expo);
-  cursor: none;
+  cursor: pointer;
 }
 .brand-card__gallery img:hover {
   filter: saturate(1.05) brightness(1);
@@ -2454,14 +2535,110 @@ section {
 }
 .masonry-stage {
   position: relative;
-  padding: 0 3.5rem;
+  padding: 0 1.5rem;
 }
 .masonry {
   position: relative;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
   padding: 0.5rem 0;
+}
+
+/* =======================================================
+   GALLERY-PAGES — Instagram-stil paged slideshow (zamena za masonry).
+   Svaka "page" prikazuje 6 slika u 3-col gridu. Crossfade izmedju pagea,
+   auto-advance ~5.5s, klik na dot za skok.
+   ======================================================= */
+.gallery-pages {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  /* Visina rezervisana za 2 reda, da pages mogu apsolutno preklopiti */
+  min-height: clamp(360px, 42vw, 600px);
+}
+.gallery-page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-out-quart);
+  pointer-events: none;
+}
+.gallery-page.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+.gallery-page__item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(201, 169, 97, 0.12);
+  cursor: zoom-in;
+  background: rgba(10, 6, 5, 0.4);
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  aspect-ratio: 4 / 3;
+}
+.gallery-page__item:hover {
+  border-color: var(--gold-leaf);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+}
+.gallery-page__item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.95) contrast(1.04) brightness(0.96);
+  transition: filter 0.4s, transform 0.6s var(--ease-out-quart);
+}
+.gallery-page__item:hover img {
+  filter: saturate(1.08) brightness(1.02);
+  transform: scale(1.05);
+}
+.gallery-page__item::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10, 6, 5, 0.55) 100%);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.gallery-page__item:hover::after { opacity: 0.3; }
+
+.gallery-pages__dots {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 4;
+}
+.gallery-pages__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  background: rgba(10, 6, 5, 0.5);
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+}
+.gallery-pages__dot.is-active {
+  background: var(--gold-leaf);
+  border-color: var(--gold-leaf);
+  transform: scale(1.25);
+}
+.gallery-pages__dot:hover { border-color: var(--gold-leaf); }
+
+@media (max-width: 820px) {
+  .gallery-page { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .gallery-pages { min-height: clamp(320px, 60vw, 520px); }
+}
+@media (max-width: 520px) {
+  .gallery-page { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
 }
 .masonry-track {
   display: flex;
@@ -2479,7 +2656,7 @@ section {
   height: 340px;
   flex: 0 0 340px;
   overflow: hidden;
-  cursor: none;
+  cursor: pointer;
 }
 .masonry-media {
   position: relative;
@@ -2548,7 +2725,7 @@ section {
   background: rgba(10, 6, 5, 0.72);
   backdrop-filter: blur(6px);
   color: var(--gold-leaf);
-  cursor: none;
+  cursor: pointer;
   transition: all 0.35s var(--ease-out-expo);
 }
 .masonry-nav:hover {
@@ -3033,15 +3210,15 @@ body.lightbox-open { overflow: hidden; }
 }
 
 /* =======================================================
-   HUMIDOR PHOTOS — galerija 10 fotki (zamena za brand-tabs blok)
+   HUMIDOR PHOTOS — wrapper za section-strip (zamena za brand-tabs blok)
    ======================================================= */
 .humidor__photos {
   max-width: var(--max-w);
-  margin: clamp(3rem, 6vw, 5rem) auto 0;
+  margin: clamp(2rem, 4vw, 3.5rem) auto 0;
   padding: 0 1.5rem;
 }
 .humidor__photos .origins__header {
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
   text-align: center;
 }
 .humidor__photos .origins__header .lead {
@@ -3049,48 +3226,100 @@ body.lightbox-open { overflow: hidden; }
   margin-right: auto;
   max-width: 60ch;
 }
-.humidor-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.85rem;
-}
-.humidor-photo {
+
+/* =======================================================
+   SECTION STRIP — kompaktan horizontalni auto-advance slideshow
+   Koristi se u Humidor + Gear sekcijama (deo svake sekcije).
+   Mali kartoni, jedan red, suptilan kontinualan scroll.
+   ======================================================= */
+.section-strip {
   position: relative;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  /* Soft fade-out na ivicama da slideshow ima scroll afekat */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+}
+.section-strip__track {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  will-change: transform;
+}
+.section-strip__item {
+  flex: 0 0 auto;
+  width: 150px;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid var(--line);
   cursor: zoom-in;
+  position: relative;
   background: rgba(10, 6, 5, 0.4);
-  transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
-.humidor-photo::after {
+.section-strip__item::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(10, 6, 5, 0.55) 100%);
+  background: linear-gradient(180deg, transparent 55%, rgba(10, 6, 5, 0.5) 100%);
   pointer-events: none;
-  transition: opacity 0.35s;
-  opacity: 0.85;
+  transition: opacity 0.3s;
+  opacity: 0.7;
 }
-.humidor-photo:hover {
+.section-strip__item:hover {
   border-color: var(--gold-leaf);
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
 }
-.humidor-photo:hover::after { opacity: 0.4; }
-.humidor-photo img {
+.section-strip__item:hover::after { opacity: 0.3; }
+.section-strip__item img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(0.95) brightness(0.94);
-  transition: filter 0.4s, transform 0.8s var(--ease-out-quart);
+  filter: saturate(0.96) brightness(0.94);
+  transition: filter 0.4s, transform 0.6s var(--ease-out-quart);
 }
-.humidor-photo:hover img {
+.section-strip__item:hover img {
   filter: saturate(1.08) brightness(1.02);
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
-@media (max-width: 1100px) { .humidor-photo-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 820px)  { .humidor-photo-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 520px)  { .humidor-photo-grid { grid-template-columns: repeat(2, 1fr); } }
+.section-strip__item figcaption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 0.4rem 0.6rem;
+  background: linear-gradient(0deg, rgba(10, 6, 5, 0.92), transparent);
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-leaf);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2;
+}
+.section-strip__item:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 820px) {
+  .section-strip__item { width: 130px; }
+}
+@media (max-width: 520px) {
+  .section-strip__item { width: 110px; }
+}
+
+/* Process showcase upgrade — kad nosi .section-strip class, ponaša se kao strip
+   (ne kao grid). Zadržava grid-area: showcase u parent .process layout. */
+.process__showcase.section-strip {
+  display: block;
+  grid-template-columns: none;
+  margin-top: 1rem;
+}
+.process__showcase.section-strip figure {
+  /* Override default process__showcase figure stilova */
+  aspect-ratio: 4 / 3;
+  animation: none;
+}
 
 /* =======================================================
    PROCESS MEDIA — photo modifier (zamenjuje video sa slikom u Spirits/Gear)

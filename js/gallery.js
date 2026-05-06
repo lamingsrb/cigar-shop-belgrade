@@ -1,11 +1,13 @@
 // =======================================================
-// CIGAR SHOP — Gallery masonry carousel
-// Adaptirano iz PredatorLaserTag pattern-a. Ho izontal scroll,
-// 3 reda × mnogo kolona, pauza na hover, prev/next navigacija.
-// Klik na item → Lightbox (vidi js/lightbox.js)
+// CIGAR SHOP — Godine tišine galerija
+// Page-based slideshow (Instagram-style): grupe od 6 slika per "page",
+// fade tranzicija između grupa, auto-advance, pagination dots.
 // =======================================================
 
 const MANIFEST_URL = '/data/gallery-manifest.json';
+const ITEMS_PER_PAGE = 6;        // 2 reda × 3 kolone
+const PAGE_INTERVAL_MS = 5500;   // ~5.5s per page
+const TRANSITION_MS = 700;
 
 export async function initGallery() {
   const track = document.getElementById('gallery-track');
@@ -20,83 +22,98 @@ export async function initGallery() {
     return;
   }
 
-  // Render 63 item-a
-  track.innerHTML = manifest.map((it, i) => `
-    <div class="masonry-item"
-         data-lb-type="image"
-         data-lb-src="${it.src}"
-         data-lb-caption="">
-      <div class="masonry-media">
-        <img src="${it.thumb}" alt="Cigar Shop galerija ${i + 1}"
+  if (!manifest.length) return;
+
+  // Render kao paged slides
+  const totalPages = Math.ceil(manifest.length / ITEMS_PER_PAGE);
+  const pagesHTML = [];
+  for (let p = 0; p < totalPages; p++) {
+    const start = p * ITEMS_PER_PAGE;
+    const slice = manifest.slice(start, start + ITEMS_PER_PAGE);
+    const figures = slice.map((it, i) => `
+      <div class="gallery-page__item"
+           data-lb-type="image"
+           data-lb-src="${it.src}"
+           data-lb-caption="">
+        <img src="${it.thumb}" alt="Cigar Shop galerija ${start + i + 1}"
              loading="lazy" decoding="async"
              width="600" height="450">
-        <div class="masonry-overlay"></div>
-        <div class="masonry-zoom" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18">
-            <path d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12Zm0 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm5 9 5 5-1.4 1.4-5-5L15 15Z"
-                  fill="currentColor"/>
-          </svg>
-        </div>
-        <div class="masonry-frame"></div>
       </div>
-    </div>
-  `).join('');
+    `).join('');
+    pagesHTML.push(`<div class="gallery-page${p === 0 ? ' is-active' : ''}" data-page="${p}">${figures}</div>`);
+  }
 
-  // Kloniraj item-e za beskonačan scroll
-  const original = Array.from(track.querySelectorAll('.masonry-item'));
-  original.forEach(el => track.appendChild(el.cloneNode(true)));
+  // Replace masonry-track sa pages container
+  track.innerHTML = pagesHTML.join('');
+  track.classList.add('gallery-pages');
+  track.style.transform = ''; // očisti naslede iz starog masonry-a
 
-  const masonry = track.parentElement;
-  const prevBtn = document.getElementById('gallery-prev');
-  const nextBtn = document.getElementById('gallery-next');
+  // Sakrij stare prev/next dugmiće (zamenjeni dot-ovima)
+  const oldPrev = document.getElementById('gallery-prev');
+  const oldNext = document.getElementById('gallery-next');
+  if (oldPrev) oldPrev.style.display = 'none';
+  if (oldNext) oldNext.style.display = 'none';
 
-  let offset = 0;
-  let halfWidth = 0;
-  const speed = 0.5; // px po frame-u
+  // Render dots
+  let dotsHost = track.parentElement.querySelector('.gallery-pages__dots');
+  if (!dotsHost) {
+    dotsHost = document.createElement('div');
+    dotsHost.className = 'gallery-pages__dots';
+    track.parentElement.appendChild(dotsHost);
+  }
+  dotsHost.innerHTML = Array.from({ length: totalPages }).map((_, i) =>
+    `<button class="gallery-pages__dot${i === 0 ? ' is-active' : ''}" data-page="${i}" aria-label="Page ${i + 1}"></button>`
+  ).join('');
+
+  let current = 0;
+  let timer = null;
   let paused = false;
-  let manualHoldUntil = 0;
+  const pages = Array.from(track.querySelectorAll('.gallery-page'));
+  const dots = Array.from(dotsHost.querySelectorAll('.gallery-pages__dot'));
 
-  function measure() {
-    // Ukupna \u0161irina jedne kopije track-a (original + gap)
-    const itemWidth = original.length ? original[0].offsetWidth : 300;
-    const gap = parseFloat(getComputedStyle(track).gap) || 16;
-    const columns = Math.ceil(original.length / 3); // 3 reda
-    halfWidth = columns * (itemWidth + gap);
+  function go(idx) {
+    if (idx === current) return;
+    idx = ((idx % totalPages) + totalPages) % totalPages;
+    pages[current].classList.remove('is-active');
+    pages[idx].classList.add('is-active');
+    dots[current].classList.remove('is-active');
+    dots[idx].classList.add('is-active');
+    current = idx;
   }
-  measure();
-  window.addEventListener('resize', measure);
+  function next() { go(current + 1); }
 
-  function applyOffset() {
-    track.style.transform = `translate3d(${offset}px, 0, 0)`;
+  function start() {
+    stop();
+    if (!paused) timer = setInterval(next, PAGE_INTERVAL_MS);
+  }
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
   }
 
-  function tick(ts) {
-    requestAnimationFrame(tick);
-    if (paused || ts < manualHoldUntil || document.body.classList.contains('lightbox-open')) return;
-    offset -= speed;
-    if (halfWidth > 0 && offset <= -halfWidth) offset += halfWidth;
-    applyOffset();
-  }
-  requestAnimationFrame(tick);
+  // Pause na hover + dok je lightbox otvoren
+  track.parentElement.addEventListener('mouseenter', () => { paused = true; stop(); });
+  track.parentElement.addEventListener('mouseleave', () => { paused = false; start(); });
 
-  // Hover / touch pause
-  masonry.addEventListener('mouseenter', () => { paused = true; });
-  masonry.addEventListener('mouseleave', () => { paused = false; });
-  masonry.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-  masonry.addEventListener('touchend',   () => { setTimeout(() => { paused = false; }, 1500); }, { passive: true });
-
-  // Prev/Next navigation
-  function jump(dir) {
-    const itemWidth = original[0]?.offsetWidth || 300;
-    const gap = parseFloat(getComputedStyle(track).gap) || 16;
-    offset += dir * (itemWidth + gap) * 3;
-    if (halfWidth > 0) {
-      while (offset < -halfWidth) offset += halfWidth;
-      while (offset > 0) offset -= halfWidth;
+  // Klik na dot
+  dotsHost.addEventListener('click', (e) => {
+    const btn = e.target.closest('.gallery-pages__dot');
+    if (!btn) return;
+    const idx = Number(btn.dataset.page);
+    if (Number.isFinite(idx)) {
+      go(idx);
+      stop();
+      setTimeout(start, PAGE_INTERVAL_MS * 1.5);
     }
-    applyOffset();
-    manualHoldUntil = performance.now() + 1500;
-  }
-  prevBtn?.addEventListener('click', () => jump(1));
-  nextBtn?.addEventListener('click', () => jump(-1));
+  });
+
+  // Pauziraj kad nije u viewport-u
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) start();
+      else stop();
+    });
+  }, { threshold: 0.15 });
+  observer.observe(track.parentElement);
+
+  start();
 }

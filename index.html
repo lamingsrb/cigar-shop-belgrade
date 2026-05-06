@@ -78,7 +78,7 @@
     <div class="hero__slide hero__slide--2" data-slide="2" aria-hidden="true">
       <div class="hero__video-wrap" aria-hidden="true">
         <video class="hero__products-video" autoplay muted loop playsinline
-               preload="metadata" poster="/assets/video/slide2-poster.webp">
+               preload="auto" poster="/assets/video/slide2-poster.webp">
           <source src="/assets/video/slide2.mp4" type="video/mp4">
         </video>
         <div class="hero__video-overlay hero__video-overlay--soft"></div>
@@ -142,13 +142,12 @@
     <!-- =======================  HUMIDOR (sada prvo)  ======================= -->
 <section id="humidor" class="humidor" aria-label="Humidor">
     <div class="humidor__grid">
-      <figure class="humidor__media humidor__media--scrub" id="humidor-scrub-stage">
-        <video class="humidor__video humidor__video--scrub" id="humidor-scrub-video"
-               muted playsinline preload="auto"
+      <figure class="humidor__media humidor__media--loop">
+        <video class="humidor__video"
+               autoplay muted loop playsinline preload="auto"
                poster="/assets/video/humidor-walkthrough-poster.webp">
           <source src="/assets/video/humidor-walkthrough.mp4" type="video/mp4">
         </video>
-        <span class="humidor__scrub-hint" aria-hidden="true">Prevuci da prošetaš kroz humidor</span>
       </figure>
       <div class="humidor__copy">
         <p class="kicker" data-i18n="humidor.kicker">Humidor</p>
@@ -175,43 +174,51 @@
         <h3 class="heading-section" data-i18n="humidorPhotos.title">Pogled u humidor.</h3>
         <p class="lead" data-i18n="humidorPhotos.lead">Ručno biran asortiman: humidori, sklopive pepeljare, sečivo i upaljač spremni za prvi dim.</p>
       </div>
-      <div class="humidor-photo-grid">
-        <figure class="humidor-photo"
-                data-lb-type="image"
-                data-lb-src="/assets/humidor/humidor-01.webp"
-                data-lb-caption="Humidor sa cigarama, sečivom i upaljačem">
-          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-01-thumb.webp" alt="Humidor sa cigarama i priborom">
-        </figure>
-        <figure class="humidor-photo"
-                data-lb-type="image"
-                data-lb-src="/assets/humidor/humidor-02.webp"
-                data-lb-caption="Humidor sa digitalnim higrometrom i cigarama">
-          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-02-thumb.webp" alt="Humidor sa digitalnim higrometrom">
-        </figure>
-        <figure class="humidor-photo"
-                data-lb-type="image"
-                data-lb-src="/assets/humidor/humidor-03.webp"
-                data-lb-caption="Mahagonijev humidor uz boce premium piće">
-          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-03-thumb.webp" alt="Mahagonijev humidor uz piće">
-        </figure>
-        <figure class="humidor-photo"
-                data-lb-type="image"
-                data-lb-src="/assets/humidor/humidor-04.webp"
-                data-lb-caption="Humidor sa sklopivom pepeljarom">
-          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-04-thumb.webp" alt="Humidor sa sklopivom pepeljarom">
-        </figure>
-        <figure class="humidor-photo"
-                data-lb-type="image"
-                data-lb-src="/assets/humidor/humidor-05.webp"
-                data-lb-caption="Sklopiva pepeljara, sečivo i upaljač uz Nikku">
-          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-05-thumb.webp" alt="Sklopiva pepeljara sa priborom">
-        </figure>
-        <figure class="humidor-photo"
-                data-lb-type="image"
-                data-lb-src="/assets/humidor/humidor-06.webp"
-                data-lb-caption="Humidor i sklopiva pepeljara, kompletna postavka">
-          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-06-thumb.webp" alt="Humidor i sklopiva pepeljara">
-        </figure>
+      <div class="section-strip" id="humidor-strip">
+        <div class="section-strip__track">
+          <figure class="section-strip__item"
+                  data-lb-type="image"
+                  data-lb-src="/assets/humidor/humidor-01.webp"
+                  data-lb-caption="Humidor sa cigarama, sečivom i upaljačem">
+            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-01-thumb.webp" alt="Humidor sa cigarama i priborom">
+            <figcaption>Humidor + pribor</figcaption>
+          </figure>
+          <figure class="section-strip__item"
+                  data-lb-type="image"
+                  data-lb-src="/assets/humidor/humidor-02.webp"
+                  data-lb-caption="Humidor sa digitalnim higrometrom i cigarama">
+            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-02-thumb.webp" alt="Humidor sa digitalnim higrometrom">
+            <figcaption>Digitalni higrometar</figcaption>
+          </figure>
+          <figure class="section-strip__item"
+                  data-lb-type="image"
+                  data-lb-src="/assets/humidor/humidor-03.webp"
+                  data-lb-caption="Mahagonijev humidor uz boce premium piće">
+            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-03-thumb.webp" alt="Mahagonijev humidor uz piće">
+            <figcaption>Mahagonij + Barolo</figcaption>
+          </figure>
+          <figure class="section-strip__item"
+                  data-lb-type="image"
+                  data-lb-src="/assets/humidor/humidor-04.webp"
+                  data-lb-caption="Humidor sa sklopivom pepeljarom">
+            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-04-thumb.webp" alt="Humidor sa sklopivom pepeljarom">
+            <figcaption>Sklopiva pepeljara</figcaption>
+          </figure>
+          <figure class="section-strip__item"
+                  data-lb-type="image"
+                  data-lb-src="/assets/humidor/humidor-05.webp"
+                  data-lb-caption="Sklopiva pepeljara, sečivo i upaljač uz Nikku">
+            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-05-thumb.webp" alt="Sklopiva pepeljara sa priborom">
+            <figcaption>Pribor uz Nikku</figcaption>
+          </figure>
+          <figure class="section-strip__item"
+                  data-lb-type="image"
+                  data-lb-src="/assets/humidor/humidor-06.webp"
+                  data-lb-caption="Humidor i sklopiva pepeljara, kompletna postavka">
+            <img loading="lazy" decoding="async" src="/assets/humidor/humidor-06-thumb.webp" alt="Humidor i sklopiva pepeljara">
+            <figcaption>Kompletna postavka</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -239,28 +246,23 @@
           Pored cigare, piće ne sme da nadvlada, već da prati. Zato je naša polica mapa, sedam kontinenata, <strong>stotine destilerija</strong>, izbor koji se ne pravi preko noći.
         </p>
       </div>
-      <figure class="process__media process__media--photo"
-              data-lb-type="image"
-              data-lb-src="/assets/spirits/vitrine-01.webp"
-              data-lb-caption="Vitrina sa konjacima, viskijima i japanskim malt-ovima">
-        <img loading="lazy" decoding="async"
-             src="/assets/spirits/vitrine-01.webp"
-             alt="Vitrina sa pićima — konjak, viski, japanski malt">
-        <span class="process__caption" data-i18n="spiritsProcess.videoCaption">Vitrina sa pićima</span>
-      </figure>
-      <div class="process__showcase" id="spirits-showcase" data-default="true">
-        <figure data-lb-type="image" data-lb-src="/assets/spirits/vitrine-01.webp" data-lb-caption="Vitrina — pregled">
+      <div class="media-slideshow" id="spirits-media">
+        <figure class="media-slideshow__slide is-active"
+                data-lb-type="image" data-lb-src="/assets/spirits/vitrine-01.webp"
+                data-lb-caption="Vitrina sa pićima — pregled">
           <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-01.webp" alt="Vitrina sa pićima — pregled">
-          <figcaption data-i18n="spiritsProcess.s1">Vitrina sa pićima</figcaption>
         </figure>
-        <figure data-lb-type="image" data-lb-src="/assets/spirits/vitrine-02.webp" data-lb-caption="Polica — single malt i kupažirani viski">
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/spirits/vitrine-02.webp"
+                data-lb-caption="Polica — single malt i kupažirani viski">
           <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-02.webp" alt="Single malt i kupažirani viski">
-          <figcaption data-i18n="spiritsProcess.s2">Single malt</figcaption>
         </figure>
-        <figure data-lb-type="image" data-lb-src="/assets/spirits/vitrine-03.webp" data-lb-caption="Polica — konjak, rakija i premium kategorija">
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/spirits/vitrine-03.webp"
+                data-lb-caption="Polica — konjak, rakija i premium kategorija">
           <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-03.webp" alt="Konjak, rakija i premium izbor">
-          <figcaption data-i18n="spiritsProcess.s3">Konjak i rakija</figcaption>
         </figure>
+        <span class="media-slideshow__caption" data-i18n="spiritsProcess.videoCaption">Vitrina sa pićima</span>
       </div>
     </div>
 
@@ -288,28 +290,23 @@
           Naša polica nosi pribor Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall i Boveda. Klasici koji se pamte i komadi koje ćete preneti deci.
         </p>
       </div>
-      <figure class="process__media process__media--photo"
-              data-lb-type="image"
-              data-lb-src="/assets/gear/vitrine-01.webp"
-              data-lb-caption="Vitrina sa opremom — humidori, sečivo, upaljači, pepeljare">
-        <img loading="lazy" decoding="async"
-             src="/assets/gear/vitrine-01.webp"
-             alt="Vitrina sa opremom — humidori i pribor">
-        <span class="process__caption" data-i18n="gearProcess.videoCaption">Asortiman opreme</span>
-      </figure>
-      <div class="process__showcase" id="gear-showcase" data-default="true">
-        <figure data-lb-type="image" data-lb-src="/assets/gear/vitrine-01.webp" data-lb-caption="Asortiman — humidori i pribor">
+      <div class="media-slideshow" id="gear-media">
+        <figure class="media-slideshow__slide is-active"
+                data-lb-type="image" data-lb-src="/assets/gear/vitrine-01.webp"
+                data-lb-caption="Asortiman — humidori i pribor">
           <img loading="lazy" decoding="async" src="/assets/gear/vitrine-01.webp" alt="Vitrina sa humidorima i priborom">
-          <figcaption data-i18n="gearProcess.s1">Asortiman</figcaption>
         </figure>
-        <figure data-lb-type="image" data-lb-src="/assets/gear/vitrine-02.webp" data-lb-caption="Polica — futrole, pepeljare, putni humidori">
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gear/vitrine-02.webp"
+                data-lb-caption="Polica — futrole, pepeljare, putni humidori">
           <img loading="lazy" decoding="async" src="/assets/gear/vitrine-02.webp" alt="Futrole, pepeljare, putni humidori">
-          <figcaption data-i18n="gearProcess.s2">Putna oprema</figcaption>
         </figure>
-        <figure data-lb-type="image" data-lb-src="/assets/gear/vitrine-03.webp" data-lb-caption="Polica — sečivo, V-cut, gilotine, premium kolekcija">
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gear/vitrine-03.webp"
+                data-lb-caption="Polica — sečivo, V-cut, gilotine, premium kolekcija">
           <img loading="lazy" decoding="async" src="/assets/gear/vitrine-03.webp" alt="Sečivo i premium kolekcija">
-          <figcaption data-i18n="gearProcess.s3">Sečivo i premium</figcaption>
         </figure>
+        <span class="media-slideshow__caption" data-i18n="gearProcess.videoCaption">Asortiman opreme</span>
       </div>
     </div>
 

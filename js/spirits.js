@@ -10,8 +10,7 @@ import { getLang, onLangChange } from './i18n.js';
 const BRANDS_URL  = '/data/brands.json';
 const STORIES_URL = (lang) => `/locales/brand-stories-${lang}.json`;
 
-// Slike per kategorija — mix Aninih vitrine fotki (Pica 1-3) sa postojećim
-// brand/process slikama. Cilj: ~10 fotki po grupi (Anin task 02-05-2026).
+// Slike per kategorija — max 6 po grupi (Anin feedback 06-05-2026: kompaktnije).
 const VITRINE = [
   '/assets/spirits/vitrine-01.webp',
   '/assets/spirits/vitrine-02.webp',
@@ -23,60 +22,36 @@ const IMAGES_BY_CAT = {
     '/assets/spirits/scotch.webp',
     '/assets/spirits/japanese.webp',
     '/assets/spirits/irish.webp',
-    '/assets/spirits/spirits-process-4-selekcija.webp',
-    '/assets/spirits/spirits-process-3-odlezavanje.webp',
-    '/assets/spirits/spirits-process-1-destilacija.webp',
-    '/assets/spirits/spirits-process-2-destilerija.webp',
   ],
   bourbon: [
     ...VITRINE,
     '/assets/spirits/bourbon.webp',
     '/assets/spirits/spirits-process-3-odlezavanje.webp',
-    '/assets/spirits/spirits-process-2-destilerija.webp',
     '/assets/spirits/spirits-process-4-selekcija.webp',
-    '/assets/spirits/spirits-process-1-destilacija.webp',
-    '/assets/gallery/img-008.webp',
-    '/assets/gallery/img-018.webp',
   ],
   gin: [
     ...VITRINE,
     '/assets/spirits/spirits-process-1-destilacija.webp',
-    '/assets/spirits/spirits-process-4-selekcija.webp',
     '/assets/gallery/img-002.webp',
     '/assets/gallery/img-021.webp',
-    '/assets/gallery/img-028.webp',
-    '/assets/gallery/img-036.webp',
-    '/assets/gallery/img-049.webp',
   ],
   cognac: [
     ...VITRINE,
     '/assets/spirits/cognac.webp',
-    '/assets/spirits/spirits-process-3-odlezavanje.webp',
     '/assets/spirits/spirits-process-2-destilerija.webp',
-    '/assets/spirits/spirits-process-4-selekcija.webp',
-    '/assets/spirits/spirits-process-1-destilacija.webp',
-    '/assets/gallery/img-016.webp',
-    '/assets/gallery/img-037.webp',
+    '/assets/spirits/spirits-process-3-odlezavanje.webp',
   ],
   rum: [
     ...VITRINE,
     '/assets/spirits/spirits-process-3-odlezavanje.webp',
-    '/assets/spirits/spirits-process-4-selekcija.webp',
-    '/assets/spirits/spirits-process-2-destilerija.webp',
     '/assets/gallery/img-008.webp',
     '/assets/gallery/img-018.webp',
-    '/assets/gallery/img-036.webp',
-    '/assets/gallery/img-048.webp',
   ],
   rakija: [
     ...VITRINE,
     '/assets/spirits/rakija.webp',
     '/assets/spirits/spirits-process-2-destilerija.webp',
-    '/assets/spirits/spirits-process-3-odlezavanje.webp',
-    '/assets/spirits/spirits-process-4-selekcija.webp',
     '/assets/gallery/img-021.webp',
-    '/assets/gallery/img-037.webp',
-    '/assets/gallery/img-053.webp',
   ],
 };
 

@@ -6,6 +6,7 @@
 // =======================================================
 
 import { getLang, onLangChange } from './i18n.js';
+import { initSectionStrip } from './section-strip.js';
 
 const GEAR_URL = '/data/gear.json';
 let gearData = null;
@@ -70,38 +71,36 @@ function renderShowcase(itemName) {
 
   const cat = currentCat();
   const pool = cat?.images || [];
+  const caption = itemName || (cat ? catLabel(cat) : '');
 
-  // Bez aktivne kartice → prikaži CEO pool kategorije (10 fotki po Aninom briefu).
-  if (!itemName) {
-    if (!pool.length) {
-      if (defaultShowcaseHTML != null) {
-        showcase.innerHTML = defaultShowcaseHTML;
-        showcase.dataset.default = 'true';
-        showcase.removeAttribute('data-item');
-      }
-      return;
+  // Bez aktivne kartice + nema pool-a → fallback na default HTML.
+  if (!itemName && !pool.length) {
+    if (defaultShowcaseHTML != null) {
+      showcase.innerHTML = defaultShowcaseHTML;
+      showcase.dataset.default = 'true';
+      showcase.removeAttribute('data-item');
+      // Reinit strip za default HTML (već je section-strip + __track u index.html).
+      initSectionStrip(showcase);
     }
-    showcase.innerHTML = pool.map(src => `
-      <figure data-lb-type="image" data-lb-src="${src}" data-lb-caption="${catLabel(cat)}">
-        <img loading="lazy" decoding="async" src="${src}" alt="${catLabel(cat)}">
-        <figcaption>${catLabel(cat)}</figcaption>
-      </figure>
-    `).join('');
-    showcase.dataset.default = 'true';
-    showcase.removeAttribute('data-item');
     return;
   }
 
   if (!pool.length) return;
 
-  showcase.innerHTML = pool.map(src => `
-    <figure data-lb-type="image" data-lb-src="${src}" data-lb-caption="${itemName}">
-      <img loading="lazy" decoding="async" src="${src}" alt="${itemName}">
-      <figcaption>${itemName}</figcaption>
+  // Render kao section-strip __track sa __item figurama (kompaktan auto-advance slideshow).
+  const items = pool.map(src => `
+    <figure class="section-strip__item" data-lb-type="image" data-lb-src="${src}" data-lb-caption="${caption}">
+      <img loading="lazy" decoding="async" src="${src}" alt="${caption}">
+      <figcaption>${caption}</figcaption>
     </figure>
   `).join('');
-  showcase.dataset.default = 'false';
-  showcase.dataset.item = itemName;
+  showcase.innerHTML = `<div class="section-strip__track">${items}</div>`;
+  showcase.dataset.default = itemName ? 'false' : 'true';
+  if (itemName) showcase.dataset.item = itemName;
+  else showcase.removeAttribute('data-item');
+
+  // Re-init strip auto-scroll (teardown + setup; brine i o klonovima za infinite loop).
+  initSectionStrip(showcase);
 }
 
 function handleCardClick(article) {
