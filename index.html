@@ -36,10 +36,9 @@
 
       <nav class="nav" aria-label="Primary">
         <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
-        <a href="#origins" data-i18n="nav.library">Biblioteka cigara</a>
         <a href="#spirits" data-i18n="nav.spirits">Pića</a>
         <a href="#gear" data-i18n="nav.gear">Oprema</a>
-        <a href="#gallery" data-i18n="nav.gallery">Galerija</a>
+        <a href="#gallery" data-i18n="nav.gallery">Godine tišine</a>
         <a href="#blog" data-i18n="nav.blog">Blog</a>
         <a href="#contact" data-i18n="footer.contactLink">Kontakt</a>
       </nav>
@@ -132,10 +131,8 @@
         <video
           class="manifest__video"
           autoplay muted loop playsinline
-          preload="metadata"
-          poster="/assets/video/hero-poster.webp">
-          <source src="/assets/video/hero.webm" type="video/webm">
-          <source src="/assets/video/hero.mp4" type="video/mp4">
+          preload="auto">
+          <source src="/assets/video/manifest-tvoj-izbor.mp4" type="video/mp4">
         </video>
         <span class="manifest__tag" aria-hidden="true">EST. 2004</span>
       </figure>
@@ -171,36 +168,56 @@
       </div>
     </div>
   
-    <!-- Podela cigara: Kuba i Novi svet (premešteno iz Library sekcije) -->
-    <div class="humidor__brands">
+    <!-- Humidor showcase galerija — 10 product fotki (zameni stari brand-tabs blok) -->
+    <div class="humidor__photos">
       <div class="origins__header">
-        <p class="kicker" data-i18n="humidorBrands.kicker">Biblioteka cigara</p>
-        <h3 class="heading-section" data-i18n="humidorBrands.title">Kuba i Novi svet.</h3>
-        <p class="lead" data-i18n="humidorBrands.lead">Naša polica nosi dve velike priče. Klikni na regiju i pusti da slajdovi vode kroz brendove i njihove cigare.</p>
+        <p class="kicker" data-i18n="humidorPhotos.kicker">Iz humidora</p>
+        <h3 class="heading-section" data-i18n="humidorPhotos.title">Pogled u humidor.</h3>
+        <p class="lead" data-i18n="humidorPhotos.lead">Ručno biran asortiman: humidori, sklopive pepeljare, sečivo i upaljač spremni za prvi dim.</p>
       </div>
-      <div class="brands__tabs" id="brands-tabs" role="tablist"></div>
-      <div class="brands__grid" id="brands-grid"></div>
+      <div class="humidor-photo-grid">
+        <figure class="humidor-photo"
+                data-lb-type="image"
+                data-lb-src="/assets/humidor/humidor-01.webp"
+                data-lb-caption="Humidor sa cigarama, sečivom i upaljačem">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-01-thumb.webp" alt="Humidor sa cigarama i priborom">
+        </figure>
+        <figure class="humidor-photo"
+                data-lb-type="image"
+                data-lb-src="/assets/humidor/humidor-02.webp"
+                data-lb-caption="Humidor sa digitalnim higrometrom i cigarama">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-02-thumb.webp" alt="Humidor sa digitalnim higrometrom">
+        </figure>
+        <figure class="humidor-photo"
+                data-lb-type="image"
+                data-lb-src="/assets/humidor/humidor-03.webp"
+                data-lb-caption="Mahagonijev humidor uz boce premium piće">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-03-thumb.webp" alt="Mahagonijev humidor uz piće">
+        </figure>
+        <figure class="humidor-photo"
+                data-lb-type="image"
+                data-lb-src="/assets/humidor/humidor-04.webp"
+                data-lb-caption="Humidor sa sklopivom pepeljarom">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-04-thumb.webp" alt="Humidor sa sklopivom pepeljarom">
+        </figure>
+        <figure class="humidor-photo"
+                data-lb-type="image"
+                data-lb-src="/assets/humidor/humidor-05.webp"
+                data-lb-caption="Sklopiva pepeljara, sečivo i upaljač uz Nikku">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-05-thumb.webp" alt="Sklopiva pepeljara sa priborom">
+        </figure>
+        <figure class="humidor-photo"
+                data-lb-type="image"
+                data-lb-src="/assets/humidor/humidor-06.webp"
+                data-lb-caption="Humidor i sklopiva pepeljara, kompletna postavka">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-06-thumb.webp" alt="Humidor i sklopiva pepeljara">
+        </figure>
+      </div>
     </div>
   </section>
 
   
-  <!-- ==============  BIBLIOTEKA CIGARA — minimal (title + lead, video kao blok ispod) ============== -->
-  <section id="origins" class="origins origins--minimal" aria-label="Biblioteka cigara">
-    <div class="origins__header">
-      <p class="kicker" data-i18n="library.kicker">Biblioteka cigara</p>
-      <h2 class="heading-display" data-i18n="library.title">Godine tišine za trenutak uživanja.</h2>
-      <p class="lead" data-i18n="library.lead">Od plantaže, kroz destileriju, do trenutka kada se žar prvi put uhvati za vrh cigare.</p>
-    </div>
-    <figure class="origins__media">
-      <video autoplay muted loop playsinline
-             preload="metadata"
-             poster="/assets/video/library-journey-poster.webp">
-        <source src="/assets/video/library-journey.mp4" type="video/mp4">
-      </video>
-    </figure>
-  </section>
-
-<!-- =======================  SPIRITS  ======================= -->
+  <!-- =======================  SPIRITS  ======================= -->
   <section id="spirits" class="spirits origins" aria-label="Spirits">
     <div class="origins__header">
       <p class="kicker" data-i18n="spirits.kicker">Pića</p>
@@ -222,20 +239,28 @@
           Pored cigare, piće ne sme da nadvlada, već da prati. Zato je naša polica mapa, sedam kontinenata, <strong>stotine destilerija</strong>, izbor koji se ne pravi preko noći.
         </p>
       </div>
-      <div class="process__media">
-        <video class="process__video"
-               autoplay muted loop playsinline
-               preload="metadata"
-               poster="/assets/video/spirits-process-poster.webp">
-          <source src="/assets/video/spirits-process.mp4" type="video/mp4">
-        </video>
-        <span class="process__caption" data-i18n="spiritsProcess.videoCaption">Destilacija i zrenje</span>
-      </div>
+      <figure class="process__media process__media--photo"
+              data-lb-type="image"
+              data-lb-src="/assets/spirits/vitrine-01.webp"
+              data-lb-caption="Vitrina sa konjacima, viskijima i japanskim malt-ovima">
+        <img loading="lazy" decoding="async"
+             src="/assets/spirits/vitrine-01.webp"
+             alt="Vitrina sa pićima — konjak, viski, japanski malt">
+        <span class="process__caption" data-i18n="spiritsProcess.videoCaption">Vitrina sa pićima</span>
+      </figure>
       <div class="process__showcase" id="spirits-showcase" data-default="true">
-        <figure><img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-1-destilacija.webp" alt=""><figcaption data-i18n="spiritsProcess.s1">Destilacija</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-2-destilerija.webp" alt=""><figcaption data-i18n="spiritsProcess.s2">Destilerija</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-3-odlezavanje.webp" alt=""><figcaption data-i18n="spiritsProcess.s3">Odležavanje</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-4-selekcija.webp" alt=""><figcaption data-i18n="spiritsProcess.s4">Selekcija</figcaption></figure>
+        <figure data-lb-type="image" data-lb-src="/assets/spirits/vitrine-01.webp" data-lb-caption="Vitrina — pregled">
+          <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-01.webp" alt="Vitrina sa pićima — pregled">
+          <figcaption data-i18n="spiritsProcess.s1">Vitrina sa pićima</figcaption>
+        </figure>
+        <figure data-lb-type="image" data-lb-src="/assets/spirits/vitrine-02.webp" data-lb-caption="Polica — single malt i kupažirani viski">
+          <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-02.webp" alt="Single malt i kupažirani viski">
+          <figcaption data-i18n="spiritsProcess.s2">Single malt</figcaption>
+        </figure>
+        <figure data-lb-type="image" data-lb-src="/assets/spirits/vitrine-03.webp" data-lb-caption="Polica — konjak, rakija i premium kategorija">
+          <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-03.webp" alt="Konjak, rakija i premium izbor">
+          <figcaption data-i18n="spiritsProcess.s3">Konjak i rakija</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -263,21 +288,28 @@
           Naša polica nosi pribor Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall i Boveda. Klasici koji se pamte i komadi koje ćete preneti deci.
         </p>
       </div>
-      <div class="process__media">
-        <video class="process__video"
-               autoplay muted loop playsinline
-               preload="metadata"
-               poster="/assets/video/hero-poster.webp">
-          <source src="/assets/video/hero.webm" type="video/webm">
-          <source src="/assets/video/hero.mp4" type="video/mp4">
-        </video>
-        <span class="process__caption" data-i18n="gearProcess.videoCaption">Alati koji traju</span>
-      </div>
+      <figure class="process__media process__media--photo"
+              data-lb-type="image"
+              data-lb-src="/assets/gear/vitrine-01.webp"
+              data-lb-caption="Vitrina sa opremom — humidori, sečivo, upaljači, pepeljare">
+        <img loading="lazy" decoding="async"
+             src="/assets/gear/vitrine-01.webp"
+             alt="Vitrina sa opremom — humidori i pribor">
+        <span class="process__caption" data-i18n="gearProcess.videoCaption">Asortiman opreme</span>
+      </figure>
       <div class="process__showcase" id="gear-showcase" data-default="true">
-        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-015.webp" alt=""><figcaption data-i18n="gearProcess.s1">Rezači</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-036.webp" alt=""><figcaption data-i18n="gearProcess.s2">Upaljači</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-057.webp" alt=""><figcaption data-i18n="gearProcess.s3">Humidori</figcaption></figure>
-        <figure><img loading="lazy" decoding="async" src="/assets/gallery/img-021.webp" alt=""><figcaption data-i18n="gearProcess.s4">Etui</figcaption></figure>
+        <figure data-lb-type="image" data-lb-src="/assets/gear/vitrine-01.webp" data-lb-caption="Asortiman — humidori i pribor">
+          <img loading="lazy" decoding="async" src="/assets/gear/vitrine-01.webp" alt="Vitrina sa humidorima i priborom">
+          <figcaption data-i18n="gearProcess.s1">Asortiman</figcaption>
+        </figure>
+        <figure data-lb-type="image" data-lb-src="/assets/gear/vitrine-02.webp" data-lb-caption="Polica — futrole, pepeljare, putni humidori">
+          <img loading="lazy" decoding="async" src="/assets/gear/vitrine-02.webp" alt="Futrole, pepeljare, putni humidori">
+          <figcaption data-i18n="gearProcess.s2">Putna oprema</figcaption>
+        </figure>
+        <figure data-lb-type="image" data-lb-src="/assets/gear/vitrine-03.webp" data-lb-caption="Polica — sečivo, V-cut, gilotine, premium kolekcija">
+          <img loading="lazy" decoding="async" src="/assets/gear/vitrine-03.webp" alt="Sečivo i premium kolekcija">
+          <figcaption data-i18n="gearProcess.s3">Sečivo i premium</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -286,33 +318,13 @@
   </section>
 
 
-  <!-- =======================  THE RITUAL  ======================= -->
-  <section id="ritual" class="ritual" aria-label="The Ritual">
-    <div class="ritual__bg" aria-hidden="true">
-      <video class="ritual__video" autoplay muted loop playsinline
-             preload="metadata" poster="/assets/video/ritual-poster.webp">
-        <source src="/assets/video/ritual.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="ritual__overlay" aria-hidden="true"></div>
-    <div class="ritual__steps">
-      <p class="kicker" data-i18n="ritual.kicker">Ritual</p>
-      <h2 class="heading-display" data-i18n="ritual.title">Preseci. Zapali. Uživaj.</h2>
-      <ol class="ritual__list">
-        <li><span class="num">01</span><h3 data-i18n="ritual.step1Title">Preseci</h3><p data-i18n="ritual.step1Body">Oštar, čist rez — 2 mm iznad kape.</p></li>
-        <li><span class="num">02</span><h3 data-i18n="ritual.step2Title">Zapali</h3><p data-i18n="ritual.step2Body">Cedrovom šibicom ili butan plamenom bez mirisa.</p></li>
-        <li><span class="num">03</span><h3 data-i18n="ritual.step3Title">Uživaj</h3><p data-i18n="ritual.step3Body">Jedan dim u minuti. Ne žuri — žar ne voli brzinu.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- =======================  GALLERY  ======================= -->
-  <section id="gallery" class="gallery" aria-label="Gallery">
+  <!-- =======================  GODINE TIŠINE — galerija  ======================= -->
+  <section id="gallery" class="gallery" aria-label="Godine tišine">
     <div class="section__header">
       <p class="kicker" data-i18n="gallery.kicker">Galerija</p>
-      <h2 class="heading-display" data-i18n="gallery.title">Ritual zatvoren u kadru.</h2>
+      <h2 class="heading-display" data-i18n="gallery.title">Godine tišine.</h2>
       <p class="lead" data-i18n="gallery.lead">
-        Kutije, vrhovi, žar, humidor — trenutci koji se ne mogu opisati rečima.
+        Plantaža, fabrika, naše cigare, destilerija i konačni ritual — kadrovi koji prate svaku godinu strpljenja.
       </p>
     </div>
     <div class="masonry-stage">
@@ -455,10 +467,9 @@
       </div>
       <nav class="footer__nav" aria-label="Footer">
         <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
-        <a href="#origins" data-i18n="nav.library">Biblioteka cigara</a>
         <a href="#spirits" data-i18n="nav.spirits">Pića</a>
         <a href="#gear" data-i18n="nav.gear">Oprema</a>
-        <a href="#gallery" data-i18n="nav.gallery">Galerija</a>
+        <a href="#gallery" data-i18n="nav.gallery">Godine tišine</a>
         <a href="#blog" data-i18n="nav.blog">Blog</a>
         <a href="#contact" data-i18n="footer.contactLink">Kontakt</a>
       </nav>

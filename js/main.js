@@ -13,7 +13,6 @@ import { initCursor } from './cursor.js';
 import { initAudio } from './audio.js';
 import { initGallery } from './gallery.js';
 import { initLightbox } from './lightbox.js';
-import { initBrands } from './brands.js';
 import { initScrollBurn } from './scroll-burn.js';
 import { initAmbientParticles } from './ambient-particles.js';
 import { initContactSelector } from './contact-selector.js';
@@ -176,10 +175,9 @@ async function boot() {
   initScrollSpy();
   initScrollBurn();
 
-  // 5) Gallery + Brands + Spirits + Gear + Lightbox + Hero rotator
+  // 5) Gallery + Spirits + Gear + Lightbox + Hero rotator
   initGallery();
   initLightbox();
-  initBrands();
   initSpirits();
   initGear();
   initBlog();

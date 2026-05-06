@@ -8,10 +8,9 @@
   "nav": {
     "manifest": "Manifest",
     "humidor": "Humidor",
-    "library": "Biblioteka cigara",
     "spirits": "Nastavi sa pićem",
     "gear": "Oprema",
-    "gallery": "Galerija",
+    "gallery": "Godine tišine",
     "blog": "Blog",
     "locations": "Lokacije"
   },
@@ -57,20 +56,14 @@
 
   "gallery": {
     "kicker": "Galerija",
-    "title": "Ritual zatvoren u kadru.",
-    "lead": "Kutije, vrhovi, žar, humidor, trenutci koji se ne mogu opisati rečima."
+    "title": "Godine tišine.",
+    "lead": "Plantaža, fabrika, naše cigare, destilerija i konačni ritual — kadrovi koji prate svaku godinu strpljenja."
   },
 
-  "library": {
-    "kicker": "Biblioteka cigara",
-    "title": "Godine tišine za trenutak uživanja.",
-    "lead": "Od plantaže, kroz destileriju, do trenutka kada se žar prvi put uhvati za vrh cigare."
-  },
-
-  "humidorBrands": {
-    "kicker": "Biblioteka cigara",
-    "title": "Kuba i Novi svet.",
-    "lead": "Naša polica nosi dve velike priče. Klikni na regiju i pusti da slajdovi vode kroz brendove i njihove cigare."
+  "humidorPhotos": {
+    "kicker": "Iz humidora",
+    "title": "Pogled u humidor.",
+    "lead": "Ručno biran asortiman: humidori, sklopive pepeljare, sečivo i upaljač spremni za prvi dim."
   },
 
   "process": {
@@ -104,15 +97,15 @@
   },
 
   "spiritsProcess": {
-    "kicker": "Selekcija",
-    "title": "Ulje vremena, zatvoreno u flaši.",
-    "body1": "Svaka boca koju biramo prešla je <strong>put koji traje generacijama</strong>. Bakarne <strong>destilerije</strong>, žar pod kotlom, para koja se diže iz hrastovog bureta. Škotska Islay daje torfeni dim, japanski Yamazaki cvetnu preciznost, kubinski rum karipsko sunce, a srpska rakija autentičnost ovih prostora.",
-    "body2": "Pored cigare, piće ne sme da nadvlada, već da prati. Zato je naša polica mapa, sedam kontinenata, <strong>stotine destilerija</strong>, izbor koji se ne pravi preko noći.",
-    "videoCaption": "Destilacija i zrenje",
-    "s1": "Destilacija",
-    "s2": "Destilerija",
-    "s3": "Odležavanje",
-    "s4": "Selekcija"
+    "kicker": "Vitrina",
+    "title": "Polica koja prati cigaru.",
+    "body1": "Naša vitrina je mapa: <strong>škotski single malt</strong>, <strong>japanski Yamazaki</strong>, francuski konjak, karipski rum i domaća rakija — svaka boca biraj sa istom pažnjom kao i cigara koja stoji pored.",
+    "body2": "Pored cigare, piće ne sme da nadvlada, već da prati. Zato naša polica nosi <strong>preko 260 boca iz osam kategorija</strong>, izbor koji se ne pravi preko noći.",
+    "videoCaption": "Vitrina sa pićima",
+    "s1": "Vitrina sa pićima",
+    "s2": "Single malt",
+    "s3": "Konjak i rakija",
+    "s4": "Premium"
   },
 
   "gear": {
@@ -126,22 +119,11 @@
     "title": "Detalji koji rituala čine cigarom.",
     "body1": "Cigara traži pratnju. Rezač mora biti oštar, upaljač bez mirisa, humidor vlažan taman toliko. Svaki od ovih predmeta je svoja mala inženjerska priča, a zajedno čine mizanscen u kome dim dobija formu.",
     "body2": "Naša polica nosi pribor Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall i Boveda. Klasici koji se pamte i komadi koje ćete preneti deci.",
-    "videoCaption": "Alati koji traju",
-    "s1": "Rezači",
-    "s2": "Upaljači",
-    "s3": "Humidori",
+    "videoCaption": "Asortiman opreme",
+    "s1": "Asortiman",
+    "s2": "Putna oprema",
+    "s3": "Sečivo i premium",
     "s4": "Etui"
-  },
-
-"ritual": {
-    "kicker": "Ritual",
-    "title": "Preseci. Zapali. Uživaj.",
-    "step1Title": "Preseci",
-    "step1Body": "Oštar, čist rez, 2 mm iznad kape.",
-    "step2Title": "Zapali",
-    "step2Body": "Cedrovom šibicom ili butan plamenom bez mirisa.",
-    "step3Title": "Uživaj",
-    "step3Body": "Jedan dim u minuti. Ne žuri, žar ne voli brzinu."
   },
 
   "locations": {

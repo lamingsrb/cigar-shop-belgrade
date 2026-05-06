@@ -20,9 +20,10 @@ export function initLightbox() {
   let lastFocus = null;
 
   function collectData() {
-    // Bere data samo iz ORIGINAL items (ne iz klonova u masonry)
+    // Bere data iz svih elementa sa data-lb-src — galerija + humidor fotke + spirits/gear vitrine.
+    // Klonovi iz masonry imaju isti src, deduplikujemo preko Set-a.
     const seen = new Set();
-    const items = document.querySelectorAll('#gallery-track .masonry-item');
+    const items = document.querySelectorAll('[data-lb-src]');
     data = [];
     items.forEach((el) => {
       const src = el.dataset.lbSrc;
@@ -81,11 +82,12 @@ export function initLightbox() {
   function next() { index = (index + 1) % data.length; render(index); }
   function prev() { index = (index - 1 + data.length) % data.length; render(index); }
 
-  // Event delegation — klik na bilo koji masonry-item triggeruje lightbox
+  // Event delegation — klik na bilo koji element sa data-lb-src triggeruje lightbox
   document.addEventListener('click', (e) => {
-    const item = e.target.closest('.masonry-item');
+    const item = e.target.closest('[data-lb-src]');
     if (!item) return;
-    if (!data.length) collectData();
+    // Reload data each time da pokupi DOM-promenjene grid-ove (gear/spirits)
+    collectData();
     const src = item.dataset.lbSrc;
     const i = data.findIndex(d => d.src === src);
     if (i >= 0) open(i);

@@ -17,3 +17,12 @@ CREDENTIALS.local.md
 
 # Build script intermediates
 scripts/.tmp-*/
+
+# Local IDE/editor configs
+.vscode/
+
+# Feedback raw client assets — keep only docs (FEEDBACK-ANA.md, TASKS.md) in git.
+# Sirovi MP4/ZIP/raw materijali su lokalni; web koristi optimizovane verzije iz public/assets/.
+Feedback_loop/*/Media/*.mp4
+Feedback_loop/*/Media/*.zip
+Feedback_loop/*/Media/Kubanske_cigare_unzipped/

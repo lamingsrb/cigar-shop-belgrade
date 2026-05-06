@@ -8,10 +8,9 @@
   "nav": {
     "manifest": "Manifest",
     "humidor": "Humidor",
-    "library": "Cigar Library",
     "spirits": "Spirits",
     "gear": "Gear",
-    "gallery": "Gallery",
+    "gallery": "Years of Silence",
     "blog": "Blog",
     "locations": "Stores"
   },
@@ -57,20 +56,14 @@
 
   "gallery": {
     "kicker": "Gallery",
-    "title": "The ritual, framed.",
-    "lead": "Boxes, crowns, embers, the humidor, moments words cannot describe."
+    "title": "Years of silence.",
+    "lead": "Plantation, factory, our cigars, distillery and the final ritual — frames that follow every year of patience."
   },
 
-  "library": {
-    "kicker": "Cigar Library",
-    "title": "Years of silence for a moment of pleasure.",
-    "lead": "From the plantation, through the distillery, to the moment the ember first catches the cigar's tip."
-  },
-
-  "humidorBrands": {
-    "kicker": "Cigar Library",
-    "title": "Cuba and the New World.",
-    "lead": "Our shelf carries two great stories. Click a region and let the slides walk you through brands and their cigars."
+  "humidorPhotos": {
+    "kicker": "From the humidor",
+    "title": "Inside the humidor.",
+    "lead": "A hand-picked range: humidors, foldable ashtrays, cutters and lighters ready for the first draw."
   },
 
   "process": {
@@ -104,15 +97,15 @@
   },
 
   "spiritsProcess": {
-    "kicker": "Selection",
-    "title": "The oil of time, sealed in a bottle.",
-    "body1": "Every bottle we choose has traveled a <strong>road that spans generations</strong>. Copper <strong>stills</strong>, embers under the pot, steam rising from an oak barrel. Scottish Islay gives peaty smoke, Japanese Yamazaki the floral precision, Cuban rum the Caribbean sun, Serbian rakija the authenticity of these lands.",
-    "body2": "Beside a cigar, a drink must never dominate, only accompany. That is why our shelf is a map — seven continents, <strong>hundreds of distilleries</strong>, a selection that is not made overnight.",
-    "videoCaption": "Distillation and ageing",
-    "s1": "Distillation",
-    "s2": "Stills",
-    "s3": "Ageing",
-    "s4": "Selection"
+    "kicker": "The shelf",
+    "title": "The shelf that follows the cigar.",
+    "body1": "Our shelf is a map: <strong>Scottish single malt</strong>, <strong>Japanese Yamazaki</strong>, French cognac, Caribbean rum and domestic rakija — every bottle is chosen with the same care as the cigar standing next to it.",
+    "body2": "Beside a cigar, a drink must never dominate, only accompany. That is why our shelf carries <strong>over 260 bottles across eight categories</strong>, a selection that is not made overnight.",
+    "videoCaption": "The spirits shelf",
+    "s1": "The shelf",
+    "s2": "Single malt",
+    "s3": "Cognac & rakija",
+    "s4": "Premium"
   },
 
   "gear": {
@@ -126,22 +119,11 @@
     "title": "The details that make the cigar a ritual.",
     "body1": "A cigar demands company. The cutter must be sharp, the lighter scent-free, the humidor humid just so. Each of these objects carries its own small engineering story, and together they set the stage where smoke takes form.",
     "body2": "Our shelf carries Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall and Boveda. Classics worth remembering and pieces worth passing on.",
-    "videoCaption": "Tools that last",
-    "s1": "Cutters",
-    "s2": "Lighters",
-    "s3": "Humidors",
+    "videoCaption": "The gear range",
+    "s1": "The range",
+    "s2": "Travel gear",
+    "s3": "Cutters & premium",
     "s4": "Cases"
-  },
-
-"ritual": {
-    "kicker": "Ritual",
-    "title": "Cut. Light. Savor.",
-    "step1Title": "Cut",
-    "step1Body": "A sharp, clean cut, 2 mm above the cap.",
-    "step2Title": "Light",
-    "step2Body": "Cedar match or scentless butane flame.",
-    "step3Title": "Savor",
-    "step3Body": "One draw per minute. Don't rush, the ember hates hurry."
   },
 
   "locations": {

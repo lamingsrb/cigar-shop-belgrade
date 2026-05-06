@@ -1,75 +1,128 @@
 {
-  "_comment": "Oprema (accessories) \u2014 placeholder podaci dok klijent ne po\u0161alje pravi Excel sa proizvodima/slikama. Slike su placeholder iz galerije.",
+  "_comment": "Oprema (accessories) — kategorije + items + showcase image pool. Po Aninom feedback-u 02-05-2026: ~10 fotki per grupa. Mix vitrine (alati rituala 1-3) + humidor product shots (kuriran set humidor-01..06) + postojeća galerija.",
   "categories": [
     {
       "key": "cutters",
-      "namesr": "Seka\u010di",
+      "namesr": "Sekači",
       "nameen": "Cutters",
-      "storysr": "Giljotina, punch, V-cut. Prvi dodir cigare, presudan \u2014 \u010dist rez \u010duva aromu i vu\u010de dim ravnomerno.",
-      "storyen": "Guillotine, punch, V-cut. The first contact with the cigar, decisive \u2014 a clean cut preserves aroma and draws smoke evenly.",
+      "storysr": "Giljotina, punch, V-cut. Prvi dodir cigare, presudan — čist rez čuva aromu i vuče dim ravnomerno.",
+      "storyen": "Guillotine, punch, V-cut. The first contact with the cigar, decisive — a clean cut preserves aroma and draws smoke evenly.",
       "items": [
-        { "name": "Xikar Xi1 Guillotine",       "sub": "Dvostruko se\u010divo, 440 \u010celik" },
+        { "name": "Xikar Xi1 Guillotine",       "sub": "Dvostruko sečivo, 440 čelik" },
         { "name": "S.T. Dupont MaxiJet Cutter", "sub": "Francuska preciznost, 60 ring" },
-        { "name": "Les Fines Lames LE PETIT",   "sub": "Bu\u0161eni nerd-za\u0161titni mehanizam" },
+        { "name": "Les Fines Lames LE PETIT",   "sub": "Bušeni nerd-zaštitni mehanizam" },
         { "name": "Colibri V-Cut",              "sub": "60 ring, dijamantski uglovi" }
       ],
-      "images": ["/assets/gallery/img-015.webp", "/assets/gallery/img-022.webp", "/assets/gallery/img-028.webp"]
+      "images": [
+        "/assets/gear/vitrine-01.webp",
+        "/assets/gear/vitrine-02.webp",
+        "/assets/gear/vitrine-03.webp",
+        "/assets/humidor/humidor-01.webp",
+        "/assets/humidor/humidor-04.webp",
+        "/assets/humidor/humidor-05.webp",
+        "/assets/gallery/img-015.webp",
+        "/assets/gallery/img-022.webp",
+        "/assets/gallery/img-028.webp",
+        "/assets/gallery/img-049.webp"
+      ]
     },
     {
       "key": "lighters",
-      "namesr": "Upalja\u010di",
+      "namesr": "Upaljači",
       "nameen": "Lighters",
-      "storysr": "Trostruki butan za brzo paljenje, cedrove \u0161ibice za ritual. Bez mirisa, bez benzina \u2014 va\u0161 duvan zaslu\u017euje \u010distu toplotu.",
-      "storyen": "Triple butane for a quick light, cedar matches for the ritual. No scent, no petrol \u2014 your tobacco deserves a clean heat.",
+      "storysr": "Trostruki butan za brzo paljenje, cedrove šibice za ritual. Bez mirisa, bez benzina — vaš duvan zaslužuje čistu toplotu.",
+      "storyen": "Triple butane for a quick light, cedar matches for the ritual. No scent, no petrol — your tobacco deserves a clean heat.",
       "items": [
         { "name": "Xikar Stratosphere II",       "sub": "Jet flame, high-altitude ready" },
         { "name": "S.T. Dupont Ligne 2",         "sub": "Meka flama, francuski klasik" },
         { "name": "Colibri Quasar Triple",        "sub": "Tri jet dimljive reda" },
-        { "name": "Cedrove \u0161ibice (Fuente)", "sub": "Tradicionalno, bez hemije" }
+        { "name": "Cedrove šibice (Fuente)",     "sub": "Tradicionalno, bez hemije" }
       ],
-      "images": ["/assets/gallery/img-036.webp", "/assets/gallery/img-048.webp", "/assets/gallery/img-049.webp"]
+      "images": [
+        "/assets/gear/vitrine-01.webp",
+        "/assets/gear/vitrine-02.webp",
+        "/assets/gear/vitrine-03.webp",
+        "/assets/humidor/humidor-01.webp",
+        "/assets/humidor/humidor-02.webp",
+        "/assets/humidor/humidor-05.webp",
+        "/assets/gallery/img-036.webp",
+        "/assets/gallery/img-048.webp",
+        "/assets/gallery/img-049.webp",
+        "/assets/gallery/img-053.webp"
+      ]
     },
     {
       "key": "humidors",
       "namesr": "Humidori",
       "nameen": "Humidors",
-      "storysr": "\u0160panski kedar, digitalni higrometar, Boveda 69/72 paketi. Dom za cigaru koja \u010deka dim.",
+      "storysr": "Španski kedar, digitalni higrometar, Boveda 69/72 paketi. Dom za cigaru koja čeka dim.",
       "storyen": "Spanish cedar, digital hygrometer, Boveda 69/72 packs. A home for the cigar that waits for smoke.",
       "items": [
-        { "name": "Adorini Carrara M Deluxe",    "sub": "25 cigara, \u0161panski kedar" },
+        { "name": "Adorini Carrara M Deluxe",    "sub": "25 cigara, španski kedar" },
         { "name": "Daniel Marshall 125-count",   "sub": "Burl walnut, Humido-Tech" },
         { "name": "Travel Adorini Cedro",        "sub": "Aluminijum + kedar, 5 cigara" },
-        { "name": "Boveda 69% 60g 12-pack",      "sub": "Dvosmerna vla\u017enost, bez kalibracije" }
+        { "name": "Boveda 69% 60g 12-pack",      "sub": "Dvosmerna vlažnost, bez kalibracije" }
       ],
-      "images": ["/assets/gallery/img-053.webp", "/assets/gallery/img-057.webp", "/assets/gallery/img-060.webp"]
+      "images": [
+        "/assets/humidor/humidor-01.webp",
+        "/assets/humidor/humidor-02.webp",
+        "/assets/humidor/humidor-03.webp",
+        "/assets/humidor/humidor-04.webp",
+        "/assets/humidor/humidor-05.webp",
+        "/assets/humidor/humidor-06.webp",
+        "/assets/gear/vitrine-01.webp",
+        "/assets/gear/vitrine-02.webp"
+      ]
     },
     {
       "key": "ashtrays",
       "namesr": "Pepeljare",
       "nameen": "Ashtrays",
-      "storysr": "Mermer, kristal, bronza. Mesto gde se cigara odmara izme\u0111u dva dima \u2014 teg, te\u017eina, tihi \u0161arm.",
-      "storyen": "Marble, crystal, bronze. Where the cigar rests between draws \u2014 weight, heft, quiet charm.",
+      "storysr": "Mermer, kristal, bronza. Mesto gde se cigara odmara između dva dima — teg, težina, tihi šarm.",
+      "storyen": "Marble, crystal, bronze. Where the cigar rests between draws — weight, heft, quiet charm.",
       "items": [
         { "name": "Arturo Fuente Marble Large",  "sub": "Karara mermer, 4 slota" },
         { "name": "Xikar Alpine Crystal",         "sub": "Kristal, 2 slota, mat baza" },
         { "name": "Les Fines Lames Le Monde",     "sub": "Bronza, dizajnerski potpis" },
         { "name": "Cohiba Porcelain",             "sub": "Porcelanski klasik, 4 slota" }
       ],
-      "images": ["/assets/gallery/img-002.webp", "/assets/gallery/img-016.webp"]
+      "images": [
+        "/assets/humidor/humidor-04.webp",
+        "/assets/humidor/humidor-05.webp",
+        "/assets/humidor/humidor-06.webp",
+        "/assets/gear/vitrine-01.webp",
+        "/assets/gear/vitrine-02.webp",
+        "/assets/gear/vitrine-03.webp",
+        "/assets/gallery/img-002.webp",
+        "/assets/gallery/img-016.webp",
+        "/assets/gallery/img-053.webp",
+        "/assets/gallery/img-021.webp"
+      ]
     },
     {
       "key": "cases",
       "namesr": "Futrole",
       "nameen": "Travel Cases",
-      "storysr": "Ko\u017ea, aluminijum, karbon. Za 3 ili 5 cigara, vla\u017enost stabilna tokom puta, miris nedirnut.",
+      "storysr": "Koža, aluminijum, karbon. Za 3 ili 5 cigara, vlažnost stabilna tokom puta, miris nedirnut.",
       "storyen": "Leather, aluminum, carbon. For 3 or 5 cigars, humidity stable on the road, aroma intact.",
       "items": [
         { "name": "Xikar Travel Humidor 5ct",    "sub": "Aluminijum, Boveda slot" },
-        { "name": "Davidoff Leather 3-Finger",    "sub": "Kalf ko\u017ea, Cinzel tag" },
+        { "name": "Davidoff Leather 3-Finger",    "sub": "Kalf koža, Cinzel tag" },
         { "name": "Cohiba Red Dot Case",          "sub": "Kompozit + crvena iglica" },
         { "name": "Xikar HumiX 10ct",             "sub": "Carbon, putni humidor" }
       ],
-      "images": ["/assets/gallery/img-021.webp", "/assets/gallery/img-037.webp"]
+      "images": [
+        "/assets/gear/vitrine-01.webp",
+        "/assets/gear/vitrine-02.webp",
+        "/assets/gear/vitrine-03.webp",
+        "/assets/humidor/humidor-03.webp",
+        "/assets/humidor/humidor-05.webp",
+        "/assets/humidor/humidor-06.webp",
+        "/assets/gallery/img-021.webp",
+        "/assets/gallery/img-037.webp",
+        "/assets/gallery/img-049.webp",
+        "/assets/gallery/img-053.webp"
+      ]
     }
   ]
 }

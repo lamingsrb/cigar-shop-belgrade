@@ -68,25 +68,34 @@ function renderShowcase(itemName) {
   const showcase = document.getElementById('gear-showcase');
   if (!showcase) return;
 
+  const cat = currentCat();
+  const pool = cat?.images || [];
+
+  // Bez aktivne kartice → prikaži CEO pool kategorije (10 fotki po Aninom briefu).
   if (!itemName) {
-    if (defaultShowcaseHTML != null) {
-      showcase.innerHTML = defaultShowcaseHTML;
-      showcase.dataset.default = 'true';
-      showcase.removeAttribute('data-item');
+    if (!pool.length) {
+      if (defaultShowcaseHTML != null) {
+        showcase.innerHTML = defaultShowcaseHTML;
+        showcase.dataset.default = 'true';
+        showcase.removeAttribute('data-item');
+      }
+      return;
     }
+    showcase.innerHTML = pool.map(src => `
+      <figure data-lb-type="image" data-lb-src="${src}" data-lb-caption="${catLabel(cat)}">
+        <img loading="lazy" decoding="async" src="${src}" alt="${catLabel(cat)}">
+        <figcaption>${catLabel(cat)}</figcaption>
+      </figure>
+    `).join('');
+    showcase.dataset.default = 'true';
+    showcase.removeAttribute('data-item');
     return;
   }
 
-  const cat = currentCat();
-  const pool = cat?.images || [];
   if (!pool.length) return;
 
-  const slots = 4;
-  const picks = [];
-  for (let i = 0; i < slots; i++) picks.push(pool[i % pool.length]);
-
-  showcase.innerHTML = picks.map(src => `
-    <figure>
+  showcase.innerHTML = pool.map(src => `
+    <figure data-lb-type="image" data-lb-src="${src}" data-lb-caption="${itemName}">
       <img loading="lazy" decoding="async" src="${src}" alt="${itemName}">
       <figcaption>${itemName}</figcaption>
     </figure>
@@ -124,6 +133,8 @@ export async function initGear() {
   await loadData();
   renderTabs(tabsHost);
   renderGrid(gridHost);
+  // Inicijalno prikaži ceo pool prve kategorije (10 fotki) kako je Ana tražila.
+  renderShowcase(null);
 
   tabsHost.addEventListener('click', (e) => {
     const btn = e.target.closest('.brands__tab');
