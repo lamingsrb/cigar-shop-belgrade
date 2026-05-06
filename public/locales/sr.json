@@ -60,10 +60,10 @@
     "lead": "Plantaža, fabrika, naše cigare, destilerija i konačni ritual — kadrovi koji prate svaku godinu strpljenja."
   },
 
-  "humidorPhotos": {
-    "kicker": "Iz humidora",
-    "title": "Pogled u humidor.",
-    "lead": "Ručno biran asortiman: humidori, sklopive pepeljare, sečivo i upaljač spremni za prvi dim."
+  "humidorCigars": {
+    "kicker": "Po regiji",
+    "title": "Kuba i Novi svet.",
+    "lead": "Naša polica nosi dve velike priče. Klikni na regiju i pogledaj odabrane cigare i postavku."
   },
 
   "process": {

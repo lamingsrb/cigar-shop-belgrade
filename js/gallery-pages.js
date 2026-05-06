@@ -40,6 +40,7 @@ export function initGalleryPages(host, options = {}) {
   }
   host.innerHTML = pagesHTML.join('');
   host.classList.add('gallery-pages');
+  host.dataset.itemsPerPage = String(itemsPerPage);
 
   // Dots — append do parent wrap-a (.gallery-pages-wrap)
   const wrap = host.parentElement || host;

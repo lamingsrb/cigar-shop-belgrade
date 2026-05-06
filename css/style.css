@@ -2563,6 +2563,51 @@ section {
 }
 
 /* =======================================================
+   CIGAR TABS — Kuba | Novi svet u Humidor sekciji
+   ======================================================= */
+.cigar-tabs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 auto clamp(1rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
+  max-width: 980px;
+  padding: 0 1rem;
+}
+.cigar-tab {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  border: 1px solid var(--line);
+  background: rgba(10, 6, 5, 0.6);
+  color: var(--ink-70);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+.cigar-tab:hover {
+  border-color: var(--gold-leaf);
+  color: var(--vellum);
+}
+.cigar-tab.is-active {
+  border-color: var(--gold-leaf);
+  background: rgba(201, 169, 97, 0.08);
+  color: var(--gold-leaf);
+}
+.cigar-tab__count {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-leaf);
+  opacity: 0.7;
+}
+.cigar-tab.is-active .cigar-tab__count { opacity: 1; }
+
+/* =======================================================
    GALLERY-PAGES — Instagram-stil paged slideshow (Godine tisine + Pogled u humidor).
    Svaka "page" prikazuje 6 slika u 3-col gridu. Crossfade izmedju pagea,
    auto-advance ~5.5s (samo ako vise od 1 page), klik na dot za skok.
@@ -2570,15 +2615,23 @@ section {
 .gallery-pages-wrap {
   position: relative;
   width: 100%;
-  max-width: var(--max-w);
+  max-width: 980px;
   margin: 0 auto;
-  padding: 0 1.5rem 3rem;
+  padding: 0 1rem 2.5rem;
 }
 .gallery-pages {
   position: relative;
   width: 100%;
-  /* Visina rezervisana za 2 reda 4:3 thumb-ova, da pages mogu apsolutno preklopiti */
-  min-height: clamp(360px, 42vw, 600px);
+  /* Default visina za 6 fotki / 3-col x 2-row 16:10 thumb-ovi */
+  min-height: clamp(260px, 30vw, 420px);
+}
+/* 5 stavki → jedan red x 5 kolona (kompaktan Instagram-row look) */
+.gallery-pages[data-items-per-page="5"] {
+  min-height: clamp(110px, 14vw, 200px);
+}
+.gallery-pages[data-items-per-page="5"] .gallery-page {
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
 }
 .gallery-page {
   position: absolute;
@@ -2586,7 +2639,7 @@ section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 1fr;
-  gap: 1rem;
+  gap: 0.75rem;
   opacity: 0;
   transition: opacity 0.7s var(--ease-out-quart);
   pointer-events: none;
@@ -2603,7 +2656,7 @@ section {
   cursor: zoom-in;
   background: rgba(10, 6, 5, 0.4);
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
 }
 .gallery-page__item:hover {
   border-color: var(--gold-leaf);
@@ -2916,18 +2969,19 @@ body.lightbox-open { overflow: hidden; }
 }
 .blog__rail::-webkit-scrollbar { display: none; }
 .blog__rail .blog-card {
-  flex: 0 0 calc((100% - 5 * 1rem) / 6);
-  min-width: 200px;
+  /* Max 4 vidljive kartice (Anin feedback): width = (100% - 3 gap) / 4 */
+  flex: 0 0 calc((100% - 3 * 1rem) / 4);
+  min-width: 220px;
   scroll-snap-align: start;
-}
-@media (max-width: 1280px) {
-  .blog__rail .blog-card { flex: 0 0 calc((100% - 3 * 1rem) / 4); }
 }
 @media (max-width: 920px) {
   .blog__rail .blog-card { flex: 0 0 calc((100% - 2 * 1rem) / 3); }
 }
-@media (max-width: 640px) {
-  .blog__rail .blog-card { flex: 0 0 78%; min-width: 240px; }
+@media (max-width: 720px) {
+  .blog__rail .blog-card { flex: 0 0 calc((100% - 1rem) / 2); }
+}
+@media (max-width: 520px) {
+  .blog__rail .blog-card { flex: 0 0 78%; min-width: 220px; }
 }
 .blog__nav {
   position: absolute;
