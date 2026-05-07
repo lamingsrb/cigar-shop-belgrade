@@ -2624,8 +2624,9 @@ section {
 .tab-showcase__tab.is-active .tab-showcase__tab-count { opacity: 1; }
 
 .tab-showcase__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centriraj i pun red i orphan red */
   gap: 0.75rem;
   opacity: 0;
   transform: translateY(8px);
@@ -2637,6 +2638,7 @@ section {
 }
 .tab-showcase__item {
   position: relative;
+  flex: 0 0 180px;        /* fiksna sirina kartice da centriranje radi cisto */
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -2674,8 +2676,12 @@ section {
   pointer-events: none;
 }
 @media (max-width: 720px) {
-  .tab-showcase__grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.5rem; }
+  .tab-showcase__grid { gap: 0.5rem; }
+  .tab-showcase__item { flex: 0 0 150px; }
   .tab-showcase__item-name { font-size: 0.62rem; padding: 0.4rem 0.55rem; }
+}
+@media (max-width: 420px) {
+  .tab-showcase__item { flex: 0 0 calc((100% - 0.5rem) / 2); }
 }
 
 /* =======================================================
