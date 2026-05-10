@@ -54,14 +54,22 @@ const probeInfo = await new Promise((resolve) => {
 });
 console.log(`[input] duration=${probeInfo.dur}s, resolution=${probeInfo.w}x${probeInfo.h}`);
 
-// 3) Encode optimized MP4 sa palindromom (forward + reverse).
-// Korak 3a: jednom prođe pipeline (scale+crop+grade+30fps) → forward.mp4.
-// Korak 3b: reverse-uj forward → reversed.mp4 (`reverse` filter mora da
-//   učita ceo stream u memoriju, pa za 5s @ 30fps je sasvim ok).
-// Korak 3c: concat forward + reversed → final hero-slide3.mp4.
-// Boundary trick: reversed.mp4 počinje sa duplim frame-om (kraj forward-a),
-// pa trim=start_frame=1 + setpts=PTS-STARTPTS preskaču taj duplikat.
-const vf = [
+// 3) Encode optimized MP4 sa palindromom (forward + reverse) u JEDNOM
+// ffmpeg pozivu — sve filtre kroz filter_complex graph. Single-pass
+// izbegava artefakte od triput-encode-ovanog h264 streama (prvi pokušaj
+// sa 3 odvojena encode-a je rezultovao corrupted video-em sa
+// "cabac decode of qscale diff failed" greškama na svakom frame-u
+// posle prvog).
+//
+// Filter graph:
+//   1. apply scale/crop/grade/fps na input → [base]
+//   2. split [base] na dve grane: [main] (forward) i [copy]
+//   3. reverse + trim=start_frame=1 (skip dupli boundary frame) → [rev]
+//   4. concat [main][rev] = forward + reversed = palindrome
+//
+// `reverse` filter mora ceo stream u memoriju (~324 MB za 5s @ 30fps
+// @ 1600x900 yuv420p) — ok za kratki klip ovog tipa.
+const baseGrade = [
   'scale=1600:900:force_original_aspect_ratio=increase',
   'crop=1600:900',
   'setsar=1:1',
@@ -70,59 +78,32 @@ const vf = [
   'colorbalance=rs=0.05:gs=-0.02:bs=-0.05',
 ].join(',');
 
-const TMP_DIR = join(ROOT, 'scripts', '.tmp-slide3');
-const FORWARD = join(TMP_DIR, 'forward.mp4');
-const REVERSED = join(TMP_DIR, 'reversed.mp4');
-const { mkdir, unlink } = await import('fs/promises');
-await mkdir(TMP_DIR, { recursive: true });
+const filterComplex = [
+  `[0:v]${baseGrade}[base]`,
+  `[base]split=2[main][copy]`,
+  `[copy]reverse,trim=start_frame=1,setpts=PTS-STARTPTS[rev]`,
+  `[main][rev]concat=n=2:v=1:a=0[out]`,
+].join(';');
 
-// 3a) Encode forward sa svim grading filtrima
 await run([
   '-y', '-i', SRC,
-  '-vf', vf,
-  '-an',
-  '-c:v', 'libx264', '-crf', '18', '-preset', 'medium',
-  '-pix_fmt', 'yuv420p',
-  FORWARD,
-], 'encode-forward');
-
-// 3b) Reverse forward (prva frame se kasnije trim-uje da ne dupli boundary)
-await run([
-  '-y', '-i', FORWARD,
-  '-vf', 'reverse',
-  '-an',
-  '-c:v', 'libx264', '-crf', '18', '-preset', 'medium',
-  '-pix_fmt', 'yuv420p',
-  REVERSED,
-], 'encode-reversed');
-
-// 3c) Concat forward + reversed (sa trim prvog frame-a reversed-a) → final
-await run([
-  '-y', '-i', FORWARD, '-i', REVERSED,
-  '-filter_complex',
-    '[1:v]trim=start_frame=1,setpts=PTS-STARTPTS[r];' +
-    '[0:v][r]concat=n=2:v=1:a=0[out]',
+  '-filter_complex', filterComplex,
   '-map', '[out]',
   '-an',
   '-c:v', 'libx264', '-crf', '18', '-preset', 'medium',
   '-pix_fmt', 'yuv420p',
   '-movflags', '+faststart',
   OUT_MP4,
-], 'concat-palindrome');
+], 'encode-palindrome');
 
-// 4) Poster — uzimamo iz FORWARD međufajla (ne iz palindrome OUT_MP4 jer
-// concat-encoded stream ima nepravilan PTS na startu pa -ss seek ne radi).
+// 4) Poster — first clean frame at 1s (skip black intro if any)
 await run([
-  '-y', '-ss', '1.0', '-i', FORWARD,
+  '-y', '-ss', '1.0', '-i', OUT_MP4,
   '-frames:v', '1',
   '-vf', 'scale=1280:720',
   '-c:v', 'libwebp', '-quality', '80',
   OUT_POSTER,
 ], 'poster');
-
-// Cleanup tmp
-try { await unlink(FORWARD); } catch {}
-try { await unlink(REVERSED); } catch {}
 
 // 5) Report sizes
 const sizeMp4 = (await stat(OUT_MP4)).size;
