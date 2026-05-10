@@ -31,7 +31,7 @@
   <header class="header" role="banner">
     <div class="header__inner">
       <a href="#hero" class="brand" aria-label="Cigar Shop Belgrade">
-        <img class="brand__logo" src="/assets/brand/logo-monogram-gold-256.png" alt="Cigar Shop" width="42" height="auto">
+        <span class="brand__logo" role="img" aria-label="Cigar Shop monogram"></span>
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -184,22 +184,35 @@
           Svaki naš humidor je zakletva kupcu. 70% vlažnosti, 20°C konstantno,
           rashlađen španski kedar koji miriše kao što treba.
         </p>
-        <ul class="humidor__stats">
-          <li><strong>70%</strong><span data-i18n="humidor.stat1">Relativna vlažnost</span></li>
-          <li><strong>20°C</strong><span data-i18n="humidor.stat2">Stalna temperatura</span></li>
-          <li><strong>5</strong><span data-i18n="humidor.stat3">Humidora u Beogradu</span></li>
-        </ul>
       </div>
     </div>
-  
-    <!-- Po regiji — Kuba | Novi svet (isti gallery-pages template, 5 fotki po tabu) -->
-    <div class="humidor__photos">
-      <div class="origins__header">
-        <p class="kicker" data-i18n="humidorCigars.kicker">Po regiji</p>
-        <h3 class="heading-section" data-i18n="humidorCigars.title">Kuba i Novi svet.</h3>
-        <p class="lead" data-i18n="humidorCigars.lead">Naša polica nosi dve velike priče. Klikni na regiju i pogledaj odabrane cigare i postavku.</p>
-      </div>
-      <div id="humidor-cigars-tab-showcase"></div>
+
+    <!-- Kuba i Novi svet — dve klikabilne velike kartice (vode na detail page) -->
+    <div class="region-grid region-grid--2" id="humidor-region-grid">
+      <a class="region-card" href="/category.html#cuba">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async"
+               src="/assets/categories/cuba.webp"
+               alt="Kubanske cigare">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.cuba">Kuba</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij regiju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#world">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async"
+               src="/assets/gallery/img-008.webp"
+               alt="Cigare iz Novog sveta">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.world">Novi svet</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij regiju →</span>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -228,6 +241,11 @@
       </div>
       <div class="media-slideshow" id="spirits-media">
         <figure class="media-slideshow__slide is-active"
+                data-lb-type="image" data-lb-src="/assets/spirits/spirits-pour.webp"
+                data-lb-caption="Premium piće uz cigaru">
+          <img loading="lazy" decoding="async" src="/assets/spirits/spirits-pour.webp" alt="Piće sipanje pored cigara">
+        </figure>
+        <figure class="media-slideshow__slide"
                 data-lb-type="image" data-lb-src="/assets/spirits/vitrine-01.webp"
                 data-lb-caption="Vitrina sa pićima — pregled">
           <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-01.webp" alt="Vitrina sa pićima — pregled">
@@ -246,7 +264,69 @@
       </div>
     </div>
 
-    <div id="spirits-tab-showcase"></div>
+    <!-- Kategorije pića — klikabilne velike kartice (vode na detail page) -->
+    <div class="region-grid region-grid--3" id="spirits-region-grid">
+      <a class="region-card" href="/category.html#whisky">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/spirits/scotch.webp" alt="Viski">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.whisky">Viski</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#bourbon">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/spirits/bourbon.webp" alt="Burbon">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.bourbon">Burbon</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#gin">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-1-destilacija.webp" alt="Džin">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.gin">Džin</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#cognac">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/spirits/cognac.webp" alt="Konjak">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.cognac">Konjak</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#rum">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-3-odlezavanje.webp" alt="Rum">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.rum">Rum</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#rakija">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/spirits/rakija.webp" alt="Rakija">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.rakija">Rakija</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+    </div>
   </section>
 
   <!-- =======================  OPREMA (Accessories)  ======================= -->
@@ -271,6 +351,11 @@
       </div>
       <div class="media-slideshow" id="gear-media">
         <figure class="media-slideshow__slide is-active"
+                data-lb-type="image" data-lb-src="/assets/gear/gear-ritual.webp"
+                data-lb-caption="Ritual — viski, cigara, sekač, upaljač">
+          <img loading="lazy" decoding="async" src="/assets/gear/gear-ritual.webp" alt="Cigara sa sekačem i upaljačem pored čaše viskija">
+        </figure>
+        <figure class="media-slideshow__slide"
                 data-lb-type="image" data-lb-src="/assets/gear/vitrine-01.webp"
                 data-lb-caption="Asortiman — humidori i pribor">
           <img loading="lazy" decoding="async" src="/assets/gear/vitrine-01.webp" alt="Vitrina sa humidorima i priborom">
@@ -289,7 +374,59 @@
       </div>
     </div>
 
-    <div id="gear-tab-showcase"></div>
+    <!-- Kategorije opreme — klikabilne velike kartice (vode na detail page) -->
+    <div class="region-grid region-grid--3" id="gear-region-grid">
+      <a class="region-card" href="/category.html#cutters">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/gear/vitrine-01.webp" alt="Sekači">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.cutters">Sekači</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#lighters">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/gear/vitrine-02.webp" alt="Upaljači">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.lighters">Upaljači</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#humidors">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-06.webp" alt="Humidori">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.humidors">Humidori</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#ashtrays">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-04.webp" alt="Pepeljare">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.ashtrays">Pepeljare</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+      <a class="region-card" href="/category.html#cases">
+        <figure class="region-card__media">
+          <img loading="lazy" decoding="async" src="/assets/humidor/humidor-01.webp" alt="Futrole">
+        </figure>
+        <div class="region-card__overlay" aria-hidden="true"></div>
+        <div class="region-card__body">
+          <h3 class="region-card__title" data-i18n="regions.cases">Futrole</h3>
+          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+        </div>
+      </a>
+    </div>
   </section>
 
 
@@ -426,7 +563,7 @@
   <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div class="footer__brand">
-        <img class="footer__logo" src="/assets/brand/logo-monogram-gold-256.png" alt="Cigar Shop Belgrade" width="44" height="auto">
+        <span class="footer__logo" role="img" aria-label="Cigar Shop Belgrade monogram"></span>
         <div class="footer__brand-text">
           <span class="footer__brand-name">Cigar Shop</span>
           <span class="footer__tag" data-i18n="footer.tag">Umetnost strpljenja, 5 lokacija.</span>

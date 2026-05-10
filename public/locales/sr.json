@@ -90,6 +90,23 @@
     "stat3": "Humidora u Beogradu"
   },
 
+  "regions": {
+    "cta": "Otkrij više →",
+    "cuba": "Kuba",
+    "world": "Novi svet",
+    "whisky": "Viski",
+    "bourbon": "Burbon",
+    "gin": "Džin",
+    "cognac": "Konjak",
+    "rum": "Rum",
+    "rakija": "Rakija",
+    "cutters": "Sekači",
+    "lighters": "Upaljači",
+    "humidors": "Humidori",
+    "ashtrays": "Pepeljare",
+    "cases": "Futrole"
+  },
+
   "spirits": {
     "kicker": "Pića",
     "title": "Nastavi sa pićem.",

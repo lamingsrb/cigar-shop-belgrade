@@ -15,12 +15,9 @@ import { initLightbox } from './lightbox.js';
 import { initScrollBurn } from './scroll-burn.js';
 import { initContactSelector } from './contact-selector.js';
 import { initHeroRotator } from './hero-rotator.js';
-import { initSpirits } from './spirits.js';
-import { initGear } from './gear.js';
 import { initBlog } from './blog.js';
 import { initAllSectionStrips } from './section-strip.js';
 import { initAllMediaSlideshows } from './media-slideshow.js';
-import { initHumidorCigars } from './humidor-cigars.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,16 +167,15 @@ async function boot() {
   initScrollSpy();
   initScrollBurn();
 
-  // 5) Gallery + Spirits + Gear + Lightbox + Hero rotator + section strips/slideshows
+  // 5) Gallery + Lightbox + Hero rotator + section strips/slideshows + Blog
+  // (Spirits/Gear/Humidor tab-showcases zamenjeni su klikabilnim region-card grid-om
+  //  koji ne treba JS init — vidi /category.html za detail strane.)
   initGallery();
   initLightbox();
-  initSpirits();
-  initGear();
   initBlog();
   initHeroRotator();
   initAllSectionStrips();
   initAllMediaSlideshows();
-  initHumidorCigars();
 
   // 6) Defer non-critical (audio + ambient particles) — lazy import, perf.
   //    Particles trose CPU non-stop; audio nije bitan dok korisnik ne interaguje.

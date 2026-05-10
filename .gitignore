@@ -27,3 +27,13 @@ Feedback_loop/*/Media/*.mp4
 Feedback_loop/*/Media/*.zip
 Feedback_loop/*/Media/Kubanske_cigare_unzipped/
 .git-commit-msg.tmp
+
+# Hosting / domain credentials + handover docs — NEVER commit (PDF reference credentials)
+Hosting_Setup/
+
+# Recolor backups (keeping original safe locally)
+public/assets/brand/*.original.png
+
+# Raw feedback media — only docs (FEEDBACK-*.md, TASKS.md) idu u git
+Feedback_loop/*/Media/
+Thumbs.db

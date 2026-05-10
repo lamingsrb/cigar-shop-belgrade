@@ -90,6 +90,23 @@
     "stat3": "Humidors in Belgrade"
   },
 
+  "regions": {
+    "cta": "Discover more →",
+    "cuba": "Cuba",
+    "world": "New World",
+    "whisky": "Whisky",
+    "bourbon": "Bourbon",
+    "gin": "Gin",
+    "cognac": "Cognac",
+    "rum": "Rum",
+    "rakija": "Rakija",
+    "cutters": "Cutters",
+    "lighters": "Lighters",
+    "humidors": "Humidors",
+    "ashtrays": "Ashtrays",
+    "cases": "Travel cases"
+  },
+
   "spirits": {
     "kicker": "Spirits",
     "title": "Liquid companions of smoke.",

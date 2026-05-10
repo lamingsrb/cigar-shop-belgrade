@@ -32,7 +32,20 @@
       "Bash(git commit -m ' *)",
       "Bash(node -e ' *)",
       "Bash(node /c/AI/AI_Assistant/AI_Assistant_Projects/CigarShop/scripts/build-slide2-video.mjs)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\W11\\\\.claude\\\\projects\" -Directory | Where-Object { $_.Name -match 'cigar' } | Select-Object Name, FullName)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\W11\\\\.claude\\\\projects\" -Directory | Where-Object { $_.Name -match 'igar' -or $_.Name -match 'CigarShop' -or $_.Name -match 'cigarshop' } | Select-Object Name; Write-Output \"---ALL---\"; Get-ChildItem \"C:\\\\Users\\\\W11\\\\.claude\\\\projects\" -Directory | Select-Object -ExpandProperty Name)",
+      "PowerShell($items = Get-ChildItem \"C:\\\\Users\\\\W11\\\\.claude\" -Force -ErrorAction SilentlyContinue; \"Count: $\\($items.Count\\)\"; $items | ForEach-Object { $_.Name })",
+      "Bash(gh issue *)",
+      "PowerShell(\"=== AI_Assistant root ===\")",
+      "PowerShell(\"=== GENERAL MODUL INSTRUCTIONS contents ===\")",
+      "PowerShell(\"=== IT_Projects root ===\"; Get-ChildItem \"z:\\\\IT_Projects\" -Directory -Force -ErrorAction SilentlyContinue | Select-Object Name | Format-Table -AutoSize; \"=== Search for solution/resenje/fix/troubleshoot folders under IT_Projects ===\"; Get-ChildItem \"z:\\\\IT_Projects\" -Directory -Recurse -Depth 3 -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '\\(?i\\)solution|resenj|reseni|fix|troubleshoot|workaround|knowledge|wiki|notes|docs' } | Select-Object FullName | Format-Table -AutoSize)",
+      "PowerShell(\"=== Shared_Resources ===\")",
+      "PowerShell(\"=== Projects_Backup ===\")",
+      "PowerShell(\"=== RustDesk_Setup ===\")",
+      "PowerShell(\"=== Server_Remote_Admin ===\")",
+      "PowerShell(\"=== Winflector client ===\")",
+      "PowerShell(\"=== Sadrzaj Z:\\\\IT_Projects\\\\VS Radni prostor ===\")"
     ]
   }
 }

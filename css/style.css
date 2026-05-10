@@ -206,23 +206,31 @@ section {
   color: var(--vellum);
 }
 
+/* Brand monogram — CSS mask + isti vertikalni gradient kao "CIGAR SHOP"
+   hero wordmark (krem → gold → bronze odozgo nadole). */
 .brand__logo {
-  height: 58px;
-  width: auto;
   display: block;
+  height: 58px;
+  width: 30px; /* monogram je uži od kvadrata; vidi PNG aspect ratio */
+  background: linear-gradient(180deg, #fbeecd 0%, #e4c88a 55%, #b8935a 100%);
+  -webkit-mask: url(/assets/brand/logo-monogram-gold-256.png) center/contain no-repeat;
+          mask: url(/assets/brand/logo-monogram-gold-256.png) center/contain no-repeat;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
   transition: transform 0.4s var(--ease-out-expo);
 }
 .brand:hover .brand__logo { transform: scale(1.05); }
 @media (max-width: 768px) {
-  .brand__logo { height: 44px; }
+  .brand__logo { height: 44px; width: 24px; }
 }
 
 .footer__logo {
-  width: 160px;
-  height: auto;
   display: block;
+  width: 44px;
+  height: 80px;
   margin-bottom: 0.5rem;
+  background-color: var(--champagne);
+  -webkit-mask: url(/assets/brand/logo-monogram-gold-256.png) center/contain no-repeat;
+          mask: url(/assets/brand/logo-monogram-gold-256.png) center/contain no-repeat;
   opacity: 0.92;
 }
 
@@ -2202,8 +2210,12 @@ section {
   gap: 0.9rem;
 }
 .footer__logo {
+  display: block;
+  width: 24px;
   height: 44px;
-  width: auto;
+  background: linear-gradient(180deg, #fbeecd 0%, #e4c88a 55%, #b8935a 100%);
+  -webkit-mask: url(/assets/brand/logo-monogram-gold-256.png) center/contain no-repeat;
+          mask: url(/assets/brand/logo-monogram-gold-256.png) center/contain no-repeat;
   filter: drop-shadow(0 4px 14px rgba(228, 200, 138, 0.25));
 }
 .footer__brand-text {
@@ -3301,6 +3313,106 @@ body.lightbox-open { overflow: hidden; }
 .blog-post__content em { color: var(--ink); font-style: italic; }
 
 /* =======================================================
+   CATEGORY DETAIL PAGE (category.html)
+   Hero image + body + bottom gallery — kombinuje blog stil sa media-rich layoutom.
+   ======================================================= */
+.category-page-body { background: #0a0604; }
+.category-page { padding-top: clamp(2rem, 4vw, 3rem); }
+.category-post {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 0;
+  padding-top: 0;
+}
+.category-post__hero {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  isolation: isolate;
+}
+@media (max-width: 720px) {
+  .category-post__hero { aspect-ratio: 4 / 3; }
+}
+.category-post__hero img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.category-post__hero-overlay {
+  position: absolute; inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg,
+      rgba(10, 6, 5, 0.20) 0%,
+      rgba(10, 6, 5, 0.45) 50%,
+      rgba(10, 6, 5, 0.85) 100%);
+}
+.category-post__hero-text {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+}
+.category-post__hero-text .kicker {
+  margin-bottom: 0.6rem;
+}
+.category-post__hero-text .heading-display {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: var(--champagne);
+  text-shadow: 0 4px 22px rgba(0, 0, 0, 0.7),
+               0 0 30px rgba(212, 175, 55, 0.25);
+}
+.category-post__body {
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.category-gallery {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+.category-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+}
+@media (max-width: 720px) {
+  .category-gallery__grid { grid-template-columns: repeat(2, 1fr); }
+}
+.category-gallery__item {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  cursor: zoom-in;
+  background: rgba(10, 6, 5, 0.4);
+  transition: border-color 0.4s var(--ease-out-expo),
+              transform 0.4s var(--ease-out-expo);
+}
+.category-gallery__item:hover {
+  border-color: var(--gold-leaf);
+  transform: translateY(-3px);
+}
+.category-gallery__item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s var(--ease-out-quart),
+              filter 0.4s;
+  filter: saturate(0.96) brightness(0.94);
+}
+.category-gallery__item:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.08) brightness(1.02);
+}
+
+/* =======================================================
    BRAND CHIPS + CAROUSEL (Humidor: Kuba / Novi svet)
    ======================================================= */
 .brand-chips {
@@ -3567,4 +3679,150 @@ body.lightbox-open { overflow: hidden; }
 }
 @media (max-width: 520px) {
   .process__showcase { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* =======================================================
+   REGION GRID — klikabilne velike kartice (Humidor: Kuba/Novi svet,
+   Spirits: Viski/Burbon/Džin/Konjak/Rum/Rakija, Gear: Sekači/Upaljači/...)
+   Vodi na /category.html#<key> detail stranicu (analogno blog post-u).
+   ======================================================= */
+.region-grid {
+  --gap: clamp(1rem, 2vw, 1.5rem);
+  max-width: var(--max-w);
+  margin: clamp(2rem, 5vw, 4rem) auto 0;
+  padding: 0 1.5rem;
+  /* Flex umesto grid → orphan red (npr. 5 kartica u 3-koloni → poslednja 2)
+     se prirodno centriraju zahvaljujući justify-content: center. */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+}
+.region-grid--2 > .region-card {
+  flex: 0 1 calc((100% - var(--gap)) / 2);
+  max-width: calc((100% - var(--gap)) / 2);
+}
+.region-grid--3 > .region-card {
+  flex: 0 1 calc((100% - 2 * var(--gap)) / 3);
+  max-width: calc((100% - 2 * var(--gap)) / 3);
+}
+@media (max-width: 900px) {
+  .region-grid--3 > .region-card {
+    flex: 0 1 calc((100% - var(--gap)) / 2);
+    max-width: calc((100% - var(--gap)) / 2);
+  }
+}
+@media (max-width: 560px) {
+  .region-grid--2 > .region-card,
+  .region-grid--3 > .region-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.region-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  background: rgba(10, 6, 5, 0.4);
+  cursor: pointer;
+  transition: border-color 0.4s var(--ease-out-expo),
+              transform 0.4s var(--ease-out-expo),
+              box-shadow 0.4s var(--ease-out-expo);
+  isolation: isolate;
+}
+.region-grid--2 .region-card {
+  aspect-ratio: 16 / 9;
+}
+.region-card:hover {
+  border-color: var(--gold-leaf);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(212, 175, 55, 0.25);
+}
+
+.region-card__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  z-index: 0;
+}
+.region-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.95) brightness(0.78);
+  transition: filter 0.6s var(--ease-out-quart),
+              transform 0.9s var(--ease-out-quart);
+}
+.region-card:hover .region-card__media img {
+  filter: saturate(1.1) brightness(0.95);
+  transform: scale(1.06);
+}
+
+.region-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg,
+    rgba(10, 6, 5, 0.30) 0%,
+    rgba(10, 6, 5, 0.55) 60%,
+    rgba(10, 6, 5, 0.85) 100%);
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out-expo);
+}
+.region-card:hover .region-card__overlay { opacity: 0.85; }
+
+.region-card__body {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  padding: 1.5rem;
+  pointer-events: none;
+}
+.region-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  letter-spacing: 0.08em;
+  color: var(--champagne);
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 4px 22px rgba(0, 0, 0, 0.7),
+               0 0 30px rgba(212, 175, 55, 0.25);
+  transform: translateY(0);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+.region-card:hover .region-card__title {
+  transform: translateY(-6px);
+}
+.region-card__cta {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-leaf);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s var(--ease-out-expo),
+              transform 0.4s var(--ease-out-expo);
+}
+.region-card:hover .region-card__cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 560px) {
+  .region-grid--2 .region-card,
+  .region-grid--3 .region-card {
+    aspect-ratio: 4 / 3;
+  }
+  .region-card__cta { opacity: 1; transform: translateY(0); }
 }

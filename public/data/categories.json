@@ -1,0 +1,252 @@
+{
+  "_comment": "Detail pages za sve klikabilne kategorije (Humidor: cuba/world; Spirits: whisky/bourbon/gin/cognac/rum/rakija; Gear: cutters/lighters/humidors/ashtrays/cases). Renderuje category.html#<key>. Tekst iz blog.json formata: srpski + engleski; markdown-light (** i *).",
+
+  "cuba": {
+    "section": "humidor",
+    "kicker": { "sr": "Po regiji", "en": "By region" },
+    "titlesr": "Kuba — kolevka cigare.",
+    "titleen": "Cuba — the cradle of the cigar.",
+    "image": "/assets/categories/cuba.webp",
+    "excerptsr": "Vuelta Abajo, Pinar del Río — 25.000 hektara crvene zemlje na kojoj raste duvan koji se smatra najboljim na planeti. Cohiba, Montecristo, Romeo y Julieta, Partagás, H. Upmann — imena koja su pisala istoriju.",
+    "excerpten": "Vuelta Abajo, Pinar del Río — 25,000 hectares of red soil where the world's finest tobacco is grown. Cohiba, Montecristo, Romeo y Julieta, Partagás, H. Upmann — names that wrote history.",
+    "bodysr": "Kubanska cigara nije samo proizvod — to je **142 brenda** koji nose pečat ostrva, dinastije *torcedora* koji se uče pet godina, i **španskog kedra** u humidorima koji čuvaju aromu generacijama.\n\nU našim policama Kuba je predstavljena u širini koju vrlo malo radnji u Beogradu može da ponudi:\n\n- **COHIBA** — 21 vitola; državna marka, *Behike 56* među najprestižnijim cigarama sveta\n- **MONTECRISTO** — 19 vitola; ime po Dimasovom romanu kojim su torcedori bili opčinjeni\n- **PARTAGAS** — 16 vitola; fabrika osnovana 1845, kolevka *lectores* (čitača)\n- **ROMEO Y JULIETA** — 11 vitola; Čerčilov omiljeni izbor, *Churchill* vitola formata 7×47\n- **H. UPMANN**, **HOYO DE MONTERREY**, **TRINIDAD**, **BOLIVAR**, **JOSE L. PIEDRA**, **RAMON ALLONES**, **VEGUEROS** — klasici koji se mogu naći samo u premium humidorima\n- **CUABA**, **EL REY DEL MUNDO**, **GUANTANAMERA**, **JUAN LOPEZ**, **PUNCH**, **RAFAEL GONZALES**, **POR LARRANAGA**, **QUAI D' ORSAY**, **QUINTERO**, **SAN CRISTOBAL** — manje poznati ali jednako autentični\n\nSvaka kubanska cigara prolazi kroz **47 koraka** — od berbe lista metodom *priming*, kroz fermentaciju u *pilones*, do ručnog motanja gde majstor *galera* mota 100-150 cigara dnevno.\n\nNa Kubi danas postoji **Tabacalera Cubana** — državni monopol koji blendove gradi iz tri Vuelta Abajo komponente: *Volado* (donji listovi, gori dobro), *Seco* (srednji, aromatski balans), *Ligero* (gornji, definiše snagu).\n\nUNESCO je 1999. dodelio status *Geografske oznake porekla* svim cigarama iz Vuelta Abajo regije. Tradicija *lectora* — čitača koji glasno čita romane radnicima dok motaju cigare — i danas je deo zaštićene baštine.",
+    "bodyen": "A Cuban cigar is not just a product — it's **142 brands** that carry the seal of the island, dynasties of *torcedores* trained for five years, and **Spanish cedar** in humidors that preserve the aroma for generations.\n\nOn our shelves, Cuba is represented in a depth that very few shops in Belgrade can match:\n\n- **COHIBA** — 21 vitolas; the state brand, *Behike 56* among the world's most prestigious cigars\n- **MONTECRISTO** — 19 vitolas; named after the Dumas novel that obsessed the rollers\n- **PARTAGAS** — 16 vitolas; factory founded in 1845, the cradle of the *lectores* (readers)\n- **ROMEO Y JULIETA** — 11 vitolas; Churchill's favourite, the *Churchill* vitola in 7×47 format\n- **H. UPMANN**, **HOYO DE MONTERREY**, **TRINIDAD**, **BOLIVAR**, **JOSE L. PIEDRA**, **RAMON ALLONES**, **VEGUEROS** — classics found only in premium humidors\n- **CUABA**, **EL REY DEL MUNDO**, **GUANTANAMERA**, **JUAN LOPEZ**, **PUNCH**, **RAFAEL GONZALES**, **POR LARRANAGA**, **QUAI D' ORSAY**, **QUINTERO**, **SAN CRISTOBAL** — less known but equally authentic\n\nEvery Cuban cigar passes through **47 steps** — from leaf harvesting by *priming*, through fermentation in *pilones*, to hand-rolling where a *galera* master rolls 100-150 cigars a day.\n\n**Tabacalera Cubana** — the state monopoly — builds blends from three Vuelta Abajo components: *Volado* (lower leaves, burns well), *Seco* (middle, aromatic balance), *Ligero* (upper, defines strength).\n\nIn 1999 UNESCO granted *Protected Geographical Indication* status to all cigars from the Vuelta Abajo region. The tradition of the *lector* — the reader who reads novels aloud to the rollers — remains part of UNESCO-protected heritage.",
+    "gallery": [
+      "/assets/categories/cuba.webp",
+      "/assets/humidor/humidor-01.webp",
+      "/assets/humidor/humidor-02.webp",
+      "/assets/humidor/humidor-03.webp",
+      "/assets/humidor/humidor-04.webp",
+      "/assets/humidor/humidor-06.webp",
+      "/assets/gallery/img-017.webp",
+      "/assets/gallery/img-018.webp",
+      "/assets/gallery/img-020.webp"
+    ]
+  },
+
+  "world": {
+    "section": "humidor",
+    "kicker": { "sr": "Po regiji", "en": "By region" },
+    "titlesr": "Novi svet — renesansa karipske cigare.",
+    "titleen": "The New World — the renaissance of the Caribbean cigar.",
+    "image": "/assets/gallery/img-008.webp",
+    "excerptsr": "Posle embarga 1962. kubanske dinastije *Padrón*, *Plasencia*, *Fuente*, *García*, *Toraño* prebegle su u Dominikansku Republiku, Honduras i Nikaragvu. Sa njima su otišli i seme, znanje, tradicija — i pokrenuli zlatno doba ne-kubanske cigare.",
+    "excerpten": "After the 1962 embargo, the Cuban dynasties *Padrón*, *Plasencia*, *Fuente*, *García*, *Toraño* fled to the Dominican Republic, Honduras and Nicaragua. With them went the seeds, the knowledge, the tradition — sparking the golden age of the non-Cuban cigar.",
+    "bodysr": "Novi svet je danas dom **400+ cigara iz 6 zemalja** koje stoje na našim policama:\n\n**DOMINIKANA — 155 vitola, 8 fabrika**\n- **DAVIDOFF** (55) — Cibao dolina, švajcarska preciznost spojena s karipskom dušom\n- **VILLIGER** (34), **DREW ESTATE** (19), **GURKHA** (16), **E. P. CARILLO** (13)\n- **ASHTON**, **BOSSNER**, **HIRAM & SOLOMON**\n\n**NIKARAGVA — 113 vitola, 9 brendova**\n- **J. C. NEWMAN** (36), **PLASENCIA** (20) — najveći proizvođači u zemlji\n- **DESPOT** (17), **JOYA DE NICARAGUA** (9), **MONTENEGRO** (9), **LAZAR** (8)\n- **HORACIO** (7), **LA ROSA DE SAN DIEGO** (4), **CORLEONE** (3)\n\n**HONDURAS — 17 vitola**\n- **MAYA SELVA** (10), **JULIO R. EIROA** (4), **LA FLOR DE COPAN** (3)\n\n**KOSTARIKA — 11 vitola**\n- **BRUN DEL RE** (7), **EL SEPTIMO** (4)\n\n**MEKSIKO — 12 vitola**\n- **CASA TURENT** (12) — San Andrés Tuxtla, jedinstvena meksička tradicija\n\n**ITALIJA — 27 vitola**\n- **TOSCANO** (17), **NOSTRANO** (10) — italijanski *cigarro toscano*, zanat star više od 200 godina\n\nU slepim degustacijama Padrón 1964 Anniversary, Arturo Fuente Opus X i Plasencia Alma Fuerte često nadvise kubanske rivale. Razlog: porodice koje motaju cigare 4-5 generacija, i činjenica da su prebegli sa **najboljim semenkama** sa Kube.\n\nIronija je da je upravo embargo, dizajniran da uguši kubansku ekonomiju, otvorio vrata renesansi karipske cigare van ostrva.",
+    "bodyen": "The New World today is home to **400+ cigars from 6 countries** that stand on our shelves:\n\n**DOMINICAN REPUBLIC — 155 vitolas, 8 factories**\n- **DAVIDOFF** (55) — the Cibao valley, Swiss precision married to Caribbean soul\n- **VILLIGER** (34), **DREW ESTATE** (19), **GURKHA** (16), **E. P. CARILLO** (13)\n- **ASHTON**, **BOSSNER**, **HIRAM & SOLOMON**\n\n**NICARAGUA — 113 vitolas, 9 brands**\n- **J. C. NEWMAN** (36), **PLASENCIA** (20) — the largest producers in the country\n- **DESPOT** (17), **JOYA DE NICARAGUA** (9), **MONTENEGRO** (9), **LAZAR** (8)\n- **HORACIO** (7), **LA ROSA DE SAN DIEGO** (4), **CORLEONE** (3)\n\n**HONDURAS — 17 vitolas**\n- **MAYA SELVA** (10), **JULIO R. EIROA** (4), **LA FLOR DE COPAN** (3)\n\n**COSTA RICA — 11 vitolas**\n- **BRUN DEL RE** (7), **EL SEPTIMO** (4)\n\n**MEXICO — 12 vitolas**\n- **CASA TURENT** (12) — San Andrés Tuxtla, a unique Mexican tradition\n\n**ITALY — 27 vitolas**\n- **TOSCANO** (17), **NOSTRANO** (10) — the Italian *cigarro toscano*, a craft over 200 years old\n\nIn blind tastings Padrón 1964 Anniversary, Arturo Fuente Opus X and Plasencia Alma Fuerte often outscore their Cuban rivals. The reason: families rolling cigars for 4-5 generations, and the fact that they fled with **the best seeds** from Cuba.\n\nThe irony is that the embargo, designed to choke Cuba's economy, opened the door to the renaissance of the Caribbean cigar off the island.",
+    "gallery": [
+      "/assets/gallery/img-008.webp",
+      "/assets/gallery/img-002.webp",
+      "/assets/gallery/img-016.webp",
+      "/assets/gallery/img-021.webp",
+      "/assets/gallery/img-029.webp",
+      "/assets/gallery/img-035.webp",
+      "/assets/gallery/img-040.webp",
+      "/assets/gallery/img-053.webp",
+      "/assets/gallery/img-062.webp"
+    ]
+  },
+
+  "whisky": {
+    "section": "spirits",
+    "kicker": { "sr": "Selekcija pića", "en": "Spirits selection" },
+    "titlesr": "Viski — geografija dima.",
+    "titleen": "Whisky — the geography of smoke.",
+    "image": "/assets/spirits/scotch.webp",
+    "excerptsr": "**101 viski iz 11 zemalja** — od škotskog Islay torfa, preko japanskog Yamazaki balansa, do tajvanskog Kavalan tropskog ubrzanja. Svaki regen ima ulogu uz cigaru.",
+    "excerpten": "**101 whiskies from 11 countries** — from Scottish Islay peat, through Japanese Yamazaki balance, to Taiwanese Kavalan tropical acceleration. Each region plays a role beside the cigar.",
+    "bodysr": "Viski je najraznovrsnija kategorija u našoj polici:\n\n- **ŠKOTSKI** (48) — Islay (Lagavulin, Laphroaig — torf!), Speyside (Macallan, Glenlivet — voće, šeri buria), Highland (Dalmore, Glenmorangie — lagano, cvetno), Lowland (Auchentoshan — meko, troputi distillation)\n- **JAPANSKI** (17) — Yamazaki, Hibiki, Hakushu — balans, mizunara hrast, japanska preciznost\n- **IRSKI** (9) — Jameson, Redbreast, Green Spot — troputi distillation, mekoća\n- **VELŠKI** (4) — Penderyn — jedini velški, peat-free, Madeira finiš\n- **KENTAKI** (4) — high-rye burboni iz Kentakija\n- **TAJVANSKI** (4) — Kavalan — tropska klima ubrzava odležavanje (3 godine = 12 u Škotskoj)\n- **KANADSKI** (3) — Crown Royal, Canadian Club — rye-based, blagi\n- **AUSTRALIJSKI** (3) — Sullivans Cove — tasmanijski single malt\n- **INDIJSKI** (3) — Amrut, Paul John — tropski malt\n- **IZRAELSKI** (3) — Milk & Honey — Tel Aviv distillery\n- **ITALIJANSKI** (3) — Puni — alpski single malt\n\nUz **kubansku** cigaru ide škotski Islay torfeni viski (Lagavulin 16, Laphroaig 10) — torf i kubanska aromatika se uzajamno pojačavaju.\n\nUz **dominikansku** cigaru ide japanski Hibiki ili Macallan šeri kaš — voće prati slatkast tobacco.\n\nUz **nikaragvansku full body** cigaru (Padrón Maduro) ide kentucky burbon ili Speyside šeri — visok ABV nosi snagu.",
+    "bodyen": "Whisky is the most diverse category on our shelf:\n\n- **SCOTCH** (48) — Islay (Lagavulin, Laphroaig — peat!), Speyside (Macallan, Glenlivet — fruit, sherry casks), Highland (Dalmore, Glenmorangie — light, floral), Lowland (Auchentoshan — soft, triple-distilled)\n- **JAPANESE** (17) — Yamazaki, Hibiki, Hakushu — balance, mizunara oak, Japanese precision\n- **IRISH** (9) — Jameson, Redbreast, Green Spot — triple-distilled, soft\n- **WELSH** (4) — Penderyn — the only Welsh, peat-free, Madeira finish\n- **KENTUCKY** (4) — high-rye bourbons from Kentucky\n- **TAIWANESE** (4) — Kavalan — tropical climate speeds maturation (3 years = 12 in Scotland)\n- **CANADIAN** (3) — Crown Royal, Canadian Club — rye-based, mild\n- **AUSTRALIAN** (3) — Sullivans Cove — Tasmanian single malt\n- **INDIAN** (3) — Amrut, Paul John — tropical malt\n- **ISRAELI** (3) — Milk & Honey — Tel Aviv distillery\n- **ITALIAN** (3) — Puni — Alpine single malt\n\nWith a **Cuban** cigar, Scottish Islay peated whisky (Lagavulin 16, Laphroaig 10) — peat and Cuban aromatics amplify each other.\n\nWith a **Dominican** cigar, a Japanese Hibiki or Macallan sherry cask — fruit follows sweet tobacco.\n\nWith a **Nicaraguan full-body** cigar (Padrón Maduro), a Kentucky bourbon or Speyside sherry — high ABV carries the strength.",
+    "gallery": [
+      "/assets/spirits/scotch.webp",
+      "/assets/spirits/japanese.webp",
+      "/assets/spirits/irish.webp",
+      "/assets/spirits/vitrine-01.webp",
+      "/assets/spirits/vitrine-02.webp",
+      "/assets/spirits/vitrine-03.webp"
+    ]
+  },
+
+  "bourbon": {
+    "section": "spirits",
+    "kicker": { "sr": "Selekcija pića", "en": "Spirits selection" },
+    "titlesr": "Burbon — duša Kentakija.",
+    "titleen": "Bourbon — the soul of Kentucky.",
+    "image": "/assets/spirits/bourbon.webp",
+    "excerptsr": "Američki klasik. Minimum **51% kukuruza**, novo nagorelo bele hrastovo bure, bez aditiva — zakonski definisan kao **„America's Native Spirit\"**. Naša polica nosi 12 burbona iz Kentakija.",
+    "excerpten": "An American classic. Minimum **51% corn**, new charred white-oak barrels, no additives — legally defined as **\"America's Native Spirit\".** Our shelf carries 12 bourbons from Kentucky.",
+    "bodysr": "Burbon je viski sa zakonski definisanim pravilima:\n\n- **51% minimum kukuruza** u mash bill-u\n- **Novo, naročito nagorelo bele hrastovo bure** (barrel se koristi samo jednom za burbon!)\n- **Maksimalna jačina destilacije 80% ABV**\n- **U bure ne više od 62.5% ABV**\n- **Bez aditiva** — boja i ukus dolaze isključivo od bureta\n\nNagorelo bure (*char level 4* = *alligator char*) razgrađuje šećere u drvetu i otpušta vanilu, karamelu, kokos, dim. Zato je burbon slađi i brže odležava od scotch whisky-ja.\n\nNaša Kentucky polica:\n- High-rye burboni — više začina, suvlji finiš\n- Wheated burboni — više pšenice, mekši i slađi (Maker's Mark stil)\n- Single barrel — jedan jedini barrel, jedinstveni profil\n- Cask strength — bez razbljenja, do 65% ABV\n\nUz cigaru: burbon dobro prati nikaragvanske *full body* cigare (Padrón, Joya de Nicaragua) — visok ABV nosi snagu duvana. Single barrel vintage burbon ide uz limitirane kubanske *Edición Limitada* serije — dva fabrička vrhunca.",
+    "bodyen": "Bourbon is whisky with legally defined rules:\n\n- **51% minimum corn** in the mash bill\n- **New, specifically charred white oak barrel** (barrel is used only once for bourbon!)\n- **Maximum distillation strength 80% ABV**\n- **Into the barrel no more than 62.5% ABV**\n- **No additives** — colour and taste come exclusively from the barrel\n\nThe charred barrel (*char level 4* = *alligator char*) breaks down sugars in the wood, releasing vanilla, caramel, coconut, smoke. That's why bourbon is sweeter and matures faster than Scotch whisky.\n\nOur Kentucky shelf:\n- High-rye bourbons — more spice, drier finish\n- Wheated bourbons — more wheat, softer and sweeter (Maker's Mark style)\n- Single barrel — one barrel only, unique profile\n- Cask strength — no dilution, up to 65% ABV\n\nWith a cigar: bourbon pairs well with Nicaraguan *full body* cigars (Padrón, Joya de Nicaragua) — high ABV carries the strength of the tobacco. Single barrel vintage bourbon goes with limited Cuban *Edición Limitada* series — two factory peaks.",
+    "gallery": [
+      "/assets/spirits/bourbon.webp",
+      "/assets/spirits/spirits-process-3-odlezavanje.webp",
+      "/assets/spirits/spirits-process-4-selekcija.webp",
+      "/assets/spirits/vitrine-01.webp",
+      "/assets/spirits/vitrine-02.webp"
+    ]
+  },
+
+  "gin": {
+    "section": "spirits",
+    "kicker": { "sr": "Selekcija pića", "en": "Spirits selection" },
+    "titlesr": "Džin — botanička arhitektura.",
+    "titleen": "Gin — a botanical architecture.",
+    "image": "/assets/spirits/spirits-process-1-destilacija.webp",
+    "excerptsr": "**22 džina iz 6 zemalja** — od engleske London Dry tradicije, preko škotskog Hendrick's eksperimenta, do nemačke i japanske botaničke preciznosti. **Juniper** je obavezan, sve ostalo je umetnost.",
+    "excerpten": "**22 gins from 6 countries** — from English London Dry tradition, through Scottish Hendrick's experimentation, to German and Japanese botanical precision. **Juniper** is mandatory, everything else is art.",
+    "bodysr": "Džin počinje neutralnim alkoholom (najčešće od žita) koji se redestilira sa botanikalima. Jedino zakonsko pravilo: **juniperus (kleka) mora biti dominantna aroma**. Sve ostalo je sloboda.\n\nNaša polica:\n- **ŠKOTSKI** (5) — Hendrick's (krastavac, ruža), The Botanist Islay (22 lokalna botanikala)\n- **ENGLESKI** (4) — London Dry tradicija — Beefeater, Tanqueray, Plymouth\n- **FRANCUSKI** (4) — Citadelle (19 botanikala, šarantska tradicija)\n- **NEMAČKI** (3) — Monkey 47 (47 botanikala iz Schwarzwalda)\n- **JAPANSKI** (3) — Roku (yuzu, sakura, sansho biber)\n- **SRPSKI** (3) — domaći craft džinovi sa lokalnim botanikalima\n\nKategorije po tradiciji:\n- **London Dry** — najstroza, samo botanikali tokom destilacije, suvi finiš\n- **Plymouth Gin** — geografska oznaka, samo iz grada Plymouth\n- **Old Tom** — slađi, viktorijanski stil, savršen za Martinez koktel\n- **Genever** — holandski preteča, malt bazna, slađa\n- **New Western Dry** — moderni stil, juniper se povlači, ostali botanikali u prvi plan\n\nUz cigaru: džin retko ide direktno uz duvan (preosvezavajući), ali Negroni (džin + Campari + sweet vermouth) odlično prati prepuštenu cigaru posle obroka.",
+    "bodyen": "Gin starts with neutral alcohol (usually from grain) that is redistilled with botanicals. The only legal rule: **juniper must be the dominant aroma**. Everything else is freedom.\n\nOur shelf:\n- **SCOTTISH** (5) — Hendrick's (cucumber, rose), The Botanist Islay (22 local botanicals)\n- **ENGLISH** (4) — London Dry tradition — Beefeater, Tanqueray, Plymouth\n- **FRENCH** (4) — Citadelle (19 botanicals, Charente tradition)\n- **GERMAN** (3) — Monkey 47 (47 botanicals from the Black Forest)\n- **JAPANESE** (3) — Roku (yuzu, sakura, sansho pepper)\n- **SERBIAN** (3) — domestic craft gins with local botanicals\n\nCategories by tradition:\n- **London Dry** — strictest, only botanicals during distillation, dry finish\n- **Plymouth Gin** — protected geographic origin, only from the city of Plymouth\n- **Old Tom** — sweeter, Victorian style, perfect for the Martinez cocktail\n- **Genever** — Dutch precursor, malt-based, sweeter\n- **New Western Dry** — modern style, juniper recedes, other botanicals come forward\n\nWith a cigar: gin rarely pairs directly with tobacco (too refreshing), but a Negroni (gin + Campari + sweet vermouth) is excellent with a relaxed cigar after a meal.",
+    "gallery": [
+      "/assets/spirits/spirits-process-1-destilacija.webp",
+      "/assets/spirits/spirits-process-2-destilerija.webp",
+      "/assets/spirits/vitrine-01.webp",
+      "/assets/spirits/vitrine-02.webp"
+    ]
+  },
+
+  "cognac": {
+    "section": "spirits",
+    "kicker": { "sr": "Selekcija pića", "en": "Spirits selection" },
+    "titlesr": "Konjak — kralj francuske destilacije.",
+    "titleen": "Cognac — the king of French distillation.",
+    "image": "/assets/spirits/cognac.webp",
+    "excerptsr": "**16 konjaka — francuski i jermenski** — od Hennessy, Rémy Martin i Courvoisier do jermenskog Ararata. Dvostruka destilacija u bakarnim kazanima, odležavanje u limousin hrastu, **VS / VSOP / XO** klase.",
+    "excerpten": "**16 cognacs — French and Armenian** — from Hennessy, Rémy Martin and Courvoisier to Armenian Ararat. Double distillation in copper stills, ageing in Limousin oak, **VS / VSOP / XO** classes.",
+    "bodysr": "Konjak je geografski definisan: može da nosi to ime samo ako je destilovan u **regionu Cognac**, severozapadna Francuska, iz tačno definisanih sorti grožđa (najviše *Ugni Blanc*).\n\n**Klase po starosti najmlađe rakije u blendu:**\n- **VS** (Very Special) — minimum 2 godine\n- **VSOP** (Very Superior Old Pale) — minimum 4 godine\n- **Napoleon** — minimum 6 godina\n- **XO** (Extra Old) — minimum 10 godina\n- **XXO** — minimum 14 godina\n- **Hors d'âge** — preko 30 godina, kuća-specifično\n\n**Crus** (terroir) konjaka:\n- *Grande Champagne* — najbolja zemlja, krečnjak, dugo odležavanje\n- *Petite Champagne* — odmah ispod, slično\n- *Borderies* — najmanja, cvetni profil\n- *Fins Bois*, *Bons Bois*, *Bois Ordinaires*\n\nNaša polica:\n- **FRANCUSKI** (12) — Hennessy, Rémy Martin, Courvoisier, Martell, Camus, Hine — *Grand Cru* selekcije, XO klase\n- **JERMENSKI** (4) — Ararat — armenski koniak, slađi, šeljaš profil, do 20 godina\n\nUz cigaru: XO francuski konjak ide uz **dominikanske** cigare srednje jačine (Davidoff, Fuente) — mekoća prati mekoću. Hennessy Paradis ide uz Cohiba Behike — ekstremna luksuzna spojka.",
+    "bodyen": "Cognac is geographically defined: it can carry that name only if distilled in the **Cognac region** of northwestern France, from precisely defined grape varieties (mostly *Ugni Blanc*).\n\n**Classes by age of the youngest eau-de-vie in the blend:**\n- **VS** (Very Special) — minimum 2 years\n- **VSOP** (Very Superior Old Pale) — minimum 4 years\n- **Napoleon** — minimum 6 years\n- **XO** (Extra Old) — minimum 10 years\n- **XXO** — minimum 14 years\n- **Hors d'âge** — over 30 years, house-specific\n\n**Crus** (terroir) of cognac:\n- *Grande Champagne* — finest soil, limestone, long maturation\n- *Petite Champagne* — directly below, similar\n- *Borderies* — smallest, floral profile\n- *Fins Bois*, *Bons Bois*, *Bois Ordinaires*\n\nOur shelf:\n- **FRENCH** (12) — Hennessy, Rémy Martin, Courvoisier, Martell, Camus, Hine — *Grand Cru* selections, XO classes\n- **ARMENIAN** (4) — Ararat — Armenian *koniak*, sweeter, raisin profile, up to 20 years\n\nWith a cigar: XO French cognac pairs with **Dominican** medium-strength cigars (Davidoff, Fuente) — softness follows softness. Hennessy Paradis with a Cohiba Behike — an extreme luxury pairing.",
+    "gallery": [
+      "/assets/spirits/cognac.webp",
+      "/assets/spirits/spirits-process-2-destilerija.webp",
+      "/assets/spirits/spirits-process-3-odlezavanje.webp",
+      "/assets/spirits/vitrine-03.webp"
+    ]
+  },
+
+  "rum": {
+    "section": "spirits",
+    "kicker": { "sr": "Selekcija pića", "en": "Spirits selection" },
+    "titlesr": "Rum — karipsko sunce u flaši.",
+    "titleen": "Rum — the Caribbean sun in a bottle.",
+    "image": "/assets/spirits/spirits-process-3-odlezavanje.webp",
+    "excerptsr": "**11 rumova iz 3 regiona** — Venecuela (Diplomático, Pampero), Karibi (Plantation, Mount Gay) i Gvatemala (Zacapa). Rezultat fermentacije šećerne trske, rum je *najbliži* prirodni partner kubanskoj cigari.",
+    "excerpten": "**11 rums from 3 regions** — Venezuela (Diplomático, Pampero), the Caribbean (Plantation, Mount Gay) and Guatemala (Zacapa). The result of sugarcane fermentation, rum is the *closest* natural partner to a Cuban cigar.",
+    "bodysr": "Rum potiče iz Kariba 17. veka — kao nusproizvod proizvodnje šećera od trske. Postoje **dva osnovna tipa**:\n\n**1. Iz molase** (90% rumova): šećer se izvuče iz trske, ostatak (molasa) se fermentira → destiluje → odleži. Slađi, tamniji, kompleksniji. Većina karipskih, latinoameričkih.\n\n**2. Iz svežeg soka trske** (rhum agricole): direktna fermentacija sveže iscedjenog soka. Travnati, suvi, *terroir*-orijentisan. Martinique francuska tradicija (zaštićeno poreklo).\n\n**Klase po boji/odležavanju:**\n- **Light/Silver** — neodležan, čist, za koktele (Mojito, Daiquiri)\n- **Gold** — kratko odležan (1-3 god), karamela\n- **Dark** — duže odležan (5-12 god), melasa, dim\n- **Aged/XO** — 12+ godina, premium sipping\n- **Spiced** — sa začinima (cimet, vanila) — Kraken, Captain Morgan\n\nNaša polica:\n- **VENECUELA** (5) — Diplomático Reserva Exclusiva (12 god), Pampero Aniversario (XO solera)\n- **KARIBI** (3) — Plantation, Mount Gay — Barbados/Jamajka tradicija\n- **GVATEMALA** (3) — Zacapa Centenario 23 — solera sistem na 2300m nadmorske visine\n\nUz cigaru: rum je **najprirodniji par** kubanskoj cigari — oboje rastu na istom karipskom suncu. Zacapa 23 sa Cohiba Robusto = klasik. Diplomático Reserva sa Romeo y Julieta Churchill = prijatelj na 60 minuta.",
+    "bodyen": "Rum originates from the 17th-century Caribbean — as a byproduct of sugarcane sugar production. There are **two basic types**:\n\n**1. From molasses** (90% of rums): sugar is extracted from the cane, the residue (molasses) is fermented → distilled → aged. Sweeter, darker, more complex. Most Caribbean and Latin American.\n\n**2. From fresh cane juice** (rhum agricole): direct fermentation of freshly pressed juice. Grassy, dry, *terroir*-oriented. The French Martinique tradition (protected origin).\n\n**Classes by colour/ageing:**\n- **Light/Silver** — unaged, clean, for cocktails (Mojito, Daiquiri)\n- **Gold** — briefly aged (1-3 years), caramel\n- **Dark** — longer aged (5-12 years), molasses, smoke\n- **Aged/XO** — 12+ years, premium sipping\n- **Spiced** — with spices (cinnamon, vanilla) — Kraken, Captain Morgan\n\nOur shelf:\n- **VENEZUELA** (5) — Diplomático Reserva Exclusiva (12 years), Pampero Aniversario (XO solera)\n- **CARIBBEAN** (3) — Plantation, Mount Gay — Barbados/Jamaica tradition\n- **GUATEMALA** (3) — Zacapa Centenario 23 — solera system at 2,300 m altitude\n\nWith a cigar: rum is the **most natural pairing** with a Cuban cigar — both grow under the same Caribbean sun. Zacapa 23 with a Cohiba Robusto = a classic. Diplomático Reserva with a Romeo y Julieta Churchill = a friend for 60 minutes.",
+    "gallery": [
+      "/assets/spirits/spirits-process-3-odlezavanje.webp",
+      "/assets/spirits/vitrine-01.webp",
+      "/assets/spirits/vitrine-02.webp",
+      "/assets/spirits/vitrine-03.webp"
+    ]
+  },
+
+  "rakija": {
+    "section": "spirits",
+    "kicker": { "sr": "Selekcija pića", "en": "Spirits selection" },
+    "titlesr": "Rakija — duša Balkana.",
+    "titleen": "Rakija — the soul of the Balkans.",
+    "image": "/assets/spirits/rakija.webp",
+    "excerptsr": "**28 srpskih rakija** — šljiva, kajsija, kruška, dunja, dud, viljamovka, lozovača — sve iz odabranih bačvi i destilerija sa srpskih voćnjaka. Naš autohtoni odgovor svetu konjaka i viskija.",
+    "excerpten": "**28 Serbian rakijas** — plum, apricot, pear, quince, mulberry, williams pear, grape — all from selected casks and distilleries from Serbian orchards. Our native answer to the world of cognac and whisky.",
+    "bodysr": "Rakija je **srpski nacionalni alkohol** — voćna rakija (*fruit brandy*) sa zaštićenim geografskim poreklom. UNESCO ju je 2021. dodala na **listu nematerijalne baštine** Srbije i regiona.\n\n**Tipovi po vrsti voća:**\n- **Šljivovica** — od šljive Pozegača ili Madžarka, dvostruka destilacija u bakarnim kazanima, klasik za prijem gosta\n- **Lozovača** — od grožđa, srodna italijanskoj grappa, suvlja\n- **Kajsijevača** — od kajsije iz Slankamena, parfumi i meka\n- **Dunjevača** — od dunje, najfinija aroma, najteža za destilaciju\n- **Krušikovača** (Williams) — od kruške, savršeno čuvena za digestiv\n- **Dudovača** — od bele/crne dude, retka i specifična\n- **Komovica** — od komine grožđa, slično grappi\n- **Travarica** — sa lekovitim biljem, jugoslovenski klasik\n\n**Tipovi po odležavanju:**\n- **Mlada** — neodležana, kristalna, intenzivna voćnost\n- **Stara** — odležana u hrastu (3-5 god), zlatna, kompleksnija\n- **Reserve** — odležana 7+ godina, premium sipping rakija\n\nNaša polica nosi 28 selekcija od najprestižnijih srpskih destilerija — **Zarić, Stara Sokolova, Toma, Maraška, Dadić, Kovačević, Kosovac**, i mnogih manjih craft destilerija.\n\nUz cigaru: stara šljivovica ide uz **dominikanske** cigare srednje jačine — voće prati slatkoću. Stara dunjevača sa kubanskom *Robusto* vitolom = autentično balkansko-karipsko venčanje. Travarica sa nikaragvanskom cigarom = kontrast koji pamtiš.",
+    "bodyen": "Rakija is **Serbia's national spirit** — a fruit brandy with protected geographical origin. UNESCO added it to the **intangible heritage list** of Serbia and the region in 2021.\n\n**Types by fruit:**\n- **Šljivovica** (plum) — from Pozegača or Madžarka plum, double-distilled in copper stills, the classic guest welcome\n- **Lozovača** (grape) — related to Italian grappa, drier\n- **Kajsijevača** (apricot) — from Slankamen apricots, perfumed and soft\n- **Dunjevača** (quince) — finest aroma, hardest to distil\n- **Krušikovača** (Williams pear) — perfect digestif\n- **Dudovača** (mulberry) — rare and specific\n- **Komovica** (grape pomace) — similar to grappa\n- **Travarica** (with herbs) — Yugoslav classic\n\n**Types by ageing:**\n- **Young** — unaged, crystal, intense fruit\n- **Old** — aged in oak (3-5 years), golden, more complex\n- **Reserve** — aged 7+ years, premium sipping rakija\n\nOur shelf carries 28 selections from the most prestigious Serbian distilleries — **Zarić, Stara Sokolova, Toma, Maraška, Dadić, Kovačević, Kosovac**, and many smaller craft producers.\n\nWith a cigar: aged šljivovica goes with medium-strength **Dominican** cigars — fruit follows sweetness. Aged dunjevača with a Cuban *Robusto* vitola = an authentic Balkan-Caribbean wedding. Travarica with a Nicaraguan cigar = a contrast you remember.",
+    "gallery": [
+      "/assets/spirits/rakija.webp",
+      "/assets/spirits/spirits-process-2-destilerija.webp",
+      "/assets/spirits/spirits-process-3-odlezavanje.webp",
+      "/assets/spirits/vitrine-03.webp"
+    ]
+  },
+
+  "cutters": {
+    "section": "gear",
+    "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
+    "titlesr": "Sekači — prvi dodir cigare.",
+    "titleen": "Cutters — the first touch of the cigar.",
+    "image": "/assets/gear/vitrine-01.webp",
+    "excerptsr": "**Giljotina, punch, V-cut**. Prvi dodir cigare je presudan — čist rez čuva aromu i vuče dim ravnomerno. Naš asortiman: **Xikar Xi1, S.T. Dupont MaxiJet, Les Fines Lames LE PETIT, Colibri V-Cut**.",
+    "excerpten": "**Guillotine, punch, V-cut**. The first contact with the cigar is decisive — a clean cut preserves aroma and draws smoke evenly. Our range: **Xikar Xi1, S.T. Dupont MaxiJet, Les Fines Lames LE PETIT, Colibri V-Cut**.",
+    "bodysr": "Sekač definiše tri stvari: **količinu vuče**, **kondenzaciju ulja** i **dugovečnost** dima.\n\n**Tipovi:**\n- **Giljotina** (single ili double blade) — klasičan ravan rez, otvara širok protok. Najpopularniji izbor majstora.\n- **Punch** — kružna rupa kroz glavu cigare, suvi rez, manji protok, manje šanse za odmotavanje wrappera. Idealno za vlažne klime.\n- **V-cut** (cat's eye) — V-žlijeb kroz glavu, kompromis između giljotine i puncha. Koncentriše dim na sredinu jezika.\n\n**Naš asortiman:**\n- **Xikar Xi1 Guillotine** — dvostruko sečivo od 440 čelika, do 60 ring, doživotna garancija\n- **S.T. Dupont MaxiJet Cutter** — francuska preciznost, ergonomska ručka, do 60 ring\n- **Les Fines Lames LE PETIT** — luksuzna mini-giljotina sa nerdovim mehanizmom za sigurnost prsta\n- **Colibri V-Cut** — 60 ring kapacitet, dijamantski uglovi za besprekoran rez\n\n**Saveti za rez:**\n- Cigaru drži vertikalno, sekač paralelno sa glavom\n- Reži tačno na *cap line* — vidljivu liniju koja označava ručno aplicirani vrh\n- Za cigare 50+ ring: giljotina; za 40-46: punch; za 47-52: V-cut savršeno\n- Tup sečivo cepa wrapper — uvek održavaj oštrinu",
+    "bodyen": "The cutter defines three things: **draw volume**, **oil condensation** and **smoke longevity**.\n\n**Types:**\n- **Guillotine** (single or double blade) — classic flat cut, opens wide flow. The most popular choice among masters.\n- **Punch** — circular hole through the cigar head, dry cut, smaller flow, less chance of wrapper unrolling. Ideal for humid climates.\n- **V-cut** (cat's eye) — V-groove through the head, a compromise between guillotine and punch. Concentrates smoke on the centre of the tongue.\n\n**Our range:**\n- **Xikar Xi1 Guillotine** — double 440-steel blade, up to 60 ring, lifetime warranty\n- **S.T. Dupont MaxiJet Cutter** — French precision, ergonomic handle, up to 60 ring\n- **Les Fines Lames LE PETIT** — luxury mini-guillotine with a nerd-finger safety mechanism\n- **Colibri V-Cut** — 60 ring capacity, diamond edges for a flawless cut\n\n**Cutting tips:**\n- Hold the cigar vertically, the cutter parallel to the head\n- Cut exactly on the *cap line* — the visible mark indicating the hand-applied tip\n- For 50+ ring cigars: guillotine; for 40-46: punch; for 47-52: V-cut perfectly\n- A dull blade tears the wrapper — always keep the edge sharp",
+    "gallery": [
+      "/assets/gear/vitrine-01.webp",
+      "/assets/gear/vitrine-02.webp",
+      "/assets/gear/vitrine-03.webp",
+      "/assets/humidor/humidor-01.webp"
+    ]
+  },
+
+  "lighters": {
+    "section": "gear",
+    "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
+    "titlesr": "Upaljači — čista toplota bez mirisa.",
+    "titleen": "Lighters — clean heat with no scent.",
+    "image": "/assets/gear/vitrine-02.webp",
+    "excerptsr": "**Trostruki butan za brzo paljenje, cedrove šibice za ritual**. Bez mirisa, bez benzina — vaš duvan zaslužuje čistu toplotu. Naš asortiman: **Xikar Stratosphere II, S.T. Dupont Ligne 2, Colibri Quasar Triple, cedrove šibice Fuente**.",
+    "excerpten": "**Triple butane for a fast light, cedar matches for the ritual**. No scent, no petrol — your tobacco deserves clean heat. Our range: **Xikar Stratosphere II, S.T. Dupont Ligne 2, Colibri Quasar Triple, Fuente cedar matches**.",
+    "bodysr": "Upaljač je **drugi najvažniji alat** rituala — pogrešna toplota uništava prvi povlak.\n\n**Tipovi:**\n- **Soft flame (mekani plamen)** — klasik, niža temperatura (~1300°C), gradacija po sloju. Najprirodnija aroma. S.T. Dupont Ligne 2 je referenca.\n- **Jet flame (turbo plamen)** — visoka temperatura (~2300°C), brzo i ravnomerno paljenje, savršeno za vetar i veće cigare. Xikar Stratosphere II.\n- **Triple jet** — tri plamena u jednom, najbrže paljenje cigara od 60+ ring. Colibri Quasar.\n- **Cedrove šibice** — tradicionalni ritual, **bez ikakvih hemikalija**, sušene cedrove letvice koje gore kao šibice.\n\n**Pravilo: nikada benzin (Zippo)** — sumporna komponenta dirne wrapper i ostavi metalni okus. Uvek **butan** ili **cedar**.\n\n**Tehnika paljenja:**\n1. Dranje cigare (toasting) — drži cigaru u uglu od 45°, plamen 1-2 cm ispod, lagano rotiraj 5-10 sekundi\n2. Provera žari — duvanj treba ravnomerno crvene po čitavom obodu (bez crnih mrlja)\n3. Prvi povlak — par sekundi, kratak, da se aroma stabilizuje\n4. Pravi povlaci — duboki, ali bez inhalacije (cigara nije cigareta!)\n\n**Naš asortiman:**\n- **Xikar Stratosphere II** — single jet, *high-altitude ready* do 4500m, refilable, doživotna garancija\n- **S.T. Dupont Ligne 2** — meka flama, francuski klasik, prelivani **palladium** ili **gold**\n- **Colibri Quasar Triple** — tri jet plamena u redu, 60+ ring kompatibilan\n- **Cedrove šibice (Fuente)** — tradicionalno, bez sumpora, idealno za laku početni dim",
+    "bodyen": "The lighter is the **second most important tool** of the ritual — wrong heat ruins the first draw.\n\n**Types:**\n- **Soft flame** — classic, lower temperature (~1300°C), gradual layering. Most natural aroma. S.T. Dupont Ligne 2 is the reference.\n- **Jet flame** — high temperature (~2300°C), fast and even lighting, perfect for wind and larger cigars. Xikar Stratosphere II.\n- **Triple jet** — three flames in one, fastest lighting of 60+ ring cigars. Colibri Quasar.\n- **Cedar matches** — traditional ritual, **no chemicals**, dried cedar splints that burn like matches.\n\n**Rule: never petrol (Zippo)** — the sulphur component touches the wrapper and leaves a metallic taste. Always **butane** or **cedar**.\n\n**Lighting technique:**\n1. Toasting — hold the cigar at a 45° angle, flame 1-2 cm below, rotate slowly for 5-10 seconds\n2. Ember check — tobacco should glow evenly around the entire perimeter (no black spots)\n3. First draw — a few seconds, short, so the aroma stabilises\n4. Real draws — deep but without inhaling (a cigar isn't a cigarette!)\n\n**Our range:**\n- **Xikar Stratosphere II** — single jet, *high-altitude ready* up to 4500m, refillable, lifetime warranty\n- **S.T. Dupont Ligne 2** — soft flame, French classic, plated **palladium** or **gold**\n- **Colibri Quasar Triple** — three jet flames in a row, 60+ ring compatible\n- **Cedar matches (Fuente)** — traditional, sulphur-free, ideal for a gentle initial light",
+    "gallery": [
+      "/assets/gear/vitrine-02.webp",
+      "/assets/gear/vitrine-01.webp",
+      "/assets/gear/vitrine-03.webp",
+      "/assets/humidor/humidor-02.webp"
+    ]
+  },
+
+  "humidors": {
+    "section": "gear",
+    "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
+    "titlesr": "Humidori — dom za cigaru koja čeka.",
+    "titleen": "Humidors — a home for the waiting cigar.",
+    "image": "/assets/humidor/humidor-06.webp",
+    "excerptsr": "**Španski kedar, digitalni higrometar, Boveda 69/72 paketi**. Magični broj — 70% relativne vlažnosti, 18-21°C — nije izabran slučajno: to je tačka na kojoj duvan ne pleše, ne sahne i ne raste.",
+    "excerpten": "**Spanish cedar, digital hygrometer, Boveda 69/72 packs**. The magic number — 70% relative humidity, 18-21°C — wasn't chosen at random: it's the point at which tobacco doesn't mould, dry, or grow.",
+    "bodysr": "Humidor održava **dva broja**: **70% relativne vlažnosti** i **18-21°C**.\n\n- Ispod 65% RH — cigara puca, gubi ulje, miris bledi\n- Iznad 75% RH — započinju mikrobiološki procesi (plesni, *tobacco beetle Lasioderma serricorne*)\n\nZato je drvo iznutra uvek **španski kedar** (*Cedrela odorata*) — odbija insekte aromatičnim uljima i upija višak vlage. Edward Pinder je 1895. patentirao prvi komercijalni *cabinet humidor* za londonski klub St. James's.\n\n**Tehnologije:**\n- **Klasični humidor** sa solution gel-jedinicom (propilen glikol)\n- **Boveda paketi** — dvosmerni, precizno kalibrisani 65/69/72/75% RH, bez kalibracije\n- **Elektronski humidor** sa Peltier hlađenjem za toplije sredine (>22°C)\n\n**Naš asortiman:**\n- **Adorini Carrara M Deluxe** — italijanski klasik, 25 cigara, španski kedar, digitalni higrometar\n- **Daniel Marshall 125-count** — američki premium, *burl walnut*, *Humido-Tech* sistem, do 125 cigara\n- **Travel Adorini Cedro** — putni humidor, aluminijum + kedar, 5 cigara, Boveda slot\n- **Boveda 69% 60g 12-pack** — set za održavanje, 12 paketa za 6-12 meseci\n\n**Saveti za održavanje:**\n- *Seasoning* — pre prve upotrebe humidora, navlaži kedar destilovanom vodom 1-2 nedelje\n- Vlažnost menjaj sezonski: 65% RH za male/svetle cigare, 72% za maduro/cuba klasiku\n- Higrometar kalibriraj jednom godišnje — koristi *salt test* (75% RH baseline)\n- Cigaru rotiraj jednom mesečno za ravnomerno odležavanje\n\nKolekcionarski humidori dostižu cene preko 100.000 dolara. *Daniel Marshall Royal Humidor* prodat je 2018. za 185.000 dolara — burl javorov koren ojačan titanom.",
+    "bodyen": "A humidor maintains **two numbers**: **70% relative humidity** and **18-21°C**.\n\n- Below 65% RH — the cigar cracks, loses oils, the aroma fades\n- Above 75% RH — microbiological processes begin (mould, *tobacco beetle Lasioderma serricorne*)\n\nThat's why the inner wood is always **Spanish cedar** (*Cedrela odorata*) — its aromatic oils repel insects and absorb excess humidity. Edward Pinder patented the first commercial *cabinet humidor* in 1895 for London's St. James's Club.\n\n**Technologies:**\n- **Classic humidor** with solution gel unit (propylene glycol)\n- **Boveda packs** — two-way, precisely calibrated to 65/69/72/75% RH, no calibration needed\n- **Electronic humidor** with Peltier cooling for warmer environments (>22°C)\n\n**Our range:**\n- **Adorini Carrara M Deluxe** — Italian classic, 25 cigars, Spanish cedar, digital hygrometer\n- **Daniel Marshall 125-count** — American premium, *burl walnut*, *Humido-Tech* system, up to 125 cigars\n- **Travel Adorini Cedro** — travel humidor, aluminium + cedar, 5 cigars, Boveda slot\n- **Boveda 69% 60g 12-pack** — maintenance set, 12 packs for 6-12 months\n\n**Maintenance tips:**\n- *Seasoning* — before first use, moisten the cedar with distilled water for 1-2 weeks\n- Adjust humidity by season: 65% RH for small/light cigars, 72% for maduro/Cuban classics\n- Calibrate the hygrometer annually — use the *salt test* (75% RH baseline)\n- Rotate cigars monthly for even ageing\n\nCollector humidors reach prices over $100,000. The *Daniel Marshall Royal Humidor* sold in 2018 for $185,000 — burl maple root reinforced with titanium.",
+    "gallery": [
+      "/assets/humidor/humidor-01.webp",
+      "/assets/humidor/humidor-02.webp",
+      "/assets/humidor/humidor-03.webp",
+      "/assets/humidor/humidor-04.webp",
+      "/assets/humidor/humidor-05.webp",
+      "/assets/humidor/humidor-06.webp"
+    ]
+  },
+
+  "ashtrays": {
+    "section": "gear",
+    "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
+    "titlesr": "Pepeljare — mesto gde cigara počiva.",
+    "titleen": "Ashtrays — where the cigar rests.",
+    "image": "/assets/humidor/humidor-04.webp",
+    "excerptsr": "**Mermer, kristal, bronza**. Mesto gde se cigara odmara između dva dima — teg, težina, tihi šarm. Naš asortiman: **Arturo Fuente Marble, Xikar Alpine Crystal, Les Fines Lames Le Monde, Cohiba Porcelain**.",
+    "excerpten": "**Marble, crystal, bronze**. Where the cigar rests between draws — weight, heft, quiet charm. Our range: **Arturo Fuente Marble, Xikar Alpine Crystal, Les Fines Lames Le Monde, Cohiba Porcelain**.",
+    "bodysr": "Pepeljara je više od posude za pepeo — to je **stalno mesto cigare** dok pričate, čitate, ili samo gledate kako dim kruži.\n\n**Šta čini dobru pepeljaru:**\n- **Težina** (mermer, kristal) — da je vetar ne pomakne, da cigara ne ispadne\n- **Slot dubok 4-6 cm** — drži cigaru pod uglom da se pepeo ne lomi prerano\n- **Široka osnova** — pepeljara prima ash do 2-3 cm pre nego što se otkine (ash je deo iskustva!)\n- **Materijal koji se lako čisti** — mermer/kristal/porcelan; ne aluminijum (oksidira)\n\n**Slotovi po nameni:**\n- **2 slota** — za 1-2 osobe, intimno\n- **4 slota** — klasičan format, klub-stil\n- **6 slota** — *cigar lounge*, za društva\n\n**Naš asortiman:**\n- **Arturo Fuente Marble Large** — italijanski karara mermer, 4 slota, ručno polirana, težina ~3kg\n- **Xikar Alpine Crystal** — kristal sa mat bazom, 2 slota, *crystal cool* za toplu prostoriju\n- **Les Fines Lames Le Monde** — bronzani dizajn, sa autentičnim potpisom francuskog atelijera\n- **Cohiba Porcelain** — beli porcelan sa Cohiba logom, 4 slota, klasik\n\n**Tehnika:**\n- Pepeo **nikad ne lupaj** — pusti da otpadne sam (znači da je cigara dobro motana)\n- Cigaru **nikad ne gasi vodom** — neka prosto izgori sama; gašenje *daje* gorak miris\n- Pepeljara mora biti **viša od cigare** — slot drži glavu dovoljno visoko da pepeo ne pukne",
+    "bodyen": "The ashtray is more than a vessel for ash — it's the **permanent place of the cigar** while you talk, read, or just watch the smoke circle.\n\n**What makes a good ashtray:**\n- **Weight** (marble, crystal) — so wind doesn't move it, so the cigar doesn't fall\n- **Slot 4-6 cm deep** — holds the cigar at an angle so the ash doesn't break too soon\n- **Wide base** — the ashtray catches ash up to 2-3 cm before it falls off (the ash is part of the experience!)\n- **Easy-to-clean material** — marble/crystal/porcelain; not aluminium (oxidises)\n\n**Slots by use:**\n- **2 slots** — for 1-2 people, intimate\n- **4 slots** — classic format, club style\n- **6 slots** — *cigar lounge*, for groups\n\n**Our range:**\n- **Arturo Fuente Marble Large** — Italian Carrara marble, 4 slots, hand-polished, weight ~3kg\n- **Xikar Alpine Crystal** — crystal with matte base, 2 slots, *crystal cool* for warm rooms\n- **Les Fines Lames Le Monde** — bronze design, authentic French atelier signature\n- **Cohiba Porcelain** — white porcelain with Cohiba logo, 4 slots, a classic\n\n**Technique:**\n- **Never tap** the ash — let it fall by itself (it means the cigar is well-rolled)\n- **Never put out a cigar with water** — let it simply burn out; extinguishing *gives* a bitter smell\n- The ashtray must be **higher than the cigar** — the slot holds the head high enough that the ash doesn't break",
+    "gallery": [
+      "/assets/humidor/humidor-04.webp",
+      "/assets/humidor/humidor-05.webp",
+      "/assets/humidor/humidor-06.webp",
+      "/assets/gear/vitrine-01.webp"
+    ]
+  },
+
+  "cases": {
+    "section": "gear",
+    "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
+    "titlesr": "Futrole — cigara koja putuje.",
+    "titleen": "Travel cases — the cigar that travels.",
+    "image": "/assets/humidor/humidor-01.webp",
+    "excerptsr": "**Koža, aluminijum, karbon**. Za 3 ili 5 cigara, vlažnost stabilna tokom puta, miris nedirnut. Naš asortiman: **Xikar Travel Humidor, Davidoff Leather 3-Finger, Cohiba Red Dot Case, Xikar HumiX 10ct**.",
+    "excerpten": "**Leather, aluminium, carbon**. For 3 or 5 cigars, humidity stable on the road, aroma intact. Our range: **Xikar Travel Humidor, Davidoff Leather 3-Finger, Cohiba Red Dot Case, Xikar HumiX 10ct**.",
+    "bodysr": "Futrola (*travel case*) rešava jedan problem: **kako sačuvati cigaru izvan humidora** — na putu, u kafiću, na sastanku.\n\n**Tipovi:**\n- **Mekana kožna futrola** — za 1-3 cigare, najlakša, fleksibilna; bez vlažnostne kontrole, samo zaštita 4-6 sati\n- **Aluminijumski/karbonski tube** — za 1 cigaru, *cigar tube*, idealno za premium pojedinačnu vitolu\n- **Travel humidor** — kombinacija futrole + Boveda paketa, **vlažnost stabilna do 30 dana**\n- **Žičana futrola sa lock-om** — za 5-10 cigara, profesionalni putnici\n\n**Materijali:**\n- **Koža** (calfskin, kalfskin, full-grain) — klasik, miris kože komplementaran sa duvanom\n- **Aluminijum** — najlakši, anti-shock, ali bez termo-izolacije (cigara se zagreva u toploj kabini)\n- **Karbon** — premium, anti-shock + termo-izolacija + *carbon look*\n- **Cedar-lined** — drvo iznutra, kao mali putni humidor\n\n**Naš asortiman:**\n- **Xikar Travel Humidor 5ct** — aluminijum, Boveda slot, 30+ dana stabilnosti\n- **Davidoff Leather 3-Finger** — calfskin koža, *Cinzel* tag, klasika\n- **Cohiba Red Dot Case** — karbonski kompozit sa crvenom Cohiba iglicom\n- **Xikar HumiX 10ct** — full carbon, Boveda kompatibilan, 10 cigara, *crash-resistant*\n\n**Pravila putovanja:**\n- **Avion**: nosi cigare u kabinskom prtljagu (donji prtljag = ekstremna temperatura/vlažnost)\n- **Topli sat**: izbegavaj direktno sunce — **karbon** je tu jer reflektuje toplotu\n- **Hladna sezona**: pre paljenja drži cigaru 5-10 min na sobnoj temperaturi (cold-wet → cracking)\n- **Carine**: u EU/Srbiji do **50 cigara po osobi** bez deklaracije; SAD/UK ima striktnija pravila — proveri pre puta",
+    "bodyen": "The travel case solves one problem: **how to preserve a cigar outside the humidor** — on the road, in a café, at a meeting.\n\n**Types:**\n- **Soft leather case** — for 1-3 cigars, lightest, flexible; no humidity control, only 4-6 hours of protection\n- **Aluminium/carbon tube** — for 1 cigar, *cigar tube*, ideal for a premium single vitola\n- **Travel humidor** — case + Boveda pack combo, **humidity stable up to 30 days**\n- **Wired case with lock** — for 5-10 cigars, professional travellers\n\n**Materials:**\n- **Leather** (calfskin, full-grain) — classic, leather scent complements tobacco\n- **Aluminium** — lightest, anti-shock, but no thermal insulation (the cigar warms up in a hot cabin)\n- **Carbon** — premium, anti-shock + thermal insulation + *carbon look*\n- **Cedar-lined** — wood inside, like a small travel humidor\n\n**Our range:**\n- **Xikar Travel Humidor 5ct** — aluminium, Boveda slot, 30+ days stability\n- **Davidoff Leather 3-Finger** — calfskin leather, *Cinzel* tag, classic\n- **Cohiba Red Dot Case** — carbon composite with the red Cohiba pin\n- **Xikar HumiX 10ct** — full carbon, Boveda compatible, 10 cigars, *crash-resistant*\n\n**Travel rules:**\n- **Plane**: carry cigars in cabin baggage (hold = extreme temperature/humidity)\n- **Hot season**: avoid direct sun — **carbon** is there because it reflects heat\n- **Cold season**: before lighting, let the cigar sit at room temperature 5-10 min (cold-wet → cracking)\n- **Customs**: in EU/Serbia up to **50 cigars per person** without declaration; the US/UK has stricter rules — check before travel",
+    "gallery": [
+      "/assets/humidor/humidor-01.webp",
+      "/assets/humidor/humidor-02.webp",
+      "/assets/humidor/humidor-03.webp",
+      "/assets/gear/vitrine-02.webp"
+    ]
+  }
+}
