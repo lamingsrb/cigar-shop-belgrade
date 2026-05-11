@@ -56,8 +56,8 @@
 
   "gallery": {
     "kicker": "Galerija",
-    "title": "Godine tišine.",
-    "lead": "Plantaža, fabrika, naše cigare, destilerija i konačni ritual — kadrovi koji prate svaku godinu strpljenja."
+    "title": "Godine tišine za trenutak uživanja.",
+    "lead": "Sve počinje mnogo pre prvog dima — u listovima duvana koji su strpljivo odležali, u majstorima koji su ih oblikovali i u znanju koje se prenosi bez žurbe i bez buke. Kada se cigara konačno zapali uz dobro izabrano piće — ništa više nije slučajno; svaki dim nosi svoje vreme, svaka aroma priču o poreklu. U tom trenutku svet se ne zaustavlja — samo postaje manje važan."
   },
 
   "humidorCigars": {
@@ -83,8 +83,8 @@
   "humidor": {
     "kicker": "Humidor",
     "title": "Uđi u humidor.",
-    "lead": "Cigara koja te čeka kod nas provela je godine u tišini, sada čeka dim.",
-    "body": "Svaki naš humidor je zakletva kupcu. 70% vlažnosti, 20°C konstantno, rashlađen španski kedar koji miriše kao što treba. Cohiba koju poneseš kući danas, istu je osećao rolanac pre deset godina. To je jedina razlika između cigare i cigare koju vredi pušiti.",
+    "lead": "Dobrodošli u prostor gde vreme usporava, a miris kedrovine, duvana i tradicije govori glasnije od reči.",
+    "body": "Svaka cigara se čuva u pažljivo kontrolisanim uslovima, na idealnoj temperaturi i vlažnosti, kako bi svaki list zadržao svoju punoću, aromu i karakter — baš onako kako su zamislili majstori koji su je stvarali. Na policama humidora susreću se dva sveta: cigare Starog sveta donose eleganciju, balans i nasleđe decenijama usavršavanog zanata. Nasuprot njima stoje cigare Novog sveta — smelije, intenzivnije i sa više stava, za one koji vole pun dim i izražen karakter. Ovo nije mesto za brz izbor, niti prolazno zadovoljstvo. Humidor je prostor za one koji umeju da prepoznaju razliku između običnog trenutka i rituala koji ostaje u pamćenju. Cigare ne traže pažnju — one je jednostavno uzmu.",
     "stat1": "Relativna vlažnost",
     "stat2": "Stalna temperatura",
     "stat3": "Humidora u Beogradu"
@@ -110,14 +110,14 @@
   "spirits": {
     "kicker": "Pića",
     "title": "Nastavi sa pićem.",
-    "lead": "Viski, burbon, konjak, džin, rum, rakija. Svaka kategorija ima svoju priču, geografiju i ritam koji prati cigaru."
+    "lead": "Nakon izabrane cigare, priča se ne završava — tek dobija pravi ton."
   },
 
   "spiritsProcess": {
     "kicker": "Vitrina",
-    "title": "Polica koja prati cigaru.",
-    "body1": "Naša vitrina je mapa: <strong>škotski single malt</strong>, <strong>japanski Yamazaki</strong>, francuski konjak, karipski rum i domaća rakija — svaka boca biraj sa istom pažnjom kao i cigara koja stoji pored.",
-    "body2": "Pored cigare, piće ne sme da nadvlada, već da prati. Zato naša polica nosi <strong>preko 260 boca iz osam kategorija</strong>, izbor koji se ne pravi preko noći.",
+    "title": "Piće koje prati dim.",
+    "body1": "Ovde se svaki dim zaokružuje pićem koje ga prati bez nadmetanja, ali sa karakterom koji zna da odgovori. Bilo da biraš <strong>viski sa dubinom</strong>, <strong>rum sa toplinom</strong> ili piće za koje nije potrebno objašnjenje — svaki gutljaj je nastavak istog rituala.",
+    "body2": "Nema žurbe — samo balans ukusa koji prati dim, a ne pokušava da ga nadjača. Ovo je trenutak kada se sve slaže kako želiš: <strong>i cigara, i piće, i tišina između</strong>.",
     "videoCaption": "Vitrina sa pićima",
     "s1": "Vitrina sa pićima",
     "s2": "Single malt",
@@ -128,14 +128,14 @@
   "gear": {
     "kicker": "Oprema",
     "title": "Alati rituala.",
-    "lead": "Sekači, upaljači, humidori, pepeljare, futrole. Ritual nije potpun bez pribora koji se pamti."
+    "lead": "Prava cigara traži više od izbora — traži pristup."
   },
 
   "gearProcess": {
     "kicker": "Pribor",
-    "title": "Detalji koji rituala čine cigarom.",
-    "body1": "Cigara traži pratnju. Rezač mora biti oštar, upaljač bez mirisa, humidor vlažan taman toliko. Svaki od ovih predmeta je svoja mala inženjerska priča, a zajedno čine mizanscen u kome dim dobija formu.",
-    "body2": "Naša polica nosi pribor Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall i Boveda. Klasici koji se pamte i komadi koje ćete preneti deci.",
+    "title": "Alati koji zaokružuju ritual.",
+    "body1": "Ovde nisu u ponudi dodaci, već <strong>alati koji zaokružuju ritual do poslednjeg detalja</strong>. Precizni sekači koji čuvaju strukturu cigare, upaljači koji pale bez kompromisa, kućni humidori koji održavaju ono što je već pažljivo odabrano. A kada ritual nosite sa sobom — u tu priču ulaze futrole i putni humidor.",
+    "body2": "Kada cigara dobije svoj trenutak, tu su i pepeljare — uvek dovoljno promišljene da prate dim, a ne da ga prekidaju. Svaki komad opreme ima svoju ulogu, ali zajednički cilj je isti: <strong>da ništa ne stoji između tebe i savršenog dima</strong>. Bez improvizacije, bez prečica — samo osećaj da je sve baš tamo gde treba da bude.",
     "videoCaption": "Asortiman opreme",
     "s1": "Asortiman",
     "s2": "Putna oprema",

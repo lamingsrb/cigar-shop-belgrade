@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0605" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Cigar Shop — Uskoro otvaramo</title>
+  <meta name="description" content="Cigar Shop. Premium destinacija za cigare, piće i ritual. Uskoro otvaramo. 5 lokacija u Beogradu." />
+
+  <link rel="icon" href="/assets/brand/logo-128.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/brand/logo-256.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lora:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --obsidian:    #0a0605;
+      --mahogany:    #2a1810;
+      --champagne:   #d4af37;
+      --ember:       #e4c88a;
+      --ember-deep:  #b8935a;
+      --vellum:      #f5e6d3;
+      --ink-70:      rgba(245, 230, 211, 0.7);
+      --ink-50:      rgba(245, 230, 211, 0.5);
+      --line:        rgba(201, 169, 97, 0.18);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: var(--obsidian);
+      color: var(--vellum);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body {
+      /* Subtle radial gradient for depth */
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(212, 175, 55, 0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(184, 147, 90, 0.06) 0%, transparent 60%),
+        var(--obsidian);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .stage {
+      max-width: 720px;
+      width: 100%;
+      animation: fadeUp 1.4s cubic-bezier(0.19, 1, 0.22, 1) both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Decorative top corner (gold L) */
+    .corner-tl, .corner-br {
+      position: fixed;
+      width: 60px; height: 60px;
+      border-color: var(--champagne);
+      border-style: solid;
+      pointer-events: none;
+    }
+    .corner-tl { top: 24px; left: 24px; border-width: 1px 0 0 1px; }
+    .corner-br { bottom: 24px; right: 24px; border-width: 0 1px 1px 0; }
+    @media (max-width: 640px) {
+      .corner-tl, .corner-br { width: 36px; height: 36px; }
+      .corner-tl { top: 14px; left: 14px; }
+      .corner-br { bottom: 14px; right: 14px; }
+    }
+
+    /* Logo monogram — CSS mask in flat champagne (matches main site) */
+    .logo {
+      display: inline-block;
+      width: 70px;
+      height: 132px;
+      background: linear-gradient(180deg, #fbeecd 0%, #e4c88a 55%, #b8935a 100%);
+      -webkit-mask: url(/assets/brand/logo-monogram-gold-256.png) center/contain no-repeat;
+              mask: url(/assets/brand/logo-monogram-gold-256.png) center/contain no-repeat;
+      filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.7));
+      margin-bottom: 1.5rem;
+    }
+
+    .wordmark {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 7vw, 4.6rem);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #fbeecd 0%, #e4c88a 55%, #b8935a 100%);
+      -webkit-background-clip: text;
+              background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+      filter: drop-shadow(0 4px 22px rgba(0, 0, 0, 0.7));
+      margin-bottom: 0.4rem;
+    }
+    .subwordmark {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--ember-deep);
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--champagne);
+      margin: 0 auto clamp(2rem, 4vw, 3rem);
+      opacity: 0.6;
+    }
+
+    .construction-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      color: var(--vellum);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .construction-sub {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      color: var(--ink-70);
+      max-width: 540px;
+      margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.55;
+    }
+
+    .footer {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-50);
+    }
+    .footer__row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .footer__row a {
+      color: var(--ember);
+      transition: color 0.25s, transform 0.25s;
+      display: inline-block;
+    }
+    .footer__row a:hover {
+      color: var(--vellum);
+      transform: translateY(-1px);
+    }
+    .footer__age {
+      margin-top: 1.1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-50);
+    }
+
+    /* Subtle ambient gold dust particles (CSS only) */
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.5;
+    }
+    .particles span {
+      position: absolute;
+      display: block;
+      width: 2px; height: 2px;
+      border-radius: 50%;
+      background: var(--champagne);
+      box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+      animation: float linear infinite;
+    }
+    @keyframes float {
+      from { transform: translateY(110vh); opacity: 0; }
+      10%  { opacity: 0.8; }
+      90%  { opacity: 0.4; }
+      to   { transform: translateY(-10vh); opacity: 0; }
+    }
+    /* Pseudo-randomized particle positions */
+    .particles span:nth-child(1) { left: 5%;  animation-duration: 22s; animation-delay: 0s; }
+    .particles span:nth-child(2) { left: 15%; animation-duration: 28s; animation-delay: 4s; }
+    .particles span:nth-child(3) { left: 25%; animation-duration: 25s; animation-delay: 1s; }
+    .particles span:nth-child(4) { left: 38%; animation-duration: 30s; animation-delay: 7s; }
+    .particles span:nth-child(5) { left: 50%; animation-duration: 24s; animation-delay: 3s; }
+    .particles span:nth-child(6) { left: 62%; animation-duration: 27s; animation-delay: 9s; }
+    .particles span:nth-child(7) { left: 75%; animation-duration: 26s; animation-delay: 2s; }
+    .particles span:nth-child(8) { left: 85%; animation-duration: 23s; animation-delay: 5s; }
+    .particles span:nth-child(9) { left: 92%; animation-duration: 29s; animation-delay: 8s; }
+    @media (prefers-reduced-motion: reduce) {
+      .particles, .stage { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="corner-tl" aria-hidden="true"></div>
+  <div class="corner-br" aria-hidden="true"></div>
+
+  <div class="particles" aria-hidden="true">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+
+  <main class="stage">
+    <span class="logo" role="img" aria-label="Cigar Shop monogram"></span>
+    <h1 class="wordmark">Cigar Shop</h1>
+    <p class="subwordmark">Tobacco and Drinks</p>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <h2 class="construction-title">Sajt u izradi</h2>
+    <p class="construction-sub">
+      Uskoro otvaramo. Pripremamo vam premium destinaciju za cigare, piće i ritual koji vredi pamtiti.
+    </p>
+
+    <footer class="footer">
+      <div class="footer__row">
+        <a href="https://www.instagram.com/cigarshopbelgrade" target="_blank" rel="noopener noreferrer">@cigarshopbelgrade</a>
+        <span aria-hidden="true">·</span>
+        <span>5 lokacija u Beogradu</span>
+      </div>
+      <p class="footer__age">18+. Duvan šteti zdravlju.</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -4,5 +4,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
-  "installCommand": "npm ci --include=optional --no-audit --no-fund"
+  "installCommand": "npm ci --include=optional --no-audit --no-fund",
+
+  "rewrites": [
+    {
+      "source": "/((?!coming-soon\\.html|assets/.*|favicon\\.ico|robots\\.txt).*)",
+      "has": [{ "type": "host", "value": "cigarshop.rs" }],
+      "destination": "/coming-soon.html"
+    },
+    {
+      "source": "/((?!coming-soon\\.html|assets/.*|favicon\\.ico|robots\\.txt).*)",
+      "has": [{ "type": "host", "value": "www.cigarshop.rs" }],
+      "destination": "/coming-soon.html"
+    }
+  ]
 }

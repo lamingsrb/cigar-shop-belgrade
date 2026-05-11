@@ -56,8 +56,8 @@
 
   "gallery": {
     "kicker": "Gallery",
-    "title": "Years of silence.",
-    "lead": "Plantation, factory, our cigars, distillery and the final ritual — frames that follow every year of patience."
+    "title": "Years of silence for a moment of pleasure.",
+    "lead": "It all begins long before the first draw — in tobacco leaves that have patiently aged, in the masters who shaped them, and in the knowledge passed on without rush and without noise. When the cigar is finally lit alongside a well-chosen drink, nothing is left to chance; every draw carries its own time, every aroma a story of origin. In that moment, the world does not stop — it simply becomes less important."
   },
 
   "humidorCigars": {
@@ -83,8 +83,8 @@
   "humidor": {
     "kicker": "Humidor",
     "title": "Step into the humidor.",
-    "lead": "The cigar that waits for you here has spent years in silence, now it waits for smoke.",
-    "body": "Every humidor we run is a promise to the buyer. 70% humidity, a constant 20°C, refrigerated Spanish cedar that smells as it should. The Cohiba you take home today felt exactly the same in the roller's hands ten years ago. That is the only difference between a cigar and a cigar worth smoking.",
+    "lead": "Welcome to a space where time slows down, and the scent of cedar, tobacco and tradition speaks louder than words.",
+    "body": "Every cigar is kept in carefully controlled conditions, at the ideal temperature and humidity, so that each leaf retains its fullness, aroma and character — exactly as the masters who created it intended. On the shelves of the humidor, two worlds meet: cigars from the Old World bring elegance, balance and the heritage of a craft refined over decades. Beside them stand cigars from the New World — bolder, more intense, with more attitude, for those who love a full draw and pronounced character. This is not a place for a quick choice or fleeting pleasure. The humidor is a space for those who know the difference between an ordinary moment and a ritual that stays in memory. Cigars do not ask for attention — they simply take it.",
     "stat1": "Relative humidity",
     "stat2": "Constant temperature",
     "stat3": "Humidors in Belgrade"
@@ -109,15 +109,15 @@
 
   "spirits": {
     "kicker": "Spirits",
-    "title": "Liquid companions of smoke.",
-    "lead": "Whisky, bourbon, cognac, gin, rum, vodka, rakija, wine. Every category carries its own geography and rhythm."
+    "title": "Continue with a drink.",
+    "lead": "After the cigar is chosen, the story does not end — it just finds its true tone."
   },
 
   "spiritsProcess": {
     "kicker": "The shelf",
-    "title": "The shelf that follows the cigar.",
-    "body1": "Our shelf is a map: <strong>Scottish single malt</strong>, <strong>Japanese Yamazaki</strong>, French cognac, Caribbean rum and domestic rakija — every bottle is chosen with the same care as the cigar standing next to it.",
-    "body2": "Beside a cigar, a drink must never dominate, only accompany. That is why our shelf carries <strong>over 260 bottles across eight categories</strong>, a selection that is not made overnight.",
+    "title": "The drink that follows the smoke.",
+    "body1": "Here every draw is rounded out by a drink that accompanies it without competing, but with character that knows how to answer. Whether you choose a <strong>whisky with depth</strong>, a <strong>rum with warmth</strong>, or a drink that needs no introduction — every sip is a continuation of the same ritual.",
+    "body2": "No rush — just a balance of taste that follows the smoke rather than trying to overpower it. This is the moment when everything falls into place the way you want it: <strong>the cigar, the drink, and the silence between</strong>.",
     "videoCaption": "The spirits shelf",
     "s1": "The shelf",
     "s2": "Single malt",
@@ -128,14 +128,14 @@
   "gear": {
     "kicker": "Gear",
     "title": "Tools of the ritual.",
-    "lead": "Cutters, lighters, humidors, ashtrays, travel cases. The ritual is incomplete without accessories worth remembering."
+    "lead": "A real cigar asks for more than a choice — it asks for an approach."
   },
 
   "gearProcess": {
     "kicker": "Accessories",
-    "title": "The details that make the cigar a ritual.",
-    "body1": "A cigar demands company. The cutter must be sharp, the lighter scent-free, the humidor humid just so. Each of these objects carries its own small engineering story, and together they set the stage where smoke takes form.",
-    "body2": "Our shelf carries Xikar, S.T. Dupont, Les Fines Lames, Colibri, Adorini, Daniel Marshall and Boveda. Classics worth remembering and pieces worth passing on.",
+    "title": "Tools that complete the ritual.",
+    "body1": "We do not offer accessories — we offer <strong>tools that complete the ritual to the last detail</strong>. Precise cutters that preserve the structure of the cigar, lighters that ignite without compromise, home humidors that maintain what has already been carefully chosen. And when you carry the ritual with you — travel cases and portable humidors enter the story.",
+    "body2": "When the cigar gets its moment, ashtrays are there as well — always thoughtful enough to follow the smoke rather than interrupt it. Every piece of equipment has its role, but the shared goal is the same: <strong>nothing stands between you and the perfect draw</strong>. No improvisation, no shortcuts — just the feeling that everything is exactly where it needs to be.",
     "videoCaption": "The gear range",
     "s1": "The range",
     "s2": "Travel gear",
