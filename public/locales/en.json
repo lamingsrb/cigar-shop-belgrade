@@ -44,8 +44,8 @@
   "manifest": {
     "kicker": "About us",
     "title": "Your choice, our world.",
-    "lead": "Cigar Shop is a premium retail chain of the finest cigar brands, quality accessories and premium spirits.",
-    "body": "Five stores across Belgrade. Over 500 cigars from seven countries and more than 260 selected bottles across eight categories. Cigars from Cuba, the Dominican Republic, Nicaragua, Honduras, Costa Rica, Mexico and Italy stand beside Scotch, Irish, Japanese and Oriental whiskies, bourbon, cognac, gin, rum, vodka, domestic rakija and wine. Alongside them, the tools that complete the ritual: cutters, lighters, humidors, ashtrays and travel cases."
+    "lead": "Cigar Shop is a retail chain specialised in premium cigars, top-shelf spirits and luxury cigar accessories, with stores at five exclusive locations.",
+    "body": "Built for lovers of a sophisticated lifestyle and true connoisseurs of quality, Cigar Shop is the meeting point of elegance, tradition and a premier shopping experience. Our carefully curated range covers premium cigars from the world's most renowned regions, a selection of top-shelf spirits, and luxury accessories — from humidors and lighters to exclusive gear for cigar enjoyment. Every product is chosen with particular care to satisfy even the most refined taste. The atmosphere of our shops is designed to deliver comfort and authentic pleasure, while our expert team takes an individual approach to every customer, providing service at the highest level — whether you are a longtime aficionado or only just entering the world of cigars. For us, a cigar is not just a product — it is a ritual, a style, an experience. That is why we believe your choice becomes part of our world."
   },
 
   "brands": {
@@ -92,7 +92,7 @@
 
   "regions": {
     "cta": "Discover more →",
-    "cuba": "Cuba",
+    "oldworld": "Old World",
     "world": "New World",
     "whisky": "Whisky",
     "bourbon": "Bourbon",

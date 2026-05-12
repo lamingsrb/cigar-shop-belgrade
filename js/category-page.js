@@ -86,7 +86,9 @@ function renderCategory(host, key) {
 
 function currentKey() {
   const h = (window.location.hash || '').replace(/^#/, '').toLowerCase();
-  return h || 'cuba'; // default
+  // Backward-compat: stari URL #cuba i dalje vodi na Stari svet stranicu.
+  if (h === 'cuba') return 'oldworld';
+  return h || 'oldworld'; // default
 }
 
 async function load() {

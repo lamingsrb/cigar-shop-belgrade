@@ -44,8 +44,8 @@
   "manifest": {
     "kicker": "O nama",
     "title": "Tvoj izbor, naš svet.",
-    "lead": "Cigar Shop je premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.",
-    "body": "Pet prodavnica u Beogradu. Preko 500 cigara iz sedam zemalja i preko 260 izabranih boca iz osam kategorija. Cigare iz Kube, Dominikane, Nikaragve, Hondurasa, Kostarike, Meksika i Italije stoje rame uz rame sa škotskim, irskim, japanskim i orijentalnim viskijima, burbonima, konjacima, džinovima, rumovima, votkama, domaćim rakijama i vinima. Uz njih ide pribor koji ritual čini potpunim: rezači, upaljači, humidori, pepeljare i putni etui."
+    "lead": "Cigar Shop je maloprodajni lanac specijalizovan za premium cigare, vrhunska pića i luksuznu opremu za cigare, sa radnjama na pet ekskluzivnih lokacija.",
+    "body": "Kreiran za ljubitelje sofisticiranog životnog stila i istinske poznavaoce kvaliteta, Cigar Shop predstavlja spoj elegancije, tradicije i vrhunskog iskustva kupovine. Naš pažljivo odabran asortiman obuhvata premium cigare iz najpoznatijih svetskih regija, selekciju vrhunskih pića i luksuzne aksesoare — od humidora i upaljača do ekskluzivne opreme za uživanje u cigarama. Svaki proizvod biran je sa posebnom pažnjom kako bi zadovoljio i najistančaniji ukus. Ambijent naših radnji osmišljen je da pruži osećaj komfora i autentičnog uživanja, dok naš stručni tim svakom kupcu pristupa individualno, pružajući uslugu na najvišem nivou — bilo da ste dugogodišnji aficionado ili tek ulazite u svet cigara. Za nas, cigara nije samo proizvod — ona je ritual, stil i iskustvo. Zato verujemo da vaš izbor postaje deo našeg sveta."
   },
 
   "brands": {
@@ -92,7 +92,7 @@
 
   "regions": {
     "cta": "Otkrij više →",
-    "cuba": "Kuba",
+    "oldworld": "Stari svet",
     "world": "Novi svet",
     "whisky": "Viski",
     "bourbon": "Burbon",
