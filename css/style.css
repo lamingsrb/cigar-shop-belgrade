@@ -114,6 +114,19 @@ ul, ol { list-style: none; }
   text-transform: uppercase;
 }
 
+/* Glavni naslovi sekcija u zlatnoj boji — isti vertikalni gradient kao
+   hero "CIGAR SHOP" wordmark (krem → ember → bronze) za vizuelnu
+   doslednost sa logom. */
+.heading-gold {
+  background: linear-gradient(180deg, #fbeecd 0%, #e4c88a 55%, #b8935a 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.45));
+}
+
 .kicker {
   font-family: var(--font-body);
   font-size: var(--fs-kicker);
