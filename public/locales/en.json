@@ -45,7 +45,7 @@
     "kicker": "About us",
     "title": "Your choice, our world.",
     "lead": "Cigar Shop is a retail chain specialised in premium cigars, top-shelf spirits and luxury cigar accessories, with stores at five exclusive locations.",
-    "body": "Built for lovers of a sophisticated lifestyle and true connoisseurs of quality, Cigar Shop is the meeting point of elegance, tradition and a premier shopping experience. Our carefully curated range covers premium cigars from the world's most renowned regions, a selection of top-shelf spirits, and luxury accessories — from humidors and lighters to exclusive gear for cigar enjoyment. Every product is chosen with particular care to satisfy even the most refined taste. The atmosphere of our shops is designed to deliver comfort and authentic pleasure, while our expert team takes an individual approach to every customer, providing service at the highest level — whether you are a longtime aficionado or only just entering the world of cigars. For us, a cigar is not just a product — it is a ritual, a style, an experience. That is why we believe your choice becomes part of our world."
+    "body": "Built for lovers of a sophisticated lifestyle and true connoisseurs of quality, Cigar Shop is the meeting point of elegance, tradition and a premier shopping experience.<br><br>Our carefully curated range covers premium cigars from the world's most renowned regions, a selection of top-shelf spirits, and luxury accessories — from humidors and lighters to exclusive gear for cigar enjoyment.<br><br>Every product is chosen with particular care to satisfy even the most refined taste.<br><br>The atmosphere of our shops is designed to deliver comfort and authentic pleasure, while our expert team takes an individual approach to every customer, providing service at the highest level — whether you are a longtime aficionado or only just entering the world of cigars.<br><br>For us, a cigar is not just a product — it is a ritual, a style, an experience. That is why we believe your choice becomes part of our world."
   },
 
   "brands": {
@@ -57,7 +57,7 @@
   "gallery": {
     "kicker": "Gallery",
     "title": "Years of silence for a moment of pleasure.",
-    "lead": "It all begins long before the first draw — in tobacco leaves that have patiently aged, in the masters who shaped them, and in the knowledge passed on without rush and without noise. When the cigar is finally lit alongside a well-chosen drink, nothing is left to chance; every draw carries its own time, every aroma a story of origin. In that moment, the world does not stop — it simply becomes less important."
+    "lead": "It all begins long before the first draw — in tobacco leaves that have patiently aged, in the masters who shaped them, and in the knowledge passed on without rush and without noise.<br><br>When the cigar is finally lit alongside a well-chosen drink, nothing is left to chance; every draw carries its own time, every aroma a story of origin.<br><br>In that moment, the world does not stop — it simply becomes less important."
   },
 
   "humidorCigars": {
@@ -84,7 +84,7 @@
     "kicker": "Humidor",
     "title": "Step into the humidor.",
     "lead": "Welcome to a space where time slows down, and the scent of cedar, tobacco and tradition speaks louder than words.",
-    "body": "Every cigar is kept in carefully controlled conditions, at the ideal temperature and humidity, so that each leaf retains its fullness, aroma and character — exactly as the masters who created it intended. On the shelves of the humidor, two worlds meet: cigars from the Old World bring elegance, balance and the heritage of a craft refined over decades. Beside them stand cigars from the New World — bolder, more intense, with more attitude, for those who love a full draw and pronounced character. This is not a place for a quick choice or fleeting pleasure. The humidor is a space for those who know the difference between an ordinary moment and a ritual that stays in memory. Cigars do not ask for attention — they simply take it.",
+    "body": "Every cigar is kept in carefully controlled conditions, at the ideal temperature and humidity, so that each leaf retains its fullness, aroma and character — exactly as the masters who created it intended.<br><br>On the shelves of the humidor, two worlds meet.<br><br>Cigars from the Old World bring elegance, balance and the heritage of a craft refined over decades.<br><br>Beside them stand cigars from the New World — bolder, more intense, with more attitude, for those who love a full draw and pronounced character.<br><br>This is not a place for a quick choice or fleeting pleasure. The humidor is a space for those who know the difference between an ordinary moment and a ritual that stays in memory.<br><br>Cigars do not ask for attention — they simply take it.",
     "stat1": "Relative humidity",
     "stat2": "Constant temperature",
     "stat3": "Humidors in Belgrade"
@@ -116,8 +116,8 @@
   "spiritsProcess": {
     "kicker": "The shelf",
     "title": "The drink that follows the smoke.",
-    "body1": "Here every draw is rounded out by a drink that accompanies it without competing, but with character that knows how to answer. Whether you choose a <strong>whisky with depth</strong>, a <strong>rum with warmth</strong>, or a drink that needs no introduction — every sip is a continuation of the same ritual.",
-    "body2": "No rush — just a balance of taste that follows the smoke rather than trying to overpower it. This is the moment when everything falls into place the way you want it: <strong>the cigar, the drink, and the silence between</strong>.",
+    "body1": "Here every draw is rounded out by a drink that accompanies it without competing, but with character that knows how to answer.<br><br>Whether you choose a <strong>whisky with depth</strong>, a <strong>rum with warmth</strong>, or a drink that needs no introduction — every sip is a continuation of the same ritual.",
+    "body2": "No rush — just a balance of taste that follows the smoke rather than trying to overpower it.<br><br>This is the moment when everything falls into place the way you want it: <strong>the cigar, the drink, and the silence between</strong>.",
     "videoCaption": "The spirits shelf",
     "s1": "The shelf",
     "s2": "Single malt",
@@ -134,8 +134,8 @@
   "gearProcess": {
     "kicker": "Accessories",
     "title": "Tools that complete the ritual.",
-    "body1": "We do not offer accessories — we offer <strong>tools that complete the ritual to the last detail</strong>. Precise cutters that preserve the structure of the cigar, lighters that ignite without compromise, home humidors that maintain what has already been carefully chosen. And when you carry the ritual with you — travel cases and portable humidors enter the story.",
-    "body2": "When the cigar gets its moment, ashtrays are there as well — always thoughtful enough to follow the smoke rather than interrupt it. Every piece of equipment has its role, but the shared goal is the same: <strong>nothing stands between you and the perfect draw</strong>. No improvisation, no shortcuts — just the feeling that everything is exactly where it needs to be.",
+    "body1": "We do not offer accessories — we offer <strong>tools that complete the ritual to the last detail</strong>.<br><br>Precise cutters that preserve the structure of the cigar, lighters that ignite without compromise, home humidors that maintain what has already been carefully chosen.<br><br>And when you carry the ritual with you — travel cases and portable humidors enter the story.",
+    "body2": "When the cigar gets its moment, ashtrays are there as well — always thoughtful enough to follow the smoke rather than interrupt it.<br><br>Every piece of equipment has its role, but the shared goal is the same: <strong>nothing stands between you and the perfect draw</strong>.<br><br>No improvisation, no shortcuts — just the feeling that everything is exactly where it needs to be.",
     "videoCaption": "The gear range",
     "s1": "The range",
     "s2": "Travel gear",
