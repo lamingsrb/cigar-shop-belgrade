@@ -10,14 +10,19 @@
   --cuban-brown:  #3d2817;
   --ember:        #e4c88a;
   --ember-deep:   #b8935a;
-  --gold-leaf:    #c9a961;
-  --champagne:    #d4af37;
+  /* "gold-leaf" prima vrednost iz hero "CIGAR SHOP" wordmark gradient-a
+     (srednja stopka, najreprezentativnija perceptualna boja). Tako se
+     SVA zlatna textualna kolorisanja na sajtu (kicker, hover, link
+     accent, blog datumi, brand strong, ...) usklađuju sa logo + CIGAR
+     SHOP nijansom na naslovnoj. */
+  --gold-leaf:    #e4c88a;
+  --champagne:    #e4c88a;
   --smoke:        #8b7d6b;
   --vellum:       #f5e6d3;
   --ink-70:       rgba(245, 230, 211, 0.7);
   --ink-50:       rgba(245, 230, 211, 0.5);
   --ink-20:       rgba(245, 230, 211, 0.2);
-  --line:         rgba(201, 169, 97, 0.18);
+  --line:         rgba(228, 200, 138, 0.18);
 
   /* Tipografija \u2014 moderni, \u010ditljivi web font stack.
      Playfair Display: displej serif sa visokim kontrastom (\u010ditljiv na svim veli\u010dinama).
@@ -1839,7 +1844,7 @@ section {
   grid-column: 1 / -1;
   justify-self: center;
   width: min(100%, 460px);
-  border-color: rgba(201, 169, 97, 0.35);
+  border-color: rgba(228, 200, 138, 0.35);
   background: linear-gradient(160deg, rgba(61, 40, 23, 0.55), rgba(42, 24, 16, 0.55));
   padding: 2rem 2.25rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
