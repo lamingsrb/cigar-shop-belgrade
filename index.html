@@ -117,9 +117,11 @@
 
   <!-- =======================  MANIFEST  ======================= -->
   <section id="manifest" class="manifest" aria-label="Manifest">
+    <div class="section__header">
+      <h2 class="heading-display heading-gold" data-i18n="manifest.title">Tvoj izbor, naš svet…</h2>
+    </div>
     <div class="manifest__grid">
       <div class="manifest__copy">
-        <h2 class="heading-display heading-gold" data-i18n="manifest.title">Tvoj izbor, naš svet…</h2>
         <p class="lead" data-i18n="manifest.lead">
           Cigar Shop je premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.
         </p>
@@ -167,6 +169,9 @@
 
     <!-- =======================  HUMIDOR (sada prvo)  ======================= -->
 <section id="humidor" class="humidor" aria-label="Humidor">
+    <div class="section__header">
+      <h2 class="heading-display heading-gold" data-i18n="humidor.title">Uđi u humidor…</h2>
+    </div>
     <div class="humidor__grid">
       <figure class="humidor__media humidor__media--portrait">
         <video class="humidor__video"
@@ -175,7 +180,6 @@
         </video>
       </figure>
       <div class="humidor__copy">
-        <h2 class="heading-display heading-gold" data-i18n="humidor.title">Uđi u humidor…</h2>
         <p class="lead" data-i18n="humidor.lead">
           Cigara koja te čeka kod nas provela je godine u tišini, sada čeka dim.
         </p>
@@ -417,16 +421,51 @@
   </section>
 
 
-  <!-- =======================  GODINE TIŠINE — kompilacija video + galerija  ======================= -->
-  <section id="gallery" class="gallery" aria-label="Godine tišine">
+  <!-- =======================  GODINE TIŠINE  ======================= -->
+  <section id="gallery" class="gallery origins" aria-label="Godine tišine">
     <div class="section__header">
       <h2 class="heading-display heading-gold" data-i18n="gallery.title">Godine tišine za trenutak uživanja…</h2>
-      <p class="lead" data-i18n="gallery.lead">
-        Plantaža, fabrika, naše cigare, destilerija i konačni ritual — kadrovi koji prate svaku godinu strpljenja.
-      </p>
     </div>
-    <div class="gallery-pages-wrap">
-      <div class="gallery-pages" id="gallery-track"></div>
+
+    <!-- Process-style blok: tekst levo + showcase slideshow desno (kao Spirits/Gear) -->
+    <div class="process">
+      <div class="process__intro">
+        <p class="body" data-i18n="gallery.lead">
+          Sve počinje mnogo pre prvog dima — u listovima duvana koji su strpljivo odležali, u majstorima koji su ih oblikovali i u znanju koje se prenosi bez žurbe i bez buke.
+        </p>
+      </div>
+      <div class="media-slideshow" id="gallery-media">
+        <figure class="media-slideshow__slide is-active"
+                data-lb-type="image" data-lb-src="/assets/gallery/img-020.webp"
+                data-lb-caption="Cohiba kolekcija">
+          <img loading="lazy" decoding="async" src="/assets/gallery/img-020.webp" alt="Cohiba kolekcija">
+        </figure>
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gallery/img-053.webp"
+                data-lb-caption="Horacio kutije">
+          <img loading="lazy" decoding="async" src="/assets/gallery/img-053.webp" alt="Horacio kutije">
+        </figure>
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gallery/img-008.webp"
+                data-lb-caption="Cigare i pribor">
+          <img loading="lazy" decoding="async" src="/assets/gallery/img-008.webp" alt="Cigare i pribor">
+        </figure>
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gallery/img-040.webp"
+                data-lb-caption="Joya de Nicaragua">
+          <img loading="lazy" decoding="async" src="/assets/gallery/img-040.webp" alt="Joya de Nicaragua">
+        </figure>
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gallery/img-013.webp"
+                data-lb-caption="Maya Selva">
+          <img loading="lazy" decoding="async" src="/assets/gallery/img-013.webp" alt="Maya Selva">
+        </figure>
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gallery/img-035.webp"
+                data-lb-caption="Ashton premium">
+          <img loading="lazy" decoding="async" src="/assets/gallery/img-035.webp" alt="Ashton premium">
+        </figure>
+      </div>
     </div>
   </section>
 
