@@ -17,7 +17,11 @@
       "/assets/humidor/humidor-02.webp",
       "/assets/humidor/humidor-03.webp",
       "/assets/humidor/humidor-04.webp",
+      "/assets/humidor/humidor-05.webp",
       "/assets/humidor/humidor-06.webp",
+      "/assets/humidor/humidor-07.webp",
+      "/assets/humidor/humidor-08.webp",
+      "/assets/humidor/humidor-09.webp",
       "/assets/gallery/img-017.webp",
       "/assets/gallery/img-018.webp",
       "/assets/gallery/img-020.webp"
@@ -29,12 +33,13 @@
     "kicker": { "sr": "Po regiji", "en": "By region" },
     "titlesr": "Novi svet — savremen pristup i kreativnost.",
     "titleen": "New World — a modern approach and creativity.",
-    "image": "/assets/gallery/img-008.webp",
+    "image": "/assets/categories/newworld.webp",
     "excerptsr": "Cigare Novog sveta donose savremen pristup, inovaciju i širok spektar aroma nastalih kombinovanjem tradicionalnih tehnika i modernog umeća proizvodnje.",
     "excerpten": "New World cigars bring a modern approach, innovation and a broad spectrum of aromas born from combining traditional techniques with contemporary craft.",
     "bodysr": "Cigare Novog sveta donose **savremen pristup, inovaciju i širok spektar aroma** nastalih kombinovanjem tradicionalnih tehnika i modernog umeća proizvodnje.\n\nProizvedene u zemljama poput **Dominikanske Republike**, **Nikaragve**, **Hondurasa** i **Meksika**, ove cigare poznate su po punijem profilu ukusa, kompleksnosti i kreativnosti brendova.\n\nU našoj ponudi Novog sveta nalaze se renomirani brendovi:\n\n- **ARTURO FUENTE**\n- **DAVIDOFF**\n- **ROCKY PATEL**\n- **HORACIO**\n- **J. C. NEWMAN**\n- **DREW ESTATE**\n- **CASA TURENT**\n\nCigare koje su osvojile ljubitelje širom sveta svojim karakterom, kvalitetom i savremenim izrazom luksuza.",
     "bodyen": "New World cigars bring a **modern approach, innovation and a broad spectrum of aromas** born from combining traditional techniques with contemporary craft.\n\nProduced in countries such as the **Dominican Republic**, **Nicaragua**, **Honduras** and **Mexico**, these cigars are known for a fuller flavour profile, complexity and the creativity of their brands.\n\nOur New World offering features established names:\n\n- **ARTURO FUENTE**\n- **DAVIDOFF**\n- **ROCKY PATEL**\n- **HORACIO**\n- **J. C. NEWMAN**\n- **DREW ESTATE**\n- **CASA TURENT**\n\nCigars that have won enthusiasts worldwide with their character, quality and contemporary expression of luxury.",
     "gallery": [
+      "/assets/categories/newworld.webp",
       "/assets/gallery/img-008.webp",
       "/assets/gallery/img-002.webp",
       "/assets/gallery/img-016.webp",
@@ -163,16 +168,23 @@
     "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
     "titlesr": "Sekači — prvi dodir cigare.",
     "titleen": "Cutters — the first touch of the cigar.",
-    "image": "/assets/gear/vitrine-01.webp",
+    "image": "/assets/gear/cutters-card.webp",
     "excerptsr": "**Giljotina, punch, V-cut**. Prvi dodir cigare je presudan — čist rez čuva aromu i vuče dim ravnomerno. Naš asortiman: **Xikar Xi1, S.T. Dupont MaxiJet, Les Fines Lames LE PETIT, Colibri V-Cut**.",
     "excerpten": "**Guillotine, punch, V-cut**. The first contact with the cigar is decisive — a clean cut preserves aroma and draws smoke evenly. Our range: **Xikar Xi1, S.T. Dupont MaxiJet, Les Fines Lames LE PETIT, Colibri V-Cut**.",
     "bodysr": "Sekač definiše tri stvari: **količinu vuče**, **kondenzaciju ulja** i **dugovečnost** dima.\n\n**Tipovi:**\n- **Giljotina** (single ili double blade) — klasičan ravan rez, otvara širok protok. Najpopularniji izbor majstora.\n- **Punch** — kružna rupa kroz glavu cigare, suvi rez, manji protok, manje šanse za odmotavanje wrappera. Idealno za vlažne klime.\n- **V-cut** (cat's eye) — V-žlijeb kroz glavu, kompromis između giljotine i puncha. Koncentriše dim na sredinu jezika.\n\n**Naš asortiman:**\n- **Xikar Xi1 Guillotine** — dvostruko sečivo od 440 čelika, do 60 ring, doživotna garancija\n- **S.T. Dupont MaxiJet Cutter** — francuska preciznost, ergonomska ručka, do 60 ring\n- **Les Fines Lames LE PETIT** — luksuzna mini-giljotina sa nerdovim mehanizmom za sigurnost prsta\n- **Colibri V-Cut** — 60 ring kapacitet, dijamantski uglovi za besprekoran rez\n\n**Saveti za rez:**\n- Cigaru drži vertikalno, sekač paralelno sa glavom\n- Reži tačno na *cap line* — vidljivu liniju koja označava ručno aplicirani vrh\n- Za cigare 50+ ring: giljotina; za 40-46: punch; za 47-52: V-cut savršeno\n- Tup sečivo cepa wrapper — uvek održavaj oštrinu",
     "bodyen": "The cutter defines three things: **draw volume**, **oil condensation** and **smoke longevity**.\n\n**Types:**\n- **Guillotine** (single or double blade) — classic flat cut, opens wide flow. The most popular choice among masters.\n- **Punch** — circular hole through the cigar head, dry cut, smaller flow, less chance of wrapper unrolling. Ideal for humid climates.\n- **V-cut** (cat's eye) — V-groove through the head, a compromise between guillotine and punch. Concentrates smoke on the centre of the tongue.\n\n**Our range:**\n- **Xikar Xi1 Guillotine** — double 440-steel blade, up to 60 ring, lifetime warranty\n- **S.T. Dupont MaxiJet Cutter** — French precision, ergonomic handle, up to 60 ring\n- **Les Fines Lames LE PETIT** — luxury mini-guillotine with a nerd-finger safety mechanism\n- **Colibri V-Cut** — 60 ring capacity, diamond edges for a flawless cut\n\n**Cutting tips:**\n- Hold the cigar vertically, the cutter parallel to the head\n- Cut exactly on the *cap line* — the visible mark indicating the hand-applied tip\n- For 50+ ring cigars: guillotine; for 40-46: punch; for 47-52: V-cut perfectly\n- A dull blade tears the wrapper — always keep the edge sharp",
     "gallery": [
-      "/assets/gear/vitrine-01.webp",
-      "/assets/gear/vitrine-02.webp",
-      "/assets/gear/vitrine-03.webp",
-      "/assets/humidor/humidor-01.webp"
+      "/assets/gear/cutters-card.webp",
+      "/assets/gear/cutters/01.webp",
+      "/assets/gear/cutters/02.webp",
+      "/assets/gear/cutters/03.webp",
+      "/assets/gear/cutters/04.webp",
+      "/assets/gear/cutters/05.webp",
+      "/assets/gear/cutters/06.webp",
+      "/assets/gear/cutters/07.webp",
+      "/assets/gear/cutters/08.webp",
+      "/assets/gear/cutters/09.webp",
+      "/assets/gear/cutters/10.webp"
     ]
   },
 
@@ -199,18 +211,28 @@
     "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
     "titlesr": "Humidori — dom za cigaru koja čeka.",
     "titleen": "Humidors — a home for the waiting cigar.",
-    "image": "/assets/humidor/humidor-06.webp",
+    "image": "/assets/gear/humidors-card.webp",
     "excerptsr": "**Španski kedar, digitalni higrometar, Boveda 69/72 paketi**. Magični broj — 70% relativne vlažnosti, 18-21°C — nije izabran slučajno: to je tačka na kojoj duvan ne pleše, ne sahne i ne raste.",
     "excerpten": "**Spanish cedar, digital hygrometer, Boveda 69/72 packs**. The magic number — 70% relative humidity, 18-21°C — wasn't chosen at random: it's the point at which tobacco doesn't mould, dry, or grow.",
     "bodysr": "Humidor održava **dva broja**: **70% relativne vlažnosti** i **18-21°C**.\n\n- Ispod 65% RH — cigara puca, gubi ulje, miris bledi\n- Iznad 75% RH — započinju mikrobiološki procesi (plesni, *tobacco beetle Lasioderma serricorne*)\n\nZato je drvo iznutra uvek **španski kedar** (*Cedrela odorata*) — odbija insekte aromatičnim uljima i upija višak vlage. Edward Pinder je 1895. patentirao prvi komercijalni *cabinet humidor* za londonski klub St. James's.\n\n**Tehnologije:**\n- **Klasični humidor** sa solution gel-jedinicom (propilen glikol)\n- **Boveda paketi** — dvosmerni, precizno kalibrisani 65/69/72/75% RH, bez kalibracije\n- **Elektronski humidor** sa Peltier hlađenjem za toplije sredine (>22°C)\n\n**Naš asortiman:**\n- **Adorini Carrara M Deluxe** — italijanski klasik, 25 cigara, španski kedar, digitalni higrometar\n- **Daniel Marshall 125-count** — američki premium, *burl walnut*, *Humido-Tech* sistem, do 125 cigara\n- **Travel Adorini Cedro** — putni humidor, aluminijum + kedar, 5 cigara, Boveda slot\n- **Boveda 69% 60g 12-pack** — set za održavanje, 12 paketa za 6-12 meseci\n\n**Saveti za održavanje:**\n- *Seasoning* — pre prve upotrebe humidora, navlaži kedar destilovanom vodom 1-2 nedelje\n- Vlažnost menjaj sezonski: 65% RH za male/svetle cigare, 72% za maduro/cuba klasiku\n- Higrometar kalibriraj jednom godišnje — koristi *salt test* (75% RH baseline)\n- Cigaru rotiraj jednom mesečno za ravnomerno odležavanje\n\nKolekcionarski humidori dostižu cene preko 100.000 dolara. *Daniel Marshall Royal Humidor* prodat je 2018. za 185.000 dolara — burl javorov koren ojačan titanom.",
     "bodyen": "A humidor maintains **two numbers**: **70% relative humidity** and **18-21°C**.\n\n- Below 65% RH — the cigar cracks, loses oils, the aroma fades\n- Above 75% RH — microbiological processes begin (mould, *tobacco beetle Lasioderma serricorne*)\n\nThat's why the inner wood is always **Spanish cedar** (*Cedrela odorata*) — its aromatic oils repel insects and absorb excess humidity. Edward Pinder patented the first commercial *cabinet humidor* in 1895 for London's St. James's Club.\n\n**Technologies:**\n- **Classic humidor** with solution gel unit (propylene glycol)\n- **Boveda packs** — two-way, precisely calibrated to 65/69/72/75% RH, no calibration needed\n- **Electronic humidor** with Peltier cooling for warmer environments (>22°C)\n\n**Our range:**\n- **Adorini Carrara M Deluxe** — Italian classic, 25 cigars, Spanish cedar, digital hygrometer\n- **Daniel Marshall 125-count** — American premium, *burl walnut*, *Humido-Tech* system, up to 125 cigars\n- **Travel Adorini Cedro** — travel humidor, aluminium + cedar, 5 cigars, Boveda slot\n- **Boveda 69% 60g 12-pack** — maintenance set, 12 packs for 6-12 months\n\n**Maintenance tips:**\n- *Seasoning* — before first use, moisten the cedar with distilled water for 1-2 weeks\n- Adjust humidity by season: 65% RH for small/light cigars, 72% for maduro/Cuban classics\n- Calibrate the hygrometer annually — use the *salt test* (75% RH baseline)\n- Rotate cigars monthly for even ageing\n\nCollector humidors reach prices over $100,000. The *Daniel Marshall Royal Humidor* sold in 2018 for $185,000 — burl maple root reinforced with titanium.",
     "gallery": [
+      "/assets/gear/humidors-card.webp",
       "/assets/humidor/humidor-01.webp",
       "/assets/humidor/humidor-02.webp",
       "/assets/humidor/humidor-03.webp",
       "/assets/humidor/humidor-04.webp",
       "/assets/humidor/humidor-05.webp",
-      "/assets/humidor/humidor-06.webp"
+      "/assets/humidor/humidor-06.webp",
+      "/assets/humidor/humidor-07.webp",
+      "/assets/humidor/humidor-08.webp",
+      "/assets/humidor/humidor-09.webp",
+      "/assets/humidor/humidor-10.webp",
+      "/assets/humidor/humidor-11.webp",
+      "/assets/humidor/humidor-12.webp",
+      "/assets/humidor/humidor-13.webp",
+      "/assets/humidor/humidor-14.webp",
+      "/assets/humidor/humidor-15.webp"
     ]
   },
 
@@ -219,16 +241,15 @@
     "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
     "titlesr": "Pepeljare — mesto gde cigara počiva.",
     "titleen": "Ashtrays — where the cigar rests.",
-    "image": "/assets/humidor/humidor-04.webp",
+    "image": "/assets/gear/ashtrays-card.webp",
     "excerptsr": "**Mermer, kristal, bronza**. Mesto gde se cigara odmara između dva dima — teg, težina, tihi šarm. Naš asortiman: **Arturo Fuente Marble, Xikar Alpine Crystal, Les Fines Lames Le Monde, Cohiba Porcelain**.",
     "excerpten": "**Marble, crystal, bronze**. Where the cigar rests between draws — weight, heft, quiet charm. Our range: **Arturo Fuente Marble, Xikar Alpine Crystal, Les Fines Lames Le Monde, Cohiba Porcelain**.",
     "bodysr": "Pepeljara je više od posude za pepeo — to je **stalno mesto cigare** dok pričate, čitate, ili samo gledate kako dim kruži.\n\n**Šta čini dobru pepeljaru:**\n- **Težina** (mermer, kristal) — da je vetar ne pomakne, da cigara ne ispadne\n- **Slot dubok 4-6 cm** — drži cigaru pod uglom da se pepeo ne lomi prerano\n- **Široka osnova** — pepeljara prima ash do 2-3 cm pre nego što se otkine (ash je deo iskustva!)\n- **Materijal koji se lako čisti** — mermer/kristal/porcelan; ne aluminijum (oksidira)\n\n**Slotovi po nameni:**\n- **2 slota** — za 1-2 osobe, intimno\n- **4 slota** — klasičan format, klub-stil\n- **6 slota** — *cigar lounge*, za društva\n\n**Naš asortiman:**\n- **Arturo Fuente Marble Large** — italijanski karara mermer, 4 slota, ručno polirana, težina ~3kg\n- **Xikar Alpine Crystal** — kristal sa mat bazom, 2 slota, *crystal cool* za toplu prostoriju\n- **Les Fines Lames Le Monde** — bronzani dizajn, sa autentičnim potpisom francuskog atelijera\n- **Cohiba Porcelain** — beli porcelan sa Cohiba logom, 4 slota, klasik\n\n**Tehnika:**\n- Pepeo **nikad ne lupaj** — pusti da otpadne sam (znači da je cigara dobro motana)\n- Cigaru **nikad ne gasi vodom** — neka prosto izgori sama; gašenje *daje* gorak miris\n- Pepeljara mora biti **viša od cigare** — slot drži glavu dovoljno visoko da pepeo ne pukne",
     "bodyen": "The ashtray is more than a vessel for ash — it's the **permanent place of the cigar** while you talk, read, or just watch the smoke circle.\n\n**What makes a good ashtray:**\n- **Weight** (marble, crystal) — so wind doesn't move it, so the cigar doesn't fall\n- **Slot 4-6 cm deep** — holds the cigar at an angle so the ash doesn't break too soon\n- **Wide base** — the ashtray catches ash up to 2-3 cm before it falls off (the ash is part of the experience!)\n- **Easy-to-clean material** — marble/crystal/porcelain; not aluminium (oxidises)\n\n**Slots by use:**\n- **2 slots** — for 1-2 people, intimate\n- **4 slots** — classic format, club style\n- **6 slots** — *cigar lounge*, for groups\n\n**Our range:**\n- **Arturo Fuente Marble Large** — Italian Carrara marble, 4 slots, hand-polished, weight ~3kg\n- **Xikar Alpine Crystal** — crystal with matte base, 2 slots, *crystal cool* for warm rooms\n- **Les Fines Lames Le Monde** — bronze design, authentic French atelier signature\n- **Cohiba Porcelain** — white porcelain with Cohiba logo, 4 slots, a classic\n\n**Technique:**\n- **Never tap** the ash — let it fall by itself (it means the cigar is well-rolled)\n- **Never put out a cigar with water** — let it simply burn out; extinguishing *gives* a bitter smell\n- The ashtray must be **higher than the cigar** — the slot holds the head high enough that the ash doesn't break",
     "gallery": [
-      "/assets/humidor/humidor-04.webp",
-      "/assets/humidor/humidor-05.webp",
-      "/assets/humidor/humidor-06.webp",
-      "/assets/gear/vitrine-01.webp"
+      "/assets/gear/ashtrays-card.webp",
+      "/assets/gear/ashtrays/01.webp",
+      "/assets/gear/ashtrays/02.webp"
     ]
   },
 
@@ -237,16 +258,24 @@
     "kicker": { "sr": "Alati rituala", "en": "Tools of the ritual" },
     "titlesr": "Futrole — cigara koja putuje.",
     "titleen": "Travel cases — the cigar that travels.",
-    "image": "/assets/humidor/humidor-01.webp",
+    "image": "/assets/gear/cases-card.webp",
     "excerptsr": "**Koža, aluminijum, karbon**. Za 3 ili 5 cigara, vlažnost stabilna tokom puta, miris nedirnut. Naš asortiman: **Xikar Travel Humidor, Davidoff Leather 3-Finger, Cohiba Red Dot Case, Xikar HumiX 10ct**.",
     "excerpten": "**Leather, aluminium, carbon**. For 3 or 5 cigars, humidity stable on the road, aroma intact. Our range: **Xikar Travel Humidor, Davidoff Leather 3-Finger, Cohiba Red Dot Case, Xikar HumiX 10ct**.",
     "bodysr": "Futrola (*travel case*) rešava jedan problem: **kako sačuvati cigaru izvan humidora** — na putu, u kafiću, na sastanku.\n\n**Tipovi:**\n- **Mekana kožna futrola** — za 1-3 cigare, najlakša, fleksibilna; bez vlažnostne kontrole, samo zaštita 4-6 sati\n- **Aluminijumski/karbonski tube** — za 1 cigaru, *cigar tube*, idealno za premium pojedinačnu vitolu\n- **Travel humidor** — kombinacija futrole + Boveda paketa, **vlažnost stabilna do 30 dana**\n- **Žičana futrola sa lock-om** — za 5-10 cigara, profesionalni putnici\n\n**Materijali:**\n- **Koža** (calfskin, kalfskin, full-grain) — klasik, miris kože komplementaran sa duvanom\n- **Aluminijum** — najlakši, anti-shock, ali bez termo-izolacije (cigara se zagreva u toploj kabini)\n- **Karbon** — premium, anti-shock + termo-izolacija + *carbon look*\n- **Cedar-lined** — drvo iznutra, kao mali putni humidor\n\n**Naš asortiman:**\n- **Xikar Travel Humidor 5ct** — aluminijum, Boveda slot, 30+ dana stabilnosti\n- **Davidoff Leather 3-Finger** — calfskin koža, *Cinzel* tag, klasika\n- **Cohiba Red Dot Case** — karbonski kompozit sa crvenom Cohiba iglicom\n- **Xikar HumiX 10ct** — full carbon, Boveda kompatibilan, 10 cigara, *crash-resistant*\n\n**Pravila putovanja:**\n- **Avion**: nosi cigare u kabinskom prtljagu (donji prtljag = ekstremna temperatura/vlažnost)\n- **Topli sat**: izbegavaj direktno sunce — **karbon** je tu jer reflektuje toplotu\n- **Hladna sezona**: pre paljenja drži cigaru 5-10 min na sobnoj temperaturi (cold-wet → cracking)\n- **Carine**: u EU/Srbiji do **50 cigara po osobi** bez deklaracije; SAD/UK ima striktnija pravila — proveri pre puta",
     "bodyen": "The travel case solves one problem: **how to preserve a cigar outside the humidor** — on the road, in a café, at a meeting.\n\n**Types:**\n- **Soft leather case** — for 1-3 cigars, lightest, flexible; no humidity control, only 4-6 hours of protection\n- **Aluminium/carbon tube** — for 1 cigar, *cigar tube*, ideal for a premium single vitola\n- **Travel humidor** — case + Boveda pack combo, **humidity stable up to 30 days**\n- **Wired case with lock** — for 5-10 cigars, professional travellers\n\n**Materials:**\n- **Leather** (calfskin, full-grain) — classic, leather scent complements tobacco\n- **Aluminium** — lightest, anti-shock, but no thermal insulation (the cigar warms up in a hot cabin)\n- **Carbon** — premium, anti-shock + thermal insulation + *carbon look*\n- **Cedar-lined** — wood inside, like a small travel humidor\n\n**Our range:**\n- **Xikar Travel Humidor 5ct** — aluminium, Boveda slot, 30+ days stability\n- **Davidoff Leather 3-Finger** — calfskin leather, *Cinzel* tag, classic\n- **Cohiba Red Dot Case** — carbon composite with the red Cohiba pin\n- **Xikar HumiX 10ct** — full carbon, Boveda compatible, 10 cigars, *crash-resistant*\n\n**Travel rules:**\n- **Plane**: carry cigars in cabin baggage (hold = extreme temperature/humidity)\n- **Hot season**: avoid direct sun — **carbon** is there because it reflects heat\n- **Cold season**: before lighting, let the cigar sit at room temperature 5-10 min (cold-wet → cracking)\n- **Customs**: in EU/Serbia up to **50 cigars per person** without declaration; the US/UK has stricter rules — check before travel",
     "gallery": [
-      "/assets/humidor/humidor-01.webp",
-      "/assets/humidor/humidor-02.webp",
-      "/assets/humidor/humidor-03.webp",
-      "/assets/gear/vitrine-02.webp"
+      "/assets/gear/cases-card.webp",
+      "/assets/gear/cases/01.webp",
+      "/assets/gear/cases/02.webp",
+      "/assets/gear/cases/03.webp",
+      "/assets/gear/cases/04.webp",
+      "/assets/gear/cases/05.webp",
+      "/assets/gear/cases/06.webp",
+      "/assets/gear/cases/07.webp",
+      "/assets/gear/cases/08.webp",
+      "/assets/gear/cases/09.webp",
+      "/assets/gear/cases/10.webp",
+      "/assets/gear/cases/11.webp"
     ]
   }
 }
