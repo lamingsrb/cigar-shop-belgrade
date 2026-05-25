@@ -1,10 +1,16 @@
 # Cigar Shop — Deploy & Domain Setup
 
-Status: 2026-05-09. **Sajt je live na https://cigarshop.rs.** DNS je
+Status: 2026-05-25. **Sajt je live na https://cigarshop.rs.** DNS je
 auto-konfigurisan preko Loopia API user-a. Stari Shopify hosting (23.227.38.65)
 isključen, www CNAME na shops.myshopify.com obrisan, AAAA isključen — sve
 zamenjeno A → 76.76.21.21 (Vercel). Email infra (MX, SPF, DKIM, autoconfig)
 nedirnuta — Loopia Mail i dalje radi normalno.
+
+**Vercel Git integration:** reconnektovana 2026-05-25 preko Vercel API
+(`POST /v9/projects/{id}/link`) nakon što je Vercel GitHub App dobio access
+na `lamingsrb/cigar-shop-belgrade` repo. Sad `git push origin main` →
+auto-build → prod deploy bez ručnog `vercel --prod`. Ručni CLI deploy ostaje
+kao fallback ako webhook zakasni.
 
 ---
 
