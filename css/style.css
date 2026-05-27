@@ -4016,3 +4016,12 @@ body.lightbox-open { overflow: hidden; }
   .region-grid--2 .region-card,
   .region-grid--2 .region-card::before { animation: none; }
 }
+
+/* Performance: pause CSS animations when host element is off-screen.
+   js/perf-pause.js toggles .perf-paused via IntersectionObserver. */
+.perf-paused,
+.perf-paused *,
+.perf-paused *::before,
+.perf-paused *::after {
+  animation-play-state: paused !important;
+}
