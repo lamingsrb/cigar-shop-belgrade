@@ -20,6 +20,26 @@ export function initMediaSlideshow(host) {
   }
   let current = slides.findIndex(s => s.classList.contains('is-active'));
 
+  // Render prev/next arrows (modern, kruzni, gold-tinted)
+  if (!host.querySelector('.media-slideshow__nav--prev')) {
+    const prevBtn = document.createElement('button');
+    prevBtn.type = 'button';
+    prevBtn.className = 'media-slideshow__nav media-slideshow__nav--prev';
+    prevBtn.setAttribute('aria-label', 'Prethodni slajd');
+    prevBtn.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    host.appendChild(prevBtn);
+  }
+  if (!host.querySelector('.media-slideshow__nav--next')) {
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'media-slideshow__nav media-slideshow__nav--next';
+    nextBtn.setAttribute('aria-label', 'Sledeći slajd');
+    nextBtn.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    host.appendChild(nextBtn);
+  }
+  const prevBtn = host.querySelector('.media-slideshow__nav--prev');
+  const nextBtn = host.querySelector('.media-slideshow__nav--next');
+
   // Render dots
   let dotsHost = host.querySelector('.media-slideshow__dots');
   if (!dotsHost) {
@@ -45,6 +65,11 @@ export function initMediaSlideshow(host) {
 
   let timer = setInterval(() => go(current + 1), INTERVAL_MS);
 
+  function resetAutoplay() {
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => go(current + 1), INTERVAL_MS);
+  }
+
   // Pause na hover, resume na leave
   host.addEventListener('mouseenter', () => {
     if (timer) { clearInterval(timer); timer = null; }
@@ -60,8 +85,21 @@ export function initMediaSlideshow(host) {
     const idx = Number(btn.dataset.i);
     if (!Number.isFinite(idx)) return;
     go(idx);
-    if (timer) clearInterval(timer);
-    timer = setInterval(() => go(current + 1), INTERVAL_MS);
+    resetAutoplay();
+  });
+
+  // Klik na arrows
+  prevBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    go(current - 1);
+    resetAutoplay();
+  });
+  nextBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    go(current + 1);
+    resetAutoplay();
   });
 }
 

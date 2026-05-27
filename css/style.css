@@ -1242,6 +1242,57 @@ section {
 }
 .media-slideshow__dot:hover { background: rgba(212, 175, 55, 0.5); }
 
+/* Prev/Next nav strelice — kruzni glass dugmici, gold accent, hover scale */
+.media-slideshow__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 6, 5, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(228, 200, 138, 0.35);
+  color: var(--gold-leaf);
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out-expo),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              transform 0.3s var(--ease-out-expo);
+}
+.media-slideshow:hover .media-slideshow__nav { opacity: 1; }
+.media-slideshow__nav--prev { left: 0.75rem; }
+.media-slideshow__nav--next { right: 0.75rem; }
+.media-slideshow__nav:hover {
+  background: rgba(228, 200, 138, 0.15);
+  border-color: var(--gold-leaf);
+  transform: translateY(-50%) scale(1.08);
+}
+.media-slideshow__nav:active {
+  transform: translateY(-50%) scale(0.96);
+}
+.media-slideshow__nav:focus-visible {
+  outline: 2px solid var(--gold-leaf);
+  outline-offset: 2px;
+}
+/* Touch-only: arrows uvek vidljive na touch device-ima (hover ne radi) */
+@media (hover: none) {
+  .media-slideshow__nav { opacity: 0.85; }
+}
+/* Mobile: manje arrows da ne smetaju sadržaju */
+@media (max-width: 560px) {
+  .media-slideshow__nav { width: 36px; height: 36px; }
+  .media-slideshow__nav--prev { left: 0.5rem; }
+  .media-slideshow__nav--next { right: 0.5rem; }
+  .media-slideshow__nav svg { width: 18px; height: 18px; }
+}
+
 /* =======================================================
    OPREMA (Gear) — kartice sa medijom + listom proizvoda
    ======================================================= */
