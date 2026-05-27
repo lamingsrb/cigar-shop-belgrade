@@ -95,6 +95,68 @@
   .media-slideshow--cards { aspect-ratio: 4 / 3; }
   .process__intro .body { font-size: 0.9rem; line-height: 1.55; opacity: 0.9; }
 
+  /* Mobile order per sekcija: TITLE → SLIDESHOW/VIDEO → TEXT
+     Koristi flex + display:contents trick da reorderuje nested elemente
+     bez restrukturisanja HTML-a. */
+
+  /* Manifest: title → video → copy */
+  .manifest__grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .manifest__media { order: 1; }
+  .manifest__copy  { order: 2; }
+
+  /* Spirits + Gear: title (origins__header h2) → slideshow → lead + body
+     Section postaje flex container. .origins__header i .process se
+     "unwrap-uju" preko display:contents da im deca postanu flex item-i. */
+  #spirits,
+  #gear {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  #spirits > .origins__header,
+  #spirits > .process,
+  #gear > .origins__header,
+  #gear > .process {
+    display: contents;
+  }
+  #spirits .origins__header .heading-display,
+  #gear .origins__header .heading-display {
+    order: 1;
+    text-align: center;
+    margin: 0;
+  }
+  #spirits .media-slideshow,
+  #gear .media-slideshow {
+    order: 2;
+  }
+  #spirits .origins__header .lead,
+  #gear .origins__header .lead {
+    order: 3;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  #spirits .process__intro,
+  #gear .process__intro {
+    order: 4;
+  }
+
+  /* Blog: kicker + title → blog rail → lead → CTA */
+  #blog {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  #blog > .origins__header { display: contents; }
+  #blog .origins__header .kicker { order: 1; text-align: center; margin: 0; }
+  #blog .origins__header .heading-display { order: 2; text-align: center; margin: 0; }
+  #blog .blog__stage { order: 3; }
+  #blog .origins__header .lead { order: 4; text-align: center; margin: 0 auto; max-width: 600px; }
+  #blog .blog__cta { order: 5; }
+
   /* Stari/Novi svet kartice — već stacked 1-col od osnovnog CSS-a,
      samo smanji aspect i pojačaj title da je dominantna */
   .region-grid--2 .region-card { aspect-ratio: 4 / 5; }
