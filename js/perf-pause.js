@@ -15,7 +15,11 @@ const VIDEO_SELECTORS = [
 // Sekcije sa infinite CSS animacijama koje trose CPU dok su off-screen.
 // Pause-uje se preko klase .perf-paused → CSS animation-play-state: paused.
 const ANIM_SELECTORS = [
-  '.region-grid--2',  // gold glow + shimmer sweep na Stari/Novi svet
+  '.region-grid--2',     // gold glow + shimmer sweep na Stari/Novi svet
+  '.hero',               // hero rotator + ember/grain animacije
+  '.humidor',            // humidor section animacije
+  '#gallery',            // godine tisine slideshow
+  '#blog',               // blog rail
 ];
 
 export function initPerfPause() {

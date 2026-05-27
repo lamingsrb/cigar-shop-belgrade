@@ -19,6 +19,7 @@ import { initBlog } from './blog.js';
 import { initAllSectionStrips } from './section-strip.js';
 import { initAllMediaSlideshows } from './media-slideshow.js';
 import { initPerfPause } from './perf-pause.js';
+import { initMobileNav } from './mobile-nav.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -178,6 +179,7 @@ async function boot() {
   initAllSectionStrips();
   initAllMediaSlideshows();
   initPerfPause();
+  initMobileNav();
 
   // 6) Defer non-critical (audio + ambient particles) — lazy import, perf.
   //    Particles trose CPU non-stop; audio nije bitan dok korisnik ne interaguje.

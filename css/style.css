@@ -4025,3 +4025,127 @@ body.lightbox-open { overflow: hidden; }
 .perf-paused *::after {
   animation-play-state: paused !important;
 }
+
+/* =======================================================
+   Mobile nav drawer + hamburger toggle. DESKTOP: hidden via display: none.
+   Mobile (≤768px): hamburger vidljiv, drawer slide-in s desne strane.
+   ======================================================= */
+.nav-toggle { display: none; }
+.nav-drawer { display: none; }
+.nav-backdrop { display: none; }
+
+@media (max-width: 768px) {
+  /* Hamburger ikona — 3 zlatne crtice koje se transformišu u X kad je open */
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 9px;
+    cursor: pointer;
+    gap: 4px;
+    grid-template-rows: 2px 2px 2px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .nav-toggle:hover,
+  .nav-toggle[aria-expanded="true"] {
+    border-color: var(--gold-leaf);
+    background: rgba(228, 200, 138, 0.08);
+  }
+  .nav-toggle__bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--gold-leaf);
+    border-radius: 1px;
+    transition: transform 0.3s var(--ease-out-expo),
+                opacity 0.2s ease;
+    transform-origin: center;
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Drawer — slide in s desne strane, full height, dark + backdrop blur */
+  .nav-drawer {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(85vw, 360px);
+    z-index: 1000;
+    background: linear-gradient(180deg, rgba(10, 6, 5, 0.97) 0%, rgba(20, 10, 8, 0.97) 100%);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(228, 200, 138, 0.25);
+    transform: translateX(100%);
+    transition: transform 0.45s var(--ease-out-expo);
+    padding: calc(var(--header-h) + 1.5rem) 1.75rem 2rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-drawer.is-open {
+    transform: translateX(0);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.6);
+  }
+  .nav-drawer[aria-hidden="true"] { visibility: visible; }
+
+  .nav-drawer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .nav-drawer__nav a {
+    display: block;
+    padding: 1rem 0.5rem;
+    color: var(--vellum);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(228, 200, 138, 0.12);
+    transition: color 0.3s ease,
+                padding-left 0.3s var(--ease-out-expo),
+                background 0.3s ease;
+  }
+  .nav-drawer__nav a:hover,
+  .nav-drawer__nav a:focus-visible {
+    color: var(--gold-leaf);
+    padding-left: 1rem;
+    background: rgba(228, 200, 138, 0.05);
+  }
+  .nav-drawer__nav a.is-active {
+    color: var(--gold-leaf);
+  }
+
+  /* Backdrop iza drawer-a kad je open */
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease-out-expo);
+  }
+  .nav-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Body lock dok je drawer open — sprečava scroll iza */
+  body.nav-drawer-open {
+    overflow: hidden;
+  }
+}

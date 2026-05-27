@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -56,10 +56,29 @@
           <span class="lang-toggle__sep">/</span>
           <span class="lang-toggle__en" data-lang="en">EN</span>
         </button>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Otvori meni" aria-expanded="false" aria-controls="nav-drawer">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
       </div>
     </div>
     <div class="header__progress" id="scroll-burn" aria-hidden="true"></div>
   </header>
+
+  <!-- Mobile nav drawer — hidden on desktop, slide-in on mobile -->
+  <aside id="nav-drawer" class="nav-drawer" aria-hidden="true" aria-label="Mobile navigation">
+    <nav class="nav-drawer__nav" aria-label="Mobile primary">
+      <a href="#manifest" data-i18n="nav.manifest">Tvoj izbor</a>
+      <a href="#humidor" data-i18n="nav.humidor">Humidor</a>
+      <a href="#spirits" data-i18n="nav.spirits">Pića</a>
+      <a href="#gear" data-i18n="nav.gear">Oprema</a>
+      <a href="#gallery" data-i18n="nav.gallery">Godine tišine</a>
+      <a href="#blog" data-i18n="nav.blog">Blog</a>
+      <a href="#contact" data-i18n="footer.contactLink">Kontakt</a>
+    </nav>
+  </aside>
+  <div class="nav-backdrop" aria-hidden="true"></div>
 
   <!-- =======================  HERO  ======================= -->
   <section id="hero" class="hero" aria-label="Hero">
@@ -125,6 +144,7 @@
         <video class="manifest__video"
                autoplay muted loop playsinline preload="auto"
                poster="/assets/video/manifest-poster.jpg">
+          <source media="(max-width: 768px)" src="/assets/video/manifest-mobile.mp4" type="video/mp4">
           <source src="/assets/video/manifest.mp4" type="video/mp4">
         </video>
         <span class="manifest__tag" aria-hidden="true">EST. 2004</span>
@@ -160,7 +180,7 @@
       <a class="region-card" href="/category.html#oldworld">
         <figure class="region-card__media">
           <img loading="lazy" decoding="async"
-               src="/assets/categories/cuba.webp"
+               src="/assets/categories/cuba.webp" srcset="/assets/categories/cuba-m.webp 768w, /assets/categories/cuba.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw"
                alt="Cigare Starog sveta">
         </figure>
         <div class="region-card__overlay" aria-hidden="true"></div>
@@ -172,7 +192,7 @@
       <a class="region-card" href="/category.html#world">
         <figure class="region-card__media">
           <img loading="lazy" decoding="async"
-               src="/assets/categories/newworld.webp"
+               src="/assets/categories/newworld.webp" srcset="/assets/categories/newworld-m.webp 768w, /assets/categories/newworld.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw"
                alt="Cigare iz Novog sveta">
         </figure>
         <div class="region-card__overlay" aria-hidden="true"></div>
@@ -205,7 +225,7 @@
         <figure class="media-slideshow__slide is-active">
           <a class="region-card region-card--in-slideshow" href="/category.html#whisky">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/spirits/scotch.webp" alt="Viski">
+              <img loading="lazy" decoding="async" src="/assets/spirits/scotch.webp" srcset="/assets/spirits/scotch-m.webp 768w, /assets/spirits/scotch.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Viski">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -217,7 +237,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#bourbon">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/spirits/bourbon.webp" alt="Burbon">
+              <img loading="lazy" decoding="async" src="/assets/spirits/bourbon.webp" srcset="/assets/spirits/bourbon-m.webp 768w, /assets/spirits/bourbon.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Burbon">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -229,7 +249,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#gin">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-1-destilacija.webp" alt="Džin">
+              <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-1-destilacija.webp" srcset="/assets/spirits/spirits-process-1-destilacija-m.webp 768w, /assets/spirits/spirits-process-1-destilacija.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Džin">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -241,7 +261,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#cognac">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/spirits/cognac.webp" alt="Konjak">
+              <img loading="lazy" decoding="async" src="/assets/spirits/cognac.webp" srcset="/assets/spirits/cognac-m.webp 768w, /assets/spirits/cognac.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Konjak">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -253,7 +273,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#rum">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-3-odlezavanje.webp" alt="Rum">
+              <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-3-odlezavanje.webp" srcset="/assets/spirits/spirits-process-3-odlezavanje-m.webp 768w, /assets/spirits/spirits-process-3-odlezavanje.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Rum">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -265,7 +285,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#rakija">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/spirits/rakija.webp" alt="Rakija">
+              <img loading="lazy" decoding="async" src="/assets/spirits/rakija.webp" srcset="/assets/spirits/rakija-m.webp 768w, /assets/spirits/rakija.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Rakija">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -296,7 +316,7 @@
         <figure class="media-slideshow__slide is-active">
           <a class="region-card region-card--in-slideshow" href="/category.html#cutters">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/gear/cutters-card.webp" alt="Sekači">
+              <img loading="lazy" decoding="async" src="/assets/gear/cutters-card.webp" srcset="/assets/gear/cutters-card-m.webp 768w, /assets/gear/cutters-card.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Sekači">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -308,7 +328,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#lighters">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/gear/lighters-card.webp" alt="Upaljači">
+              <img loading="lazy" decoding="async" src="/assets/gear/lighters-card.webp" srcset="/assets/gear/lighters-card-m.webp 768w, /assets/gear/lighters-card.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Upaljači">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -320,7 +340,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#humidors">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/gear/humidors-card.webp" alt="Humidori">
+              <img loading="lazy" decoding="async" src="/assets/gear/humidors-card.webp" srcset="/assets/gear/humidors-card-m.webp 768w, /assets/gear/humidors-card.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Humidori">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -332,7 +352,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#ashtrays">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/gear/ashtrays-card.webp" alt="Pepeljare">
+              <img loading="lazy" decoding="async" src="/assets/gear/ashtrays-card.webp" srcset="/assets/gear/ashtrays-card-m.webp 768w, /assets/gear/ashtrays-card.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Pepeljare">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">
@@ -344,7 +364,7 @@
         <figure class="media-slideshow__slide">
           <a class="region-card region-card--in-slideshow" href="/category.html#cases">
             <figure class="region-card__media">
-              <img loading="lazy" decoding="async" src="/assets/gear/cases-card.webp" alt="Futrole">
+              <img loading="lazy" decoding="async" src="/assets/gear/cases-card.webp" srcset="/assets/gear/cases-card-m.webp 768w, /assets/gear/cases-card.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" alt="Futrole">
             </figure>
             <div class="region-card__overlay" aria-hidden="true"></div>
             <div class="region-card__body">

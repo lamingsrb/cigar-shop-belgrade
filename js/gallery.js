@@ -15,12 +15,17 @@ export async function initGallery() {
   const slides = Array.from({ length: TOTAL_IMAGES }, (_, i) => {
     const num = String(i + 1).padStart(2, '0');
     const src = `${BASE}/${num}.webp`;
+    const mobileSrc = `${BASE}/${num}-m.webp`;
     const cls = i === 0 ? ' is-active' : '';
     return `
       <figure class="media-slideshow__slide${cls}"
               data-lb-type="image" data-lb-src="${src}"
               data-lb-caption="Cigar Shop galerija">
-        <img loading="lazy" decoding="async" src="${src}" alt="Cigar Shop galerija">
+        <img loading="lazy" decoding="async"
+             src="${src}"
+             srcset="${mobileSrc} 768w, ${src} 1600w"
+             sizes="(max-width: 768px) 100vw, 50vw"
+             alt="Cigar Shop galerija">
       </figure>`;
   }).join('');
 

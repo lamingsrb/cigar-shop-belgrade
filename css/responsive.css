@@ -122,15 +122,85 @@
   .header { padding: 0.5rem 0; }
   .header__progress { display: none; }
 
-  /* Hero dots veci za touch */
-  .hero__dot { width: 24px; height: 4px; margin: 0 5px; }
+  /* Tap targets — sve WCAG 2.2 min 44x44px na touch ekranima
+     Vizualni "kvadratić/krug" može biti manji, ali touch hitbox je 44x44 */
 
-  /* Slideshow dots veci za touch */
-  .media-slideshow__dots { gap: 0.4rem; padding: 0.5rem; }
-  .media-slideshow__dot { width: 8px; height: 8px; }
+  /* Hero dots — linijski izgled (24x4) ali sa padding-om za 44x32 touch area */
+  .hero__dot {
+    width: 24px;
+    height: 4px;
+    margin: 0;
+    padding: 14px 10px;
+    background-clip: content-box;
+    box-sizing: content-box;
+  }
+  .hero__dots { gap: 0; }
+
+  /* Slideshow dots — vizualni 10px, hitbox 32x32 sa paddingom */
+  .media-slideshow__dots { gap: 0.25rem; padding: 0.75rem; }
+  .media-slideshow__dot {
+    width: 10px;
+    height: 10px;
+    padding: 11px;
+    background-clip: content-box;
+    box-sizing: content-box;
+  }
+
+  /* Slideshow nav arrows — bumped to 44x44 na touch (umesto 36x36 kao default mobile) */
+  .media-slideshow__nav { width: 44px; height: 44px; opacity: 0.85; }
+  .media-slideshow__nav svg { width: 22px; height: 22px; }
+
+  /* Icon buttons (audio + lang toggle) — min 44x44 */
+  .icon-btn,
+  .lang-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lang-toggle { padding: 0.5rem 0.85rem; }
+
+  /* Blog nav arrows */
+  .blog__nav { width: 44px; height: 44px; }
+
+  /* content-visibility: auto za below-fold sekcije — browser skip layout/paint
+     off-screen, ubrzava initial render. contain-intrinsic-size sprečava CLS
+     dajući rezervisanu visinu pre nego što sekcija renderuje. */
+  #spirits,
+  #gear,
+  #gallery,
+  #blog,
+  #contact {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
 
   /* Reduci scroll-burn vidno na mobilnom */
   body { overflow-x: hidden; }
+}
+
+/* =======================================================
+   prefers-reduced-data: korisnik je uključio Data Saver (Chrome Android,
+   Opera, Edge mobile). Skipuj autoplay video, koristi poster umesto, smanji
+   decorative animacije.
+   ======================================================= */
+@media (prefers-reduced-data: reduce) {
+  .manifest__video,
+  .humidor__video,
+  .hero__slide1-video,
+  .hero__products-video {
+    display: none;
+  }
+  .manifest__media,
+  .humidor__media--portrait {
+    background: var(--obsidian);
+  }
+  /* Decorative animacije off */
+  .region-grid--2 .region-card,
+  .region-grid--2 .region-card::before {
+    animation: none;
+  }
 }
 
 /* Mali ekran (≤480px) — dodatne optimizacije */

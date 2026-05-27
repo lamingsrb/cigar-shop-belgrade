@@ -67,6 +67,7 @@ export function initHeroRotator() {
   }
 
   function next() { apply((current + 1) % slides.length); }
+  function prev() { apply((current - 1 + slides.length) % slides.length); }
 
   function start() {
     stop();
@@ -83,6 +84,34 @@ export function initHeroRotator() {
       start(); // reset clock on manual nav
     });
   });
+
+  // Touch swipe — horizontalni swipe za prev/next, threshold 60px
+  const heroEl = document.querySelector('.hero');
+  if (heroEl) {
+    let sx = 0, sy = 0, swiping = false;
+    heroEl.addEventListener('touchstart', (e) => {
+      const t = e.changedTouches[0];
+      sx = t.screenX; sy = t.screenY;
+      swiping = true;
+      stop();
+    }, { passive: true });
+    heroEl.addEventListener('touchend', (e) => {
+      if (!swiping) return;
+      swiping = false;
+      const t = e.changedTouches[0];
+      const dx = t.screenX - sx;
+      const dy = t.screenY - sy;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) next();
+        else prev();
+      }
+      start();
+    }, { passive: true });
+    heroEl.addEventListener('touchcancel', () => {
+      swiping = false;
+      start();
+    }, { passive: true });
+  }
 
   document.addEventListener('visibilitychange', () => {
     document.hidden ? stop() : start();

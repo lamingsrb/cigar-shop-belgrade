@@ -101,6 +101,34 @@ export function initMediaSlideshow(host) {
     go(current + 1);
     resetAutoplay();
   });
+
+  // Touch swipe — horizontal swipe za prev/next (threshold 50px). Ignoriše
+  // vertikalni scroll. Pause autoplay dok je prst na ekranu.
+  let touchStartX = 0, touchStartY = 0, swiping = false;
+  host.addEventListener('touchstart', (e) => {
+    const t = e.changedTouches[0];
+    touchStartX = t.screenX;
+    touchStartY = t.screenY;
+    swiping = true;
+    if (timer) { clearInterval(timer); timer = null; }
+  }, { passive: true });
+  host.addEventListener('touchend', (e) => {
+    if (!swiping) return;
+    swiping = false;
+    const t = e.changedTouches[0];
+    const dx = t.screenX - touchStartX;
+    const dy = t.screenY - touchStartY;
+    // Samo horizontal swipe (|dx| > |dy|) preko threshold-a
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) go(current + 1); // swipe left → next
+      else go(current - 1);         // swipe right → prev
+    }
+    resetAutoplay();
+  }, { passive: true });
+  host.addEventListener('touchcancel', () => {
+    swiping = false;
+    resetAutoplay();
+  }, { passive: true });
 }
 
 export function initAllMediaSlideshows() {
