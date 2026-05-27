@@ -70,3 +70,57 @@ foldera. Sačuvani kao dedicated blog cover-i:
 - [ ] Vizuelna provera blog kartica — nove cover slike za 4 istorijska posta.
 - [ ] Klijent potvrda da blog cover slike (mali low-res portreti) zadovoljavaju
   vizuelni kvalitet, ili da poprimi veće verzije.
+
+---
+
+## Anin Viber batch (popodne 27-05-2026)
+
+Nakon prvog batch-a, Ana je dodatno poslala materijal na Viber:
+- 8 fotki za sekciju "Godine tišine" (slideshow)
+- 50 slika za "Glavna galerija" (paginated gallery na dnu sekcije)
+- 1 MP4 video za "Tvoj izbor, naš svet" (manifest) sekciju
+- `burbon.jpg` za naslovnu Burbon kartice (već je bila u Burbon folderu sa
+  ostalih 4, ali Ana je naglasila da je upravo ova naslovna)
+
+### Šta je odrađeno
+
+- [x] **Manifest "Tvoj izbor, naš svet" → video umesto slideshow:**
+  - Transcode MP4: `Viber/0-02-05-...mp4` (1920×1080, 47s, 21MB) →
+    `/assets/video/manifest.mp4` (1280×720, ~17MB, libx264 crf24, faststart, no audio).
+  - Poster frame: `/assets/video/manifest-poster.jpg`.
+  - `index.html` manifest__media: zamenjen 5-slide slideshow sa `<video autoplay muted loop playsinline>`.
+
+- [x] **Godine tišine slideshow → 8 novih brendiranih slika:**
+  - 8 Viber fotki → `/assets/gallery/godine-tisine/01..08.webp`.
+  - `index.html` gallery-media: zamenjen 6 starih `img-XXX.webp` sa 8 novih.
+
+- [x] **Glavna galerija (paginated) → 50 novih slika:**
+  - 50 Viber fotki → `/assets/gallery/main/01..50.webp` (+ thumbs).
+  - `index.html`: dodat `<div id="gallery-track">` ispod gallery-media (u
+    `#gallery` sekciji, iznad #blog). Restaurira gallery-pages komponentu koja
+    je bila u JS-u (dead code) — sad je aktivna sa 50 slika u 9 stranica × 6.
+  - `js/gallery.js`: kompletno prepisan — više ne čita gallery-manifest.json
+    + curated whitelist, već gradi listu od 50 indexiranih images iz
+    `/assets/gallery/main/`.
+
+- [x] **Stari/Novi svet dominantne naslovne fotke:**
+  - CSS `.region-grid--2 > .region-card`: stack u 1 kolonu, full-width
+    (umesto 2-col side-by-side). Aspect ratio 16:9 zadržan.
+  - Svaka kartica sad zauzima ~1440px x 810px na desktop-u — prava "hero"
+    veličina, dominantna na ekranu.
+
+- [x] **Burbon naslovna:**
+  - `Burbon/burbon.jpg` (3053×3053) → `/assets/spirits/bourbon.webp` (replace).
+  - Card image se sad odnosi na pravu brendiranu fotku umesto staru generic.
+
+### Šta NIJE odrađeno (nedostaje materijal)
+
+- [ ] **Upaljači (lighters)**: Ana je napomenula "fale slike za upaljace" — ali
+  NIJE poslala nijednu novu sliku. Trenutno `lighters` kartica i dalje koristi
+  staru `vitrine-02.webp`. Treba zatražiti od Ane brendirani materijal za ovu
+  kategoriju (po obrascu Sekači, Pepeljare, Futrole, Humidori).
+
+### Reusable
+
+- [x] **`scripts/process-viber-2026-05-27.mjs`** — sharp pipeline za Viber
+  batch (50 + 8 slika, isti format kao prethodni feedback procesi).

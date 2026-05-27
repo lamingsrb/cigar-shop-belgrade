@@ -36,4 +36,5 @@ public/assets/brand/*.original.png
 
 # Raw feedback media — only docs (FEEDBACK-*.md, TASKS.md) idu u git
 Feedback_loop/*/Media/
+Feedback_loop/*/Media iz vibera/
 Thumbs.db

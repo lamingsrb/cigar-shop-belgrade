@@ -3718,8 +3718,8 @@ body.lightbox-open { overflow: hidden; }
   gap: var(--gap);
 }
 .region-grid--2 > .region-card {
-  flex: 0 1 calc((100% - var(--gap)) / 2);
-  max-width: calc((100% - var(--gap)) / 2);
+  flex: 1 1 100%;
+  max-width: 100%;
 }
 .region-grid--3 > .region-card {
   flex: 0 1 calc((100% - 2 * var(--gap)) / 3);
