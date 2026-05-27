@@ -3845,3 +3845,123 @@ body.lightbox-open { overflow: hidden; }
   }
   .region-card__cta { opacity: 1; transform: translateY(0); }
 }
+
+/* =======================================================
+   Region-card unutar media-slideshow slota (Spirits + Gear sekcije).
+   Slide popunjava ceo slot, card popunjava slide bez svog aspect-ratio-a
+   i bez borda (slideshow okvir to već daje).
+   ======================================================= */
+.media-slideshow--cards { aspect-ratio: 4 / 3; }
+.media-slideshow--cards .media-slideshow__slide {
+  position: absolute;
+  inset: 0;
+}
+.region-card--in-slideshow {
+  aspect-ratio: auto;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+.region-card--in-slideshow:hover {
+  transform: none;        /* slideshow drži kadar fiksnim */
+  box-shadow: none;
+  border: none;
+}
+.region-card--in-slideshow:hover .region-card__media img {
+  transform: scale(1.04);
+  filter: saturate(1.08) brightness(0.92);
+}
+.region-card--in-slideshow .region-card__cta { opacity: 1; transform: translateY(0); }
+
+/* =======================================================
+   Stari/Novi svet — premium animacije: gold shimmer sweep + pulsing
+   inner glow + glass-frost na body. Treba da "se vežu" za #humidor
+   sekciju iznad i deluju kao prirodno produženje, ne kao zasebne kartice.
+   ======================================================= */
+.region-grid--2 .region-card {
+  box-shadow:
+    inset 0 0 0 1px rgba(228, 200, 138, 0.18),
+    0 0 60px -20px rgba(228, 200, 138, 0.20),
+    0 18px 50px -18px rgba(0, 0, 0, 0.6);
+  animation: regionGlow 7s ease-in-out infinite;
+}
+.region-grid--2 .region-card:nth-child(2) { animation-delay: 3.5s; }
+
+@keyframes regionGlow {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(228, 200, 138, 0.18),
+      0 0 60px -20px rgba(228, 200, 138, 0.22),
+      0 18px 50px -18px rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(228, 200, 138, 0.42),
+      0 0 100px -10px rgba(228, 200, 138, 0.45),
+      0 22px 60px -18px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Diagonal gold shimmer sweep — pojavljuje se svakih ~9s, prolazi preko karte */
+.region-grid--2 .region-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(228, 200, 138, 0.18) 47%,
+    rgba(255, 235, 180, 0.45) 50%,
+    rgba(228, 200, 138, 0.18) 53%,
+    transparent 65%
+  );
+  background-size: 250% 250%;
+  background-position: 200% 200%;
+  animation: regionSweep 9s ease-in-out infinite;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+.region-grid--2 .region-card:nth-child(2)::before { animation-delay: 4.5s; }
+
+@keyframes regionSweep {
+  0%   { background-position: 200% 200%; opacity: 0; }
+  15%  { opacity: 0.9; }
+  55%  { background-position: -120% -120%; opacity: 0.9; }
+  70%  { opacity: 0; }
+  100% { background-position: -120% -120%; opacity: 0; }
+}
+
+/* Glass-frost overlay na body — pojačava se na hover */
+.region-grid--2 .region-card__body {
+  background: linear-gradient(180deg,
+    transparent 35%,
+    rgba(10, 6, 5, 0.18) 60%,
+    rgba(10, 6, 5, 0.55) 100%);
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  transition: backdrop-filter 0.5s var(--ease-out-expo),
+              -webkit-backdrop-filter 0.5s var(--ease-out-expo);
+}
+.region-grid--2 .region-card:hover .region-card__body {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+/* Body title u Stari/Novi svet — dominantnije, gold leaf shadow */
+.region-grid--2 .region-card__title {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(228, 200, 138, 0.25);
+}
+
+/* Reduce motion fallback — isključi animacije za korisnike koji ih ne žele */
+@media (prefers-reduced-motion: reduce) {
+  .region-grid--2 .region-card,
+  .region-grid--2 .region-card::before { animation: none; }
+}

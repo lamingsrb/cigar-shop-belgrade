@@ -97,21 +97,10 @@
       </div>
     </div>
 
-    <!-- SLIDE 3: live shop footage — samo video, bez teksta -->
-    <div class="hero__slide hero__slide--3" data-slide="3" aria-hidden="true">
-      <div class="hero__video-wrap" aria-hidden="true">
-        <video class="hero__live-video" autoplay muted loop playsinline
-               preload="metadata" poster="/assets/video/hero-slide3-poster.webp">
-          <source src="/assets/video/hero-slide3.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-
     <!-- Slide indicators (dots) -->
     <div class="hero__dots" role="tablist" aria-label="Hero slides">
       <button class="hero__dot is-active" data-target="1" aria-label="Prikaži prvi slajd"></button>
       <button class="hero__dot" data-target="2" aria-label="Prikaži drugi slajd"></button>
-      <button class="hero__dot" data-target="3" aria-label="Prikaži treći slajd"></button>
     </div>
   </section>
 
@@ -209,113 +198,80 @@
           Ovde se svaki dim zaokružuje pićem koje ga prati bez nadmetanja, ali sa karakterom koji zna da odgovori.
         </p>
       </div>
-      <div class="media-slideshow" id="spirits-media">
-        <figure class="media-slideshow__slide is-active"
-                data-lb-type="image" data-lb-src="/assets/spirits/spirits-pour.webp"
-                data-lb-caption="Premium piće uz cigaru">
-          <img loading="lazy" decoding="async" src="/assets/spirits/spirits-pour.webp" alt="Piće sipanje pored cigara">
+      <div class="media-slideshow media-slideshow--cards" id="spirits-media">
+        <figure class="media-slideshow__slide is-active">
+          <a class="region-card region-card--in-slideshow" href="/category.html#whisky">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/spirits/scotch.webp" alt="Viski">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.whisky">Viski</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/spirits/scotch.webp"
-                data-lb-caption="Viski">
-          <img loading="lazy" decoding="async" src="/assets/spirits/scotch.webp" alt="Viski">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#bourbon">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/spirits/bourbon.webp" alt="Burbon">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.bourbon">Burbon</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/spirits/spirits-process-1-destilacija.webp"
-                data-lb-caption="Džin">
-          <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-1-destilacija.webp" alt="Džin">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#gin">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-1-destilacija.webp" alt="Džin">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.gin">Džin</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/spirits/cognac.webp"
-                data-lb-caption="Konjak">
-          <img loading="lazy" decoding="async" src="/assets/spirits/cognac.webp" alt="Konjak">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#cognac">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/spirits/cognac.webp" alt="Konjak">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.cognac">Konjak</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/spirits/spirits-process-3-odlezavanje.webp"
-                data-lb-caption="Rum">
-          <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-3-odlezavanje.webp" alt="Rum">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#rum">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-3-odlezavanje.webp" alt="Rum">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.rum">Rum</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/spirits/rum-2.webp"
-                data-lb-caption="Rum — premium izbor">
-          <img loading="lazy" decoding="async" src="/assets/spirits/rum-2.webp" alt="Rum — premium izbor">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#rakija">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/spirits/rakija.webp" alt="Rakija">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.rakija">Rakija</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/spirits/rakija.webp"
-                data-lb-caption="Rakija">
-          <img loading="lazy" decoding="async" src="/assets/spirits/rakija.webp" alt="Rakija">
-        </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/spirits/rakija-2.webp"
-                data-lb-caption="Rakija — premium izbor">
-          <img loading="lazy" decoding="async" src="/assets/spirits/rakija-2.webp" alt="Rakija — premium izbor">
-        </figure>
-        <span class="media-slideshow__caption" data-i18n="spiritsProcess.videoCaption">Selekcija pića</span>
       </div>
-    </div>
-
-    <!-- Kategorije pića — klikabilne velike kartice (vode na detail page) -->
-    <div class="region-grid region-grid--3" id="spirits-region-grid">
-      <a class="region-card" href="/category.html#whisky">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/spirits/scotch.webp" alt="Viski">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.whisky">Viski</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#bourbon">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/spirits/bourbon.webp" alt="Burbon">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.bourbon">Burbon</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#gin">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-1-destilacija.webp" alt="Džin">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.gin">Džin</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#cognac">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/spirits/cognac.webp" alt="Konjak">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.cognac">Konjak</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#rum">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-3-odlezavanje.webp" alt="Rum">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.rum">Rum</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#rakija">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/spirits/rakija.webp" alt="Rakija">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.rakija">Rakija</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
     </div>
   </section>
 
@@ -333,88 +289,68 @@
           Ovde nisu u ponudi dodaci, već alati koji zaokružuju ritual do poslednjeg detalja.
         </p>
       </div>
-      <div class="media-slideshow" id="gear-media">
-        <figure class="media-slideshow__slide is-active"
-                data-lb-type="image" data-lb-src="/assets/gear/gear-ritual.webp"
-                data-lb-caption="Ritual — viski, cigara, sekač, upaljač">
-          <img loading="lazy" decoding="async" src="/assets/gear/gear-ritual.webp" alt="Cigara sa sekačem i upaljačem pored čaše viskija">
+      <div class="media-slideshow media-slideshow--cards" id="gear-media">
+        <figure class="media-slideshow__slide is-active">
+          <a class="region-card region-card--in-slideshow" href="/category.html#cutters">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/gear/cutters-card.webp" alt="Sekači">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.cutters">Sekači</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gear/cutters-card.webp"
-                data-lb-caption="Sekači">
-          <img loading="lazy" decoding="async" src="/assets/gear/cutters-card.webp" alt="Sekači">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#lighters">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/gear/lighters-card.webp" alt="Upaljači">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.lighters">Upaljači</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gear/humidors-card.webp"
-                data-lb-caption="Humidori">
-          <img loading="lazy" decoding="async" src="/assets/gear/humidors-card.webp" alt="Humidori">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#humidors">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/gear/humidors-card.webp" alt="Humidori">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.humidors">Humidori</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gear/ashtrays-card.webp"
-                data-lb-caption="Pepeljare">
-          <img loading="lazy" decoding="async" src="/assets/gear/ashtrays-card.webp" alt="Pepeljare">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#ashtrays">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/gear/ashtrays-card.webp" alt="Pepeljare">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.ashtrays">Pepeljare</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gear/cases-card.webp"
-                data-lb-caption="Futrole">
-          <img loading="lazy" decoding="async" src="/assets/gear/cases-card.webp" alt="Futrole">
+        <figure class="media-slideshow__slide">
+          <a class="region-card region-card--in-slideshow" href="/category.html#cases">
+            <figure class="region-card__media">
+              <img loading="lazy" decoding="async" src="/assets/gear/cases-card.webp" alt="Futrole">
+            </figure>
+            <div class="region-card__overlay" aria-hidden="true"></div>
+            <div class="region-card__body">
+              <h3 class="region-card__title" data-i18n="regions.cases">Futrole</h3>
+              <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
+            </div>
+          </a>
         </figure>
-        <span class="media-slideshow__caption" data-i18n="gearProcess.videoCaption">Asortiman opreme</span>
       </div>
-    </div>
-
-    <!-- Kategorije opreme — klikabilne velike kartice (vode na detail page) -->
-    <div class="region-grid region-grid--3" id="gear-region-grid">
-      <a class="region-card" href="/category.html#cutters">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/gear/cutters-card.webp" alt="Sekači">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.cutters">Sekači</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#lighters">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/gear/vitrine-02.webp" alt="Upaljači">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.lighters">Upaljači</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#humidors">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/gear/humidors-card.webp" alt="Humidori">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.humidors">Humidori</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#ashtrays">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/gear/ashtrays-card.webp" alt="Pepeljare">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.ashtrays">Pepeljare</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
-      <a class="region-card" href="/category.html#cases">
-        <figure class="region-card__media">
-          <img loading="lazy" decoding="async" src="/assets/gear/cases-card.webp" alt="Futrole">
-        </figure>
-        <div class="region-card__overlay" aria-hidden="true"></div>
-        <div class="region-card__body">
-          <h3 class="region-card__title" data-i18n="regions.cases">Futrole</h3>
-          <span class="region-card__cta" data-i18n="regions.cta">Otkrij kategoriju →</span>
-        </div>
-      </a>
     </div>
   </section>
 
@@ -425,60 +361,15 @@
       <h2 class="heading-display heading-gold" data-i18n="gallery.title">Godine tišine za trenutak uživanja…</h2>
     </div>
 
-    <!-- Process-style blok: tekst levo + showcase slideshow desno (kao Spirits/Gear) -->
+    <!-- Process-style blok: tekst levo + slideshow desno sa 50 brendiranih slika
+         (50 slajdova se popunjava JS-om iz js/gallery.js → /assets/gallery/main/) -->
     <div class="process">
       <div class="process__intro">
         <p class="body" data-i18n="gallery.lead">
           Sve počinje mnogo pre prvog dima — u listovima duvana koji su strpljivo odležali, u majstorima koji su ih oblikovali i u znanju koje se prenosi bez žurbe i bez buke.
         </p>
       </div>
-      <div class="media-slideshow" id="gallery-media">
-        <figure class="media-slideshow__slide is-active"
-                data-lb-type="image" data-lb-src="/assets/gallery/godine-tisine/01.webp"
-                data-lb-caption="Godine tišine">
-          <img loading="lazy" decoding="async" src="/assets/gallery/godine-tisine/01.webp" alt="Godine tišine">
-        </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gallery/godine-tisine/02.webp"
-                data-lb-caption="Godine tišine">
-          <img loading="lazy" decoding="async" src="/assets/gallery/godine-tisine/02.webp" alt="Godine tišine">
-        </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gallery/godine-tisine/03.webp"
-                data-lb-caption="Godine tišine">
-          <img loading="lazy" decoding="async" src="/assets/gallery/godine-tisine/03.webp" alt="Godine tišine">
-        </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gallery/godine-tisine/04.webp"
-                data-lb-caption="Godine tišine">
-          <img loading="lazy" decoding="async" src="/assets/gallery/godine-tisine/04.webp" alt="Godine tišine">
-        </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gallery/godine-tisine/05.webp"
-                data-lb-caption="Godine tišine">
-          <img loading="lazy" decoding="async" src="/assets/gallery/godine-tisine/05.webp" alt="Godine tišine">
-        </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gallery/godine-tisine/06.webp"
-                data-lb-caption="Godine tišine">
-          <img loading="lazy" decoding="async" src="/assets/gallery/godine-tisine/06.webp" alt="Godine tišine">
-        </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gallery/godine-tisine/07.webp"
-                data-lb-caption="Godine tišine">
-          <img loading="lazy" decoding="async" src="/assets/gallery/godine-tisine/07.webp" alt="Godine tišine">
-        </figure>
-        <figure class="media-slideshow__slide"
-                data-lb-type="image" data-lb-src="/assets/gallery/godine-tisine/08.webp"
-                data-lb-caption="Godine tišine">
-          <img loading="lazy" decoding="async" src="/assets/gallery/godine-tisine/08.webp" alt="Godine tišine">
-        </figure>
-      </div>
-    </div>
-
-    <!-- Glavna galerija (paginated 6-per-page) — 50 brendiranih slika -->
-    <div class="gallery-pages-wrap">
-      <div id="gallery-track" aria-label="Glavna galerija"></div>
+      <div class="media-slideshow" id="gallery-media" data-source="gallery-main"></div>
     </div>
   </section>
 
