@@ -1158,9 +1158,15 @@ section {
   grid-area: media;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border-radius: 3px;
+  /* Zlatni ram (Anin feedback 28-05): suptilna zlatna linija + tamni mat +
+     spoljašnji glow, da slika izgleda kao uramljena fotografija. */
+  border: 2px solid rgba(228, 200, 138, 0.55);
   background: rgba(10, 6, 5, 0.5);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(10, 6, 5, 0.85),
+              inset 0 0 22px rgba(0, 0, 0, 0.5),
+              0 24px 60px rgba(0, 0, 0, 0.5),
+              0 0 30px -8px rgba(228, 200, 138, 0.25);
 }
 /* In-manifest variant: parent .manifest__media vec ima okvir + aspect 4/3,
    pa slideshow popunjava i nasleduje. */
@@ -1190,17 +1196,22 @@ section {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(0.96) contrast(1.05) brightness(0.96);
+  /* Slika jasna (Anin feedback 28-05): bez zatamnjivanja, puna vidljivost */
+  filter: saturate(1.04) contrast(1.02);
   transition: transform 6s ease-out;
 }
 .media-slideshow__slide.is-active img {
   /* Suptilan Ken Burns zum dok je slajd vidljiv */
   transform: scale(1.04);
 }
+/* Gradient samo u donjem-levom uglu — za čitljivost naziva, ostatak slike jasan */
 .media-slideshow__slide::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(10, 6, 5, 0.55) 100%);
+  background: linear-gradient(to top right,
+    rgba(10, 6, 5, 0.72) 0%,
+    rgba(10, 6, 5, 0.28) 26%,
+    transparent 52%);
   pointer-events: none;
 }
 .media-slideshow__caption {
@@ -3795,8 +3806,12 @@ body.lightbox-open { overflow: hidden; }
   display: block;
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  border: 1px solid var(--line);
+  border-radius: 3px;
+  /* Zlatni ram (Anin feedback 28-05) */
+  border: 2px solid rgba(228, 200, 138, 0.5);
   background: rgba(10, 6, 5, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(10, 6, 5, 0.8),
+              0 0 26px -10px rgba(228, 200, 138, 0.22);
   cursor: pointer;
   transition: border-color 0.4s var(--ease-out-expo),
               transform 0.4s var(--ease-out-expo),
@@ -3823,63 +3838,68 @@ body.lightbox-open { overflow: hidden; }
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(0.95) brightness(0.78);
+  /* Slika jasna (Anin feedback 28-05): bez tamnjenja, puna vidljivost */
+  filter: saturate(1.03) contrast(1.02);
   transition: filter 0.6s var(--ease-out-quart),
               transform 0.9s var(--ease-out-quart);
 }
 .region-card:hover .region-card__media img {
-  filter: saturate(1.1) brightness(0.95);
+  filter: saturate(1.12) contrast(1.04);
   transform: scale(1.06);
 }
 
+/* Overlay — gradient samo donji-levi ugao (za naziv), ostatak slike jasan */
 .region-card__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg,
-    rgba(10, 6, 5, 0.30) 0%,
-    rgba(10, 6, 5, 0.55) 60%,
-    rgba(10, 6, 5, 0.85) 100%);
+  background: linear-gradient(to top right,
+    rgba(10, 6, 5, 0.82) 0%,
+    rgba(10, 6, 5, 0.40) 30%,
+    transparent 56%);
   pointer-events: none;
   transition: opacity 0.4s var(--ease-out-expo);
 }
-.region-card:hover .region-card__overlay { opacity: 0.85; }
+.region-card:hover .region-card__overlay { opacity: 0.92; }
 
+/* Naziv + CTA u donjem-levom uglu (Anin feedback 28-05) */
 .region-card__body {
   position: absolute;
   inset: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  text-align: center;
-  padding: 1.5rem;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  text-align: left;
+  padding: 1.1rem 1.25rem;
   pointer-events: none;
 }
 .region-card__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.5rem, 3vw, 2.6rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+  letter-spacing: 0.06em;
   color: var(--champagne);
   text-transform: uppercase;
-  line-height: 1;
-  text-shadow: 0 4px 22px rgba(0, 0, 0, 0.7),
-               0 0 30px rgba(212, 175, 55, 0.25);
+  line-height: 1.05;
+  text-align: left;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.8),
+               0 0 24px rgba(212, 175, 55, 0.25);
   transform: translateY(0);
   transition: transform 0.5s var(--ease-out-expo);
 }
 .region-card:hover .region-card__title {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
 }
 .region-card__cta {
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold-leaf);
+  text-align: left;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.4s var(--ease-out-expo),
