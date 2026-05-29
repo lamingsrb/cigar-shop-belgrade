@@ -13,7 +13,7 @@ async function loadBlog() {
 
 function renderRail(host) {
   const lang = getLang();
-  const posts = (blogData?.posts || []).slice(0, 10);
+  const posts = (blogData?.posts || []).slice(0, 4);
   host.innerHTML = posts.map((p, i) => `
     <a class="blog-card" href="/blog.html#${p.slug}" data-i="${i}">
       <figure class="blog-card__media">
@@ -85,7 +85,7 @@ function mdBlock(body) {
 
 function renderPosts(host) {
   const lang = getLang();
-  const posts = blogData?.posts || [];
+  const posts = (blogData?.posts || []).slice(0, 4);
   host.innerHTML = posts.map(p => `
     <article class="blog-post" id="${p.slug}">
       <figure class="blog-post__media">

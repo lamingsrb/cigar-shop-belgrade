@@ -61,8 +61,11 @@ function renderCategory(host, key) {
     </figure>
   `).join('');
 
+  // Anin feedback 29-05: detail (pod)stranice — ukloniti tekst, ostaviti SAMO
+  // slike. Hero (slika + naziv) ostaje kao identitet strane; body tekst
+  // (excerpt + markdown sadržaj) se ne renderuje. Prikazuje se samo galerija.
   host.innerHTML = `
-    <article class="blog-post category-post">
+    <article class="blog-post category-post category-post--images-only">
       <figure class="category-post__hero">
         <img loading="eager" decoding="async" src="${cat.image}" alt="${title}">
         <div class="category-post__hero-overlay" aria-hidden="true"></div>
@@ -71,10 +74,6 @@ function renderCategory(host, key) {
           <h1 class="heading-display">${title}</h1>
         </div>
       </figure>
-      <div class="blog-post__body category-post__body">
-        <div class="blog-post__excerpt">${mdInline(excerpt)}</div>
-        <div class="blog-post__content">${mdBlock(body)}</div>
-      </div>
       ${galleryItems ? `
         <section class="category-gallery" aria-label="Gallery">
           <div class="category-gallery__grid">${galleryItems}</div>

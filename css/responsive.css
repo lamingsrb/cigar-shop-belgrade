@@ -64,17 +64,23 @@
 @media (max-width: 768px) {
   /* Smanji vertikalne padding-e sekcija */
   section { padding-top: clamp(2.5rem, 8vw, 4rem); padding-bottom: clamp(2.5rem, 8vw, 4rem); }
-  .section__header { margin-bottom: 1.5rem; }
+  /* Veći razmak naslov ↔ sadržaj sekcije (Anin feedback 29-05) */
+  .section__header { margin-bottom: 2.75rem; }
+  .origins__header { margin-bottom: 2.75rem; }
   .heading-display { font-size: clamp(1.85rem, 7vw, 3rem); line-height: 1.1; }
 
   /* Hero — manji ali još hero, lokacije lista bez velikih razmaka */
   .hero { min-height: 100vh; }
   .hero__wordmark--main { font-size: clamp(2.5rem, 14vw, 5rem); letter-spacing: 0.04em; }
   .hero__subwordmark--main { font-size: 0.75rem; letter-spacing: 0.3em; margin-top: 0.5rem; }
-  .hero__mosaic-title { font-size: clamp(1.5rem, 6vw, 2.25rem); line-height: 1.2; margin-bottom: 1rem; }
-  .hero__locations { font-size: 0.85rem; gap: 0.5rem; }
-  .hero__locations li { padding: 0.5rem 0.75rem; }
-  .hero__locations span { font-size: 0.7rem; opacity: 0.75; }
+  /* Lokacije (hero slide 2) — kompaktno da svih 5 stane bez skrola (Samsung S23+
+     fix, Anin feedback 29-05). Tight gap + manje padding + kontrola visine. */
+  .hero__mosaic-kicker { margin-bottom: 0.4rem; font-size: 0.65rem; }
+  .hero__mosaic-title { font-size: clamp(1.35rem, 5.5vw, 2rem); line-height: 1.15; margin-bottom: 0.85rem; }
+  .hero__content--centered { padding: 1rem; max-height: 100%; overflow: visible; }
+  .hero__locations { font-size: 0.8rem; gap: 0.3rem; width: 100%; max-width: 340px; }
+  .hero__locations li { padding: 0.4rem 0.65rem; line-height: 1.25; }
+  .hero__locations span { font-size: 0.66rem; opacity: 0.75; }
 
   /* Manifest — fokus na video, lead vidljiv, body se može prelomiti
      ali ostaje vidljiv (premium feel, ne sakrivamo brand storytelling) */
@@ -173,39 +179,45 @@
   /* Blog card carousel — kompaktnije */
   .blog__rail .blog-card { min-width: 80%; }
 
-  /* Contact — info kartice stack */
-  .contact__grid { grid-template-columns: 1fr; gap: 1rem; }
-  .contact-card { padding: 0.875rem 1rem; }
-  .contact-card h4 { font-size: 0.7rem; }
-  .contact-card p { font-size: 0.95rem; }
-  .contact__map { min-height: 320px; aspect-ratio: 4 / 5; }
+  /* Contact — cela sekcija u jedan viewport (Anin feedback 29-05).
+     Kompaktan header, 2×2 grid info kartica (ikone sakrivene radi prostora),
+     mapa niža. Cilj: sve vidljivo bez skrolovanja. */
+  #contact { padding-top: 2rem; padding-bottom: 2.5rem; }
+  #contact .section__header { margin-bottom: 1.1rem; }
+  #contact .kicker { margin-bottom: 0.3rem; }
+  #contact .lead { font-size: 0.82rem; line-height: 1.4; max-width: 100%; }
+  .contact__store-picker { margin-bottom: 0.85rem; gap: 0.4rem; }
+  .contact__grid { grid-template-columns: 1fr; gap: 0.6rem; }
+  /* 4 info kartice u 2 kolone (adresa + telefon u 1. redu, email + radno
+     vreme u 2.) — kompaktno, bez ikona */
+  .contact__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+  .contact-card {
+    padding: 0.65rem 0.75rem;
+    gap: 0.5rem;
+  }
+  .contact-card__icon { display: none; }
+  .contact-card h4 { font-size: 0.6rem; letter-spacing: 0.12em; margin-bottom: 0.1rem; }
+  .contact-card p { font-size: 0.8rem; line-height: 1.25; }
+  .contact-card__cta { font-size: 0.58rem; letter-spacing: 0.15em; margin-top: 0.2rem; }
+  .contact__map { min-height: 0; aspect-ratio: 16 / 11; }
+  .contact-map-wrapper { height: 100%; }
 
   /* Header — prikaži kompaktan logo, hide nav (već je hide-d), language toggle ostaje */
   .header { padding: 0.5rem 0; }
   .header__progress { display: none; }
 
-  /* Tap targets — sve WCAG 2.2 min 44x44px na touch ekranima
-     Vizualni "kvadratić/krug" može biti manji, ali touch hitbox je 44x44 */
+  /* Tap targets — sve WCAG 2.2 min 44x44px na touch ekranima */
 
-  /* Hero dots — linijski izgled (24x4) ali sa padding-om za 44x32 touch area */
-  .hero__dot {
-    width: 24px;
-    height: 4px;
-    margin: 0;
-    padding: 14px 10px;
-    background-clip: content-box;
-    box-sizing: content-box;
-  }
-  .hero__dots { gap: 0; }
-
-  /* Slideshow dots — vizualni 10px, hitbox 32x32 sa paddingom */
-  .media-slideshow__dots { gap: 0.25rem; padding: 0.75rem; }
-  .media-slideshow__dot {
-    width: 10px;
-    height: 10px;
-    padding: 11px;
-    background-clip: content-box;
-    box-sizing: content-box;
+  /* Kružići (dots) — UKLONJENI SKROZ na telefonu (Anin feedback 29-05).
+     Navigacija ide swipe-om + strelicama. Važi za hero + sve slideshow-e. */
+  .hero__dots,
+  .media-slideshow__dots,
+  .gallery-pages__dots {
+    display: none !important;
   }
 
   /* Slideshow nav arrows — bumped to 44x44 na touch (umesto 36x36 kao default mobile) */
