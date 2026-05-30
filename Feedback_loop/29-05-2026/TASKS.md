@@ -88,6 +88,34 @@ layout na desktopu).
 
 ---
 
+## Implementacija (status)
+
+**Batch 1 — globalni quick wins (commit 02e51af):**
+- [x] Blog → 4 posta (slice(0,4) u blog.js rail + renderPosts)
+- [x] Mobile dots uklonjeni (hero + media-slideshow + gallery-pages)
+- [x] Hero 5. lokacija (tighter gap/padding na malim telefonima)
+- [x] Humidor "najveći na Balkanu" nota dodata u lead (sr + en)
+- [x] Mobile veći razmak naslov ↔ sadržaj (section/origins margin 2.75rem)
+- [x] category.html detail strane — uklonjen tekst, ostaju hero slika + galerija
+- [x] Kontakt mobile — kompaktan (2×2 info kartice, ikone skrivene, mapa niža)
+
+**Batch 2-6 — section restruktura (jedan veliki commit):**
+- [x] Manifest: lead → video → body1 → novi slideshow → body2 (Ambijent)
+      Desktop: grid-template-areas (video span desno, slideshow levo, Ambijent
+      desno ispod video-a). Mobile: flex column.
+- [x] Humidor: intro → video → body2 → Stari svet → body3 → Novi svet → body4
+      Desktop: grid (video levo span, tekst desno, 2 kartice u redu ispod).
+      Mobile: flex column sa explicit order.
+- [x] Spirits: section-flow editorial → body1 → glavna slika → body2 →
+      card-slideshow → body3 → vitrine slideshow (3 nove vitrine slike)
+- [x] Gear: section-flow → body1 → glavna slika (gear-ritual) → body2 →
+      card-slideshow → body3
+- [x] Gallery: section-flow → lead → plantaža slideshow (4) → lead2 →
+      destilerija slideshow (3) → lead3 → glavna galerija slideshow (50)
+
+**Nova `.section-flow` komponenta** u style.css: centrirana editorial
+kolona (max 940px), gold-frame hero slike, koristi Spirits/Gear/Gallery.
+
 ## Slike koje treba naći (Ana kaže "poslala je / imamo negde")
 
 - Vitrina pića (spirits #5) — 2-3 slike

@@ -45,7 +45,8 @@
     "kicker": "O nama",
     "title": "Tvoj izbor, naš svet…",
     "lead": "Cigar Shop je maloprodajni lanac specijalizovan za premium cigare, vrhunska pića i luksuznu opremu za cigare, sa radnjama na pet ekskluzivnih lokacija.",
-    "body": "Kreiran za ljubitelje sofisticiranog životnog stila i istinske poznavaoce kvaliteta, Cigar Shop predstavlja spoj elegancije, tradicije i vrhunskog iskustva kupovine.<br>Naš pažljivo odabran asortiman obuhvata premium cigare iz najpoznatijih svetskih regija, selekciju vrhunskih pića i luksuzne aksesoare — od humidora i upaljača do ekskluzivne opreme za uživanje u cigarama.<br>Svaki proizvod biran je sa posebnom pažnjom kako bi zadovoljio i najistančaniji ukus.<br>Ambijent naših radnji osmišljen je da pruži osećaj komfora i autentičnog uživanja, dok naš stručni tim svakom kupcu pristupa individualno, pružajući uslugu na najvišem nivou — bilo da ste dugogodišnji aficionado ili tek ulazite u svet cigara.<br>Za nas, cigara nije samo proizvod — ona je ritual, stil i iskustvo. Zato verujemo da vaš izbor postaje deo našeg sveta."
+    "body1": "Kreiran za ljubitelje sofisticiranog životnog stila i istinske poznavaoce kvaliteta, Cigar Shop predstavlja spoj elegancije, tradicije i vrhunskog iskustva kupovine.<br>Naš pažljivo odabran asortiman obuhvata premium cigare iz najpoznatijih svetskih regija, selekciju vrhunskih pića i luksuzne aksesoare — od humidora i upaljača do ekskluzivne opreme za uživanje u cigarama.<br>Svaki proizvod biran je sa posebnom pažnjom kako bi zadovoljio i najistančaniji ukus.",
+    "body2": "Ambijent naših radnji osmišljen je da pruži osećaj komfora i autentičnog uživanja, dok naš stručni tim svakom kupcu pristupa individualno, pružajući uslugu na najvišem nivou — bilo da ste dugogodišnji aficionado ili tek ulazite u svet cigara.<br>Za nas, cigara nije samo proizvod — ona je ritual, stil i iskustvo. Zato verujemo da vaš izbor postaje deo našeg sveta."
   },
 
   "brands": {
@@ -57,7 +58,9 @@
   "gallery": {
     "kicker": "Galerija",
     "title": "Godine tišine za trenutak uživanja…",
-    "lead": "Sve počinje mnogo pre prvog dima. Iza svake vrhunske cigare stoje godine tišine.<br>Godine strpljenja u kojima se listovi duvana pažljivo biraju, suše, fermentišu i ostavljaju da sazrevaju, bez žurbe.<br>U tom procesu nema prečica — samo vreme koje polako gradi karakter. Svaki dim je rezultat godina rada koje ne vidiš, ali ih osećaš u svakom detalju ukusa.<br>A onda dolazi trenutak koji sve to zaokružuje — prvi gutljaj pića. Baš kao i cigara, i piće nosi svoje godine. Odležavanje u hrastovim buradima, sporo sazrevanje viskija, ruma ili konjaka, vreme koje piće pretvara u nešto duboko i slojevito.<br>To nije samo tečnost u čaši, već vreme koje se otvara gutljaj po gutljaj.<br>U tom susretu cigare i pića spajaju se dve tišine, dve priče koje su godinama nastajale odvojeno, da bi se srele u jednom trenutku uživanja.<br>Dim i gutljaj postaju jedan ritam, jedna ravnoteža, jedno iskustvo koje ne traži pažnju, već prisustvo.<br>U tom trenutku svet se ne zaustavlja — samo postaje manje važan."
+    "lead": "Sve počinje mnogo pre prvog dima. Iza svake vrhunske cigare stoje godine tišine.<br>Godine strpljenja u kojima se listovi duvana pažljivo biraju, suše, fermentišu i ostavljaju da sazrevaju, bez žurbe.<br>U tom procesu nema prečica — samo vreme koje polako gradi karakter. Svaki dim je rezultat godina rada koje ne vidiš, ali ih osećaš u svakom detalju ukusa.",
+    "lead2": "A onda dolazi trenutak koji sve to zaokružuje — prvi gutljaj pića. Baš kao i cigara, i piće nosi svoje godine. Odležavanje u hrastovim buradima, sporo sazrevanje viskija, ruma ili konjaka, vreme koje piće pretvara u nešto duboko i slojevito.<br>To nije samo tečnost u čaši, već vreme koje se otvara gutljaj po gutljaj.",
+    "lead3": "U tom susretu cigare i pića spajaju se dve tišine, dve priče koje su godinama nastajale odvojeno, da bi se srele u jednom trenutku uživanja.<br>Dim i gutljaj postaju jedan ritam, jedna ravnoteža, jedno iskustvo koje ne traži pažnju, već prisustvo.<br>U tom trenutku svet se ne zaustavlja — samo postaje manje važan."
   },
 
   "humidorCigars": {
@@ -84,7 +87,10 @@
     "kicker": "Humidor",
     "title": "Uđi u humidor…",
     "lead": "Dobrodošli u prostor gde vreme usporava, a miris kedrovine, duvana i tradicije govori glasnije od reči. Ponosni smo što se kod nas nalazi najveći humidor na Balkanu.",
-    "body": "Svaka cigara se čuva u pažljivo kontrolisanim uslovima, na idealnoj temperaturi i vlažnosti, kako bi svaki list zadržao svoju punoću, aromu i karakter — baš onako kako su zamislili majstori koji su je stvarali.<br>Na policama humidora susreću se dva sveta.<br>Cigare Starog sveta donose eleganciju, balans i nasleđe decenijama usavršavanog zanata.<br>Nasuprot njima stoje cigare Novog sveta — smelije, intenzivnije i sa više stava, za one koji vole pun dim i izražen karakter.<br>Ovo nije mesto za brz izbor, niti prolazno zadovoljstvo. Humidor je prostor za one koji umeju da prepoznaju razliku između običnog trenutka i rituala koji ostaje u pamćenju.<br>Cigare ne traže pažnju — one je jednostavno uzmu.",
+    "body1": "Svaka cigara se čuva u pažljivo kontrolisanim uslovima, na idealnoj temperaturi i vlažnosti, kako bi svaki list zadržao svoju punoću, aromu i karakter — baš onako kako su zamislili majstori koji su je stvarali.",
+    "body2": "Na policama humidora susreću se dva sveta.<br>Cigare Starog sveta donose eleganciju, balans i nasleđe decenijama usavršavanog zanata.",
+    "body3": "Nasuprot njima stoje cigare Novog sveta — smelije, intenzivnije i sa više stava, za one koji vole pun dim i izražen karakter.",
+    "body4": "Ovo nije mesto za brz izbor, niti prolazno zadovoljstvo. Humidor je prostor za one koji umeju da prepoznaju razliku između običnog trenutka i rituala koji ostaje u pamćenju.<br>Cigare ne traže pažnju — one je jednostavno uzmu.",
     "stat1": "Relativna vlažnost",
     "stat2": "Stalna temperatura",
     "stat3": "Humidora u Beogradu"
@@ -116,8 +122,9 @@
   "spiritsProcess": {
     "kicker": "Vitrina",
     "title": "Piće koje prati dim.",
-    "body1": "Ovde se svaki dim zaokružuje pićem koje ga prati bez nadmetanja, ali sa karakterom koji zna da odgovori.<br>Bilo da biraš viski sa dubinom, rum sa toplinom, savršen konjak ili piće za koje nije potrebno objašnjenje — svaki gutljaj je nastavak istog rituala.<br>Miris drveta, dima i začina ostavljaju ukus trenutka uživanja kojem se uvek vraćaš.<br>Svaka kombinacija otkriva novu nijansu ukusa.<br>U našim radnjama pronađi pažljivo odabrana pića namenjena trenucima kada želiš da usporiš, pustiš se i prepustiš ritualu dobrog ukusa.<br>Nema žurbe — samo balans ukusa koji prati dim, a ne pokušava da ga nadjača.<br>Ovo je trenutak kada se sve slaže kako želiš: i cigara, i piće, i tišina između…",
-    "body2": "",
+    "body1": "Ovde se svaki dim zaokružuje pićem koje ga prati bez nadmetanja, ali sa karakterom koji zna da odgovori.",
+    "body2": "Bilo da biraš viski sa dubinom, rum sa toplinom, savršen konjak ili piće za koje nije potrebno objašnjenje — svaki gutljaj je nastavak istog rituala.<br>Miris drveta, dima i začina ostavljaju ukus trenutka uživanja kojem se uvek vraćaš.<br>Svaka kombinacija otkriva novu nijansu ukusa.",
+    "body3": "U našim radnjama pronađi pažljivo odabrana pića namenjena trenucima kada želiš da usporiš, pustiš se i prepustiš ritualu dobrog ukusa.<br>Nema žurbe — samo balans ukusa koji prati dim, a ne pokušava da ga nadjača.<br>Ovo je trenutak kada se sve slaže kako želiš: i cigara, i piće, i tišina između…",
     "videoCaption": "Vitrina sa pićima",
     "s1": "Vitrina sa pićima",
     "s2": "Single malt",
@@ -134,7 +141,9 @@
   "gearProcess": {
     "kicker": "Pribor",
     "title": "Alati koji zaokružuju ritual.",
-    "body1": "Ovde nisu u ponudi dodaci, već alati koji zaokružuju ritual do poslednjeg detalja.<br>Precizni sekači koji čuvaju strukturu cigare, upaljači koji pale bez kompromisa, kućni humidori koji održavaju ono što je već pažljivo odabrano.<br>A kada ritual nosite sa sobom — u tu priču ulaze futrole i putni humidor.<br>Kada cigara dobije svoj trenutak, tu su i pepeljare — uvek dovoljno promišljene da prate dim, a ne da ga prekidaju.<br>Svaki komad opreme ima svoju ulogu, ali zajednički cilj je isti: da ništa ne stoji između tebe i savršenog dima.<br>Bez improvizacije, bez prečica — samo osećaj da je sve baš tamo gde treba da bude.",
+    "body1": "Ovde nisu u ponudi dodaci, već alati koji zaokružuju ritual do poslednjeg detalja.",
+    "body2": "Precizni sekači koji čuvaju strukturu cigare, upaljači koji pale bez kompromisa, kućni humidori koji održavaju ono što je već pažljivo odabrano.<br>A kada ritual nosite sa sobom — u tu priču ulaze futrole i putni humidor.<br>Kada cigara dobije svoj trenutak, tu su i pepeljare — uvek dovoljno promišljene da prate dim, a ne da ga prekidaju.",
+    "body3": "Svaki komad opreme ima svoju ulogu, ali zajednički cilj je isti: da ništa ne stoji između tebe i savršenog dima.<br>Bez improvizacije, bez prečica — samo osećaj da je sve baš tamo gde treba da bude.",
     "body2": "",
     "videoCaption": "Asortiman opreme",
     "s1": "Asortiman",
