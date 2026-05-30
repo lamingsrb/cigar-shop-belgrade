@@ -275,12 +275,30 @@
   #manifest > .section__header { display: contents; }
   #manifest > .manifest__grid--restructured { display: contents; }
   #manifest .manifest__copy { display: contents; }
-  #manifest .heading-display { order: 1; }
+  #manifest .heading-display {
+    order: 1;
+    margin: 0 0 1rem;  /* Anin feedback: malo veci razmak naslov ↔ sadrzaj */
+  }
   #manifest .manifest__copy > .lead { order: 2; }
   #manifest .manifest__media { order: 3; aspect-ratio: 4 / 3; max-width: 100%; height: auto; }
   #manifest .manifest__copy > .body { order: 4; }
   #manifest .manifest__slideshow { order: 5; aspect-ratio: 4 / 3; }
   #manifest .manifest__body2 { order: 6; }
+
+  /* Unificiraj font u Manifest sekciji (Anin feedback: "da bude isti svuda
+     da se ne istice") — lead u toj sekciji prestaje da bude italic serif
+     i postaje istog stila kao body. Samo na mobilnom (desktop netaknut). */
+  #manifest .lead,
+  #manifest .manifest__copy > .body,
+  #manifest .manifest__body2 {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ink-70);
+    max-width: none;
+    margin: 0;
+  }
 
   /* ----- HUMIDOR ----- */
   #humidor {
