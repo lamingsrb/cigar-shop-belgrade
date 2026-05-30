@@ -131,13 +131,13 @@
     <div class="section__header">
       <h2 class="heading-display heading-gold" data-i18n="manifest.title">Tvoj izbor, naš svet…</h2>
     </div>
-    <div class="manifest__grid">
+    <div class="manifest__grid manifest__grid--restructured">
       <div class="manifest__copy">
         <p class="lead" data-i18n="manifest.lead">
           Cigar Shop je premium maloprodajni lanac najpoznatijih brendova cigara, kvalitetne opreme i vrhunskih pića.
         </p>
-        <p class="body" data-i18n="manifest.body">
-          Pet prodavnica u Beogradu. Preko 500 cigara iz sedam zemalja i preko 260 izabranih boca iz osam kategorija.
+        <p class="body" data-i18n="manifest.body1">
+          Kreiran za ljubitelje sofisticiranog životnog stila…
         </p>
       </div>
       <figure class="manifest__media">
@@ -149,6 +149,29 @@
         </video>
         <span class="manifest__tag" aria-hidden="true">EST. 2004</span>
       </figure>
+      <div class="media-slideshow manifest__slideshow" aria-label="Ambijent radnji">
+        <figure class="media-slideshow__slide is-active"
+                data-lb-type="image" data-lb-src="/assets/gallery/main/01.webp" data-lb-caption="Ambijent radnje">
+          <img loading="lazy" decoding="async" src="/assets/gallery/main/01.webp"
+               srcset="/assets/gallery/main/01-m.webp 768w, /assets/gallery/main/01.webp 1600w"
+               sizes="(max-width: 768px) 100vw, 50vw" alt="Ambijent radnje">
+        </figure>
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gallery/main/08.webp" data-lb-caption="Ambijent radnje">
+          <img loading="lazy" decoding="async" src="/assets/gallery/main/08.webp"
+               srcset="/assets/gallery/main/08-m.webp 768w, /assets/gallery/main/08.webp 1600w"
+               sizes="(max-width: 768px) 100vw, 50vw" alt="Ambijent radnje">
+        </figure>
+        <figure class="media-slideshow__slide"
+                data-lb-type="image" data-lb-src="/assets/gallery/main/14.webp" data-lb-caption="Ambijent radnje">
+          <img loading="lazy" decoding="async" src="/assets/gallery/main/14.webp"
+               srcset="/assets/gallery/main/14-m.webp 768w, /assets/gallery/main/14.webp 1600w"
+               sizes="(max-width: 768px) 100vw, 50vw" alt="Ambijent radnje">
+        </figure>
+      </div>
+      <p class="body manifest__body2" data-i18n="manifest.body2">
+        Ambijent naših radnji…
+      </p>
     </div>
   </section>
 
@@ -177,7 +200,7 @@
 
     <!-- Stari svet i Novi svet — dve klikabilne velike kartice (vode na detail page) -->
     <div class="region-grid region-grid--2" id="humidor-region-grid">
-      <a class="region-card" href="/category.html#oldworld">
+      <a class="region-card humidor__card--old" href="/category.html#oldworld">
         <figure class="region-card__media">
           <img loading="lazy" decoding="async"
                src="/assets/categories/cuba.webp" srcset="/assets/categories/cuba-m.webp 768w, /assets/categories/cuba.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw"
@@ -189,7 +212,7 @@
           <span class="region-card__cta" data-i18n="regions.cta">Otkrij regiju →</span>
         </div>
       </a>
-      <a class="region-card" href="/category.html#world">
+      <a class="region-card humidor__card--new" href="/category.html#world">
         <figure class="region-card__media">
           <img loading="lazy" decoding="async"
                src="/assets/categories/newworld.webp" srcset="/assets/categories/newworld-m.webp 768w, /assets/categories/newworld.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw"
@@ -202,6 +225,21 @@
         </div>
       </a>
     </div>
+
+    <!-- Mobile-only split pasusi (hidden na desktopu, vidljivi na mobile-u
+         gde se zajedno sa video-om i karticama mogu sloziti u Anin redosled). -->
+    <p class="body humidor__m-body1 mobile-only" data-i18n="humidor.body1">
+      Svaka cigara se čuva u pažljivo kontrolisanim uslovima…
+    </p>
+    <p class="body humidor__m-body2 mobile-only" data-i18n="humidor.body2">
+      Na policama humidora susreću se dva sveta…
+    </p>
+    <p class="body humidor__m-body3 mobile-only" data-i18n="humidor.body3">
+      Nasuprot njima stoje cigare Novog sveta…
+    </p>
+    <p class="body humidor__m-body4 mobile-only" data-i18n="humidor.body4">
+      Ovo nije mesto za brz izbor…
+    </p>
   </section>
 
   
@@ -212,6 +250,43 @@
       <p class="lead" data-i18n="spirits.lead">
         Nakon izabrane cigare, priča se ne završava — tek dobija pravi ton.
       </p>
+    </div>
+
+    <!-- Mobile-only inserts (hidden na desktopu). Na mobilnom prikazuju se u
+         Aninom redosledu zajedno sa postojećim card-slideshow-om. -->
+    <p class="body spirits__m-body1a mobile-only" data-i18n="spiritsProcess.body1a">
+      Ovde se svaki dim zaokružuje pićem koje ga prati bez nadmetanja, ali sa karakterom koji zna da odgovori.
+    </p>
+    <figure class="spirits__m-hero mobile-only">
+      <img loading="lazy" decoding="async" src="/assets/spirits/spirits-pour.webp"
+           srcset="/assets/spirits/spirits-pour-m.webp 768w, /assets/spirits/spirits-pour.webp 1600w"
+           sizes="100vw" alt="Glavna — nastavi sa pićem">
+    </figure>
+    <p class="body spirits__m-body1b mobile-only" data-i18n="spiritsProcess.body1b">
+      Bilo da biraš viski sa dubinom…
+    </p>
+    <p class="body spirits__m-body1c mobile-only" data-i18n="spiritsProcess.body1c">
+      U našim radnjama pronađi pažljivo odabrana pića…
+    </p>
+    <div class="media-slideshow spirits__m-vitrine mobile-only" aria-label="Vitrina sa pićima">
+      <figure class="media-slideshow__slide is-active"
+              data-lb-type="image" data-lb-src="/assets/spirits/vitrine-01.webp" data-lb-caption="Vitrina sa pićima">
+        <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-01.webp"
+             srcset="/assets/spirits/vitrine-01-m.webp 768w, /assets/spirits/vitrine-01.webp 1600w"
+             sizes="100vw" alt="Vitrina sa pićima">
+      </figure>
+      <figure class="media-slideshow__slide"
+              data-lb-type="image" data-lb-src="/assets/spirits/vitrine-02.webp" data-lb-caption="Vitrina sa pićima">
+        <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-02.webp"
+             srcset="/assets/spirits/vitrine-02-m.webp 768w, /assets/spirits/vitrine-02.webp 1600w"
+             sizes="100vw" alt="Vitrina sa pićima">
+      </figure>
+      <figure class="media-slideshow__slide"
+              data-lb-type="image" data-lb-src="/assets/spirits/vitrine-03.webp" data-lb-caption="Vitrina sa pićima">
+        <img loading="lazy" decoding="async" src="/assets/spirits/vitrine-03.webp"
+             srcset="/assets/spirits/vitrine-03-m.webp 768w, /assets/spirits/vitrine-03.webp 1600w"
+             sizes="100vw" alt="Vitrina sa pićima">
+      </figure>
     </div>
 
     <!-- Process-style blok: tekst + video destilerije -->
@@ -305,6 +380,22 @@
       <p class="lead" data-i18n="gear.lead">Prava cigara traži više od izbora — traži pristup.</p>
     </div>
 
+    <!-- Mobile-only inserts (hidden na desktopu). -->
+    <p class="body gear__m-body1a mobile-only" data-i18n="gearProcess.body1a">
+      Ovde nisu u ponudi dodaci, već alati koji zaokružuju ritual do poslednjeg detalja.
+    </p>
+    <figure class="gear__m-hero mobile-only">
+      <img loading="lazy" decoding="async" src="/assets/gear/gear-ritual.webp"
+           srcset="/assets/gear/gear-ritual-m.webp 768w, /assets/gear/gear-ritual.webp 1600w"
+           sizes="100vw" alt="Alati rituala">
+    </figure>
+    <p class="body gear__m-body1b mobile-only" data-i18n="gearProcess.body1b">
+      Precizni sekači koji čuvaju strukturu cigare…
+    </p>
+    <p class="body gear__m-body1c mobile-only" data-i18n="gearProcess.body1c">
+      Svaki komad opreme ima svoju ulogu…
+    </p>
+
     <!-- Process-style blok: tekst + video opreme -->
     <div class="process">
       <div class="process__intro">
@@ -383,6 +474,55 @@
     <div class="section__header">
       <h2 class="heading-display heading-gold" data-i18n="gallery.title">Godine tišine za trenutak uživanja…</h2>
     </div>
+
+    <!-- Mobile-only inserts (hidden na desktopu). -->
+    <p class="body gallery__m-leadA mobile-only" data-i18n="gallery.leadA">
+      Sve počinje mnogo pre prvog dima…
+    </p>
+    <div class="media-slideshow gallery__m-plantaza mobile-only" aria-label="Od plantaže do humidora">
+      <figure class="media-slideshow__slide is-active"
+              data-lb-type="image" data-lb-src="/assets/gallery/process-1-plantaza.webp" data-lb-caption="Plantaža duvana">
+        <img loading="lazy" decoding="async" src="/assets/gallery/process-1-plantaza.webp" alt="Plantaža duvana">
+      </figure>
+      <figure class="media-slideshow__slide"
+              data-lb-type="image" data-lb-src="/assets/gallery/process-2-fermentacija.webp" data-lb-caption="Fermentacija">
+        <img loading="lazy" decoding="async" src="/assets/gallery/process-2-fermentacija.webp" alt="Fermentacija">
+      </figure>
+      <figure class="media-slideshow__slide"
+              data-lb-type="image" data-lb-src="/assets/gallery/process-3-rolanje.webp" data-lb-caption="Rolanje cigara">
+        <img loading="lazy" decoding="async" src="/assets/gallery/process-3-rolanje.webp" alt="Rolanje cigara">
+      </figure>
+      <figure class="media-slideshow__slide"
+              data-lb-type="image" data-lb-src="/assets/gallery/process-4-odlezavanje.webp" data-lb-caption="Odležavanje">
+        <img loading="lazy" decoding="async" src="/assets/gallery/process-4-odlezavanje.webp" alt="Odležavanje">
+      </figure>
+    </div>
+    <p class="body gallery__m-leadB mobile-only" data-i18n="gallery.leadB">
+      A onda dolazi trenutak koji sve to zaokružuje…
+    </p>
+    <div class="media-slideshow gallery__m-destilerija mobile-only" aria-label="Destilerija i odležavanje pića">
+      <figure class="media-slideshow__slide is-active"
+              data-lb-type="image" data-lb-src="/assets/spirits/spirits-process-1-destilacija.webp" data-lb-caption="Destilacija">
+        <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-1-destilacija.webp"
+             srcset="/assets/spirits/spirits-process-1-destilacija-m.webp 768w, /assets/spirits/spirits-process-1-destilacija.webp 1600w"
+             sizes="100vw" alt="Destilacija">
+      </figure>
+      <figure class="media-slideshow__slide"
+              data-lb-type="image" data-lb-src="/assets/spirits/spirits-process-2-destilerija.webp" data-lb-caption="Destilerija">
+        <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-2-destilerija.webp"
+             srcset="/assets/spirits/spirits-process-2-destilerija-m.webp 768w, /assets/spirits/spirits-process-2-destilerija.webp 1600w"
+             sizes="100vw" alt="Destilerija">
+      </figure>
+      <figure class="media-slideshow__slide"
+              data-lb-type="image" data-lb-src="/assets/spirits/spirits-process-3-odlezavanje.webp" data-lb-caption="Odležavanje u buradima">
+        <img loading="lazy" decoding="async" src="/assets/spirits/spirits-process-3-odlezavanje.webp"
+             srcset="/assets/spirits/spirits-process-3-odlezavanje-m.webp 768w, /assets/spirits/spirits-process-3-odlezavanje.webp 1600w"
+             sizes="100vw" alt="Odležavanje u buradima">
+      </figure>
+    </div>
+    <p class="body gallery__m-leadC mobile-only" data-i18n="gallery.leadC">
+      U tom susretu cigare i pića…
+    </p>
 
     <!-- Process-style blok: tekst levo + slideshow desno sa 50 brendiranih slika
          (50 slajdova se popunjava JS-om iz js/gallery.js → /assets/gallery/main/) -->

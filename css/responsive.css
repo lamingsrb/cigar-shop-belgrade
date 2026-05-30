@@ -252,6 +252,115 @@
 
   /* Reduci scroll-burn vidno na mobilnom */
   body { overflow-x: hidden; }
+
+  /* =======================================================
+     MOBILE SECTION RESTRUKTURA (Vojinov feedback 29-05 batch 3, finalni
+     CSS-only pristup). Strategija:
+     - Mobile-only elementi (.mobile-only) pojavljuju se (display: block)
+     - Wrappers oko postojećih elemenata postaju display:contents da im
+       deca postanu direktni flex item-i sekcije
+     - Postojeci body/lead paragrafi sa starim full tekstom se sakrivaju
+     - Order primenjen na svakom direktnom flex item-u
+     - Desktop ostaje 100% netaknut (van ovog @media bloka)
+     ======================================================= */
+  .mobile-only { display: block; }
+
+  /* ----- MANIFEST ----- (autorizovana desktop izmena se transformiše
+     u mobile flex column sa ordered children) */
+  #manifest {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  #manifest > .section__header { display: contents; }
+  #manifest > .manifest__grid--restructured { display: contents; }
+  #manifest .manifest__copy { display: contents; }
+  #manifest .heading-display { order: 1; }
+  #manifest .manifest__copy > .lead { order: 2; }
+  #manifest .manifest__media { order: 3; aspect-ratio: 4 / 3; max-width: 100%; height: auto; }
+  #manifest .manifest__copy > .body { order: 4; }
+  #manifest .manifest__slideshow { order: 5; aspect-ratio: 4 / 3; }
+  #manifest .manifest__body2 { order: 6; }
+
+  /* ----- HUMIDOR ----- */
+  #humidor {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  #humidor > .section__header { display: contents; }
+  #humidor > .humidor__grid { display: contents; }
+  #humidor > .humidor__grid > .humidor__copy { display: contents; }
+  #humidor > .region-grid--2 { display: contents; }
+  /* Sakrij original full body paragraf u humidor__copy (zamenjen split-om) */
+  #humidor .humidor__copy > .body { display: none; }
+  #humidor .heading-display { order: 1; }
+  #humidor .humidor__copy > .lead { order: 2; }
+  #humidor .humidor__m-body1 { order: 3; }
+  #humidor .humidor__media { order: 4; max-width: 100%; aspect-ratio: 4 / 5; }
+  #humidor .humidor__m-body2 { order: 5; }
+  #humidor .humidor__card--old { order: 6; aspect-ratio: 4 / 5; }
+  #humidor .humidor__m-body3 { order: 7; }
+  #humidor .humidor__card--new { order: 8; aspect-ratio: 4 / 5; }
+  #humidor .humidor__m-body4 { order: 9; }
+
+  /* ----- SPIRITS ----- */
+  #spirits {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  #spirits > .origins__header { display: contents; }
+  #spirits > .process { display: contents; }
+  #spirits > .process > .process__intro { display: contents; }
+  /* Sakrij original full body1 paragraf u process__intro */
+  #spirits .process__intro > .body { display: none; }
+  #spirits .heading-display { order: 1; text-align: center; margin: 0 0 0.5rem; }
+  #spirits .origins__header .lead { order: 2; text-align: center; margin: 0 auto; max-width: 600px; }
+  #spirits .spirits__m-body1a { order: 3; }
+  #spirits .spirits__m-hero { order: 4; aspect-ratio: 16 / 10; border: 2px solid rgba(228,200,138,0.55); border-radius: 3px; overflow: hidden; margin: 0; }
+  #spirits .spirits__m-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #spirits .spirits__m-body1b { order: 5; }
+  #spirits #spirits-media { order: 6; aspect-ratio: 4 / 3; }
+  #spirits .spirits__m-body1c { order: 7; }
+  #spirits .spirits__m-vitrine { order: 8; aspect-ratio: 4 / 3; }
+
+  /* ----- GEAR ----- */
+  #gear {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  #gear > .origins__header { display: contents; }
+  #gear > .process { display: contents; }
+  #gear > .process > .process__intro { display: contents; }
+  #gear .process__intro > .body { display: none; }
+  #gear .heading-display { order: 1; text-align: center; margin: 0 0 0.5rem; }
+  #gear .origins__header .lead { order: 2; text-align: center; margin: 0 auto; max-width: 600px; }
+  #gear .gear__m-body1a { order: 3; }
+  #gear .gear__m-hero { order: 4; aspect-ratio: 16 / 10; border: 2px solid rgba(228,200,138,0.55); border-radius: 3px; overflow: hidden; margin: 0; }
+  #gear .gear__m-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #gear .gear__m-body1b { order: 5; }
+  #gear #gear-media { order: 6; aspect-ratio: 4 / 3; }
+  #gear .gear__m-body1c { order: 7; }
+
+  /* ----- GALLERY ----- */
+  #gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  #gallery > .section__header { display: contents; }
+  #gallery > .process { display: contents; }
+  #gallery > .process > .process__intro { display: contents; }
+  #gallery .process__intro > .body { display: none; }
+  #gallery .heading-display { order: 1; }
+  #gallery .gallery__m-leadA { order: 2; }
+  #gallery .gallery__m-plantaza { order: 3; aspect-ratio: 4 / 3; }
+  #gallery .gallery__m-leadB { order: 4; }
+  #gallery .gallery__m-destilerija { order: 5; aspect-ratio: 4 / 3; }
+  #gallery .gallery__m-leadC { order: 6; }
+  #gallery #gallery-media { order: 7; aspect-ratio: 1 / 1; }
 }
 
 /* =======================================================

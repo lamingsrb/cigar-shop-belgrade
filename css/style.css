@@ -909,6 +909,27 @@ section {
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
 }
+
+/* Mobile-only elementi (Vojinov feedback 29-05 batch 3): default hidden,
+   prikazuju se samo unutar @media (max-width: 768px) u responsive.css.
+   Garantuje da desktop ne vidi nijedan novi mobile element. */
+.mobile-only { display: none; }
+
+/* Manifest desktop autorizovana izmena (Anin feedback 29-05): novi
+   2x2 grid sa video + Ambijent pasus desno (Ambijent ispod video-a),
+   slideshow + copy levo. NE primjenjuje se na original .manifest__grid. */
+.manifest__grid--restructured {
+  grid-template-areas:
+    "copy  video"
+    "slide ambient";
+  align-items: start;
+  gap: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 5vw, 4rem);
+}
+.manifest__grid--restructured .manifest__copy { grid-area: copy; }
+.manifest__grid--restructured .manifest__media { grid-area: video; align-self: stretch; height: 100%; max-width: none; }
+.manifest__grid--restructured .manifest__slideshow { grid-area: slide; align-self: start; }
+.manifest__grid--restructured .manifest__body2 { grid-area: ambient; margin: 0; align-self: start; }
+
 .manifest__copy .lead { margin-bottom: 2rem; }
 .manifest__media {
   border-radius: 2px;
