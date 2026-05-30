@@ -88,23 +88,11 @@
   .manifest__copy .body { font-size: 0.9rem; line-height: 1.55; opacity: 0.85; }
   .manifest__media { max-width: 100%; aspect-ratio: 4 / 3; }
 
-  /* Humidor restruktura (Anin feedback 29-05): naslov → intro → video →
-     body2 → Stari svet → body3 → Novi svet → body4. */
-  .humidor__flow {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    grid-template-areas: none;
-  }
-  .humidor__flow .humidor__text--intro { order: 1; }
-  .humidor__flow .humidor__media--portrait { order: 2; max-width: 100%; aspect-ratio: 4 / 5; }
-  .humidor__flow .humidor__body2 { order: 3; }
-  .humidor__flow .humidor__card--old { order: 4; aspect-ratio: 4 / 5; }
-  .humidor__flow .humidor__body3 { order: 5; }
-  .humidor__flow .humidor__card--new { order: 6; aspect-ratio: 4 / 5; }
-  .humidor__flow .humidor__body4 { order: 7; }
-  .humidor__flow .lead { font-size: 1rem; }
-  .humidor__flow .humidor__body { font-size: 0.9rem; line-height: 1.55; }
+  /* Humidor — video u portret slot ostaje, tekst kompaktan */
+  .humidor__grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .humidor__media--portrait { max-width: 100%; aspect-ratio: 4 / 5; }
+  .humidor__copy .lead { font-size: 1rem; }
+  .humidor__body { font-size: 0.9rem; line-height: 1.55; }
 
   /* Spirits/Gear card slideshow — full-width na mobilnom */
   .process { grid-template-columns: 1fr; gap: 1.25rem; }
@@ -117,27 +105,50 @@
      Koristi flex + display:contents trick da reorderuje nested elemente
      bez restrukturisanja HTML-a. */
 
-  /* Manifest (Anin feedback 29-05): naslov → lead → video → body1 →
-     novi slideshow → body2 (Ambijent). Grid-areas se poništavaju, flex order. */
-  .manifest__grid--restructured {
+  /* Manifest: title → video → copy */
+  .manifest__grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .manifest__media { order: 1; }
+  .manifest__copy  { order: 2; }
+
+  /* Spirits + Gear: title (origins__header h2) → slideshow → lead + body
+     Section postaje flex container. .origins__header i .process se
+     "unwrap-uju" preko display:contents da im deca postanu flex item-i. */
+  #spirits,
+  #gear {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
   }
-  .manifest__grid--restructured .manifest__lead { order: 1; }
-  .manifest__grid--restructured .manifest__media--video { order: 2; height: auto; aspect-ratio: 4 / 3; }
-  .manifest__grid--restructured .manifest__body1 { order: 3; }
-  .manifest__grid--restructured .manifest__slideshow { order: 4; }
-  .manifest__grid--restructured .manifest__body2 { order: 5; }
-  .manifest__lead, .manifest__body { font-size: 0.9rem; line-height: 1.55; }
-  .manifest__lead { font-size: 1rem; opacity: 1; }
-
-  /* Spirits + Gear + Gallery: section-flow je single-column editorial —
-     DOM redosled već odgovara Aninom redu (29-05). Samo kompaktnije na mobilnom. */
-  .section-flow { padding: 0 1rem; gap: 1.5rem; }
-  .section-flow__text { font-size: 0.9rem; line-height: 1.55; }
-  .section-flow__hero { aspect-ratio: 4 / 3; }
-  .section-flow .media-slideshow--cards { aspect-ratio: 4 / 3; }
+  #spirits > .origins__header,
+  #spirits > .process,
+  #gear > .origins__header,
+  #gear > .process {
+    display: contents;
+  }
+  #spirits .origins__header .heading-display,
+  #gear .origins__header .heading-display {
+    order: 1;
+    text-align: center;
+    margin: 0;
+  }
+  #spirits .media-slideshow,
+  #gear .media-slideshow {
+    order: 2;
+  }
+  #spirits .origins__header .lead,
+  #gear .origins__header .lead {
+    order: 3;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  #spirits .process__intro,
+  #gear .process__intro {
+    order: 4;
+  }
 
   /* Blog: kicker + title → blog rail → lead → CTA */
   #blog {

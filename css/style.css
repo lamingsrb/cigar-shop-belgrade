@@ -910,32 +910,6 @@ section {
   align-items: center;
 }
 .manifest__copy .lead { margin-bottom: 2rem; }
-
-/* Restrukturisani manifest grid (Anin feedback 29-05):
-   DESKTOP — levo: lead + body1 + slideshow; desno: video (span 2 reda) +
-   Ambijent pasus ispod njega. */
-.manifest__grid--restructured {
-  align-items: start;
-  grid-template-areas:
-    "lead   video"
-    "body1  video"
-    "slide  ambient";
-  gap: clamp(1.25rem, 2.5vw, 2rem) clamp(2rem, 5vw, 4rem);
-}
-.manifest__grid--restructured .manifest__lead { grid-area: lead; margin: 0; }
-.manifest__grid--restructured .manifest__media--video {
-  grid-area: video;
-  align-self: stretch;
-  height: 100%;
-  max-width: none;
-  margin: 0;
-}
-.manifest__grid--restructured .manifest__body1 { grid-area: body1; margin: 0; }
-.manifest__grid--restructured .manifest__slideshow {
-  grid-area: slide;
-  align-self: start;
-}
-.manifest__grid--restructured .manifest__body2 { grid-area: ambient; margin: 0; align-self: start; }
 .manifest__media {
   border-radius: 2px;
   overflow: hidden;
@@ -1498,32 +1472,6 @@ section {
   max-width: var(--max-w);
   margin: 0 auto;
 }
-
-/* Restrukturisani humidor flow (Anin feedback 29-05).
-   DESKTOP: video levo (span tekst redove) + tekst desno + 2 kartice u redu
-   ispod — vizuelno isto kao i pre. */
-.humidor__flow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(1.25rem, 3vw, 2.5rem) clamp(2rem, 5vw, 5rem);
-  align-items: start;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  grid-template-areas:
-    "video intro"
-    "video body2"
-    "video body3"
-    "video body4"
-    "oldcard newcard";
-}
-.humidor__flow .humidor__media--portrait {
-  align-self: start;
-  max-width: 100%;
-  margin: 0;
-}
-.humidor__flow .humidor__body,
-.humidor__flow .humidor__text { margin: 0; }
-.humidor__flow .region-card { aspect-ratio: 16 / 9; }
 .humidor__media {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -3813,46 +3761,6 @@ body.lightbox-open { overflow: hidden; }
 @media (max-width: 520px) {
   .process__showcase { grid-template-columns: repeat(2, 1fr); }
 }
-
-/* =======================================================
-   SECTION-FLOW — editorial centrirana kolona (Anin feedback 29-05):
-   tekst → slika/slideshow → tekst → slideshow ... naizmenično.
-   Koristi Spirits, Gear, Gallery. Radi isto na desktopu i mobilnom
-   (responsivna širina), prikazuje sadržaj u tačnom redosledu.
-   ======================================================= */
-.section-flow {
-  max-width: 940px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1.75rem, 3.5vw, 3rem);
-  align-items: center;
-}
-.section-flow__text {
-  max-width: 780px;
-  text-align: center;
-  margin: 0;
-}
-.section-flow__hero {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  border-radius: 3px;
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
-  border: 2px solid rgba(228, 200, 138, 0.55);
-  box-shadow: inset 0 0 0 1px rgba(10, 6, 5, 0.85),
-              0 24px 60px rgba(0, 0, 0, 0.5),
-              0 0 30px -8px rgba(228, 200, 138, 0.25);
-}
-.section-flow__hero img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(1.03) contrast(1.02);
-}
-.section-flow .media-slideshow { width: 100%; }
 
 /* =======================================================
    REGION GRID — klikabilne velike kartice (Humidor: Kuba/Novi svet,
