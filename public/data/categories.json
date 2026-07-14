@@ -141,13 +141,13 @@
     "kicker": { "sr": "Selekcija pića", "en": "Spirits selection" },
     "titlesr": "Džin — botanička arhitektura.",
     "titleen": "Gin — a botanical architecture.",
-    "image": "/assets/spirits/spirits-process-1-destilacija.webp",
+    "image": "/assets/spirits/gin.webp",
     "excerptsr": "**22 džina iz 6 zemalja** — od engleske London Dry tradicije, preko škotskog Hendrick's eksperimenta, do nemačke i japanske botaničke preciznosti. **Juniper** je obavezan, sve ostalo je umetnost.",
     "excerpten": "**22 gins from 6 countries** — from English London Dry tradition, through Scottish Hendrick's experimentation, to German and Japanese botanical precision. **Juniper** is mandatory, everything else is art.",
     "bodysr": "Džin počinje neutralnim alkoholom (najčešće od žita) koji se redestilira sa botanikalima. Jedino zakonsko pravilo: **juniperus (kleka) mora biti dominantna aroma**. Sve ostalo je sloboda.\n\nNaša polica:\n- **ŠKOTSKI** (5) — Hendrick's (krastavac, ruža), The Botanist Islay (22 lokalna botanikala)\n- **ENGLESKI** (4) — London Dry tradicija — Beefeater, Tanqueray, Plymouth\n- **FRANCUSKI** (4) — Citadelle (19 botanikala, šarantska tradicija)\n- **NEMAČKI** (3) — Monkey 47 (47 botanikala iz Schwarzwalda)\n- **JAPANSKI** (3) — Roku (yuzu, sakura, sansho biber)\n- **SRPSKI** (3) — domaći craft džinovi sa lokalnim botanikalima\n\nKategorije po tradiciji:\n- **London Dry** — najstroza, samo botanikali tokom destilacije, suvi finiš\n- **Plymouth Gin** — geografska oznaka, samo iz grada Plymouth\n- **Old Tom** — slađi, viktorijanski stil, savršen za Martinez koktel\n- **Genever** — holandski preteča, malt bazna, slađa\n- **New Western Dry** — moderni stil, juniper se povlači, ostali botanikali u prvi plan\n\nUz cigaru: džin retko ide direktno uz duvan (preosvezavajući), ali Negroni (džin + Campari + sweet vermouth) odlično prati prepuštenu cigaru posle obroka.",
     "bodyen": "Gin starts with neutral alcohol (usually from grain) that is redistilled with botanicals. The only legal rule: **juniper must be the dominant aroma**. Everything else is freedom.\n\nOur shelf:\n- **SCOTTISH** (5) — Hendrick's (cucumber, rose), The Botanist Islay (22 local botanicals)\n- **ENGLISH** (4) — London Dry tradition — Beefeater, Tanqueray, Plymouth\n- **FRENCH** (4) — Citadelle (19 botanicals, Charente tradition)\n- **GERMAN** (3) — Monkey 47 (47 botanicals from the Black Forest)\n- **JAPANESE** (3) — Roku (yuzu, sakura, sansho pepper)\n- **SERBIAN** (3) — domestic craft gins with local botanicals\n\nCategories by tradition:\n- **London Dry** — strictest, only botanicals during distillation, dry finish\n- **Plymouth Gin** — protected geographic origin, only from the city of Plymouth\n- **Old Tom** — sweeter, Victorian style, perfect for the Martinez cocktail\n- **Genever** — Dutch precursor, malt-based, sweeter\n- **New Western Dry** — modern style, juniper recedes, other botanicals come forward\n\nWith a cigar: gin rarely pairs directly with tobacco (too refreshing), but a Negroni (gin + Campari + sweet vermouth) is excellent with a relaxed cigar after a meal.",
     "gallery": [
-      "/assets/spirits/spirits-process-1-destilacija.webp",
+      "/assets/spirits/gin.webp",
       "/assets/spirits/dzin/01.webp",
       "/assets/spirits/dzin/02.webp",
       "/assets/spirits/dzin/03.webp"
@@ -181,13 +181,13 @@
     "kicker": { "sr": "Selekcija pića", "en": "Spirits selection" },
     "titlesr": "Rum — karipsko sunce u flaši.",
     "titleen": "Rum — the Caribbean sun in a bottle.",
-    "image": "/assets/spirits/spirits-process-3-odlezavanje.webp",
+    "image": "/assets/spirits/rum.webp",
     "excerptsr": "**11 rumova iz 3 regiona** — Venecuela (Diplomático, Pampero), Karibi (Plantation, Mount Gay) i Gvatemala (Zacapa). Rezultat fermentacije šećerne trske, rum je *najbliži* prirodni partner kubanskoj cigari.",
     "excerpten": "**11 rums from 3 regions** — Venezuela (Diplomático, Pampero), the Caribbean (Plantation, Mount Gay) and Guatemala (Zacapa). The result of sugarcane fermentation, rum is the *closest* natural partner to a Cuban cigar.",
     "bodysr": "Rum potiče iz Kariba 17. veka — kao nusproizvod proizvodnje šećera od trske. Postoje **dva osnovna tipa**:\n\n**1. Iz molase** (90% rumova): šećer se izvuče iz trske, ostatak (molasa) se fermentira → destiluje → odleži. Slađi, tamniji, kompleksniji. Većina karipskih, latinoameričkih.\n\n**2. Iz svežeg soka trske** (rhum agricole): direktna fermentacija sveže iscedjenog soka. Travnati, suvi, *terroir*-orijentisan. Martinique francuska tradicija (zaštićeno poreklo).\n\n**Klase po boji/odležavanju:**\n- **Light/Silver** — neodležan, čist, za koktele (Mojito, Daiquiri)\n- **Gold** — kratko odležan (1-3 god), karamela\n- **Dark** — duže odležan (5-12 god), melasa, dim\n- **Aged/XO** — 12+ godina, premium sipping\n- **Spiced** — sa začinima (cimet, vanila) — Kraken, Captain Morgan\n\nNaša polica:\n- **VENECUELA** (5) — Diplomático Reserva Exclusiva (12 god), Pampero Aniversario (XO solera)\n- **KARIBI** (3) — Plantation, Mount Gay — Barbados/Jamajka tradicija\n- **GVATEMALA** (3) — Zacapa Centenario 23 — solera sistem na 2300m nadmorske visine\n\nUz cigaru: rum je **najprirodniji par** kubanskoj cigari — oboje rastu na istom karipskom suncu. Zacapa 23 sa Cohiba Robusto = klasik. Diplomático Reserva sa Romeo y Julieta Churchill = prijatelj na 60 minuta.",
     "bodyen": "Rum originates from the 17th-century Caribbean — as a byproduct of sugarcane sugar production. There are **two basic types**:\n\n**1. From molasses** (90% of rums): sugar is extracted from the cane, the residue (molasses) is fermented → distilled → aged. Sweeter, darker, more complex. Most Caribbean and Latin American.\n\n**2. From fresh cane juice** (rhum agricole): direct fermentation of freshly pressed juice. Grassy, dry, *terroir*-oriented. The French Martinique tradition (protected origin).\n\n**Classes by colour/ageing:**\n- **Light/Silver** — unaged, clean, for cocktails (Mojito, Daiquiri)\n- **Gold** — briefly aged (1-3 years), caramel\n- **Dark** — longer aged (5-12 years), molasses, smoke\n- **Aged/XO** — 12+ years, premium sipping\n- **Spiced** — with spices (cinnamon, vanilla) — Kraken, Captain Morgan\n\nOur shelf:\n- **VENEZUELA** (5) — Diplomático Reserva Exclusiva (12 years), Pampero Aniversario (XO solera)\n- **CARIBBEAN** (3) — Plantation, Mount Gay — Barbados/Jamaica tradition\n- **GUATEMALA** (3) — Zacapa Centenario 23 — solera system at 2,300 m altitude\n\nWith a cigar: rum is the **most natural pairing** with a Cuban cigar — both grow under the same Caribbean sun. Zacapa 23 with a Cohiba Robusto = a classic. Diplomático Reserva with a Romeo y Julieta Churchill = a friend for 60 minutes.",
     "gallery": [
-      "/assets/spirits/spirits-process-3-odlezavanje.webp",
+      "/assets/spirits/rum.webp",
       "/assets/spirits/rum/01.webp",
       "/assets/spirits/rum/02.webp",
       "/assets/spirits/rum/03.webp",
@@ -316,7 +316,19 @@
     "gallery": [
       "/assets/gear/ashtrays-card.webp",
       "/assets/gear/ashtrays/01.webp",
-      "/assets/gear/ashtrays/02.webp"
+      "/assets/gear/ashtrays/02.webp",
+      "/assets/gear/ashtrays/03.webp",
+      "/assets/gear/ashtrays/04.webp",
+      "/assets/gear/ashtrays/05.webp",
+      "/assets/gear/ashtrays/06.webp",
+      "/assets/gear/ashtrays/07.webp",
+      "/assets/gear/ashtrays/08.webp",
+      "/assets/gear/ashtrays/09.webp",
+      "/assets/gear/ashtrays/10.webp",
+      "/assets/gear/ashtrays/11.webp",
+      "/assets/gear/ashtrays/12.webp",
+      "/assets/gear/ashtrays/13.webp",
+      "/assets/gear/ashtrays/14.webp"
     ]
   },
 
